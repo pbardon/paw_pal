@@ -32,7 +32,10 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
   },
 
   dogNew: function() {
-    var newView = new DogSittingApp.Views.DogNew();
+    var dog = new DogSittingApp.Models.Dog();
+    var newView = new DogSittingApp.Views.DogNew({
+      model: dog
+    });
 
     this._swapView(newView);
   },

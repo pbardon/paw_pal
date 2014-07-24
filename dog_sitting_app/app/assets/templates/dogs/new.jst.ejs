@@ -1,20 +1,46 @@
-<form id="newDogForm">
+<h2> Add A New Dog!</h2>
+
+<form id="newDogForm" class="col-xs-12 col-md-4">
 
   <label for="dogName">Name: </label>
-  <input type="text" name="dog[name]" id="dogName">
+  <input type="text" class="form-control" name="name" id="dogName">
 
 
   <label for="dogAge">Age: </label>
-  <input type="text" name="dog[age]" id="dogAge">
+  <input type="text" class="form-control" name="age" id="dogAge">
 
   <label for="dogDescription">Description:</label>
-  <input type="textarea" name="dog[description]" id="dogDescription">
+  <input type="textarea" class="form-control" name="description" id="dogDescription">
 
   <label for="dogSize">Size:</label>
-  <select name="dog[size]" id="dogSize">
+  <select name="size" id="dogSize">
     <option value='small'>Small</option>
     <option value='medium'>Medium</option>
     <option value='large'>Large</option>
   </select>
+  <br>
+
+  <label for="addPic">Add A Picture of Your Dog:</label>
+  <br>
+  <input type="file" name="dog_photo" multiple onchange="handle_files(this.files)" id="addPic">
+
+  <br>
+  <br>
+  <button type='submit' class='addSubmit btn btn-primary'>Add Dog</button>
+
+
 
 </form>
+
+
+<script>
+function handle_files(files) {
+  var file = files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    // you need to send e.target.result in your $.ajax request
+    console.log(this.result);
+  }
+  reader.readAsDataURL(file);
+}
+</script>

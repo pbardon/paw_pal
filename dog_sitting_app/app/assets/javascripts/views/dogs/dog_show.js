@@ -11,7 +11,7 @@ DogSittingApp.Views.DogShow = Backbone.View.extend({
     });
 
     this.$el.html(renderedContent);
-
+    
     return this;
   }
 });

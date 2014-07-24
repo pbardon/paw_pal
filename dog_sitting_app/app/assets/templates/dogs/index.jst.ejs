@@ -1,4 +1,4 @@
-<div class="dog">
+<div class="dog col-xs-12 col-md-4">
   <% dogs.each(function(dog){ %>
   <h3><%= dog.escape('name') %></h3>
   <p>
@@ -12,7 +12,7 @@
         <a href= "#/api/dogs/<%= dog.escape('id') %>"> Show Dog Profile </a>
       </li>
     </ul>
-    
+
     <li><a href="#/api/dogs/new" class='btn btn-primary'>Add Dog</a></li>
     </p>
   <% }); %>

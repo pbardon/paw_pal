@@ -18,7 +18,7 @@
 @import "bootstrap";
 
 
-body, html {
+body, html * {
   margin: auto;
   border: thin dotted blue;
 }
@@ -27,6 +27,9 @@ body, html {
   height: 100%;
   width: 100%;
 }
+.container {
+  margin-top: 5%;
+}
 
 .sign-in-container {
   margin-top: 10%;
@@ -34,7 +37,9 @@ body, html {
 }
 
 .dogs {
-  margin: 20% 10%;
+  height: 80%;
+  width: 80%;
+  margin-top: 20%;
 }
 
 .dogShowInfo {
