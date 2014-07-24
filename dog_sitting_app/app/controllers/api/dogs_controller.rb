@@ -1,12 +1,12 @@
 module Api
-  class DogsController < ApiController
+  class DogsController < ApplicationController
     def create
       @dog = current_user.dogs.new(dog_params)
 
       if @dog.save
         render json: @dog
       else
-        render jsonL @dog.errors.full_messages, status: :unporcessable_entity
+        render json: @dog.errors.full_messages, status: :unprocessable_entity
       end
     end
 

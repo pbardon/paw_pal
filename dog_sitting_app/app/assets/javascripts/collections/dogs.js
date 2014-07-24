@@ -7,4 +7,7 @@ DogSittingApp.Collections.Dogs = Backbone.Collection.extend({
   //
   //   if(!dog)
   // }
-})
+});
+
+
+DogSittingApp.Collections.dogs = new DogSittingApp.Collections.Dogs();

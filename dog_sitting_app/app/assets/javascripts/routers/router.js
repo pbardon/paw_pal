@@ -12,6 +12,19 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
   },
 
   dogsIndex: function () {
-    DogSittingApp.Collections.dogs
+    DogSittingApp.Collections.dogs.fetch();
+
+    var dogsView = new DogSittingApp.Views.DogsIndex({
+      collection: DogSittingApp.Collections.dogs
+    });
+
+    this._swapView(dogsView);
+  },
+
+  _swapView: function (view) {
+    this.currentView && this.currentView.remove();
+    this.currentView = view;
+
+    this.$rootEl.html(view.render().$el);
   }
 });

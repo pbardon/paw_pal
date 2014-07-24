@@ -1,0 +1,17 @@
+<div class="dog">
+  <% dogs.each(function(dog){ %>
+  <h3><%= dog.escape('name') %></h3>
+  <p>
+    <ul>
+      <li>Age: <%= dog.escape('age') %></li>
+      <li>Description:
+        <p class="dog-description"><%= dog.escape('description') %></p>
+      </li>
+      <li>Size: <%= dog.escape('size') %></li>
+      <li>
+        <a href= "#/api/dogs/<%= dog.escape('id') %>/edit"> Edit Dog Information </a>
+      </li>
+    </ul>
+    </p>
+  <% }); %>
+</div>

@@ -16,6 +16,7 @@
 //= require backbone
 //= require dog_sitting_app
 //= require_tree ../templates
+//= require_tree ./utils
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
