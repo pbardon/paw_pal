@@ -23,8 +23,8 @@
   <select name="size" id="dogSize">
 
     <option <%= (dog.escape('size') === 'small') ? 'selected' : '' %> value='small'>Small</option>
-    <option <%= (dog.escape('size') === 'small') ? 'selected' : '' %> value='medium'>Medium</option>
-    <option <%= (dog.escape('size') === 'small') ? 'selected' : '' %> value='large'>Large</option>
+    <option <%= (dog.escape('size') === 'medium') ? 'selected' : '' %> value='medium'>Medium</option>
+    <option <%= (dog.escape('size') === 'large') ? 'selected' : '' %> value='large'>Large</option>
   </select>
   <br>
   <% if (!dog.get('dog_photo')) { %>

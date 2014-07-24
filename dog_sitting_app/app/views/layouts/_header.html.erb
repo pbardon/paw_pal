@@ -23,10 +23,10 @@
               <li class="divider"></li>
               <li><a href="#"> Your Dogs</a></li>
               <li><a href="#/dogs/new">Add Dog</a></li>
-              <% if current_user.sitter %>
-                <li><a href="/sitter_profile">Go to Sitter Profile</a></li>
+              <% if current_user.sitter_account %>
+                <li><a href="#/sitters/<%= current_user.sitter_account.id %>">Go to Sitter Profile</a></li>
               <% else %>
-                <li><a href="/new_sitter">Become a Sitter!</a></li>
+                <li><a href="#/sitters/new">Become a Sitter!</a></li>
               <% end %>
               <li><%= link_to "Sign out", session_url, method: :delete%></li>
             </ul>

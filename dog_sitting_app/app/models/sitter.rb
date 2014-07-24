@@ -4,4 +4,14 @@ class Sitter < ActiveRecord::Base
 
   belongs_to :user
 
+  has_attached_file :sitter_photo, styles: {
+    big: "600x600>",
+    small: "50x50#"
+  }
+
+
+  validates_attachment :sitter_photo,
+  :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
+
+
 end

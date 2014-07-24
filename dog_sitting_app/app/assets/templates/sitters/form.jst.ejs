@@ -1,0 +1,84 @@
+<% if (sitter.get('sitter_name')) { %>
+  <h2>Edit Sitter Information</h2>
+
+<% } else { %>
+
+  <h2> Enter Your Information To Become A Sitter!</h2>
+
+<% } %>
+
+<form id="newSitterForm" class="col-xs-12 col-md-4">
+
+  <label for="sitterName">Sitter Profile Name: </label>
+  <input
+    type="text"
+    class="form-control"
+    name="sitter_name"
+    id="sitterName"
+    value="<%= sitter.escape('sitter_name') %>">
+
+  <label for="sitterDescription">Description:</label>
+  <input
+    type="textarea"
+    class="form-control"
+    name="description"
+    id="sitterDescription"
+    value="<%= sitter.escape('description') %>">
+
+  <label for="sitterPrice">Price Per Night: </label>
+  <input
+      type="text"
+      class="form-control"
+      name="price"
+      id="sitterPrice"
+      value="<%= sitter.escape('price') %>">
+
+
+
+  <label>Able to Sit Dogs of Size:</label>
+
+    <input type = "checkbox" <%= (sitter.get('small') === true) ? 'checked' : '' %>
+      class = "checkbox"
+      name = "small"
+      value="true">Small<br>
+    <input type = "checkbox" <%= (sitter.get('small') === true) ? 'checked' : '' %>
+      class = "checkbox"
+      name="medium"
+      value="true">Medium<br>
+    <input type = "checkbox" <%= (sitter.get('small') === true) ? 'checked' : '' %>
+      class = "checkbox"
+      name="large"
+      value="true">Large<br>
+
+  <br>
+  <% if (!sitter.get('sitter_photo')) { %>
+
+    <label for="addPic">Change Sitter Profile Picture:</label>
+    <br>
+    <input
+      type="file"
+      name="sitter_photo"
+      id="addPic">
+
+
+  <% }else { %>
+
+    <label for="addPic">Add A Sitter Profile Picture:</label>
+    <br>
+    <input
+      type="file"
+      name="sitter_photo"
+      id="addPic">
+
+  <% } %>
+
+
+  <br>
+  <br>
+
+  <% if (sitter.get('id')) { %>
+    <button type='submit' class='addSubmit btn btn-primary'>Update Information</button>
+  <% }else { %>
+    <button type='submit' class='addSubmit btn btn-primary'>Create Sitter Profile!</button>
+  <% } %>
+</form>

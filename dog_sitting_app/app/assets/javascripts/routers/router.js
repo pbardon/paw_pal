@@ -9,7 +9,7 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
     'dogs/new': 'dogNew',
     'dogs/:id/edit': 'dogEdit',
     'dogs/:id': 'dogShow',
-    'sitters/new': 'sitterNew',
+    'sitters/new': 'newSitter',
     'sitters/': 'sitterIndex',
     'sitters/:id': 'sitterShow',
     'sitters/:id/edit': 'sitterEdit'
@@ -29,35 +29,43 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
   dogShow: function(id) {
     var dog = DogSittingApp.Collections.dogs.getOrFetch(id);
 
-    var showView = new DogSittingApp.Views.DogShow({
+    var showDogView = new DogSittingApp.Views.DogShow({
       model: dog
     });
 
-    this._swapView(showView);
+    this._swapView(showDogView);
   },
 
   dogNew: function() {
     var dog = new DogSittingApp.Models.Dog();
-    var newView = new DogSittingApp.Views.DogForm({
+    var newDogView = new DogSittingApp.Views.DogForm({
       model: dog,
       collection: DogSittingApp.Collections.dogs
     });
 
-    this._swapView(newView);
+    this._swapView(newDogView);
   },
 
   dogEdit: function(id) {
     var dog = DogSittingApp.Collections.dogs.getOrFetch(id);
 
-    var editView = new DogSittingApp.Views.DogForm({
+    var editDogView = new DogSittingApp.Views.DogForm({
       model: dog,
       collection: DogSittingApp.Collections.dogs
     });
 
-    this._swapView(editView);
+    this._swapView(editDogView);
   },
 
   newSitter: function() {
+
+    var sitter = new DogSittingApp.Models.Sitter();
+    var newSitterView = new DogSittingApp.Views.SitterForm({
+      model: sitter,
+      collection: DogSittingApp.Collections.sitters
+    });
+
+    this._swapView(newSitterView);
 
   },
 
