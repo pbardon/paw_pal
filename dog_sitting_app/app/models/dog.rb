@@ -9,4 +9,8 @@ class Dog < ActiveRecord::Base
     small: "50x50#"
   }
 
+
+  validates_attachment :dog_photo,
+  :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
+
 end
