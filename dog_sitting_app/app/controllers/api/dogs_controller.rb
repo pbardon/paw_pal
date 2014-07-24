@@ -5,7 +5,7 @@ module Api
       @dog = current_user.dogs.new(dog_params)
 
       if @dog.save
-        render json: @dog
+        render "dogs/show"
       else
         render json: @dog.errors.full_messages, status: :unprocessable_entity
       end
@@ -13,18 +13,18 @@ module Api
 
     def index
       @dogs = current_user.dogs
-      render json: @dogs
+      render "dogs/index"
     end
 
     def show
       @dog = Dog.find(params[:id]);
-      render json: @dog
+      render "dogs/show"
     end
 
     def update
       @dog = Dog.find(params[:id]);
       if @dog.update_attributes(dog_params)
-        render json: @dog
+        render "dogs/show"
       else
         render json: @dog.errors.full_messages, status: :unprocessable_entity
       end

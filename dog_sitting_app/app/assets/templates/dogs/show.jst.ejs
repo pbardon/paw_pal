@@ -2,6 +2,8 @@
 
   <h1><%= dog.escape('name') %></h1>
 
+  <img class="img-responsive img-circle" src="<%= dog.get('dog_photo') %>">
+
 <ul>
   <li>Age: <%= dog.escape('age') %></li>
   <li>Description:
@@ -12,5 +14,7 @@
     <a href= "#/api/dogs/<%= dog.escape('id') %>/edit"> Edit Dog Information </a>
   </li>
 </ul>
+
+<a href="#/api/dogs/<%= dog.get('id')%>/remove">Remove Dog Profile</a>
 
 </div>

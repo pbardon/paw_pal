@@ -1,4 +1,11 @@
-<h2> Add A New Dog!</h2>
+<% if (dog.get('name')) { %>
+  <h2>Edit Dog Information</h2>
+
+<% } else { %>
+
+  <h2> Add A New Dog!</h2>
+
+<% } %>
 
 <form id="newDogForm" class="col-xs-12 col-md-4">
 
@@ -20,10 +27,21 @@
     <option <%= (dog.escape('size') === 'small') ? 'selected' : '' %> value='large'>Large</option>
   </select>
   <br>
+  <% if (!dog.get('dog_photo')) { %>
 
-  <label for="addPic">Add A Picture of Your Dog:</label>
-  <br>
-  <input type="file" name="dog_photo" id="addPic">
+    <label for="addPic">Change Dog Picture:</label>
+    <br>
+    <input type="file" name="dog_photo" id="addPic">
+
+
+  <% }else { %>
+
+    <label for="addPic">Add A Picture of Your Dog:</label>
+    <br>
+    <input type="file" name="dog_photo" id="addPic">
+
+  <% } %>
+
 
   <br>
   <br>
