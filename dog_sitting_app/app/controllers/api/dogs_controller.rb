@@ -30,6 +30,12 @@ module Api
       end
     end
 
+    def destroy
+      @dog = Dog.find(params[:id]);
+      @dog.destroy
+      render "dogs/show"
+    end
+
     private
 
     def dog_params

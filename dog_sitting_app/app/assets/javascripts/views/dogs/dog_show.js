@@ -2,7 +2,11 @@ DogSittingApp.Views.DogShow = Backbone.View.extend({
   template: JST['dogs/show'],
 
   initialize: function() {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'add', this.render);
+  },
+
+  events: {
+    'click .removeDog': 'removeDog'
   },
 
   render: function() {
@@ -11,7 +15,15 @@ DogSittingApp.Views.DogShow = Backbone.View.extend({
     });
 
     this.$el.html(renderedContent);
-    
+
     return this;
+  },
+
+  removeDog: function(event) {
+
+    event.preventDefault();
+    this.model.destroy();
+
+    Backbone.history.navigate("/", { trigger: true })
   }
 });

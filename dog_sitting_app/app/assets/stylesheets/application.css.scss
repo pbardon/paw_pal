@@ -29,6 +29,7 @@ body, html * {
 }
 .container {
   margin-top: 5%;
+  width: 85%;
 }
 
 .sign-in-container {
@@ -37,12 +38,11 @@ body, html * {
 }
 
 .dogs {
-  height: 80%;
-  width: 80%;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .dog {
+  margin: 3%;
   display: inline-block;
   float: left;
 }

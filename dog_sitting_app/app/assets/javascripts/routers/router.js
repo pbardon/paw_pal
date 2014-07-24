@@ -6,9 +6,14 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'dogsIndex',
-    'api/dogs/new': 'dogNew',
-    'api/dogs/:id': 'dogShow',
-    'api/dogs/:id/edit': 'dogEdit'
+    'dogs/new': 'dogNew',
+    'dogs/:id/edit': 'dogEdit',
+    'dogs/:id': 'dogShow',
+    'sitters/new': 'sitterNew',
+    'sitters/': 'sitterIndex',
+    'sitters/:id': 'sitterShow',
+    'sitters/:id/edit': 'sitterEdit'
+
   },
 
   dogsIndex: function () {
@@ -51,6 +56,11 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
 
     this._swapView(editView);
   },
+
+  newSitter: function() {
+
+  },
+
 
   _swapView: function (view) {
     this.currentView && this.currentView.remove();
