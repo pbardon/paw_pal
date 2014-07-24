@@ -1,7 +1,7 @@
 DogSittingApp.Views.DogsIndex = Backbone.CompositeView.extend({
   className: 'dogs',
 
-  template: JST['dogs/show'],
+  template: JST['dogs/index'],
 
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);

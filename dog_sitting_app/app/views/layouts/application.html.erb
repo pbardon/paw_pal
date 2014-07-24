@@ -12,6 +12,9 @@
 
 <%= yield %>
 
+<div>
+<%= button_to "Sign out", session_url, method: :delete, class: 'btn btn-primary navbar-btn' %>
+</div>
 
 </body>
 </html>

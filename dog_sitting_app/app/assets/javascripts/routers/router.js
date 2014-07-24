@@ -21,6 +21,22 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
     this._swapView(dogsView);
   },
 
+  dogShow: function(id) {
+    var dog = DogSittingApp.Collections.dogs.getOrFetch(id);
+
+    var showView = new DogSittingApp.Views.DogShow({
+      model: dog
+    });
+
+    this._swapView(showView);
+  },
+
+  dogNew: function() {
+    var newView = new DogSittingApp.Views.DogNew();
+
+    this._swapView(newView);
+  },
+
   _swapView: function (view) {
     this.currentView && this.currentView.remove();
     this.currentView = view;
