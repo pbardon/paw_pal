@@ -4,7 +4,7 @@ window.DogSittingApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new DogSittingApp.Routers.Router
+    var router = new DogSittingApp.Routers.Router();
     Backbone.history.start();
   }
 };

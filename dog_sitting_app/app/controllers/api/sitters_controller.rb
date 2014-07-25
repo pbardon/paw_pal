@@ -6,7 +6,7 @@ require 'json'
 module Api
 
   class SittersController < ApplicationController
-    attr_reader :your_profile
+    attr_reader :user_id
 
 
     def create
@@ -40,7 +40,7 @@ module Api
 
     def show
       @sitter = Sitter.find(params[:id])
-      # if @sitter.id == current_user.id
+      @user = current_user
       render "sitters/show"
     end
 
