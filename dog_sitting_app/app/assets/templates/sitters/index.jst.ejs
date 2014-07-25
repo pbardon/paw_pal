@@ -1,33 +1,35 @@
-<div class="sitters-feed">
+<!-- <div class="sitters-feed"> -->
+<div class="row">
+<div class="col-xs-8">
+  <% sitters.each(function(sitter){ %>
+    <div class="row">
+      <!-- <div class="sitter-info"> -->
+      <div class="col-xs-10">
+        <h4><%= sitter.escape('sitter_name') %></h4>
+        <ul>
+          <li><p><%= sitter.escape('description') %></p></li>
+          <li>Cost per Night:<%= sitter.escape('price') %></li>
+      </div>
 
-<% sitters.each(function(sitter){ %>
-  <div class="sitter_item col-xs-12 col-md-8">
-    <div class="sitter-info">
-      <h4><%= sitter.escape('sitter_name') %></h4>
-      <ul>
-        <li><p><%= sitter.escape('description') %></p></li>
-        <li>Cost per Night:<%= sitter.escape('price') %></li>
+      <!-- <div class="sitter-pic"> -->
+      <div class="col-xs-2">
+        <img src="<%= sitter.get('sitter_photo_small') %>">
+      </div>
     </div>
-
-    <div class="sitter-pic">
-      <img src="<%= sitter.get('sitter_photo_small') %>"
-    </div>
-  </div>
-
-
-
-<% }); %>
-
+  <% }); %>
 </div>
 
-<div class="map">
+<!-- </div> -->
 
-  <iframe
-  width="600"
-  height="450"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=API_KEY
-    &q=Space+Needle,Seattle+WA">
-</iframe>
+  <div class="map col-xs-4">
 
+    <iframe
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=API_KEY
+        &q=Space+Needle,Seattle+WA">
+    </iframe>
+
+  </div>
 </div>

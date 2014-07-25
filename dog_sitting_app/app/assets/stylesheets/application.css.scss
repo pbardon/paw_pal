@@ -19,22 +19,26 @@
 
 
 body, html * {
-  margin: auto;
+  // margin: auto;
   border: thin dotted blue;
 }
 
+body {
+  padding-top: 70px;
+}
+
 .backdrop {
-  height: 100%;
-  width: 100%;
+  // height: 100%;
+  // width: 100%;
 }
 .container {
-  margin-top: 5%;
-  width: 85%;
+  // margin-top: 5%;
+  // width: 85%;
 }
 
 .sign-in-container {
-  margin-top: 10%;
-  width: 50%;
+  // margin-top: 10%;
+  // width: 50%;
 }
 
 .dogs {
@@ -69,4 +73,26 @@ body, html * {
 .sitters {
   margin: auto;
   padding: 25%;
+}
+
+
+
+.sitter_item> img {
+  float: right;
+  display: inline-block;
+}
+
+.sitter_item> li {
+  display: inline-block;
+  list-style: none;
+}
+
+.sitter_item > p {
+  display: inline-block;
+}
+
+.map {
+  // float: right;
+  // width: 40%;
+  // height: 25%;
 }
