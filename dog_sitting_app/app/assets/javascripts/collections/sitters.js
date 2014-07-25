@@ -5,7 +5,7 @@ DogSittingApp.Collections.Sitters = Backbone.Collection.extend({
     var sitter = this.get(id);
 
     if(!sitter) {
-      sitter = new DogSittingApp.Models.Dog({ id: id });
+      sitter = new DogSittingApp.Models.Sitter({ id: id });
       sitter.fetch({
         success: function () {
           this.add(sitter);

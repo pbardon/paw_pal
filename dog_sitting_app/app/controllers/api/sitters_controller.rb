@@ -1,3 +1,8 @@
+require 'addressable/uri'
+require 'rest-client'
+require 'nokogiri'
+require 'json'
+
 module Api
 
   class SittersController < ApplicationController
@@ -41,7 +46,7 @@ module Api
 
     def destroy
       @sitter = Sitter.find(params[:id])
-      if @sitter.id == current_user.id
+      if @sitter.user_id == current_user.id
         @sitter.destroy
         render "sitters/show"
       else
@@ -52,12 +57,29 @@ module Api
     private
 
     def sitter_params
-      params.require(:sitter).permit(:sitter_name, :description, :price, :small, :medium, :large, :sitter_photo);
+      params.require(:sitter).permit(:sitter_name, :description, :price,
+                                     :small, :medium, :large,
+                                     :street_address, :city, :state, :zipcode, :sitter_photo)
     end
 
     def generate_geocode(street_address, zipcode, city, state)
-      
+      coords = []
+      address = street_address.to_s + ", " + city.to_s + ", " + state.to_s + " " + zipcode.to_s
 
+      geolocationaddress = Addressable::URI.new(
+        scheme: 'http',
+        host: 'maps.googleapis.com',
+        path: 'maps/api/geocode/json',
+        query_values: {address: address}
+      ).to_s
+
+      output = JSON.parse(RestClient.get(geolocationaddress))
+      results = output["results"].first
+      location = results['geometry']['location']
+
+      coords.push(location['lat'])
+      coords.push(location['lng'])
+      coords
     end
 
   end

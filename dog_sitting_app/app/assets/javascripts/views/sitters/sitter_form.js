@@ -35,7 +35,8 @@ DogSittingApp.Views.SitterForm = Backbone.View.extend({
       this.collection.create(this.model, {
         success: function() {
           wait:true;
-          Backbone.history.navigate("/", { trigger: true });
+          Backbone.history.navigate('/');
+          window.location.reload();
         }
       });
     }else {

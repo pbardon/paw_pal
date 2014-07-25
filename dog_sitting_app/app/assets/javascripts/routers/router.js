@@ -9,7 +9,7 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
     'dogs/new': 'dogNew',
     'dogs/:id/edit': 'dogEdit',
     'dogs/:id': 'dogShow',
-    'sitters/new': 'newSitter',
+    'sitters/new': 'sitterNew',
     'sitters': 'sittersIndex',
     'sitters/:id': 'sitterShow',
     'sitters/:id/edit': 'sitterEdit'
@@ -58,7 +58,6 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
   },
 
   sitterNew: function() {
-
     var sitter = new DogSittingApp.Models.Sitter();
     var newSitterView = new DogSittingApp.Views.SitterForm({
       model: sitter,
@@ -87,6 +86,18 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
 
     this._swapView(sittersView);
   },
+
+  sitterEdit: function(id) {
+    var sitter = DogSittingApp.Collections.sitters.getOrFetch(id);
+
+    var editSitterView = new DogSittingApp.Views.SitterForm({
+      model: sitter,
+      collection: DogSittingApp.Collections.sitters
+    });
+
+    this._swapView(editSitterView);
+  },
+
 
 
   _swapView: function (view) {

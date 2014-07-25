@@ -1,10 +1,11 @@
 DogSittingApp.Views.SitterShow = Backbone.View.extend({
 
   initialize: function(options){
+    this.listenTo(this.model, 'sync', this.render)
   },
 
   events: {
-    'click .removeSitter': 'removeSitter'
+    'click .removeSitterAccount': 'removeSitter'
   },
 
 
@@ -22,7 +23,12 @@ DogSittingApp.Views.SitterShow = Backbone.View.extend({
 
   removeSitter: function(event) {
     event.preventDefault();
-    this.model.destroy();
-    Backbone.history.navigate("/", { trigger: true })
+    debugger;
+    this.model.destroy({
+      success: function() {
+        Backbone.history.navigate("/");
+        window.location.reload();
+      }
+    });
   }
 })
