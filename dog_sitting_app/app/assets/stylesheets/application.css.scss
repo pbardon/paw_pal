@@ -38,15 +38,35 @@ body, html * {
 }
 
 .dogs {
-  margin-top: 10%;
+
 }
 
 .dog {
   margin: 3%;
+  padding: 0%;
   display: inline-block;
   float: left;
 }
 
+.dog > .img-circle {
+  width: 200px;
+  height: 200px;
+}
+
 .dogShowInfo {
-  margin: 25% 25%;
+
+}
+
+.dogShowInfo > .img-circle {
+  height: 350px;
+  width: 350px;
+}
+
+.removeDog {
+  float: right;
+}
+
+.sitters {
+  margin: auto;
+  padding: 25%;
 }

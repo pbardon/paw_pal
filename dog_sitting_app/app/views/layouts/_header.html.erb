@@ -22,6 +22,7 @@
               <li><%= current_user.name %></li>
               <li class="divider"></li>
               <li><a href="#"> Your Dogs</a></li>
+              <li><a href="#/sitters">Find A Sitter</a></li>
               <li><a href="#/dogs/new">Add Dog</a></li>
               <% if current_user.sitter_account %>
                 <li><a href="#/sitters/<%= current_user.sitter_account.id %>">Go to Sitter Profile</a></li>

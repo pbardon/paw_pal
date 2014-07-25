@@ -1,21 +1,27 @@
 <h1> Your Dogs: </h1>
 
-<% dogs.each(function(dog){ %>
-  <div class="dog col-xs-12 col-md-3">
-  <h3><%= dog.escape('name') %></h3>
-  <img class="img-responsive img-circle" src="<%= dog.get('dog_photo') %>">
-  <p>
-    <ul>
-      <li>Age: <%= dog.escape('age') %></li>
-      <li>Description:
-        <p class="dog-description"><%= dog.escape('description') %></p>
-      </li>
-      <li>Size: <%= dog.escape('size') %></li>
-      <li>
-        <a href= "#/dogs/<%= dog.escape('id') %>"> Show Dog Profile </a>
-      </li>
-    </ul>
-    </p>
-  </div>
+<% if (dogs.isEmpty()){  %>
+  <h2> You haven't added any dogs yet :(</h2>
+<% } else { %>
 
-<% }); %>
+  <% dogs.each(function(dog){ %>
+    <div class="dog col-xs-12 col-md-3">
+    <h3><%= dog.escape('name') %></h3>
+    <img class="img-responsive img-circle" src="<%= dog.get('dog_photo_large') %>">
+    <p>
+      <ul>
+        <li>Age: <%= dog.escape('age') %></li>
+        <li>Description:
+          <p class="dog-description"><%= dog.escape('description') %></p>
+        </li>
+        <li>Size: <%= dog.escape('size') %></li>
+        <li>
+          <a href= "#/dogs/<%= dog.escape('id') %>"> Show Dog Profile </a>
+        </li>
+      </ul>
+      </p>
+    </div>
+
+  <% }); %>
+
+<% } %>

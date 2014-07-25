@@ -6,17 +6,22 @@ module Api
       @sitter = Sitter.new(sitter_params)
       @sitter.user_id = current_user.id
       if @sitter.save!
-        render json: @sitter
+        render "sitters/show"
       else
         render json: @sitter.errors.full_messages
       end
     end
 
+    def index
+      @sitters = Sitter.all
+      render "sitters/index"
+    end
+
     def update
-      @sitter - Siter.fin(params[:id])
+      @sitter = Sitter.find(params[:id])
 
       if @sitter.update_attributes(sitter_params)
-        render json: @sitter
+        render "sitters/show"
       else
         render json: @sitter.errors.full_messages
       end
@@ -24,13 +29,13 @@ module Api
 
     def show
       @sitter = Sitter.find(params[:id])
-      render json: @sitter
+      render "sitters/show"
     end
 
     def destroy
       @sitter = Sitter.find(params[:id])
       @sitter.destroy
-      render json: @sitter
+      render "sitters/show"
     end
 
     private

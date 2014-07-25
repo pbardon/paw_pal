@@ -1,8 +1,8 @@
 <div class="dogShowInfo">
 
-  <h1><%= dog.escape('name') %></h1>
+  <h1><%= dog.escape('name') %> <button class="removeDog btn btn-danger">Remove Dog Profile</button></h1>
 
-  <img class="img-responsive img-circle" src="<%= dog.get('dog_photo') %>">
+  <img class="img-responsive img-circle" src="<%= dog.get('dog_photo_large') %>">
 
 <ul>
   <li>Age: <%= dog.escape('age') %></li>
@@ -14,7 +14,5 @@
     <a href= "#/dogs/<%= dog.escape('id') %>/edit"> Edit Dog Information </a>
   </li>
 </ul>
-
-<button class="removeDog btn btn-danger">Remove Dog Profile</button>
 
 </div>
