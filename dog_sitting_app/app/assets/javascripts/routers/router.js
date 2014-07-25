@@ -74,7 +74,6 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
       model: sitter
     });
 
-
     this._swapView(showSitterView);
   },
 

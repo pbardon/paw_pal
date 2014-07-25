@@ -5,7 +5,8 @@ DogSittingApp.Views.SitterShow = Backbone.View.extend({
   },
 
   events: {
-    'click .removeSitterAccount': 'removeSitter'
+    'click .removeSitterAccount': 'removeSitter',
+    'click .bookNow': 'redirectToBooking'
   },
 
 
@@ -23,12 +24,16 @@ DogSittingApp.Views.SitterShow = Backbone.View.extend({
 
   removeSitter: function(event) {
     event.preventDefault();
-    debugger;
     this.model.destroy({
       success: function() {
         Backbone.history.navigate("/");
         window.location.reload();
       }
     });
+  },
+
+  redirectToBooking: function(event) {
+    event.preventDefault();
+    Backbone.history.navigate('#/bookings/new');
   }
 })

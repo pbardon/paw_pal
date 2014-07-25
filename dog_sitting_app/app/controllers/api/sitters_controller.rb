@@ -31,7 +31,7 @@ module Api
     def update
       @sitter = Sitter.find(params[:id])
 
-      if @sitter.update_attributes(sitter_params)
+      if @sitter.user_id == current_user.id && @sitter.update_attributes(sitter_params)
         render "sitters/show"
       else
         render json: @sitter.errors.full_messages

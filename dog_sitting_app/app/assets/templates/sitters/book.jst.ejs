@@ -1,7 +1,7 @@
 <div class="sitterShowInfo">
 
 
-  <h1><%= sitter.escape('sitter_name') %> <% if (sitter.get('current_user_id') === sitter.get('user_id')) { %>
+  <h1><%= sitter.escape('sitter_name') %> <% if (sitter.get('current_user') === sitter.get('user_id')) { %>
     <button class="removeSitterAccount btn btn-danger">Remove Sitter Listing</button>
     <% }else { %>
       <button class="bookNow btn btn-success">Book Now!</button>

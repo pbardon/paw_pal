@@ -1,6 +1,8 @@
 DogSittingApp.Collections.Sitters = Backbone.Collection.extend({
   url: 'api/sitters',
 
+  comparator: 'price',
+
   getOrFetch: function(id) {
     var sitter = this.get(id);
 

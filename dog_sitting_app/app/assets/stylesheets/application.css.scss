@@ -20,7 +20,7 @@
 
 body, html * {
   // margin: auto;
-  border: thin dotted blue;
+  // border: thin dotted blue;
 }
 
 body {
@@ -76,6 +76,10 @@ body {
 }
 
 .removeSitterAccount {
+  float: right;
+}
+
+.bookNow {
   float: right;
 }
 

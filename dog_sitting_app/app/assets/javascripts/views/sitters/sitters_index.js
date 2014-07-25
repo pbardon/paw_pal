@@ -16,16 +16,31 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
   placeMarkers: function() {
     var map = this.map;
+
+    var image = {
+      url: 'https://s3-us-west-1.amazonaws.com/pet-sitter-development/paw_icon2.png',
+      size: new google.maps.Size(20, 20),
+      origin: new google.maps.Point(0,0),
+      anchor: new google.maps.Point(0, 20)
+    };
+
+    var shape = {
+      coords: [1,1,1,20,20,20,20,1],
+      type: 'poly'
+    };
+
     this.collection.each(function(sitter) {
       var lat = sitter.get('latitude'),
           lng = sitter.get('longitude');
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, lng),
+        icon: image,
+        map: map,
+        shape: shape,
         title: sitter.get('sitter_name')
       });
-      marker.setMap(map)
 
-      var sitterLink = "<a href='#sitters/" + sitter.get('id') + "'>" + marker.title + "</a>";
+      var sitterLink = "<a href='#/sitters/" + sitter.get('id') + "'>" + marker.title + "</a>";
 
       var infowindow = new google.maps.InfoWindow({
         content: sitterLink
