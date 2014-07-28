@@ -5,8 +5,10 @@ module Api
     def index
       if (params[:sitter_id])
         @bookings = Booking.where(sitter_id: params[:sitter_id])
-      else
+      elsif (params[:dog_id])
         @bookings = Booking.where(dog_id: params[:dog_id])
+      else
+        @bookings = Booking.all
       end
 
       render json: @bookings

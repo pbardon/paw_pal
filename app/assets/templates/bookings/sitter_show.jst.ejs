@@ -6,13 +6,15 @@
     <li>Date End: <%= booking.escape('date_end') %> </li>
   </ul>
 
-  <% if (!booking.confirmed) { %>
+  <% if (booking.get('confirmed')) { %>
+    <h2> Booking Confirmed </h2>
+  <% }else { %>
     <div class="bookingConfirmation">
       <h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2>
       <h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2>
     </div>
-  <% }%>
-  <% if (booking.completed) { %>
+  <% } %>
+  <% if (booking.get('completed')) { %>
     <h3> Comment on Booking </h3>
   <% } %>
 
