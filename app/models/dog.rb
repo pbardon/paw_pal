@@ -4,10 +4,12 @@ class Dog < ActiveRecord::Base
 
   belongs_to :owner, class_name: :User, foreign_key: :owner_id
 
+  has_many :bookings, dependent: :destroy
+
   has_attached_file :dog_photo, styles: {
     big: "600x600>",
-    small: "50x50#"
-  }
+    small: "100x100#"
+  }, default_url: "https://s3-us-west-1.amazonaws.com/pet-sitter-development/pic-missing2.png"
 
 
   validates_attachment :dog_photo,

@@ -2,23 +2,16 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
   initialize: function(options) {
     this.listenTo(this.collection, 'sync', this.render);
-    // this.addMap();
-
   },
 
   template: JST["sitters/index"],
 
-  // addMap: function () {
-  //   var mapResults = new DogSittingApp.Views.SittersMap();
-  //
-  //   this.addSubview('.map-wrapper', mapResults);
-  // },
 
   placeMarkers: function() {
     var map = this.map;
 
     var image = {
-      url: 'https://s3-us-west-1.amazonaws.com/pet-sitter-development/paw_icon2.png',
+      url: 'https://s3-us-west-1.amazonaws.com/pet-sitter-development/paw_icon3.png',
       size: new google.maps.Size(20, 20),
       origin: new google.maps.Point(0,0),
       anchor: new google.maps.Point(0, 20)
@@ -40,7 +33,7 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
         title: sitter.get('sitter_name')
       });
 
-      var sitterLink = "<a href='#/sitters/" + sitter.get('id') + "'>" + marker.title + "</a>";
+      var sitterLink = "<div><a href='#/sitters/" + sitter.get('id') + "'>" + marker.title + "</a><br><img width='75px' height='75px' src=" +sitter.get('sitter_photo_small')+"></div>";
 
       var infowindow = new google.maps.InfoWindow({
         content: sitterLink
@@ -58,20 +51,21 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     });
 
     this.$el.html(renderedContent);
-    setTimeout(this.renderMap.bind(this), 0);
+    // setTimeout(
+    this.renderMap();
+
     return this;
   },
 
   renderMap: function () {
 
    var mapOptions = {
-      zoom: 8,
+      zoom: 14,
       center: new google.maps.LatLng(37.7810560, -122.4114550)
     };
 
-    this.map = new google.maps.Map(document.getElementById('map-canvas'),
+    this.map = new google.maps.Map(this.$('#map-canvas')[0],
         mapOptions);
-
 
     this.placeMarkers();
 

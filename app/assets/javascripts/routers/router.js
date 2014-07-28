@@ -1,19 +1,18 @@
 DogSittingApp.Routers.Router = Backbone.Router.extend({
   initialize: function() {
     this.$rootEl = $('#main');
-
   },
 
   routes: {
-    '': 'dogsIndex',
+    '': 'sittersIndex',
+    'dogs': 'dogsIndex',
     'dogs/new': 'dogNew',
     'dogs/:id/edit': 'dogEdit',
     'dogs/:id': 'dogShow',
     'sitters/new': 'sitterNew',
-    'sitters': 'sittersIndex',
     'sitters/:id': 'sitterShow',
-    'sitters/:id/edit': 'sitterEdit'
-
+    'sitters/:id/edit': 'sitterEdit',
+    'bookings/:id/new': 'newBooking'
   },
 
   dogsIndex: function () {
@@ -95,6 +94,21 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(editSitterView);
+  },
+
+  newBooking: function(id) {
+    var sitter_id = parseInt(id);
+    var booking = new DogSittingApp.Models.Booking({sitter_id: sitter_id});
+    var dogs = DogSittingApp.Collections.dogs
+    dogs.fetch();
+
+    var newBookingView = new DogSittingApp.Views.NewSitterBooking({
+      model: booking,
+      collection: DogSittingApp.Collections.sitterbookings,
+      dogs: dogs
+    });
+
+    this._swapView(newBookingView);
   },
 
 

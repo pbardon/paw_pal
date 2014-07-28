@@ -1,5 +1,5 @@
-<div class="sign-in-container container">
-  <label for-"sign-in-form">Sign In!</label>
+<div class= "sign-in-form-container">
+  <label>Sign In!</label>
   <form action="/session" method="post" id="sign-in-form">
 
     <%= form_auth_token %>
@@ -23,7 +23,17 @@
         id="passwordCredential"
         placeholder="Password">
     </div>
-    <span><input type="submit" value="Submit" class="btn btn-success"><%= link_to "Sign Up", new_user_url, class: 'btn btn-primary' %></span>
+
+    <% if flash[:errors] %>
+      <script> $('.alert').remove(); </script>
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss='alert'><span aria-hidden="true">&times;</span><span class="sr-onlyl">Close</span></button>
+        <%= flash[:errors] %>
+      </div>
+    <% end %>
+
+
+    <span><input type="submit" value="Submit" class="btn btn-success"><span id="button-spacer">&nbsp</span><%= link_to "Sign Up", new_user_url, class: 'btn btn-primary' %></span>
   </form>
   </form>
 </div>

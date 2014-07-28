@@ -1,0 +1,21 @@
+<div class="sitterBooking">
+
+  <h1> Booking: </h1>
+  <ul>
+    <li>Date Start: <%= booking.escape('date_start') %> <li>
+    <li>Date End: <%= booking.escape('date_end') %> </li>
+  </ul>
+
+  <% if (!booking.confirmed) { %>
+    <div class="bookingConfirmation">
+      <h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2>
+      <h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2>
+    </div>
+  <% }%>
+  <% if (booking.completed) { %>
+    <h3> Comment on Booking </h3>
+  <% } %>
+
+
+
+</div>

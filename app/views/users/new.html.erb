@@ -1,5 +1,5 @@
-<div class="container sign-in-container">
-  <label for-"sign-up-form">Sign Up!</label>
+<div class="sign-in-form-container".
+  <label>Sign Up!</label>
   <form action="/users" method="post" id="sign-up-form">
 
     <%= form_auth_token %>
@@ -33,6 +33,6 @@
         id="passwordCredential"
         placeholder="Password">
     </div>
-    <span><input type="submit" value="Submit" class="btn btn-success"><%= link_to "Sign In", new_session_url, class: 'btn btn-primary' %></span>
+    <span><input type="submit" value="Submit" class="btn btn-success"><span id="button-spacer">&nbsp</span><%= link_to "Sign In", new_session_url, class: 'btn btn-primary' %></span>
   </form>
 </div>

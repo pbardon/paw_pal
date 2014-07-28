@@ -8,18 +8,21 @@ module Api
   class SittersController < ApplicationController
     attr_reader :user_id
 
+    wrap_parameters :sitter, include: [:sitter_name, :price, :description, :street_address,
+                                       :city, :state, :zipcode, :small, :medium, :large, :sitter_photo]
+
 
     def create
       @sitter = Sitter.new(sitter_params)
       @sitter.user_id = current_user.id
-      if @sitter.save!
+      if @sitter.save
         geo = generate_geocode(@sitter.street_address, @sitter.zipcode, @sitter.city, @sitter.state)
         @sitter.latitude = geo[0]
         @sitter.longitude = geo[1]
-        @sitter.save
-        render "sitters/show"
+        @sitter.save!
+        render 'sitters/show'
       else
-        render json: @sitter.errors.full_messages
+        render json: @sitter.errors.full_messages, status: :unprocessable_entity
       end
     end
 
@@ -32,22 +35,25 @@ module Api
       @sitter = Sitter.find(params[:id])
 
       if @sitter.user_id == current_user.id && @sitter.update_attributes(sitter_params)
+        geo = generate_geocode(@sitter.street_address, @sitter.zipcode, @sitter.city, @sitter.state)
+        @sitter.latitude = geo[0]
+        @sitter.longitude = geo[1]
+        @sitter.save!
         render "sitters/show"
       else
-        render json: @sitter.errors.full_messages
+        render json: @sitter.errors.full_messages, status: :unprocessable_entity
       end
     end
 
     def show
       @sitter = Sitter.find(params[:id])
-      @user = current_user
+      @current_user = current_user
       render "sitters/show"
     end
 
     def destroy
       @sitter = Sitter.find(params[:id])
-      if @sitter.user_id == current_user.id
-        @sitter.destroy
+      if @sitter.user_id == current_user.id && @sitter.destroy
         render "sitters/show"
       else
         render json: "Can't destroy some else's sitter profile"

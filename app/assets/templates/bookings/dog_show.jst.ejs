@@ -1,0 +1,20 @@
+<div class="dogBooking">
+
+  <h1> Booking: </h1>
+  <ul>
+    <li>Date Start: <%= booking.escape('date_start') %> <li>
+    <li>Date End: <%= booking.escape('date_end') %> </li>
+  </ul>
+
+  <% if (booking.confirmed) { %>
+    <h2>Confirmed</h2>
+  <% }else { %>
+    <h2>Pending</h2>
+  <% }%>
+  <% if (booking.completed) { %>
+    <h2>Completed</h2>
+  <% } %>
+
+
+
+</div>

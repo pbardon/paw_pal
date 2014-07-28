@@ -1,9 +1,11 @@
 DogSittingApp.Views.SitterForm = Backbone.View.extend({
   template: JST['sitters/form'],
 
+  className: "newSitterWrapper",
+
   events: {
     'submit form':'submit',
-    'change #addPic': 'handle_files'
+    'change #addSitterPic': 'handle_files'
   },
 
   render: function() {
@@ -28,6 +30,8 @@ DogSittingApp.Views.SitterForm = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
+    $subbtn = $('.addSubmit')
+    $subbtn.replaceWith('<div class="addSubmit" style="float: right; margin-top: 10%"> <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/loading.gif"></div>')
     var data = $(event.currentTarget).serializeJSON();
     this.model.set(data);
 
@@ -37,12 +41,30 @@ DogSittingApp.Views.SitterForm = Backbone.View.extend({
           wait:true;
           Backbone.history.navigate('/');
           window.location.reload();
+        },
+
+        error: function(model, errors) {
+          $('.alert').remove();
+          $('.addSubmit').replaceWith("<input type='submit' class='addSubmit btn btn-primary' value='Update Information'>");
+          _(errors.responseJSON).each(function(error) {
+            $('#newSitterForm').prepend("<div class='alert alert-danger'>"+ error + "</div>");
+          });
+
         }
       });
     }else {
-      this.model.save({
+      this.model.save({}, {
         success: function() {
           Backbone.history.navigate("/", { trigger: true });
+        },
+
+        error: function(model, errors) {
+          $('.alert').remove();
+          $('.addSubmit').replaceWith("<input type='submit' class='addSubmit btn btn-primary' value='Update Information'>");
+          _(errors.responseJSON).each(function(error) {
+            $('#newSitterForm').prepend("<div class='alert alert-danger'>"+ error + "</div>");
+          });
+
         }
       });
     }
