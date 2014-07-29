@@ -8,6 +8,11 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
     this.listenTo(this.collection, 'sync', this.saveOriginalCollection);
 
+
+  },
+
+  events: {
+    "click #search": 'searchResults'
   },
 
   template: JST["sitters/index"],
@@ -24,6 +29,26 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
   saveOriginalCollection: function() {
     this.originalCollection = new DogSittingApp.Collections.Sitters(this.collection.models);
+  },
+
+
+  searchResults: function(event) {
+    var view = this;
+    event.preventDefault();
+
+    geocoder = new google.maps.Geocoder();
+
+
+
+    var query = $('#searchParams').val();
+
+    geocoder.geocode( { 'address': query }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        view.map.setCenter(results[0].geometry.location);
+      } else {
+        $('.container').prepend("<div class='alert alert-warning'>There was a problem with your search</div>");
+      }
+    });
   },
 
 
