@@ -24,7 +24,24 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
 
   events: {
     'click .confirmBooking': "confirmBooking",
-    'click .denyBooking': "denyBooking"
+    'click .denyBooking': "denyBooking",
+    'click .thumbnail': 'showLargePhoto',
+    'click .bigImage': 'closeImage'
+  },
+
+  showLargePhoto: function(event) {
+    $ct = $(event.currentTarget)
+    $ct.attr('src', this.dog.get('dog_photo_large'));
+    $ct.removeClass('thumbnail');
+    $ct.addClass('bigImage');
+
+  },
+
+  closeImage: function() {
+    $image = $(event.currentTarget).find('img')
+    $image.attr('src', this.dog.get('dog_photo_small'));
+    $image.removeClass('bigImage');
+    $image.addClass('thumbnail');
   },
 
   confirmBooking: function() {
@@ -64,7 +81,6 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
   render: function() {
 
     var renderedContent = this.template({
-      sitter: this.sitter,
       booking: this.model,
       dog: this.dog
     });

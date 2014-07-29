@@ -1,6 +1,18 @@
 <div class="dogBooking">
 
   <h1> Booking: </h1>
+  <% if (sitter) { %>
+    <div class="sitterBookingInformation">
+      <img class="thumbnail" data-id="<%= sitter.get('id') %>" src="<%= sitter.get('sitter_photo_small') %>">
+      <%= sitter.get('sitter_name') %>
+      <%= sitter.get('price') %>
+    </div>
+
+
+
+  <%  } %>
+
+
   <ul>
     <li>Date Start: <%= booking.escape('date_start') %> <li>
     <li>Date End: <%= booking.escape('date_end') %> </li>

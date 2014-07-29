@@ -16,9 +16,30 @@ DogSittingApp.Views.DogBookingShow = Backbone.View.extend({
     });
   },
 
+  events: {
+    'click .thumbnail': 'showLargePhoto',
+    'click .bigImage': 'closeImage'
+  },
+
+  showLargePhoto: function(event) {
+    $ct = $(event.currentTarget)
+    $ct.attr('src', this.sitter.get('sitter_photo_large'));
+    $ct.removeClass('thumbnail');
+    $ct.addClass('bigImage');
+
+  },
+
+  closeImage: function() {
+    $image = $(event.currentTarget).find('img')
+    $image.attr('src', this.sitter.get('sitter_photo_small'));
+    $image.removeClass('bigImage');
+    $image.addClass('thumbnail');
+  },
+
   render: function() {
     var renderedContent = this.template({
-      booking: this.model
+      booking: this.model,
+      sitter: this.sitter
     });
 
     this.$el.html(renderedContent);

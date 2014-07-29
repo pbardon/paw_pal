@@ -255,7 +255,7 @@ html, body, #map-canvas {
   float: left;
   padding-left: 2%;
   padding-right: 2%;
-  
+
   border-radius: 5px;
 }
 .dog h3{
@@ -363,7 +363,22 @@ a.dropdown-toggle {
   width: 400px;
 }
 
+.dogBooking {
+  border: thin solid black;
+  border-radius: 5px;
+}
+
+.dogBooking img {
+  max-width: 400px;
+  max-height: auto;
+}
+
 .sitterBooking {
   border: thin solid black;
   border-radius: 5px;
+}
+
+.sitterBooking img {
+  max-width: 400px;
+  max-height: auto;
 }
