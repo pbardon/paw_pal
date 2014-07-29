@@ -19,7 +19,9 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
       data: {
         booking: { confirmed: 'true' }
       }, success: function(data) {
-        view.render();
+        $('.confirmDiv').remove();
+        $('.denyDiv').remove();
+        $('.sitterBooking').append('<h2> Booking Confirmed </h2>');
       }, errors: function(jq, status, message) {
         $('.sitterBooking').prepend("<div class='alert alert-warning'>"+ message + "</div>")
       }
@@ -35,7 +37,9 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
       data: {
         booking: { confirmed: 'true' , completed: 'true'}
       }, success: function(data) {
-        view.render();
+        $('.confirmDiv').remove();
+        $('.denyDiv').remove();
+        $('.sitterBooking').append('<h2> Booking Denied </h2>');
       }
     });
   },

@@ -18,7 +18,8 @@ DogSittingApp.Models.Booking = Backbone.Model.extend({
     if (jsonPayload.dog) {
       this.dog().set(jsonPayload.dog, { parse: true });
       delete jsonPayload.dog;
-    } else if (jsonPayload.sitter){
+    }
+    if (jsonPayload.sitter){
       this.sitter().set(jsonPayload.sitter, { parse: true });
       delete jsonPayload.sitter;
     }

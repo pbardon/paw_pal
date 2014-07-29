@@ -10,8 +10,8 @@
     <h2> Booking Confirmed </h2>
   <% }else { %>
     <div class="bookingConfirmation">
-      <h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2>
-      <h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2>
+      <div class="confirmDiv"><h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2></div>
+      <div class="denyDiv"><h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2></div>
     </div>
   <% } %>
   <% if (booking.get('completed')) { %>
