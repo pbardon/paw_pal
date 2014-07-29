@@ -25,6 +25,10 @@ body, html * {
 }
 
 .backdrop {
+  background-image: url('https://s3-us-west-1.amazonaws.com/pet-sitter-development/Bones-Seamless-Patterns2.jpg');
+  background-size: 2400px;
+
+
   // background: -webkit-linear-gradient(#FFFFFF, #DEDCD2); /* For Safari 5.1 to 6.0 */
   // background: -o-linear-gradient(#FFFFFF, #DEDCD2); /* For Opera 11.1 to 12.0 */
   // background: -moz-linear-gradient(#FFFFFF, #DEDCD2); /* For Firefox 3.6 to 15 */
@@ -32,11 +36,15 @@ body, html * {
 }
 
 .container {
-  width: 90%;
+  width: 75%;
   background-color: #FFFFFF;
-  box-shadow: 40px 0 40px -4px #CBFFBA, -40px 0 40px -4px #CBFFBA;
+  // box-shadow: 40px 0 40px -4px #CBFFBA, -40px 0 40px -4px #CBFFBA;
 }
 
+
+.navbar .navbar-default {
+  color: black;
+}
 
 
 body {
@@ -157,6 +165,8 @@ body {
   border: thin solid black;
   border-radius: 3px;
   position: relative;
+  background-color: #E0E0D8;
+  opacity: 1;
   // box-shadow: 5px 5px 2px #0D3D0C;
   min-height: 200px;
 }
@@ -200,12 +210,13 @@ html, body, #map-canvas {
   border-radius: 10px;
   margin-right: 2%;
   margin-top: 20%;
+  margin-left: 18%;
   max-width: 250px;
   max-height: auto;
-  float: right;
 }
 
 .sitterShow {
+  min-height: 850px;
   border: thin solid black;
 }
 
@@ -322,10 +333,16 @@ a.dropdown-toggle {
 }
 
 .container {
+  background-color: #C7C7C0;
 
 }
 
 .mapWrapper {
   height: 400px;
   width: 400px;
+}
+
+.sitterBooking {
+  border: thin solid black;
+  border-radius: 5px;
 }

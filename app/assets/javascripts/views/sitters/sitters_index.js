@@ -2,6 +2,8 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
   initialize: function(options) {
     this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.collection, 'change', this.render);
+
   },
 
   template: JST["sitters/index"],
@@ -45,19 +47,37 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     });
   },
 
+  changeBounds: function(bounds) {
+    var view = this;
+    var sw = bounds.getSouthWest();
+    var ne = bounds.getNorthEast();
+    this.minY = sw['k'];
+    this.maxY = ne['k'];
+    this.maxX = ne['B'];
+    this.minX = sw['B'];
+
+    this.collection = new Backbone.Collection(this.collection.select(function(model) { return (model.get('latitude') < view.maxY && model.get('longitude') > view.minX && model.get('latitude') > view.minY && model.get('longitude') < view.maxX); }), {
+      model: DogSittingApp.Models.Sitter
+    });
+
+    this.render();
+
+  },
+
   render: function() {
     var renderedContent = this.template({
       sitters: this.collection
     });
 
     this.$el.html(renderedContent);
-    // setTimeout(
+
     this.renderMap();
 
     return this;
   },
 
   renderMap: function () {
+   var view = this;
 
    var mapOptions = {
       zoom: 14,
@@ -66,8 +86,25 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
     this.map = new google.maps.Map(this.$('#map-canvas')[0],
         mapOptions);
-
     this.placeMarkers();
+
+
+    function fireIfLastEvent(){
+      if (lastEvent.getTime() + 500 <= new Date().getTime())
+        {
+        view.changeBounds(view.map.getBounds());
+      }
+    }
+
+    function scheduleDelayedCallback(){
+      lastEvent = new Date();
+      setTimeout(fireIfLastEvent, 500);
+    }
+
+    $(window).load(function() {
+      google.maps.event.addListener(view.map, "bounds_changed", scheduleDelayedCallback);
+
+    });
 
     }
 

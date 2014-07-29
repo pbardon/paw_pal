@@ -2,8 +2,19 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
   template: JST['bookings/sitter_show'],
 
   initialize: function(options) {
-    this.listenTo(this.model, "change:completed", this.render);
+    this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model, "change:confirmed", this.render);
+
+
+    var view = this;
+    $.ajax({
+      url: "api/dogs/" + view.model.get('dog_id'),
+      type: "GET",
+      success: function(data){
+        view.dog = new DogSittingApp.Models.Dog(data);
+        view.listenTo(view.dog, 'sync', view.render);
+      }
+    });
   },
 
   events: {
@@ -46,9 +57,12 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
 
 
   render: function() {
+    debugger;
+
     var renderedContent = this.template({
       sitter: this.sitter,
-      booking: this.model
+      booking: this.model,
+      dog: this.dog
     });
 
     this.$el.html(renderedContent);

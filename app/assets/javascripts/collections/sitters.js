@@ -5,6 +5,18 @@ DogSittingApp.Collections.Sitters = Backbone.Collection.extend({
 
   comparator: 'price',
 
+  filterByBounds: function(minX, maxX, minY, maxY) {
+    var models = collection.select(function (model){
+      var lat = model.get('latitude')
+      var long = model.get('longitude')
+      if ( minY < lat && lat < maxY ) {
+        if ( minX < long && long< maxX ) {
+          return model;
+        }
+      }
+    });
+  },
+
   getOrFetch: function(id) {
     var sitter = this.get(id);
 
