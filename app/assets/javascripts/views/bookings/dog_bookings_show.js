@@ -3,7 +3,7 @@ DogSittingApp.Views.DogBookingShow = Backbone.View.extend({
 
   initialize: function(options) {
     this.listenTo(this.model, "change", this.render);
-
+    
     var view = this;
     $.ajax({
       url: "api/sitters/" + view.model.get('sitter_id'),
@@ -37,6 +37,7 @@ DogSittingApp.Views.DogBookingShow = Backbone.View.extend({
   },
 
   render: function() {
+
     var renderedContent = this.template({
       booking: this.model,
       sitter: this.sitter

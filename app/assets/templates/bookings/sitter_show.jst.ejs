@@ -1,6 +1,33 @@
 <div class="sitterBooking col-xs-offset-1">
 
-  <h1> Booking: </h1>
+  <% if (booking.get('completed')) { %>
+    <h1>Completed Bookings: </h1>
+
+      <h3> Comment on Booking </h3>
+
+
+  <% }else { %>
+
+    <h1>Pending Bookings: </h1>
+
+    <ul>
+      <li>Date Start: <%= booking.escape('date_start') %> <li>
+      <li>Date End: <%= booking.escape('date_end') %> </li>
+      <li>Message: <%= booking.escape('message')  %></li>
+    </ul>
+
+    <% if (booking.get('confirmed')) { %>
+      <h2> Booking Confirmed </h2>
+    <% }else { %>
+      <div class="bookingConfirmation">
+        <div class="confirmDiv"><h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2></div>
+        <div class="denyDiv"><h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2></div>
+      </div>
+    <% } %>
+
+
+  <%  } %>
+
 
   <div class="dogBookingInfo">
     <% if (dog){ %>
@@ -12,29 +39,7 @@
           <li><%= dog.get('size') %></li>
         </ul>
       </div>
-
-
-    <%  } %>
-
+      <% } %>
   </div>
-  <ul>
-    <li>Date Start: <%= booking.escape('date_start') %> <li>
-    <li>Date End: <%= booking.escape('date_end') %> </li>
-    <li>Message: <%= booking.escape('message')  %></li>
-  </ul>
-
-  <% if (booking.get('confirmed')) { %>
-    <h2> Booking Confirmed </h2>
-  <% }else { %>
-    <div class="bookingConfirmation">
-      <div class="confirmDiv"><h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2></div>
-      <div class="denyDiv"><h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2></div>
-    </div>
-  <% } %>
-  <% if (booking.get('completed')) { %>
-    <h3> Comment on Booking </h3>
-  <% } %>
-
-
 
 </div>

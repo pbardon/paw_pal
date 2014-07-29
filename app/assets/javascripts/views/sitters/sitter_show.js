@@ -4,7 +4,6 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
 
     this.listenTo(this.model.bookings(), 'add', this.addBooking);
-
     this.model.bookings().each(this.addBooking.bind(this));
 
     this.addMap();
@@ -17,28 +16,16 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     'click .bookNow': 'redirectToBooking'
   },
 
+  template: JST["sitters/show"],
+
   addBooking: function (booking) {
     booking.fetch();
     var subview = new DogSittingApp.Views.SitterBookingShow({
+      collection: this.model.bookings(),
       model: booking
     });
 
     this.addSubview('.sitter_bookings', subview.render());
-  },
-
-
-  template: JST["sitters/show"],
-
-  render: function() {
-    var renderedContent = this.template({
-      sitter: this.model
-    });
-
-    this.$el.html(renderedContent);
-
-    this.attachSubviews();
-
-    return this;
   },
 
   removeSitter: function(event) {
@@ -92,16 +79,16 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     this.addSubview('.mapWrapper', mapview);
   },
 
+  render: function() {
+    var renderedContent = this.template({
+      sitter: this.model
+    });
 
-  renderMap: function () {
-    // var mapOptions = {
-    //   zoom: 10,
-    //   center: new google.maps.LatLng(this.model.get('latitude'), this.model.get('longitude'))
-    // };
-    //
-    // this.map = new google.maps.Map(this.$('#map-canvas')[0],
-    //     mapOptions);
-    //
-    // this.placeMark();
-  }
+    this.$el.html(renderedContent);
+
+    this.attachSubviews();
+
+    return this;
+  },
+
 })

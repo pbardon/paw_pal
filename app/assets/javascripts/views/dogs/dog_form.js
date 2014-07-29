@@ -1,6 +1,8 @@
 DogSittingApp.Views.DogForm = Backbone.View.extend({
   template: JST['dogs/dog_form'],
 
+  className: "dogFormWrapper",
+
   initialize: function(options) {
 
   },

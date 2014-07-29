@@ -2,10 +2,13 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
   template: JST['dogs/show'],
 
   initialize: function() {
+    var view = this;
     this.listenTo(this.model, 'add', this.render);
     this.listenTo(this.model.bookings(), 'add', this.addBooking);
 
-    this.model.bookings().each(this.addBooking.bind(this));
+
+    $('.dog_bookings').empty();
+
   },
 
   events: {
@@ -25,8 +28,6 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
     var renderedContent = this.template({
       dog: this.model
     });
-
-
 
     this.$el.html(renderedContent);
 

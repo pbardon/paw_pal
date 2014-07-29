@@ -7,7 +7,7 @@
 
 <% } %>
 
-<form id="newDogForm" class="col-xs-12 col-md-4">
+<form id="newDogForm" >
 
   <label for="dogName">Name: </label>
   <input type="text" class="form-control" name="name" id="dogName" value="<%= dog.escape('name') %>">
@@ -29,16 +29,16 @@
   </select>
   <br>
   <br>
-  <% if (!dog.get('dog_photo')) { %>
+  <% if (typeof (dog.get('dog_photo_small')) === 'undefined') { %>
 
-    <label for="addPic">Change Dog Picture:</label>
-    <br>
-    <input type="file" name="dog_photo" id="addPic">
+  <label for="addPic">Add A Picture of Your Dog:</label>
+  <br>
+  <input type="file" name="dog_photo" id="addPic">
 
 
   <% }else { %>
 
-    <label for="addPic">Add A Picture of Your Dog:</label>
+    <label for="addPic">Change Dog Picture:</label>
     <br>
     <input type="file" name="dog_photo" id="addPic">
 

@@ -1,12 +1,25 @@
 DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
   initialize: function(options) {
-    this.listenTo(this.collection, 'sync', this.render);
-    this.listenTo(this.collection, 'change', this.render);
+    this.listenTo(this.collection, 'sync reset', this.render);
+
+    this.listenTo(this.collection, 'sync', this.addSitterIndex.bind(this));
+
 
   },
 
   template: JST["sitters/index"],
+
+  addSitter: function(){
+
+    var subview = new DogSittingApp.Views.SitterIndex({
+      collection: this.collection
+    });
+
+    this.addSubview('.sitter_bookings', subview.render());
+
+  },
+
 
 
   placeMarkers: function() {
@@ -47,20 +60,26 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     });
   },
 
-  changeBounds: function(bounds) {
+  changeBounds: function(event) {
+    console.log("change bounds firing");
+    console.log(event);
     var view = this;
-    var sw = bounds.getSouthWest();
-    var ne = bounds.getNorthEast();
+    var sw = event.getSouthWest();
+    var ne = event.getNorthEast();
     this.minY = sw['k'];
     this.maxY = ne['k'];
     this.maxX = ne['B'];
     this.minX = sw['B'];
 
-    this.collection = new Backbone.Collection(this.collection.select(function(model) { return (model.get('latitude') < view.maxY && model.get('longitude') > view.minX && model.get('latitude') > view.minY && model.get('longitude') < view.maxX); }), {
-      model: DogSittingApp.Models.Sitter
-    });
 
-    this.render();
+    this.collection.reset(this.collection.filter(function(model) {
+       return (model.get('latitude') < view.maxY &&
+        model.get('longitude') > view.minX &&
+         model.get('latitude') > view.minY &&
+          model.get('longitude') < view.maxX);
+      }));
+
+    console.log(this.collection.models);
 
   },
 
@@ -71,13 +90,15 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent);
 
-    this.renderMap();
+    // this.renderMap();
 
     return this;
   },
 
+
   renderMap: function () {
    var view = this;
+
 
    var mapOptions = {
       zoom: 14,
@@ -89,10 +110,11 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     this.placeMarkers();
 
 
+
     function fireIfLastEvent(){
       if (lastEvent.getTime() + 500 <= new Date().getTime())
         {
-        view.changeBounds(view.map.getBounds());
+        view.changeBounds.bind(view);
       }
     }
 
@@ -101,11 +123,11 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
       setTimeout(fireIfLastEvent, 500);
     }
 
-    $(window).load(function() {
-      google.maps.event.addListener(view.map, "bounds_changed", scheduleDelayedCallback);
 
+    $(window).load(function() {
+      google.maps.event.addListener(view.map, "bounds_changed", view.changeBounds.bind(view));
     });
 
-    }
+  }
 
 });

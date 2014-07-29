@@ -8,7 +8,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
     //
     // this.dog = new DogSittingApp.Models.Dog({id: this.model.get('dog_id')});
     // this.listenTo(this.model.dog(), 'sync', this.render);
-    // this.dog.fetch();
+    this.model.fetch();
 
     var view = this;
     $.ajax({
@@ -79,7 +79,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
 
 
   render: function() {
-
+    debugger;
     var renderedContent = this.template({
       booking: this.model,
       dog: this.dog

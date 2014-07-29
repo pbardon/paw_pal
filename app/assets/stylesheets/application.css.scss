@@ -321,7 +321,9 @@ a.dropdown-toggle {
 }
 
 #newDogForm {
+  padding-left: 10%;
   margin-left: 25%;
+  margin-right: 25%;
 }
 
 .alert {
@@ -381,4 +383,19 @@ a.dropdown-toggle {
 .sitterBooking img {
   max-width: 400px;
   max-height: auto;
+}
+
+.dogFormWrapper {
+  min-height: 675px;
+  background-color: #FFFFFF;
+  border: thin solid black;
+  border-radius: 5px;
+}
+
+.dogFormWrapper h2{
+  padding-left: 15px;
+}
+
+.dogFormWrapper .alert {
+  max-width: 50%;
 }
