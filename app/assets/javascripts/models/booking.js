@@ -3,13 +3,13 @@ DogSittingApp.Models.Booking = Backbone.Model.extend({
 
   dog: function() {
     this._dog = this._dog ||
-      new DogSittingApp.Collections.Bookings([], { booking: this });
+      new DogSittingApp.Models.Dog();
     return this._dog;
   },
 
   sitter: function() {
     this._sitter = this._sitter ||
-      new DogSittingApp.Collections.Bookings([], { booking: this });
+      new DogSittingApp.Models.Sitter();
     return this._sitter;
 
   },

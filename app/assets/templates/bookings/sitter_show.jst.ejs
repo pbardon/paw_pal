@@ -6,10 +6,15 @@
     <% if (dog){ %>
 
       <img src="<%= dog.get('dog_photo_small') %>">
+      <div class="bookingDogInfo">
+        <ul>
+          <li><%= dog.get('name') %></li>
+          <li><%= dog.get('size') %></li>
+        </ul>
+      </div>
+
 
     <%  } %>
-
-
 
   </div>
   <ul>

@@ -17,8 +17,19 @@ module Api
     def create
       @booking = Booking.new(booking_params)
 
-      @booking.date_start = Date.strptime(params['booking']['date_start'], '%m/%d/%Y').to_s.split(" ")[0].to_s
-      @booking.date_end = Date.strptime(params['booking']['date_end'], '%m/%d/%Y').to_s.split(" ")[0].to_s
+      if booking_params['date_start']
+        unless booking_params['date_start'] == ""
+          @booking.date_start = Date.strptime(booking_params['date_start'],
+          '%m/%d/%Y').to_s.split(" ")[0].to_s
+        end
+      end
+
+      if booking_params['date_end']
+        unless booking_params['date_end'] == ""
+          @booking.date_end = Date.strptime(booking_params['date_end'],
+          '%m/%d/%Y').to_s.split(" ")[0].to_s
+        end
+      end
 
 
       if @booking.save

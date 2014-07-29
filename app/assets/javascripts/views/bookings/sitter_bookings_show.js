@@ -5,6 +5,10 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model, "change:confirmed", this.render);
 
+    //
+    // this.dog = new DogSittingApp.Models.Dog({id: this.model.get('dog_id')});
+    // this.listenTo(this.model.dog(), 'sync', this.render);
+    // this.dog.fetch();
 
     var view = this;
     $.ajax({
@@ -13,6 +17,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
       success: function(data){
         view.dog = new DogSittingApp.Models.Dog(data);
         view.listenTo(view.dog, 'sync', view.render);
+        view.dog.fetch();
       }
     });
   },
@@ -57,7 +62,6 @@ DogSittingApp.Views.SitterBookingShow = Backbone.View.extend({
 
 
   render: function() {
-    debugger;
 
     var renderedContent = this.template({
       sitter: this.sitter,

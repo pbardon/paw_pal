@@ -18,6 +18,7 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
   },
 
   addBooking: function (booking) {
+    booking.fetch();
     var subview = new DogSittingApp.Views.SitterBookingShow({
       model: booking
     });
