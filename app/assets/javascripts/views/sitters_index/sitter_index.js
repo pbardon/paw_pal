@@ -9,7 +9,7 @@ DogSittingApp.Views.SitterIndex = Backbone.View.extend({
 
   render: function() {
     var renderedContent = this.template({
-      sitters: this.colletion
+      sitters: this.collection
     });
 
     this.$el.html(renderedContent);

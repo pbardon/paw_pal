@@ -1,23 +1,29 @@
 DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
   initialize: function(options) {
-    this.listenTo(this.collection, 'sync reset', this.render);
+    this.listenTo(this.collection, 'sync', this.placeMarkers);
 
     this.listenTo(this.collection, 'sync', this.addSitterIndex.bind(this));
 
+
+    this.listenTo(this.collection, 'sync', this.saveOriginalCollection);
 
   },
 
   template: JST["sitters/index"],
 
-  addSitter: function(){
+  addSitterIndex: function(){
 
     var subview = new DogSittingApp.Views.SitterIndex({
       collection: this.collection
     });
 
-    this.addSubview('.sitter_bookings', subview.render());
+    this.addSubview('.sitterIndex', subview.render());
 
+  },
+
+  saveOriginalCollection: function() {
+    this.originalCollection = new DogSittingApp.Collections.Sitters(this.collection.models);
   },
 
 
@@ -60,28 +66,7 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     });
   },
 
-  changeBounds: function(event) {
-    console.log("change bounds firing");
-    console.log(event);
-    var view = this;
-    var sw = event.getSouthWest();
-    var ne = event.getNorthEast();
-    this.minY = sw['k'];
-    this.maxY = ne['k'];
-    this.maxX = ne['B'];
-    this.minX = sw['B'];
 
-
-    this.collection.reset(this.collection.filter(function(model) {
-       return (model.get('latitude') < view.maxY &&
-        model.get('longitude') > view.minX &&
-         model.get('latitude') > view.minY &&
-          model.get('longitude') < view.maxX);
-      }));
-
-    console.log(this.collection.models);
-
-  },
 
   render: function() {
     var renderedContent = this.template({
@@ -90,7 +75,9 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent);
 
-    // this.renderMap();
+    this.renderMap();
+
+    this.attachSubviews();
 
     return this;
   },
@@ -98,7 +85,6 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
   renderMap: function () {
    var view = this;
-
 
    var mapOptions = {
       zoom: 14,
@@ -128,6 +114,29 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
       google.maps.event.addListener(view.map, "bounds_changed", view.changeBounds.bind(view));
     });
 
-  }
+  },
+
+  changeBounds: function(event) {
+    console.log("change bounds firing");
+    console.log(event);
+    var view = this;
+    var sw = this.map.getBounds().getSouthWest();
+    var ne = this.map.getBounds().getNorthEast();
+    this.minY = sw['k'];
+    this.maxY = ne['k'];
+    this.maxX = ne['B'];
+    this.minX = sw['B'];
+
+
+    this.collection.reset(this.originalCollection.filter(function(model) {
+       return (model.get('latitude') < view.maxY &&
+        model.get('longitude') > view.minX &&
+         model.get('latitude') > view.minY &&
+          model.get('longitude') < view.maxX);
+      }));
+
+    console.log(this.collection.models);
+
+  },
 
 });
