@@ -1,30 +1,47 @@
+<% if (!sitters.isEmpty()){ %>
 
-<% sitters.each(function(sitter){ %>
-  <div class="row">
-    <!-- <div class="sitter-info"> -->
-    <div class="sitterItem">
-      <div class="row">
-        <div class = 'col-xs-8'>
-          <img id="pawicon" src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/pawicon.png"><h2><%= sitter.escape('sitter_name') %></h2>
-          <h5> Description: </h5>
-          <p><%= sitter.escape('description') %></p>
-        </div>
-        <div class="sitterIndexImg col-xs-2 col-xs-offset-1">
-          <img class="thumbnail" src="<%= sitter.get('sitter_photo_small') %>">
-          <br>
-          <div class="sitterInfoButton">
-            <button style="margin-top: 10px; margin-left:10%;" data-id="<%= sitter.get('id') %>" class="btn btn-success moreInfo">More Info</button>
+
+
+  <% sitters.each(function(sitter){ %>
+    <div class="row">
+      <!-- <div class="sitter-info"> -->
+      <div class="sitterItem">
+        <div class="row">
+          <div class = 'col-xs-8'>
+            <img id="pawicon" src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/pawicon.png"><h2><%= sitter.escape('sitter_name') %></h2>
+            <h5> Description: </h5>
+            <p><%= sitter.escape('description') %></p>
           </div>
-          <div class="index_price">
-            <h2> Cost/Night:
-            <div style="margin-left: 30%">$<%= sitter.escape('price') %></div>
-            </h2>
+          <div class="sitterIndexImg col-xs-2 col-xs-offset-1">
+            <img class="thumbnail" src="<%= sitter.get('sitter_photo_small') %>">
+            <br>
+            <div class="sitterInfoButton">
+              <button style="margin-top: 10px; margin-left:10%;" data-id="<%= sitter.get('id') %>" class="btn btn-success moreInfo">More Info</button>
+            </div>
+            <div class="index_price">
+              <h2> Cost/Night:
+              <div style="margin-left: 30%">$<%= sitter.escape('price') %></div>
+              </h2>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- <div class="sitter-pic"> -->
+
     </div>
+  <% }); %>
 
-    <!-- <div class="sitter-pic"> -->
 
-  </div>
-<% }); %>
+
+
+
+<% } else { %>
+
+  <h2> There are no sitters in this area </h2>
+  <p>
+    Try moving the map, searching, or become a sitter in this area.
+  </p>
+
+
+<% }%>

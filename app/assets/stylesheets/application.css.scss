@@ -298,6 +298,15 @@ a.dropdown-toggle {
   color: green;
 }
 
+.dropdown-menu > li a, a:hover, a:active, a:visited {
+  font-size: 15px;
+}
+
+.dropdown-menu > a, a:hover, a:active, a:visited {
+  font-size: 15px;
+}
+
+
 .dropdown-menu > li > a:hover {
   background-color: #C7FFAC;
 }
@@ -495,4 +504,20 @@ a.dropdown-toggle {
 
 #dogShowPic {
   display: inline-block;
+}
+
+#logo {
+  display: inline;
+}
+
+
+#logo img {
+  max-height: 35px;
+  margin-bottom: 20px;
+}
+
+
+.navbar-brand .sitename a a:hover, a:visited, a:link, a:active{
+  font-size: 45px;
+  text-decoration: none;
 }
