@@ -7,6 +7,8 @@ class Sitter < ActiveRecord::Base
 
   has_many :bookings, dependent: :destroy
 
+  has_many :comments, as: :commentable
+
   has_attached_file :sitter_photo, styles: {
     big: "600x600>",
     small: "100x100#"

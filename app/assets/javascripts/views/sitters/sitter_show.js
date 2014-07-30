@@ -6,6 +6,9 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     this.listenTo(this.model.bookings(), 'add', this.addBooking);
     this.model.bookings().each(this.addBooking.bind(this));
 
+    this.listenTo(this.model.comments(), 'add', this.addComment);
+    this.model.comments().each(this.addBooking.bind(this));
+
     this.addMap();
   },
 
@@ -27,6 +30,16 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     });
 
     this.addSubview('.sitter_bookings', subview.render());
+  },
+
+  addComment: function (comment) {
+    comment.fetch();
+    var subview = new DogSittingApp.Views.SitterCommentShow({
+      collection: this.model.comments(),
+      model: comment
+    });
+
+    this.addSubview('.sitter_comments', subview.render());
   },
 
   removeSitter: function(event) {

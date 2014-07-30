@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730165242) do
+ActiveRecord::Schema.define(version: 20140730180428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 20140730165242) do
     t.datetime "updated_at"
     t.text     "message"
   end
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id",          null: false
+    t.text     "comment"
+    t.date     "comment_date",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "rating"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+  end
+
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "dogs", force: true do |t|
     t.string   "name",                                 null: false
@@ -45,19 +58,6 @@ ActiveRecord::Schema.define(version: 20140730165242) do
 
   add_index "dogs", ["name"], name: "index_dogs_on_name", using: :btree
   add_index "dogs", ["owner_id"], name: "index_dogs_on_owner_id", using: :btree
-
-  create_table "sitter_comments", force: true do |t|
-    t.integer  "sitter_id",    null: false
-    t.integer  "user_id",      null: false
-    t.text     "comment"
-    t.date     "comment_date", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.float    "rating"
-  end
-
-  add_index "sitter_comments", ["sitter_id"], name: "index_sitter_comments_on_sitter_id", using: :btree
-  add_index "sitter_comments", ["user_id"], name: "index_sitter_comments_on_user_id", using: :btree
 
   create_table "sitters", force: true do |t|
     t.integer  "user_id",                                   null: false
