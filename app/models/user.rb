@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   has_one :sitter_account, class_name: :Sitter, foreign_key: :user_id
 
+  has_many :comments
+
   before_validation :ensure_session_token
 
   attr_reader :password

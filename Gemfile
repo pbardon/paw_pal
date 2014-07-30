@@ -16,6 +16,7 @@ gem 'aws-sdk'
 gem 'bcrypt', '~> 3.1.7'
 gem "addressable"
 gem "rest-client"
+gem "rails_12factor"
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 

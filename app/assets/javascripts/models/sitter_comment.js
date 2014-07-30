@@ -1,3 +1,3 @@
-DogSittingApp.Models.SitterComment = Backbone.Model.extend({
-  urlRoot: 'api/sitter_comments'
+DogSittingApp.Models.Comment = Backbone.Model.extend({
+  urlRoot: 'api/comments'
 });

@@ -1,6 +1,6 @@
 DogSittingApp.Collections.SitterComments = Backbone.Collection.extend({
 
-  url: "/sitter_comments",
+  url: "api/comments",
 
   model: DogSittingApp.Models.SitterComment,
 
