@@ -12,7 +12,8 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .removeDog': 'removeDog'
+    'click .removeDog': 'removeDog',
+    'click .editDogInfo': 'redirectToDogEdit'
   },
 
   addBooking: function (booking) {
@@ -22,6 +23,12 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
 
     this.addSubview('.dog_bookings', subview.render());
   },
+
+  redirectToDogEdit: function(event){
+    data = $(event.currentTarget).data('id');
+    Backbone.history.navigate('#/dogs/'+ data +'/edit', {trigger: true})
+  },
+
 
   render: function() {
 

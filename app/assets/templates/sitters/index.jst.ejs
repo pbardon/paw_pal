@@ -1,11 +1,6 @@
 <!-- <div class="sitters-feed"> -->
 
 
-<form id="searchMap">
-  <input type="text" name="searchParams" id="searchParams">
-  <button type="submit" id="search" class="btn btn-success">Search</button>
-</form>
-
 <div class="row">
 
 
@@ -13,9 +8,17 @@
 
   <div class="map-wrapper col-xs-3">
 
-    <div id="map-canvas" style="width:400px;height:400px;">
+    <div id="map-canvas" style="width:450px;height:450px;">
 
     </div>
+    <br>
+    <form>
+      <div class="form-group" id="">
+        <input type="text" class="form-control" id="searchParams" placeholder="Search">
+
+        <button type="submit" id="search" class="btn btn-success">Submit</button>
+      </div>
+    </form>
   </div>
 
   <div class="col-xs-7 col-xs-offset-2 sitterIndex"

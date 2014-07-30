@@ -16,7 +16,7 @@
         </li>
         <li>Size: <%= dog.escape('size') %></li>
         <li>
-          <a href= "#/dogs/<%= dog.escape('id') %>"> Show Dog Profile </a>
+          <button class="btn btn-primary showDogProfile" data-id="<%= dog.escape('id') %>"> Show Dog Profile </button>
         </li>
       </ul>
       </p>

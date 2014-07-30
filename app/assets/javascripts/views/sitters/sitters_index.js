@@ -12,7 +12,8 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click #search": 'searchResults'
+    "click #search": 'searchResults',
+    "click .moreInfo": 'showInfo'
   },
 
   template: JST["sitters/index"],
@@ -27,31 +28,34 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
   },
 
-  saveOriginalCollection: function() {
-    this.originalCollection = new DogSittingApp.Collections.Sitters(this.collection.models);
+  showInfo: function(event) {
+    var $ct = $(event.currentTarget);
+    var sitterId = $ct.data('id');
+    Backbone.history.navigate("#/sitters/" + sitterId, {trigger: true});
   },
 
-
-  searchResults: function(event) {
+  changeBounds: function(event) {
+    console.log("change bounds firing");
+    console.log(event);
     var view = this;
-    event.preventDefault();
+    var sw = this.map.getBounds().getSouthWest();
+    var ne = this.map.getBounds().getNorthEast();
+    this.minY = sw['k'];
+    this.maxY = ne['k'];
+    this.maxX = ne['B'];
+    this.minX = sw['B'];
 
-    geocoder = new google.maps.Geocoder();
 
+    this.collection.reset(this.originalCollection.filter(function(model) {
+       return (model.get('latitude') < view.maxY &&
+        model.get('longitude') > view.minX &&
+         model.get('latitude') > view.minY &&
+          model.get('longitude') < view.maxX);
+      }));
 
+    console.log(this.collection.models);
 
-    var query = $('#searchParams').val();
-
-    geocoder.geocode( { 'address': query }, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        view.map.setCenter(results[0].geometry.location);
-      } else {
-        $('.container').prepend("<div class='alert alert-warning'>There was a problem with your search</div>");
-      }
-    });
   },
-
-
 
   placeMarkers: function() {
     var map = this.map;
@@ -93,26 +97,34 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
 
 
-  render: function() {
-    var renderedContent = this.template({
-      sitters: this.collection
+  searchResults: function(event) {
+    var view = this;
+    event.preventDefault();
+
+    geocoder = new google.maps.Geocoder();
+
+
+
+    var query = $('#searchParams').val();
+
+    geocoder.geocode( { 'address': query }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        view.map.setCenter(results[0].geometry.location);
+      } else {
+        $('.container').prepend("<div class='alert alert-warning'>There was a problem with your search</div>");
+      }
     });
-
-    this.$el.html(renderedContent);
-
-    this.renderMap();
-
-    this.attachSubviews();
-
-    return this;
   },
 
+  saveOriginalCollection: function() {
+    this.originalCollection = new DogSittingApp.Collections.Sitters(this.collection.models);
+  },
 
   renderMap: function () {
    var view = this;
 
    var mapOptions = {
-      zoom: 14,
+      zoom: 10,
       center: new google.maps.LatLng(37.7810560, -122.4114550)
     };
 
@@ -141,27 +153,19 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
   },
 
-  changeBounds: function(event) {
-    console.log("change bounds firing");
-    console.log(event);
-    var view = this;
-    var sw = this.map.getBounds().getSouthWest();
-    var ne = this.map.getBounds().getNorthEast();
-    this.minY = sw['k'];
-    this.maxY = ne['k'];
-    this.maxX = ne['B'];
-    this.minX = sw['B'];
+  render: function() {
+    var renderedContent = this.template({
+      sitters: this.collection
+    });
 
+    this.$el.html(renderedContent);
 
-    this.collection.reset(this.originalCollection.filter(function(model) {
-       return (model.get('latitude') < view.maxY &&
-        model.get('longitude') > view.minX &&
-         model.get('latitude') > view.minY &&
-          model.get('longitude') < view.maxX);
-      }));
+    this.renderMap();
 
-    console.log(this.collection.models);
+    this.attachSubviews();
 
-  },
+    return this;
+  }
+
 
 });

@@ -13,7 +13,8 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
 
   events: {
     'click .removeSitterAccount': 'removeSitter',
-    'click .bookNow': 'redirectToBooking'
+    'click .bookNow': 'redirectToBooking',
+    'click .editSitterInfo': 'redirectToEdit'
   },
 
   template: JST["sitters/show"],
@@ -42,6 +43,11 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
   redirectToBooking: function(event) {
     event.preventDefault();
     Backbone.history.navigate("/bookings/"+ this.model.id + "/new", {trigger: true});
+  },
+
+  redirectToEdit: function(event) {
+    var data = $(event.currentTarget).data('id');
+    Backbone.history.navigate('#/sitters/' + data + '/edit', {trigger: true});
   },
 
   placeMark: function() {

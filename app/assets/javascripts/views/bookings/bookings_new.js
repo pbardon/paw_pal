@@ -30,7 +30,6 @@ DogSittingApp.Views.NewSitterBooking = Backbone.View.extend({
       this.collection.create(this.model, {
         success: function(model) {
           wait:true;
-          debugger;
           Backbone.history.navigate("#/dogs/" + model.get('dog_id'), { trigger: true });
         },
 

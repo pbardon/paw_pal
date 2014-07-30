@@ -3,8 +3,17 @@ DogSittingApp.Views.DogsIndex = Backbone.CompositeView.extend({
 
   template: JST['dogs/index'],
 
+  events: {
+    'click .showDogProfile': 'redirectToDogShow'
+  },
+
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);
+  },
+
+  redirectToDogShow: function(event){
+    data = $(event.currentTarget).data('id');
+    Backbone.history.navigate('#/dogs/'+ data, {trigger: true})
   },
 
   render: function () {

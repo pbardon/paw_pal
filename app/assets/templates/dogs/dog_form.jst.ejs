@@ -35,19 +35,25 @@
   <br>
   <input type="file" name="dog_photo" id="addPic">
 
-
   <% }else { %>
 
     <label for="addPic">Change Dog Picture:</label>
     <br>
     <input type="file" name="dog_photo" id="addPic">
 
+
   <% } %>
 
+  <% if (dog.get('id')) { %>
+    <button type='submit' class='addSubmit btn btn-primary'>Edit Dog</button>
+  <% }else { %>
+    <button type='submit' class='addSubmit btn btn-success'>Add Dog</button>
+  <%  } %>
+
 
   <br>
   <br>
-  <button type='submit' class='addSubmit btn btn-success'>Add Dog</button>
+
 
 
 

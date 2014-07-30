@@ -23,11 +23,8 @@
     <li>Accepts Medium Dogs? <%= (sitter.get('medium')) ? "Yes" : "No" %></li>
     <li>Accepts Large Dogs? <%= (sitter.get('large')) ? "Yes" : "No" %></li>
     <% if (logged_in) { %>
-      <li>
-        <a href= "#/sitters/<%= sitter.escape('id') %>/edit"> Edit Sitter Information </a>
-
+        <button class="btn btn-primary editSitterInfo" data-id="<%= sitter.escape('id') %>">Edit Sitter Information </button>
     <%  }  %>
-      </li>
     </li>
   </ul>
 </div>
