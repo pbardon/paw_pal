@@ -1,4 +1,4 @@
-<div class="sitterBooking col-xs-offset-1">
+<div class="sitterBooking" data-id="<%= booking.get('id') %>">
 
   <% if (booking.get('completed')) { %>
     <h1>Completed Bookings: </h1>
@@ -20,8 +20,8 @@
       <h2> Booking Confirmed </h2>
     <% }else { %>
       <div class="bookingConfirmation">
-        <div class="confirmDiv"><h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2></div>
-        <div class="denyDiv"><h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2></div>
+        <div class="confirmDiv" data-id="<%= booking.get('id') %>"><h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2></div>
+        <div class="denyDiv" data-id="<%= booking.get('id') %>"><h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2></div>
       </div>
     <% } %>
 

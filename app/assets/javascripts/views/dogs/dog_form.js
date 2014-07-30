@@ -46,7 +46,6 @@ DogSittingApp.Views.DogForm = Backbone.View.extend({
         success: function() {
           // wait:true;
           Backbone.history.navigate("#/dogs", { trigger: true });
-          window.location.reload();
         },
         error: function(model, error) {
           $('.alert').remove();

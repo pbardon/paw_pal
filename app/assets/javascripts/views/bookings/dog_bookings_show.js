@@ -1,9 +1,9 @@
 DogSittingApp.Views.DogBookingShow = Backbone.View.extend({
-  template: JST['bookings/dog_show'],
+  template: JST['bookings/dog_booking_show'],
 
   initialize: function(options) {
     this.listenTo(this.model, "change", this.render);
-    
+
     var view = this;
     $.ajax({
       url: "api/sitters/" + view.model.get('sitter_id'),

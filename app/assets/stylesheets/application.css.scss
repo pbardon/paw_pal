@@ -131,11 +131,10 @@ body {
 }
 
 
-
-
-.dogShowInfo > .img-circle {
-  height: 350px;
-  width: 350px;
+.dogShowInfo .img-circle {
+  display: inline;
+  height: 400px;
+  width: 400px;
 }
 
 .removeDog {
@@ -234,7 +233,7 @@ html, body, #map-canvas {
   padding-right: 5%;
   padding-bottom: 5%;
   min-height: 850px;
-  
+
 }
 
 .sitterShow #map-canvas {
@@ -264,6 +263,7 @@ html, body, #map-canvas {
 }
 
 .dogs{
+  margin-left: 5%;
   // min-height: 600px;
   // background-color: #FFFFFF;
   // border: thin solid black;
@@ -280,7 +280,7 @@ html, body, #map-canvas {
 
   border-radius: 5px;
 }
-.dog h3{
+.dog h2{
   text-align: center;
   font-size: 250%;
 }
@@ -288,10 +288,6 @@ html, body, #map-canvas {
 .dog > .img-circle {
   width: 300px;
   height: 250px;
-}
-
-.dogShowInfo {
-  margin-left: 35%;
 }
 
 .dogShowInfo p{
@@ -426,10 +422,6 @@ a.dropdown-toggle {
   max-width: 50%;
 }
 
-.dog_bookings {
-  margin-left: -40%;
-  margin-right: 15%;
-}
 
 .dog_bookings > img {
   display: inline-block;
@@ -465,8 +457,8 @@ a.dropdown-toggle {
 
 .sitterIndex {
   max-height: 750px;
-  overflow-y: scroll;
-  overflow-x: visible;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #pawicon {
@@ -482,7 +474,8 @@ a.dropdown-toggle {
 
 
 .showDogProfile {
-  margin-left: 10%;
+  margin-top: 10%;
+  margin-left: 22%;
 }
 
 
@@ -492,4 +485,13 @@ a.dropdown-toggle {
 
 .lowerContent {
   margin-top: 5%;
+}
+
+.dogShowContent {
+  display: inline;
+}
+
+
+#dogShowPic {
+  display: inline-block;
 }

@@ -9,15 +9,8 @@
     <h2><%= dog.escape('name') %></h2>
     <img class="img-responsive img-circle" src="<%= dog.get('dog_photo_large') %>">
     <p>
-      <ul>
-        <li>Age: <%= dog.escape('age') %></li>
-        <li>Description:
-          <p class="dog-description"><%= dog.escape('description') %></p>
-        </li>
-        <li>Size: <%= dog.escape('size') %></li>
-      </ul>
       <button class="btn btn-primary showDogProfile" data-id="<%= dog.escape('id') %>"> Show Dog Profile </button>
-      </p>
+    </p>
     </div>
 
   <% }); %>

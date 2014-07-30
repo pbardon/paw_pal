@@ -1,10 +1,18 @@
 <!-- <div class="sitters-feed"> -->
 
 
-<div class="row">
-
-
   <!-- </div> -->
+
+  <form>
+    <label for="searchBar">Search For Dog Sitters:</label>
+    <div class="input-append searchBar">
+      <input type="text" id="searchParams" placeholder="Enter an address"/>
+
+      <button type="submit" id="search" class="btn btn-success">Search!</button>
+    </div>
+  </form>
+
+  <div class="row">
 
   <div class="map-wrapper col-md-3 hidden-sm">
 
@@ -12,20 +20,16 @@
 
     </div>
     <br>
-    <form>
-      <label for="searchBar">Search For Dog Sitters:</label>
-      <div class="input-append searchBar">
-        <input type="text" id="searchParams" placeholder="Search"/>
-
-        <button type="submit" id="search" class="btn btn-success">Search!</button>
-      </div>
-    </form>
   </div>
 
-  <h2 style="margin-left: 40%;"> Sitter Listings: </h2>
+  <div id="sitterIndexWrapper col-xs-12">
+    <h2 style="margin-left: 40%;"> Sitter Listings: </h2>
 
-  <div class="col-xs-7 col-xs-offset-2 sitterIndex"
+    <div class="sitterIndex col-xs-7 col-xs-offset-2"
+    </div>
   </div>
+
+
 
 
 </div>
