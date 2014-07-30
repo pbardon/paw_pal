@@ -20,23 +20,27 @@
 
 
 body, html * {
-  // margin: auto;
-  // border: thin dotted blue;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  scrollbar-track-color: #EBEAE5;
+
+}
+
+body, html * h2 {
+  font-family:"Arial Rounded MT Bold", "Helvetica-Rounded", Arial, sans-serif;
 }
 
 .backdrop {
   background-image: url('https://s3-us-west-1.amazonaws.com/pet-sitter-development/Bones-Seamless-Patterns2.jpg');
   background-size: 2400px;
 
+}
 
-  // background: -webkit-linear-gradient(#FFFFFF, #DEDCD2); /* For Safari 5.1 to 6.0 */
-  // background: -o-linear-gradient(#FFFFFF, #DEDCD2); /* For Opera 11.1 to 12.0 */
-  // background: -moz-linear-gradient(#FFFFFF, #DEDCD2); /* For Firefox 3.6 to 15 */
-  // background: linear-gradient(#FFFFFF, #DEDCD2); /* Standard syntax */
+body, html ul {
+  list-style-image: url(https://s3-us-west-1.amazonaws.com/pet-sitter-development/paw1.png);
 }
 
 .container {
-  width: 75%;
+  width: 85%;
   background-color: #FFFFFF;
   // box-shadow: 40px 0 40px -4px #CBFFBA, -40px 0 40px -4px #CBFFBA;
 }
@@ -166,7 +170,7 @@ body {
   border: thin solid black;
   border-radius: 3px;
   position: relative;
-  background-color: #E0E0D8;
+  background-color: #EBEAE5;
   opacity: 1;
   // box-shadow: 5px 5px 2px #0D3D0C;
   min-height: 200px;
@@ -209,32 +213,42 @@ html, body, #map-canvas {
   max-width: 100px;
   max-height: auto;
   border-radius: 5px;
-  padding-top: 20%;
+  margin-top: 10%;
 
 }
 
+.sitterShowInfo {
+  display: inline;
+  margin-right: 5%;
+}
+
 .sitterShowInfo img {
+  display: inline;
   border-radius: 10px;
   margin-right: 2%;
-  margin-top: 20%;
-  margin-left: 18%;
   max-width: 250px;
   max-height: auto;
 }
 
 .sitterShow {
+  padding-right: 5%;
+  padding-bottom: 5%;
   min-height: 850px;
-  border: thin solid black;
+  
 }
 
 .sitterShow #map-canvas {
   height: 400px;
   width: 400px;
   margin-top: 5%;
-  float: right;
+  position: fixed;
   margin-right: 5%;
   margin-bottom: 2%;
   border-radius: 10px;
+}
+
+.sitterShowImage {
+
 }
 
 .sitterItem a {
@@ -242,6 +256,7 @@ html, body, #map-canvas {
 }
 
 .sitterInfo {
+  padding: 15px;
   border: 3px solid black;
   border-radius: 5px;
   margin-left: 5%;
@@ -276,7 +291,11 @@ html, body, #map-canvas {
 }
 
 .dogShowInfo {
+  margin-left: 35%;
+}
 
+.dogShowInfo p{
+  padding-left: 5%;
 }
 
 a.dropdown-toggle {
@@ -362,14 +381,14 @@ a.dropdown-toggle {
   min-width: 200px;
 }
 
-.container {
-  background-color: #C7C7C0;
-
-}
 
 .mapWrapper {
   height: 400px;
   width: 400px;
+}
+
+.lowerContent .mapWrapper {
+  margin-top: -20px;
 }
 
 .dogBooking {
@@ -405,4 +424,72 @@ a.dropdown-toggle {
 
 .dogFormWrapper .alert {
   max-width: 50%;
+}
+
+.dog_bookings {
+  margin-left: -40%;
+  margin-right: 15%;
+}
+
+.dog_bookings > img {
+  display: inline-block;
+}
+
+.dogBooking .thumbnail {
+  max-width: 100px;
+  max-height: auto;
+}
+
+.sitterBookingInformation img {
+  float: right;
+  margin-left: 75%;
+}
+
+.sitterBookingInformation .bigImage {
+  float: right;
+}
+
+.index_price h2 {
+  min-width: 150px;
+  align: right;
+  margin-right: 10%;
+  font-size: 20px;
+}
+
+.navbar .navbar-default .navbar-fixed-top {
+  background: -webkit-linear-gradient(#FFFFFF, #DEDCD2); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#FFFFFF, #DEDCD2); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#FFFFFF, #DEDCD2); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#FFFFFF, #DEDCD2); /* Standard syntax */
+}
+
+.sitterIndex {
+  max-height: 750px;
+  overflow-y: scroll;
+  overflow-x: visible;
+}
+
+#pawicon {
+
+  height: 90px;
+  margin-left: -7px;
+
+}
+
+.sitterItem h2 {
+  display: inline;
+}
+
+
+.showDogProfile {
+  margin-left: 10%;
+}
+
+
+.searchBar {
+  margin-left: 20%;
+}
+
+.lowerContent {
+  margin-top: 5%;
 }

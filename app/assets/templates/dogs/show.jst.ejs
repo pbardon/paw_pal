@@ -4,18 +4,18 @@
 
   <img class="img-responsive img-circle" src="<%= dog.get('dog_photo_large') %>">
 
-<ul>
-  <li>Age: <%= dog.escape('age') %></li>
-  <li>Description:
+<div>
+  <h4>Age: <%= dog.escape('age') %></h4>
+  <h4>Description:</h4>
     <p class="dog-description"><%= dog.escape('description') %></p>
-  </li>
-  <li>Size: <%= dog.escape('size') %></li>
-  <li>
-    <button class="btn btn-primary editDogInfo" data-id="<%= dog.escape('id') %>">Edit Dog Information</button>
-  </li>
-</ul>
 
-<div class="dog_bookings"> asdfasdfasdf
+  <h4>Size: <%= dog.escape('size') %></h4>
+  <div>
+    <button class="btn btn-primary editDogInfo" data-id="<%= dog.escape('id') %>">Edit Dog Information</button>
+  </div>
+</div>
+<h3> Bookings: <h3>
+<div class="dog_bookings">
 </div>
 
 </div>

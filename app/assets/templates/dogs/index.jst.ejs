@@ -6,7 +6,7 @@
 
   <% dogs.each(function(dog){ %>
     <div class="dog col-xs-12 col-md-3">
-    <h3><%= dog.escape('name') %></h3>
+    <h2><%= dog.escape('name') %></h2>
     <img class="img-responsive img-circle" src="<%= dog.get('dog_photo_large') %>">
     <p>
       <ul>
@@ -15,10 +15,8 @@
           <p class="dog-description"><%= dog.escape('description') %></p>
         </li>
         <li>Size: <%= dog.escape('size') %></li>
-        <li>
-          <button class="btn btn-primary showDogProfile" data-id="<%= dog.escape('id') %>"> Show Dog Profile </button>
-        </li>
       </ul>
+      <button class="btn btn-primary showDogProfile" data-id="<%= dog.escape('id') %>"> Show Dog Profile </button>
       </p>
     </div>
 

@@ -1,32 +1,56 @@
 <div class="dogBooking">
 
-  <h1> Booking: </h1>
-  <% if (sitter) { %>
-    <div class="sitterBookingInformation">
-      <img class="thumbnail" data-id="<%= sitter.get('id') %>" src="<%= sitter.get('sitter_photo_small') %>">
-      <%= sitter.get('sitter_name') %>
-      <%= sitter.get('price') %>
-    </div>
+    <% if (sitter){ %>
+
+
+    <%  } else { %>
+       <div>
+         <table>
+           <th>
+             <td>Date Start:</td>
+             <td>Date End:</td>
+           </th>
+           <tr>
+             <td><%= booking.escape('date_start') %> </td>
+             <td>Date End: <%= booking.escape('date_end') %> </td>
+
+           </tr>
+         </table>
+       </div>
+    <%  } %>
+
+
+    <% if (sitter) { %>
+
+      <div class="sitterBookingInformation">
+        <div>Sitter Name: <%= sitter.get('sitter_name') %></div>
+        <br>
+        <div>Price per Night: $<%= sitter.get('price') %></div>
+        <div>
+          <img class="thumbnail" data-id="<%= sitter.get('id') %>" src="<%= sitter.get('sitter_photo_small') %>">
+        </div>
+      </div>
 
 
 
-  <%  } %>
+    <%  } else { %>
+
+    <%  }%>
 
 
-  <ul>
-    <li>Date Start: <%= booking.escape('date_start') %> <li>
-    <li>Date End: <%= booking.escape('date_end') %> </li>
-  </ul>
+      <div>
+        <div>Date Start: <%= booking.escape('date_start') %> <div>
+        <div>Date End: <%= booking.escape('date_end') %> </div>
+      </div>
 
-  <% if (booking.confirmed) { %>
-    <h2>Confirmed</h2>
-  <% }else { %>
-    <h2>Pending</h2>
-  <% }%>
-  <% if (booking.completed) { %>
-    <h2>Completed</h2>
-  <% } %>
-
+      <% if (booking.confirmed) { %>
+        <h2 style="color:#3EFF1F">Confirmed</h2>
+      <% }else { %>
+        <h2 style="color:#FFE745">Pending</h2>
+      <% }%>
+      <% if (booking.completed) { %>
+        <h2>Completed</h2>
+      <% } %>
 
 
 </div>

@@ -110,6 +110,7 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     geocoder.geocode( { 'address': query }, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         view.map.setCenter(results[0].geometry.location);
+        view.map.setZoom(12);
       } else {
         $('.container').prepend("<div class='alert alert-warning'>There was a problem with your search</div>");
       }

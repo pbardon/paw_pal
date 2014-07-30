@@ -6,20 +6,23 @@
 
   <!-- </div> -->
 
-  <div class="map-wrapper col-xs-3">
+  <div class="map-wrapper col-md-3 hidden-sm">
 
-    <div id="map-canvas" style="width:450px;height:450px;">
+    <div id="map-canvas" style="margin-top: 10%;width:450px;height:450px;">
 
     </div>
     <br>
     <form>
-      <div class="form-group" id="">
-        <input type="text" class="form-control" id="searchParams" placeholder="Search">
+      <label for="searchBar">Search For Dog Sitters:</label>
+      <div class="input-append searchBar">
+        <input type="text" id="searchParams" placeholder="Search"/>
 
-        <button type="submit" id="search" class="btn btn-success">Submit</button>
+        <button type="submit" id="search" class="btn btn-success">Search!</button>
       </div>
     </form>
   </div>
+
+  <h2 style="margin-left: 40%;"> Sitter Listings: </h2>
 
   <div class="col-xs-7 col-xs-offset-2 sitterIndex"
   </div>
