@@ -43,6 +43,10 @@ module Api
       @booking = Booking.find(params[:id])
 
       if @booking
+        if Time.now > @booking.date_end && @booking.confirmed
+          @booking.completed = true
+          @booking.save
+        end
         render 'bookings/show'
       else
         render json: @booking.errors.full_messages

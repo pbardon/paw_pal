@@ -398,12 +398,13 @@ a.dropdown-toggle {
 }
 
 .sitterBooking {
-  border: thin solid black;
-  border-radius: 5px;
+  // border: thin solid black;
+  // border-radius: 5px;
 }
 
 .sitterBooking img {
-  max-width: 400px;
+  padding-top: 5px;
+  max-width: 85%;
   max-height: auto;
 }
 

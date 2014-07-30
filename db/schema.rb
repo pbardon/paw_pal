@@ -11,18 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725041808) do
+ActiveRecord::Schema.define(version: 20140730165242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: true do |t|
+    t.integer  "sitter_id",                  null: false
+    t.integer  "dog_id",                     null: false
+    t.date     "date_start",                 null: false
+    t.date     "date_end",                   null: false
+    t.boolean  "confirmed",  default: false
+    t.boolean  "completed",  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "message"
+  end
+
   create_table "dogs", force: true do |t|
-    t.string   "name",                               null: false
-    t.string   "size",                               null: false
-    t.text     "description",                        null: false
-    t.integer  "age",                                null: false
-    t.integer  "avg_rating",             default: 0
-    t.integer  "owner_id",                           null: false
+    t.string   "name",                                 null: false
+    t.string   "size",                                 null: false
+    t.text     "description",                          null: false
+    t.integer  "age",                                  null: false
+    t.float    "avg_rating",             default: 0.0
+    t.integer  "owner_id",                             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "dog_photo_file_name"
@@ -34,9 +46,22 @@ ActiveRecord::Schema.define(version: 20140725041808) do
   add_index "dogs", ["name"], name: "index_dogs_on_name", using: :btree
   add_index "dogs", ["owner_id"], name: "index_dogs_on_owner_id", using: :btree
 
+  create_table "sitter_comments", force: true do |t|
+    t.integer  "sitter_id",    null: false
+    t.integer  "user_id",      null: false
+    t.text     "comment"
+    t.date     "comment_date", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "rating"
+  end
+
+  add_index "sitter_comments", ["sitter_id"], name: "index_sitter_comments_on_sitter_id", using: :btree
+  add_index "sitter_comments", ["user_id"], name: "index_sitter_comments_on_user_id", using: :btree
+
   create_table "sitters", force: true do |t|
     t.integer  "user_id",                                   null: false
-    t.integer  "avg_rating",                default: 0,     null: false
+    t.float    "avg_rating",                default: 0.0,   null: false
     t.string   "sitter_name",                               null: false
     t.text     "description",                               null: false
     t.integer  "price",                                     null: false

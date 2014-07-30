@@ -1,47 +1,82 @@
-<div class="sitterBooking" data-id="<%= booking.get('id') %>">
+<div class="sitterBooking panel panel-info" data-id="<%= booking.get('id') %>">
 
-  <% if (booking.get('completed')) { %>
-    <h1>Completed Bookings: </h1>
+  <% if (dog){ %>
+    <h4 class="panel-heading">Booking: <%= dog.escape('name') %></h4>
 
-      <h3> Comment on Booking </h3>
+  <% } %>
+
+  <div class="row">
+
+    <div class="dogBookingInfo">
+
+      <% if (dog){ %>
+
+        <div class="col-xs-4">
+
+          <div class="bookingDogInfo">
+            <div>
+              <div>Dog Size: <%= dog.escape('size') %></div>
+              <div> Message: </div>
+              <div> <%= booking.escape('message') %></div>
+            </div>
+
+          </div>
+        </div>
+      <% } %>
 
 
-  <% }else { %>
 
-    <h1>Pending Bookings: </h1>
+    <% if (booking.get('completed')) { %>
 
-    <ul>
-      <li>Date Start: <%= booking.escape('date_start') %> <li>
-      <li>Date End: <%= booking.escape('date_end') %> </li>
-      <li>Message: <%= booking.escape('message')  %></li>
-    </ul>
+      <div class="col-xs-4">
 
-    <% if (booking.get('confirmed')) { %>
-      <h2> Booking Confirmed </h2>
+        <h3> Comment on Booking </h3>
+      </div>
+
     <% }else { %>
-      <div class="bookingConfirmation">
-        <div class="confirmDiv" data-id="<%= booking.get('id') %>"><h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2></div>
-        <div class="denyDiv" data-id="<%= booking.get('id') %>"><h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2></div>
+
+      <div class="col-xs-4">
+
+        <div>
+          <div>Date Start: <%= booking.escape('date_start') %> </div>
+          <div>Date End: <%= booking.escape('date_end') %> </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Message:
+            </div>
+            <div id="panel-body">
+              <%= booking.escape('message')  %>
+            </div>
+          </div
+          </div>
+        </div>
+
+      <% if (booking.get('confirmed')) { %>
+        <h3> Booking Confirmed </h3>
+      <% }else { %>
+        <div class="bookingConfirmation">
+          <div class="confirmDiv" data-id="<%= booking.get('id') %>"><h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2></div>
+          <div class="denyDiv" data-id="<%= booking.get('id') %>"><h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2></div>
+        </div>
+      <% } %>
+      </div>
+
+    <%  } %>
+
+
+    <% if (dog){ %>
+      <div class="col-xs-4">
+
+        <img class="thumbnail" src="<%= dog.get('dog_photo_small') %>">
+        <div style="color: blue">Click to expand picture </div>
+
       </div>
     <% } %>
 
-
-  <%  } %>
-
-
-  <div class="dogBookingInfo">
-    <% if (dog){ %>
-
-      <p> Click to expand picture </p>
-
-      <img class="thumbnail" src="<%= dog.get('dog_photo_small') %>">
-      <div class="bookingDogInfo">
-        <ul>
-          <li><%= dog.get('name') %></li>
-          <li><%= dog.get('size') %></li>
-        </ul>
-      </div>
-      <% } %>
   </div>
+
+
+  </div>
+
 
 </div>
