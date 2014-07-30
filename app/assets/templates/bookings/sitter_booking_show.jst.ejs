@@ -1,15 +1,14 @@
 <div class="sitterBooking panel panel-info" data-id="<%= booking.get('id') %>">
 
-  <% if (dog){ %>
+
     <h4 class="panel-heading">Booking: <%= dog.escape('name') %></h4>
 
-  <% } %>
+
 
   <div class="row">
 
     <div class="dogBookingInfo">
 
-      <% if (dog){ %>
 
         <div class="col-xs-4">
 
@@ -22,7 +21,7 @@
 
           </div>
         </div>
-      <% } %>
+
 
 
 
@@ -64,14 +63,14 @@
     <%  } %>
 
 
-    <% if (dog){ %>
+
       <div class="col-xs-4">
 
         <img class="thumbnail" src="<%= dog.get('dog_photo_small') %>">
-        <div style="color: blue">Click to expand picture </div>
+        <div style="color: blue">Click to expand picture</div>
 
       </div>
-    <% } %>
+
 
   </div>
 

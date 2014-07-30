@@ -1,7 +1,7 @@
 module Api
   class CommentsController  < ApplicationController
     def index
-      @comments = SitterComment.all
+      @comments = Comment.all
 
       render json: @comments
     end
