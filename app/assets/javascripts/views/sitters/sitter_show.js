@@ -6,8 +6,8 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     this.listenTo(this.model.bookings(), 'add', this.addBooking);
     this.model.bookings().each(this.addBooking.bind(this));
 
-    // this.listenTo(this.model.comments(), 'add', this.addComment);
-    // this.model.comments().each(this.addComment.bind(this));
+    this.listenTo(this.model.comments(), 'add', this.addComment);
+    this.model.comments().each(this.addComment.bind(this));
 
     this.addMap();
   },
@@ -20,11 +20,12 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     'click .editSitterInfo': 'redirectToEdit'
   },
 
-  template: function() {
-    if(this.model.get('user_id') === this.model.get('current_user_id')) {
-      return JST["sitters/show_profile"];
+  template: function(options) {
+
+    if (this.model.get('current_user_id') && (this.model.get('user_id') === this.model.get('current_user_id')) ) {
+      return JST["sitters/show_profile"](options);
     } else {
-      return JST["sitters/show"];
+      return JST["sitters/show"](options);
     }
   },
 
@@ -38,12 +39,12 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
   },
 
   addComment: function (comment) {
-    var subview = new DogSittingApp.Views.SitterCommentShow({
+    var subview = new DogSittingApp.Views.CommentShow({
       collection: this.model.comments(),
       model: comment
     });
 
-    this.addSubview('.sitter_comments', subview.render());
+    this.addSubview('.sitterComments', subview);
   },
 
   removeSitter: function(event) {

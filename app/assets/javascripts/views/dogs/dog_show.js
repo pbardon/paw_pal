@@ -24,6 +24,15 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
     this.addSubview('.dog_bookings', subview.render());
   },
 
+  addComment: function (comment) {
+    var subview = new DogSittingApp.Views.CommentShow({
+      collection: this.model.comments(),
+      model: comment
+    });
+
+    this.addSubview('.dogComments', subview);
+  },
+
   redirectToDogEdit: function(event){
     data = $(event.currentTarget).data('id');
     Backbone.history.navigate('#/dogs/'+ data +'/edit', {trigger: true})

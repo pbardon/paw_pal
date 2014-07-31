@@ -1,4 +1,4 @@
-DogSittingApp.Views.DogBookingShow = Backbone.View.extend({
+DogSittingApp.Views.DogBookingShow = Backbone.CompositeView.extend({
   template: JST['bookings/dog_booking_show'],
 
   initialize: function(options) {
@@ -18,7 +18,20 @@ DogSittingApp.Views.DogBookingShow = Backbone.View.extend({
 
   events: {
     'click .thumbnail': 'showLargePhoto',
-    'click .bigImage': 'closeImage'
+    'click .bigImage': 'closeImage',
+    'click #commentOnBooking': 'addCommentForm'
+  },
+
+  addCommentForm: function(event) {
+    event.preventDefault();
+    var commentForm = new DogSittingApp.Views.NewComment({
+      model: this.model,
+      collection: DogSittingApp.Collections.dogcomments
+    });
+
+    $(event.currentTarget).replaceWith('<div class="newCommentForm"></div>');
+
+    this.addSubview('.newCommentForm', commentForm);
   },
 
   showLargePhoto: function(event) {
@@ -44,6 +57,8 @@ DogSittingApp.Views.DogBookingShow = Backbone.View.extend({
     });
 
     this.$el.html(renderedContent);
+
+    this.attachSubviews();
 
     return this;
   }

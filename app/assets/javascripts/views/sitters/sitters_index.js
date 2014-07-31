@@ -133,21 +133,6 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
         mapOptions);
     this.placeMarkers();
 
-
-
-    function fireIfLastEvent(){
-      if (lastEvent.getTime() + 500 <= new Date().getTime())
-        {
-        view.changeBounds.bind(view);
-      }
-    }
-
-    function scheduleDelayedCallback(){
-      lastEvent = new Date();
-      setTimeout(fireIfLastEvent, 500);
-    }
-
-
     $(window).load(function() {
       google.maps.event.addListener(view.map, "bounds_changed", view.changeBounds.bind(view));
     });

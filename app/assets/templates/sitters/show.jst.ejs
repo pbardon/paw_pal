@@ -1,17 +1,7 @@
-<% if (sitter.get('current_user_id') === sitter.get('user_id')) { %>
-  <% var logged_in = true; %>
-<% }else { %>
-  <% var logged_in = false; %>
-<% }%>
-
 <div class="sitterShowInfo row">
 
   <div class="sitterInfo">
-    <% if (logged_in) { %>
-      <button class="removeSitterAccount btn btn-danger">Remove Sitter Listing</button>
-      <% }else { %>
-        <button class="bookNow btn btn-success">Book Now!</button>
-      <% } %>
+      <button class="bookNow btn btn-success">Book Now!</button>
     <div class="sitterShowImage col-xs-3">
       <img class="img-responsive" src="<%= sitter.get('sitter_photo_large') %>">
     </div>
@@ -27,20 +17,13 @@
         <li>Accepts Small Dogs? <%= (sitter.get('small')) ? "Yes" : "No" %></li>
         <li>Accepts Medium Dogs? <%= (sitter.get('medium')) ? "Yes" : "No" %></li>
         <li>Accepts Large Dogs? <%= (sitter.get('large')) ? "Yes" : "No" %></li>
-        <% if (logged_in) { %>
-            <button class="btn btn-primary editSitterInfo" data-id="<%= sitter.escape('id') %>">Edit Sitter Information </button>
-        <%  }  %>
+
         </li>
       </ul>
     </div>
 
     <div class="lowerContent row">
-      <% if(logged_in) { %>
-        <div class="sitter_bookings col-xs-12">
 
-        </div>
-
-      <% } %>
 
 
       <!-- <div class="mapWrapper col-xs-5 col-xs-offset-1">

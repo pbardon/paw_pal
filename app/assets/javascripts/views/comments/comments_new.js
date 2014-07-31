@@ -1,4 +1,4 @@
-DogSittingApp.Views.NewDogComment = Backbone.View.extend({
+DogSittingApp.Views.NewComment = Backbone.View.extend({
 
   initialize: function(options) {
 
