@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  validates :commentable_id, :commentable_type, :user_id, :comment_date, :rating, :comment, presence: true
+  validates :commentable_id, :commentable_type, :user_id, :comment_date, :rating, :content, presence: true
 
   belongs_to :user
 

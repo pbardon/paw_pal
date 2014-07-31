@@ -20,7 +20,13 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     'click .editSitterInfo': 'redirectToEdit'
   },
 
-  template: JST["sitters/show"],
+  template: function() {
+    if(this.model.get('user_id') === this.model.get('current_user_id')) {
+      return JST["sitters/show_profile"];
+    } else {
+      return JST["sitters/show"];
+    }
+  },
 
   addBooking: function (booking) {
     var subview = new DogSittingApp.Views.SitterBookingShow({
@@ -97,7 +103,6 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    debugger;
     var renderedContent = this.template({
       sitter: this.model
     });

@@ -1,6 +1,7 @@
 module Api
   class DogsController < ApplicationController
     wrap_parameters :dog, include: [:name, :age, :description, :size, :dog_photo]
+
     def create
       @dog = current_user.dogs.new(dog_params)
 

@@ -1,4 +1,4 @@
-DogSittingApp.Collections.SitterComments = Backbone.Collection.extend({
+DogSittingApp.Collections.DogComments = Backbone.Collection.extend({
 
   url: "api/comments",
 
@@ -23,4 +23,5 @@ DogSittingApp.Collections.SitterComments = Backbone.Collection.extend({
 
 });
 
-DogSittingApp.Collections.sittercomments = new DogSittingApp.Collections.SitterComments();
+
+DogSittingApp.Collections.dogcomments = new DogSittingApp.Collections.DogComments();

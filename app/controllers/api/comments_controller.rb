@@ -1,5 +1,7 @@
 module Api
   class CommentsController  < ApplicationController
+    wrap_parameters :comment, include: [:commentable_id, :commentable_type, :content, :rating]
+
     def index
       @comments = Comment.all
 
@@ -17,12 +19,13 @@ module Api
     end
 
     def create
-      @comment = Comment.new(sitter_comment_params)
+      debugger;
+      @comment = Comment.new(comment_params)
 
-      @comment.user_id = current_user
+      @comment.user_id = current_user.id
       time = Time.now
       @comment.comment_date = "#{time.day}/#{time.month}/#{time.year}"
-      if @comment.save!
+      if @comment.save
         render json: @comment
       else
         render json: @comment.errors.full_messages, status: :unprocessable_entity
@@ -42,7 +45,7 @@ module Api
     private
 
     def comment_params
-      params.require(:comment).permit(:sitter_id, :comment, :rating)
+      params.require(:comment).permit(:commentable_id, :commentable_type, :content, :rating)
     end
   end
 end
