@@ -47,7 +47,19 @@ module Api
 
     def show
       @sitter = Sitter.find(params[:id])
+      if @sitter
+        i = 0
+        sum = 0
+        @sitter.comments.each do |comment|
+          sum += comment.rating
+          i += 1
+        end
+        @sitter.avg_rating = sum/i
+        @sitter.save
+      end
+
       @current_user = current_user
+
       render "sitters/show"
     end
 

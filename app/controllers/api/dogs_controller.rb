@@ -19,6 +19,16 @@ module Api
 
     def show
       @dog = Dog.find(params[:id]);
+      if @dog
+        i = 1
+        sum = 0
+        @dog.comments.each do |comment|
+          sum += comment.rating
+          i += 1
+        end
+        @dog.avg_rating = sum/i
+        @dog.save
+      end
       @current_user = current_user
       render "dogs/show"
     end
