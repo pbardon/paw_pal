@@ -33,7 +33,6 @@ DogSittingApp.Views.DogForm = Backbone.View.extend({
   },
 
   submit: function (event) {
-    debugger;
     event.preventDefault();
     $('.addSubmit').replaceWith('<img class="addSubmit" src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/loading.gif">');
     var data = $(event.currentTarget).serializeJSON();
