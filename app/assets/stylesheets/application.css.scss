@@ -198,8 +198,8 @@ body, html ul {
 
 #map-canvas {
   margin-top: 10%;
-  width:600px;
-  height:600px;
+  width:100%;
+  height:100%;
 }
 
 .sitterIndexImg img {
@@ -533,4 +533,38 @@ a.dropdown-toggle {
 .dogBooking {
   padding-left: 0%;
   padding-right: 0%;
+}
+
+
+.frontPageWrapper {
+  position: relative;
+}
+
+.mapWrapper {
+  position: absolute;
+  width: 40%;
+  min-height: 700px;
+}
+
+.sitterIndexWrapper {
+  position: absolute;
+  width: 75%;
+  margin-left: 50%;
+
+}
+.frontPageWrapper .sitterIndexWrapper .sitterIndex .row .sitterItem {
+  margin-left: 45%;
+  width: 55%;
+}
+
+#sitterShowPrice {
+  font-size: 20px;
+}
+
+.sitterIndex p{
+  margin-left: 45%;
+}
+
+.sitterIndex h2{
+  margin-left: 45%;
 }

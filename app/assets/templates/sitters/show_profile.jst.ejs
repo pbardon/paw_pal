@@ -15,13 +15,13 @@
       <h2><%= sitter.escape('sitter_name') %></h2>
 
       <ul>
-        <li>Price per Night: <%= sitter.escape('price') %></li>
-        <li>Description:
+        <li><h4>Price per Night:</h4><span id="sitterShowPrice">$<%= sitter.escape('price') %></span></li>
+        <li><h4>Description:</h4>
           <p class="sitter-description"><%= sitter.escape('description') %></p>
         </li>
-        <li>Accepts Small Dogs? <%= (sitter.escape('small')) ? "Yes" : "No" %></li>
-        <li>Accepts Medium Dogs? <%= (sitter.escape('medium')) ? "Yes" : "No" %></li>
-        <li>Accepts Large Dogs? <%= (sitter.escape('large')) ? "Yes" : "No" %></li>
+        <li>Accepts Small Dogs? <%= (sitter.escape('small')) ? "✓" : "✖" %></li>
+        <li>Accepts Medium Dogs? <%= (sitter.escape('medium')) ? "✓" : "✖" %></li>
+        <li>Accepts Large Dogs? <%= (sitter.escape('large')) ? "✓" : "✖" %></li>
       </ul>
     </div>
 
