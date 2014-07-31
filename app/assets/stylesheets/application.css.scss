@@ -146,10 +146,6 @@ body {
   padding: 25%;
 }
 
-.removeSitterAccount {
-  float: right;
-}
-
 .bookNow {
   float: right;
 }
@@ -164,20 +160,24 @@ body {
 }
 
 .sitterItem {
-  min-width: 500px;
-  margin: 5px 5px;
-  border: thin solid black;
-  border-radius: 3px;
-  position: relative;
-  background-color: #EBEAE5;
-  opacity: 1;
-  // box-shadow: 5px 5px 2px #0D3D0C;
-  min-height: 200px;
+  // min-width: 500px;
+  // margin: 5px 5px;
+  // // border: thin solid black;
+  // border-radius: 3px;
+  // position: relative;
+  // background-color: #EBEAE5;
+  // opacity: 1;
+  // // box-shadow: 5px 5px 2px #0D3D0C;
+  // min-height: 200px;
 }
 
 .sitterItem> img {
   position: absolute;
   display: inline-block;
+}
+
+#sitterIndexWrapper .sitterItem .panel-heading {
+  padding: 0px;
 }
 
 .sitter_item> li {
@@ -186,8 +186,8 @@ body {
 }
 
 .sitterItem > .sitterInfoButton > .moreInfo {
-  margin-top: 10px;
-  margin-left: 10%;
+  margin-bottom: 5%;
+
 }
 
 
@@ -200,19 +200,23 @@ body {
 }
 
 .container {
-  padding: 5%;
+
 }
 
-html, body, #map-canvas {
-  margin: 0px;
-  padding: 0px
+
+
+#map-canvas {
+  margin-top: 10%;
+  width:600px;
+  height:600px;
 }
 
 .sitterIndexImg img {
-  max-width: 100px;
-  max-height: auto;
+  max-width: 400px;
+  min-width: 400px;
+  min-height: auto;
   border-radius: 5px;
-  margin-top: 10%;
+  margin-left: 5px;
 
 }
 
@@ -237,8 +241,8 @@ html, body, #map-canvas {
 }
 
 .sitterShow #map-canvas {
-  height: 400px;
-  width: 400px;
+  height: 650px;
+  width: 650px;
   margin-top: 5%;
   position: fixed;
   margin-right: 5%;
@@ -392,9 +396,6 @@ a.dropdown-toggle {
   width: 400px;
 }
 
-.lowerContent .mapWrapper {
-  margin-top: -20px;
-}
 
 .dogBooking {
   border: thin solid black;
@@ -494,7 +495,7 @@ a.dropdown-toggle {
 }
 
 .lowerContent {
-  margin-top: 5%;
+  margin-top: 20%;
 }
 
 .dogShowContent {
@@ -520,4 +521,12 @@ a.dropdown-toggle {
 .navbar-brand .sitename a a:hover, a:visited, a:link, a:active{
   font-size: 45px;
   text-decoration: none;
+}
+
+.sitterProfileButtons {
+  float: right;
+}
+
+.sitterShowContent {
+  padding-left: 5%;
 }

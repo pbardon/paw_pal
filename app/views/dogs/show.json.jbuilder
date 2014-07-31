@@ -1,5 +1,7 @@
 json.partial!("dogs/dog", dog: @dog)
 
+json.current_user_id(@current_user.id)
+
 json.bookings do
   json.array!(@dog.bookings) do |booking|
     json.(booking, :sitter_id, :dog_id, :date_start, :date_end, :message, :confirmed, :completed)

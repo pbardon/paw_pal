@@ -1,9 +1,14 @@
 DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
-  template: JST['dogs/show'],
+
+
+  events: {
+    'click .removeDog': 'removeDog',
+    'click .editDogInfo': 'redirectToDogEdit'
+  },
 
   initialize: function() {
     var view = this;
-    this.listenTo(this.model, 'add', this.render);
+    this.listenTo(this.model, 'sync add', this.render);
     this.listenTo(this.model.bookings(), 'add', this.addBooking);
 
 
@@ -11,10 +16,28 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
 
   },
 
-  events: {
-    'click .removeDog': 'removeDog',
-    'click .editDogInfo': 'redirectToDogEdit'
+
+  template: function(options) {
+    debugger;
+    if (this.model.get('current_user_id') && this.model.get('owner_id') === this.model.get('current_user_id')) {
+      return JST['dogs/show_private'](options);
+    }else {
+      return JST['dogs/show_public'](options);
+    }
   },
+
+  addCommentForm: function(event) {
+    event.preventDefault();
+    var commentForm = new DogSittingApp.Views.NewComment({
+      model: this.model,
+      collection: DogSittingApp.Collections.dogcomments
+    });
+
+    $(event.currentTarget).replaceWith('<div class="newCommentForm"></div>');
+
+    this.addSubview('.newCommentForm', commentForm);
+  },
+
 
   addBooking: function (booking) {
     var subview = new DogSittingApp.Views.DogBookingShow({
@@ -40,7 +63,6 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
 
 
   render: function() {
-
     var renderedContent = this.template({
       dog: this.model
     });

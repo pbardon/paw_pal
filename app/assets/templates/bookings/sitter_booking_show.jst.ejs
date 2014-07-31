@@ -1,7 +1,9 @@
 <div class="sitterBooking panel panel-info" data-id="<%= booking.get('id') %>">
 
+  <div class=panel-heading>
+    <h4>Booking: <%= dog.escape('name') %></h4>
+  </div>
 
-    <h4 class="panel-heading">Booking: <%= dog.escape('name') %></h4>
 
 
 
@@ -22,17 +24,6 @@
           </div>
         </div>
 
-
-
-
-    <% if (booking.get('completed')) { %>
-
-      <div class="col-xs-4">
-  
-        <button id="commentOnBooking" data-dog-id="<%= dog.escape('id') %>"> Comment on Dog </h3>
-      </div>
-
-    <% }else { %>
 
       <div class="col-xs-4">
 
@@ -60,20 +51,15 @@
       <% } %>
       </div>
 
-    <%  } %>
 
 
 
       <div class="col-xs-4">
-
-        <img class="thumbnail" src="<%= dog.get('dog_photo_small') %>">
         <div style="color: blue">Click to expand picture</div>
+        <img class="thumbnail" src="<%= dog.get('dog_photo_small') %>">
 
       </div>
 
-      <button id="#commentOnBooking">
-
-      </d>
 
 
   </div>

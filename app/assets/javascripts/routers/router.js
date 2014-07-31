@@ -27,7 +27,6 @@ DogSittingApp.Routers.Router = Backbone.Router.extend({
 
   dogShow: function(id) {
     var dog = DogSittingApp.Collections.dogs.getOrFetch(id);
-
     var showDogView = new DogSittingApp.Views.DogShow({
       model: dog
     });

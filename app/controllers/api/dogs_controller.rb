@@ -19,6 +19,7 @@ module Api
 
     def show
       @dog = Dog.find(params[:id]);
+      @current_user = current_user
       render "dogs/show"
     end
 

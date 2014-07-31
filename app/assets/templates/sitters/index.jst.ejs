@@ -3,29 +3,32 @@
 
   <!-- </div> -->
 
-  <form>
-    <label for="searchBar">Search For Dog Sitters:</label>
-    <div class="input-append searchBar">
-      <input type="text" id="searchParams" placeholder="Enter an address"/>
 
-      <button type="submit" id="search" class="btn btn-success">Search!</button>
-    </div>
-  </form>
 
   <div class="row">
 
-  <div class="map-wrapper col-md-3 hidden-sm">
+  <div class="map-wrapper col-md-12 col-lg-5">
 
-    <div id="map-canvas" style="margin-top: 10%;width:450px;height:450px;">
+    <div id="map-canvas">
 
     </div>
+
+    <form>
+
+      <div class="input-append searchBar">
+        <label for="searchBar">Search For Dog Sitters:</label>
+        <input type="text" id="searchParams" placeholder="Enter an address"/>
+
+        <button type="submit" id="search" class="btn btn-success">Search!</button>
+      </div>
+    </form>
     <br>
   </div>
 
   <div id="sitterIndexWrapper col-xs-12">
     <h2 style="margin-left: 40%;"> Sitter Listings: </h2>
 
-    <div class="sitterIndex col-xs-7 col-xs-offset-2"
+    <div class="sitterIndex col-md-12 col-lg-7"
     </div>
   </div>
 

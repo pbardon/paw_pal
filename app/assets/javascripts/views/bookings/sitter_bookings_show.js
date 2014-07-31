@@ -1,12 +1,4 @@
 DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
-  template: JST['bookings/sitter_booking_show'],
-  // function() {
-    // if(this.model.get('completed')) {
-    //   // return completed template
-    // } else {
-    //   return JST['bookings/sitter_booking_show']
-    // }
-
 
   initialize: function(options) {
     this.listenTo(this.model, "sync", this.render);
@@ -14,9 +6,11 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
 
     this.dog = DogSittingApp.Collections.dogs.getOrFetch(this.model.get('dog_id'));
 
-    this.listenTo(this.dog, 'sync', this.render)
+    this.listenTo(this.dog, 'sync', this.render);
 
   },
+
+  template: JST['bookings/sitter_booking_show'],
 
   events: {
     'click .confirmBooking': "confirmBooking",
@@ -28,7 +22,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
 
   addCommentForm: function(event) {
     event.preventDefault();
-    var commentForm = new DogSittingApp.Views.NewComment({
+    var commentForm = new DogSittingApp.Views.NewDogComment({
       model: this.model,
       collection: DogSittingApp.Collections.dogcomments
     });
@@ -90,6 +84,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
 
 
   render: function() {
+    debugger;
     var renderedContent = this.template({
       booking: this.model,
       dog: this.dog
