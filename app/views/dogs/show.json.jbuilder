@@ -10,6 +10,6 @@ end
 
 json.comments do
   json.array!(@dog.comments) do |comment|
-    json.(booking, :rating, :content, :date, :comment_date)
+    json.(comment, :rating, :content, :comment_date)
   end
 end

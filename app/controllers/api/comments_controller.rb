@@ -19,7 +19,6 @@ module Api
     end
 
     def create
-      debugger;
       @comment = Comment.new(comment_params)
 
       @comment.user_id = current_user.id

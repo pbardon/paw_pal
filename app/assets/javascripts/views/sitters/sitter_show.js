@@ -9,6 +9,8 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     this.listenTo(this.model.comments(), 'add', this.addComment);
     this.model.comments().each(this.addComment.bind(this));
 
+    this.listenTo(this.model.comments(), 'add', this.render);
+
     this.addMap();
   },
 
@@ -17,7 +19,10 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
   events: {
     'click .removeSitterAccount': 'removeSitter',
     'click .bookNow': 'redirectToBooking',
-    'click .editSitterInfo': 'redirectToEdit'
+    'click .editSitterInfo': 'redirectToEdit',
+    'click #commentOnSitter': 'addCommentForm',
+    'click #addCommentButton': 'addNewComment'
+
   },
 
   template: function(options) {
@@ -36,6 +41,41 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     });
 
     this.addSubview('.sitter_bookings', subview.render());
+  },
+
+  addCommentForm: function(event) {
+    event.preventDefault();
+    var commentForm = new DogSittingApp.Views.NewComment({
+      model: this.model,
+      collection: DogSittingApp.Collections.sittercomments
+    });
+
+    $(event.currentTarget).replaceWith('<div class="newCommentForm"></div>');
+
+    this.addSubview('.newCommentForm', commentForm);
+  },
+
+  addNewComment: function(event) {
+    var view = this;
+    event.preventDefault();
+    var data = $('#newCommentForm').serializeJSON();
+    data['commentable_type'] = "Sitter";
+    data['commentable_id'] = this.model.get('id');
+    var comment = new DogSittingApp.Models.Comment(data);
+    DogSittingApp.Collections.sittercomments.create(comment, {
+      success: function() {
+        view.model.comments().add(comment);
+        $(event.currentTarget).replaceWith('<button id="commentOnSitter" class="btn btn-info">Add Comment</button>');
+
+      },
+      error: function(model, error) {
+        $('.alert').remove();
+        _(error.responseJSON).each(function(error){
+          $(event.currentTarget).prepend('<div class="alert alert-danger">'+ error +'</div>');
+        });
+      }
+    });
+
   },
 
   addComment: function (comment) {

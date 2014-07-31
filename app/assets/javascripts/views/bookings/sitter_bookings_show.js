@@ -20,17 +20,6 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
     'click #commentOnBooking': 'addCommentForm'
   },
 
-  addCommentForm: function(event) {
-    event.preventDefault();
-    var commentForm = new DogSittingApp.Views.NewDogComment({
-      model: this.model,
-      collection: DogSittingApp.Collections.dogcomments
-    });
-
-    $(event.currentTarget).replaceWith('<div class="newCommentForm"></div>');
-
-    this.addSubview('.newCommentForm', commentForm);
-  },
 
   showLargePhoto: function(event) {
     $ct = $(event.currentTarget)
@@ -84,7 +73,6 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
 
 
   render: function() {
-    debugger;
     var renderedContent = this.template({
       booking: this.model,
       dog: this.dog

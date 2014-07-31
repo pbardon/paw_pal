@@ -3,13 +3,20 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
 
   events: {
     'click .removeDog': 'removeDog',
-    'click .editDogInfo': 'redirectToDogEdit'
+    'click .editDogInfo': 'redirectToDogEdit',
+    'click #commentOnDog': 'addCommentForm',
+    'click #addCommentButton': 'addNewComment'
   },
 
   initialize: function() {
     var view = this;
     this.listenTo(this.model, 'sync add', this.render);
     this.listenTo(this.model.bookings(), 'add', this.addBooking);
+
+    this.listenTo(this.model.comments(), 'add', this.addComment);
+    this.model.comments().each(this.addComment.bind(this));
+
+    this.listenTo(this.model.comments(), 'add', this.render);
 
 
     $('.dog_bookings').empty();
@@ -18,7 +25,6 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
 
 
   template: function(options) {
-    debugger;
     if (this.model.get('current_user_id') && this.model.get('owner_id') === this.model.get('current_user_id')) {
       return JST['dogs/show_private'](options);
     }else {
@@ -29,13 +35,34 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
   addCommentForm: function(event) {
     event.preventDefault();
     var commentForm = new DogSittingApp.Views.NewComment({
-      model: this.model,
-      collection: DogSittingApp.Collections.dogcomments
     });
 
     $(event.currentTarget).replaceWith('<div class="newCommentForm"></div>');
 
     this.addSubview('.newCommentForm', commentForm);
+  },
+
+  addNewComment: function(event) {
+    var view = this;
+    event.preventDefault();
+    var data = $('#newCommentForm').serializeJSON();
+    data['commentable_type'] = "Dog";
+    data['commentable_id'] = this.model.get('id');
+    var comment = new DogSittingApp.Models.Comment(data);
+    DogSittingApp.Collections.dogcomments.create(comment, {
+      success: function() {
+        view.model.comments().add(comment);
+        $(event.currentTarget).replaceWith('<button id="commentOnSitter" class="btn btn-info">Add Comment</button>');
+
+      },
+      error: function(model, error) {
+        $('.alert').remove();
+        _(error.responseJSON).each(function(error){
+          $(event.currentTarget).prepend('<div class="alert alert-danger">'+ error +'</div>');
+        });
+      }
+    });
+
   },
 
 
