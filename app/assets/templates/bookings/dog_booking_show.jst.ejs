@@ -17,7 +17,7 @@
           <td><%= booking.escape('date_start') %> </td>
           <td><%= booking.escape('date_end') %> </td>
           <td>
-            <% if (booking.confirmed) { %>
+            <% if (booking.get('confirmed')) { %>
               <span style="color:#3EFF1F">Confirmed</span>
             <% }else { %>
               <span style="color:#FFE745">Pending</span>
@@ -29,7 +29,7 @@
         </tr>
       </table>
 
-      <% if (booking.confirmed) { %>
+      <% if (booking.get('confirmed')) { %>
         <div class="sitterAddress">
           <%= sitter.escape('street_address') %>
           <%= sitter.escape('city') %>, <%= sitter.escape('state') %>

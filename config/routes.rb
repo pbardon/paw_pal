@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :bookings, only: [:index]
     end
 
-    resources :bookings, only: [:create, :destroy]
+    resources :bookings, only: [:create, :destroy, :update]
 
     resources :sitter_comments, only: [:create, :index, :show, :destroy]
 

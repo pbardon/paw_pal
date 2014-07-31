@@ -51,11 +51,6 @@ body, html ul {
 }
 
 
-body {
-  padding-top: 70px;
-
-}
-
 #button-spacer {
   width: 5px;
 }
@@ -509,10 +504,10 @@ a.dropdown-toggle {
 }
 
 
-.navbar-brand .sitename a a:hover, a:visited, a:link, a:active{
-  font-size: 45px;
-  text-decoration: none;
-}
+// .navbar-brand .sitename a a:hover, a:visited, a:link, a:active{
+//   font-size: 45px;
+//   text-decoration: none;
+// }
 
 .sitterProfileButtons {
   float: right;
@@ -529,4 +524,13 @@ a.dropdown-toggle {
 
 .privateDogButtons {
   float: right;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.dogBooking {
+  padding-left: 0%;
+  padding-right: 0%;
 }

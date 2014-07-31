@@ -34,7 +34,7 @@ DogSittingApp.Views.DogBookingShow = Backbone.CompositeView.extend({
   },
 
   render: function() {
-
+    debugger;
     var renderedContent = this.template({
       booking: this.model,
       sitter: this.sitter

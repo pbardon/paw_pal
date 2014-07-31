@@ -47,7 +47,6 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
         var data_id = $('.confirmDiv').data('id');
         $('.confirmDiv').remove();
         $('.denyDiv').remove();
-        debugger;
         $(".sitterBooking[data-id='" + data_id +"']").append('<h2> Booking Confirmed </h2>');
       }, errors: function(jq, status, message) {
         $('.sitterBooking').prepend("<div class='alert alert-warning'>"+ message + "</div>")
