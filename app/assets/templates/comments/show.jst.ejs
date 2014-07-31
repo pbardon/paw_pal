@@ -1,9 +1,36 @@
-<div class="commentContent">
+<div class="commentContent panel panel-warning">
+
+  <div id="commentRating panel-heading">
+
+      <h4> Rating: </h4>
+      <% if  (comment.escape('rating') >= 4.9) { %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/fivepaws3.png" alt="" />
+
+      <% } else if ((comment.escape('rating') >= 4.5)) { %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/fourpointfivepaws.png" alt="" />
+      <% } else if (comment.escape('rating') >= 4){ %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/fourpaws.png" alt="" />
+      <% } else if (comment.escape('rating') >= 3.5){ %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/threepointfivepaws.png" alt="" />
+      <% } else if (comment.escape('rating') >= 3){ %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/threepaws.png" alt="" />
+      <% } else if (comment.escape('rating') >= 2.5){ %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/twopointfivepaws.png" alt="" />
+      <% } else if (comment.escape('rating') >= 2){ %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/twopaws.png" alt="" />
+      <% } else if (comment.escape('rating') >= 1.5){ %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/onepointfivepaws.png" alt="" />
+      <% } else if (comment.escape('rating') >= 1) { %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/onepaw.png" alt="" />
+      <% } else if (comment.escape('rating') >= 1.5){ %>
+        <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/rating_paws/halfpaw.png" alt="" />
+      <% } else { %>
+        Sitter not rated.
+      <%  } %>
+  </div>
+
   <div id="comment">
     <%= comment.escape('content') %>
   </div>
 
-  <div id="commentRating">
-    <%= comment.escape('rating') %>
-  </div>
 </div>

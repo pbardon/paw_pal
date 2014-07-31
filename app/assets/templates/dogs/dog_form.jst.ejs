@@ -7,54 +7,70 @@
 
 <% } %>
 
-<form id="newDogForm" >
+<form id="newDogForm">
 
-  <label for="dogName">Name: </label>
-  <input type="text" class="form-control" name="name" id="dogName" value="<%= dog.escape('name') %>">
+  <div class="class="form-control"">
+
+    <div class="errors">
+
+    </div>
 
 
-  <label for="dogAge">Age: </label>
-  <input type="text" class="form-control" name="age" id="dogAge"  value="<%= dog.escape('name') %>">
+    <div class="form-group">
 
-  <label for="dogDescription">Description:</label>
-  <textarea class="form-control" name="description" id="dogDescription" value="<%= dog.escape('name') %>"></textarea>
-  <br>
-  <br>
-  <label for="dogSize">Size:</label>
-  <select name="size" id="dogSize">
+      <label for="dogName">Name: </label>
+      <input type="text" class="form-control" name="name" id="dogName" value="<%= dog.escape('name') %>">
 
-    <option <%= (dog.escape('size') === 'small') ? 'selected' : '' %> value='small'>Small</option>
-    <option <%= (dog.escape('size') === 'medium') ? 'selected' : '' %> value='medium'>Medium</option>
-    <option <%= (dog.escape('size') === 'large') ? 'selected' : '' %> value='large'>Large</option>
-  </select>
-  <br>
-  <br>
-  <% if (typeof (dog.get('dog_photo_small')) === 'undefined') { %>
+    </div>
 
-  <label for="addPic">Add A Picture of Your Dog:</label>
-  <br>
-  <input type="file" name="dog_photo" id="addPic">
 
-  <% }else { %>
+    <div class="form-group">
+      <label for="dogAge">Age: </label>
+      <input type="text" class="form-control" name="age" id="dogAge"  value="<%= dog.escape('name') %>">
+    </div>
 
-    <label for="addPic">Change Dog Picture:</label>
+    <div class="form-group">
+      <label for="dogDescription">Description:</label>
+      <textarea class="form-control" name="description" id="dogDescription" value="<%= dog.escape('name') %>"></textarea>
+    </div>
+    <br>
+    <br>
+
+    <div class="form-group">
+      <label for="dogSize">Size:</label>
+      <select name="size" id="dogSize">
+        <option <%= (dog.escape('size') === 'small') ? 'selected' : '' %> value='small'>Small</option>
+        <option <%= (dog.escape('size') === 'medium') ? 'selected' : '' %> value='medium'>Medium</option>
+        <option <%= (dog.escape('size') === 'large') ? 'selected' : '' %> value='large'>Large</option>
+      </select>
+
+    </div>
+    <br>
+    <br>
+    <% if (dog.get('id')) { %>
+      <button type='submit' class='addSubmit btn btn-primary'>Edit Dog</button>
+    <% }else { %>
+      <button type='submit' class='addSubmit btn btn-success'>Add Dog</button>
+    <%  } %>
+
+
+
+    <% if (typeof (dog.get('dog_photo_small')) === 'undefined') { %>
+
+    <label for="addPic">Add A Picture of Your Dog:</label>
     <br>
     <input type="file" name="dog_photo" id="addPic">
 
+    <% }else { %>
 
-  <% } %>
-
-  <% if (dog.get('id')) { %>
-    <button type='submit' class='addSubmit btn btn-primary'>Edit Dog</button>
-  <% }else { %>
-    <button type='submit' class='addSubmit btn btn-success'>Add Dog</button>
-  <%  } %>
+      <label for="addPic">Change Dog Picture:</label>
+      <br>
+      <input type="file" name="dog_photo" id="addPic">
 
 
-  <br>
-  <br>
+    <% } %>
 
 
-
+  </div>
 
 </form>

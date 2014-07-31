@@ -1,12 +1,12 @@
 <div class="dogShowInfo">
 
 
-  <h1><%= dog.escape('name') %>
+  <h2 id="dogProfileName"><%= dog.escape('name') %>
     <span class="privateDogButtons">
       <button class="editDogInfo btn btn-primary" data-id="<%= dog.escape('id') %>">Edit Dog Information</button>
       <button class="removeDog btn btn-danger">Remove Dog Profile</button>
     </span>
-  </h1>
+  </h2>
 
   <div class="row">
     <div class="dogShowPic col-xs-3">
@@ -15,7 +15,7 @@
 
 
     <div class='dogShowContent col-xs-6'>
-      <h2><strong>Description:</strong></h2>
+      <h2 style = "margin-top: 0px;">Description:</h2>
       <div id="dogDescription">
         <%= dog.escape('description') %>
       </div
@@ -36,4 +36,12 @@
   </div>
 </div>
 
+</div>
+
+<div class="row">
+  <h3> Comments: </h3>
+
+  <div class="dogComments row">
+
+  </div>
 </div>

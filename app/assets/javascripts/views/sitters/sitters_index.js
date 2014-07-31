@@ -16,6 +16,8 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     "click .moreInfo": 'showInfo'
   },
 
+  className: "frontPageWrapper",
+
   template: JST["sitters/index"],
 
   addSitterIndex: function(){

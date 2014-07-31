@@ -34,6 +34,8 @@ DogSittingApp.Views.NewComment = Backbone.View.extend({
       error: function(model, error) {
         $('.alert').remove();
         _(error.responseJSON).each(function(error){
+
+          $('#newCommentForm').addClass('.has-error')
           $(event.currentTarget).prepend('<div class="alert alert-danger">'+ error +'</div>');
         });
       }

@@ -51,7 +51,7 @@ DogSittingApp.Views.DogForm = Backbone.View.extend({
           $('.alert').remove();
           $('.addSubmit').replaceWith("<button type='submit' class='addSubmit btn btn-primary'>Add Dog</button>");
           _(error.responseJSON).each(function(error){
-            $('#newDogForm').prepend('<div class="alert alert-danger">'+ error +'</div>');
+            $('.errors').prepend('<div class="alert alert-danger">'+ error +'</div>');
           });
         }
       });

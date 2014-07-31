@@ -21,8 +21,12 @@
 
 body, html * {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  scrollbar-track-color: #EBEAE5;
+  // scrollbar-track-color: #EBEAE5;
+  // height:100%;
+}
 
+body, html {
+  height: 100%;
 }
 
 body, html * h2 {
@@ -32,6 +36,11 @@ body, html * h2 {
 .backdrop {
   background-image: url('https://s3-us-west-1.amazonaws.com/pet-sitter-development/Bones-Seamless-Patterns2.jpg');
   background-size: 2400px;
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
 }
 
@@ -44,6 +53,8 @@ body, html ul {
   background-color: #FFFFFF;
   // box-shadow: 40px 0 40px -4px #CBFFBA, -40px 0 40px -4px #CBFFBA;
 }
+
+
 
 
 .navbar .navbar-default {
@@ -84,13 +95,12 @@ body, html ul {
 }
 
 #newSitterForm input.addSubmit {
-  margin-left: 75%;
-  margin-top: 10%;
+  float: right;
 }
 
 .addSubmit {
-  margin-top: -4%;
-  margin-left: 80%;
+
+  float: right;
 }
 
 .form-checkbox {
@@ -98,13 +108,7 @@ body, html ul {
   margin-left: 20px;
 }
 
-.backdrop {
-  min-height: 1000px;
-}
-.container {
-  // margin-top: 5%;
-  min-height: 1000px;
-}
+
 
 .sign-in-container {
   display: none;
@@ -190,21 +194,16 @@ body, html ul {
   height: 100%;
 }
 
-.container {
-
-}
-
 
 
 #map-canvas {
-  margin-top: 10%;
   width:100%;
   height:100%;
 }
 
 .sitterIndexImg img {
-  max-width: 400px;
-  min-width: 400px;
+  max-width: 350px;
+  min-width: 300px;
   min-height: auto;
   border-radius: 5px;
   margin-left: 5px;
@@ -225,9 +224,6 @@ body, html ul {
 }
 
 .sitterShow {
-  padding-right: 5%;
-  padding-bottom: 5%;
-  min-height: 850px;
 
 }
 
@@ -253,8 +249,6 @@ body, html ul {
   padding: 15px;
   border: 3px solid black;
   border-radius: 5px;
-  margin-left: 5%;
-  margin-top: 5%;
 }
 
 .dogs{
@@ -347,13 +341,13 @@ a.dropdown-toggle {
 }
 
 #newDogForm {
-  padding-left: 10%;
-  margin-left: 25%;
-  margin-right: 25%;
+  width: 40%;
+  margin-left: 30%;
+  // margin-right: 25%;
 }
 
 .alert {
-  width: 150%;
+  width: 100%;
 }
 
 .newSitterWrapper .alert {
@@ -398,16 +392,16 @@ a.dropdown-toggle {
   // border-radius: 5px;
 }
 
-.sitterBooking img {
-  padding-top: 5px;
-  max-width: 85%;
-  max-height: auto;
-}
+// .sitterBooking img {
+//   padding-top: 5px;
+//   max-width: 85%;
+//   max-height: auto;
+// }
 
 .dogFormWrapper {
+  margin-top: 1%;
   min-height: 675px;
-  background-color: #FFFFFF;
-  border: thin solid black;
+  border: thin solid #E9EBE7;
   border-radius: 5px;
 }
 
@@ -416,7 +410,7 @@ a.dropdown-toggle {
 }
 
 .dogFormWrapper .alert {
-  max-width: 50%;
+  width: 100%
 }
 
 
@@ -424,18 +418,15 @@ a.dropdown-toggle {
   display: inline-block;
 }
 
-.dogBooking .thumbnail {
-  max-width: 100px;
-  max-height: auto;
+.smallBookingDogPic {
+  min-width: 140px;
+  height: auto;
 }
 
-.sitterBookingInformation img {
-  float: right;
-  margin-left: 75%;
-}
 
 .sitterBookingInformation .bigImage {
-  float: right;
+  max-width: 400px;
+  min-height: auto;
 }
 
 .index_price h2 {
@@ -453,9 +444,13 @@ a.dropdown-toggle {
 }
 
 .sitterIndex {
-  max-height: 750px;
   overflow-y: auto;
   overflow-x: hidden;
+  position: absolute;
+  bottom:0;
+  top: 53px;
+  left:0;
+  right:0;
 }
 
 #pawicon {
@@ -486,6 +481,7 @@ a.dropdown-toggle {
 
 .dogShowContent {
   display: inline;
+  margin-left: 3%;
 }
 
 
@@ -526,10 +522,6 @@ a.dropdown-toggle {
   float: right;
 }
 
-.container {
-  padding-top: 50px;
-}
-
 .dogBooking {
   padding-left: 0%;
   padding-right: 0%;
@@ -538,18 +530,24 @@ a.dropdown-toggle {
 
 .frontPageWrapper {
   position: relative;
+  height: 100%;
+
 }
 
-.mapWrapper {
+#mapWrapper {
   position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
   width: 40%;
-  min-height: 700px;
 }
 
-.sitterIndexWrapper {
+#sitterIndexWrapper {
   position: absolute;
-  width: 75%;
-  margin-left: 50%;
+  left: 40%;
+  top: 0;
+  right: 0;
+  bottom:0;
 
 }
 .frontPageWrapper .sitterIndexWrapper .sitterIndex .row .sitterItem {
@@ -561,10 +559,51 @@ a.dropdown-toggle {
   font-size: 20px;
 }
 
-.sitterIndex p{
-  margin-left: 45%;
+.dogBookingInfo .panel-body #dogShowPicWrapper{
+  display: inline-block !important;
 }
 
-.sitterIndex h2{
-  margin-left: 45%;
+#dogProfileName {
+  font-size: 40px;
+}
+
+.dog_bookings .panel-body {
+  padding: 0px;
+}
+
+#newCommentForm {
+  min-height: 100px;
+  width: 35%;
+  margin-left: 5%;
+}
+
+#newCommentForm .alert{
+}
+
+#addCommentButton {
+  float: right;
+}
+
+#main {
+  height: 100%;
+  padding: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.map-form {
+  position: absolute;
+  z-index: 1;
+  top: 50px;
+  left: 0;
+  right:0;
+}
+
+
+.commentsSection {
+  position: absolute;
+  width: 50%;
+  left: 25%;
 }

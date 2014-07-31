@@ -1,7 +1,7 @@
 <div class="sitterBooking panel panel-info" data-id="<%= booking.get('id') %>">
 
-  <div class=panel-heading>
-    <h4>Booking: <%= dog.escape('name') %></h4>
+  <div class="panel-heading">
+    <h2 style="margin: 0px;">Booking: <%= dog.escape('name') %></h2>
   </div>
 
 
@@ -9,61 +9,70 @@
 
   <div class="row">
 
-    <div class="dogBookingInfo">
+    <div class="dogBookingInfo panel-body">
+
+      <table class="table table-striped">
+        <tr>
+          <td>Date Start:</td>
+          <td>Date End:</td>
+          <td>Status:</td>
+        </tr>
+        <tr>
+          <td><%= booking.escape('date_start') %> </td>
+          <td><%= booking.escape('date_end') %> </td>
+          <td>
+            <% if (booking.get('confirmed')) { %>
+              <span style="color:#3EFF1F; font-size: 24px;">Confirmed</span>
+            <% }else if (booking.get('completed')) { %>
+              <span style="color:#3EFF1F; font-size: 24px;">Completed</span>
+            <% }else { %>
+              <div class="bookingConfirmation">
+                <span class="confirmDiv" data-id="<%= booking.get('id') %>"><h2>Confirm?
+                  <button class="confirmBooking btn btn-success">✓</button></h2>
+                </span>
+                <span class="denyDiv" data-id="<%= booking.get('id') %>"><h2>Deny?
+                  <button class="denyBooking btn btn-danger">✖</button></h2>
+                </span>
+              </div>
+            <% } %>
+          </td>
+
+        </tr>
+      </table>
 
 
-        <div class="col-xs-4">
+        <div class="col-xs-10 col-xs-offset-1">
 
           <div class="bookingDogInfo">
-            <div>
-              <div>Dog Size: <%= dog.escape('size') %></div>
-              <div> Message: </div>
-              <div> <%= booking.escape('message') %></div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Dog Information: <%= dog.escape('name') %>
+              </div>
+              <div id="panel-body">
+                <div class="row">
+                  <div class="col-xs-8">
+                    <h4> Message: </h4>
+                    <p> <%= booking.escape('message') %></p>
+                    <div>Dog Size: <%= dog.escape('size') %></div>
+
+
+                  </div>
+                  <div class = "col-xs-3">
+                    <div class="thumbnail" style="display: inline-block;" >
+                      <img class="smallBookingDogPic"src="<%= dog.get('dog_photo_small') %>">
+                      <div style="font-size: 10px; color: blue; padding: 5px 0px;" class="caption">
+                        Click to expand/collapse picture
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
 
-
-      <div class="col-xs-4">
-
-        <div>
-          <div>Date Start: <%= booking.escape('date_start') %> </div>
-          <div>Date End: <%= booking.escape('date_end') %> </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Message:
-            </div>
-            <div id="panel-body">
-              <%= booking.escape('message')  %>
-            </div>
-          </div
-          </div>
-        </div>
-
-      <% if (booking.get('confirmed')) { %>
-        <h3> Booking Confirmed </h3>
-      <% }else { %>
-        <div class="bookingConfirmation">
-          <div class="confirmDiv" data-id="<%= booking.get('id') %>"><h2>Confirm? <button class="confirmBooking btn btn-success">✓</button></h2></div>
-          <div class="denyDiv" data-id="<%= booking.get('id') %>"><h2>Deny? <button class="denyBooking btn btn-danger">✖</button></h2></div>
-        </div>
-      <% } %>
-      </div>
-
-
-
-
-      <div class="col-xs-4">
-        <img class="thumbnail" src="<%= dog.get('dog_photo_small') %>">
-        <div style="color: blue" class="caption">
-          Click to expand picture
-        </div>
-      </div>
-
-
-
-  </div>
 
 
   </div>

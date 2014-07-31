@@ -15,7 +15,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
   events: {
     'click .confirmBooking': "confirmBooking",
     'click .denyBooking': "denyBooking",
-    'click .thumbnail': 'showLargePhoto',
+    'click .smallBookingDogPic': 'showLargePhoto',
     'click .bigImage': 'closeImage',
     'click #commentOnBooking': 'addCommentForm'
   },
@@ -24,7 +24,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
   showLargePhoto: function(event) {
     $ct = $(event.currentTarget)
     $ct.attr('src', this.dog.get('dog_photo_large'));
-    $ct.removeClass('thumbnail');
+    $ct.removeClass('smallBookingDogPic');
     $ct.addClass('bigImage');
 
   },
@@ -33,7 +33,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
     $image = $(event.currentTarget).find('img')
     $image.attr('src', this.dog.get('dog_photo_small'));
     $image.removeClass('bigImage');
-    $image.addClass('thumbnail');
+    $image.addClass('smallBookingDogPic');
   },
 
   confirmBooking: function() {
