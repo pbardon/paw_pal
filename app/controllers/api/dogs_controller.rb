@@ -26,7 +26,7 @@ module Api
           sum += comment.rating
           i += 1
         end
-        @dog.avg_rating = sum/i
+        @dog.avg_rating = sum/i unless i == 0
         @dog.save
       end
       @current_user = current_user

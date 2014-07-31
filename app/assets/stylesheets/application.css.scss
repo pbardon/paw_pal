@@ -137,13 +137,9 @@ body {
   width: 400px;
 }
 
-.removeDog {
-  float: right;
-}
-
 .sitters {
   margin: auto;
-  padding: 25%;
+
 }
 
 .bookNow {
@@ -397,11 +393,6 @@ a.dropdown-toggle {
 }
 
 
-.dogBooking {
-  border: thin solid black;
-  border-radius: 5px;
-}
-
 .dogBooking img {
   max-width: 400px;
   max-height: auto;
@@ -532,7 +523,10 @@ a.dropdown-toggle {
 }
 
 .dogShowPhoto {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 400px;
   max-height: auto;
+}
+
+.privateDogButtons {
+  float: right;
 }

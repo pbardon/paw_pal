@@ -1,31 +1,44 @@
-<div class="dogBooking">
+<div class="dogBooking col-xs-12 panel panel-info">
 
-    <% if (sitter){ %>
+  <div class="panel-heading">
+    Sitter Name: <%= sitter.get('sitter_name') %>
+  </div>
 
+  <div class="panel-body">
 
-    <%  } else { %>
-       <div>
-         <table>
-           <th>
-             <td>Date Start:</td>
-             <td>Date End:</td>
-           </th>
-           <tr>
-             <td><%= booking.escape('date_start') %> </td>
-             <td>Date End: <%= booking.escape('date_end') %> </td>
+      <table class="table table-striped">
+        <tr>
+          <td>Date Start:</td>
+          <td>Date End:</td>
+          <td>Status:</td>
+          <td>Price/Night:</td>
+        </tr>
+        <tr>
+          <td><%= booking.escape('date_start') %> </td>
+          <td><%= booking.escape('date_end') %> </td>
+          <td>
+            <% if (booking.confirmed) { %>
+              <span style="color:#3EFF1F">Confirmed</span>
+            <% }else { %>
+              <span style="color:#FFE745">Pending</span>
+            <% }%>
+          </td>
+          <td>
+            $<%= sitter.get('price') %>
+          </td>
+        </tr>
+      </table>
 
-           </tr>
-         </table>
-       </div>
-    <%  } %>
+      <% if (booking.confirmed) { %>
+        <div class="sitterAddress">
+          <%= sitter.escape('street_address') %>
+          <%= sitter.escape('city') %>, <%= sitter.escape('state') %>
+          <%= sitter.escape('zipcode') %>
+        </div>
+      <%  } %>
 
-
-    <% if (sitter) { %>
 
       <div class="sitterBookingInformation">
-        <div>Sitter Name: <%= sitter.get('sitter_name') %></div>
-        <br>
-        <div>Price per Night: $<%= sitter.get('price') %></div>
         <div>
           <img class="thumbnail" data-id="<%= sitter.get('id') %>" src="<%= sitter.get('sitter_photo_small') %>">
         </div>
@@ -33,24 +46,7 @@
 
 
 
-    <%  } else { %>
-
-    <%  }%>
-
-
-      <div>
-        <div>Date Start: <%= booking.escape('date_start') %> <div>
-        <div>Date End: <%= booking.escape('date_end') %> </div>
-      </div>
-
-      <% if (booking.confirmed) { %>
-        <h2 style="color:#3EFF1F">Confirmed</h2>
-      <% }else { %>
-        <h2 style="color:#FFE745">Pending</h2>
-      <% }%>
-      <% if (booking.completed) { %>
-        <button id=commentOnBooking>Comment On Sitter</button>
-      <% } %>
+  </div>
 
 
 

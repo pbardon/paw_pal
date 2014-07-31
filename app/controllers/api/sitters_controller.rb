@@ -54,7 +54,7 @@ module Api
           sum += comment.rating
           i += 1
         end
-        @sitter.avg_rating = sum/i
+        @sitter.avg_rating = sum/i unless i == 0
         @sitter.save
       end
 
