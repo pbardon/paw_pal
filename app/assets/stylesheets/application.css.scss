@@ -251,11 +251,8 @@ body, html ul {
 
 .dogs{
   margin-left: 5%;
-  // min-height: 600px;
-  // background-color: #FFFFFF;
-  // border: thin solid black;
-  // border-radius: 5px;
-  // padding: 15px;
+  overflow-y: scroll;
+  max-height: 100%;
 }
 
 .dog {
