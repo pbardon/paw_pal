@@ -19,13 +19,15 @@
         <li><h4>Description:</h4>
           <p class="sitter-description"><%= sitter.escape('description') %></p>
         </li>
-        <li>Accepts Small Dogs? <%= (sitter.escape('small')) ? "✓" : "✖" %></li>
-        <li>Accepts Medium Dogs? <%= (sitter.escape('medium')) ? "✓" : "✖" %></li>
-        <li>Accepts Large Dogs? <%= (sitter.escape('large')) ? "✓" : "✖" %></li>
+
       </ul>
+
+      <span><strong>Accepts Small Dogs?</strong> <%= (sitter.escape('small')) ? "✓" : "✖" %></span>
+      <span><strong>Accepts Medium Dogs?</strong> <%= (sitter.escape('medium')) ? "✓" : "✖" %></span>
+      <span><strong>Accepts Large Dogs?</strong> <%= (sitter.escape('large')) ? "✓" : "✖" %></span>
     </div>
   </div>
-
+    <span>Bookings:</span>
     <div class="lowerContent">
         <div class="sitter_bookings">
         </div>

@@ -240,8 +240,9 @@ body, html ul {
 
 .sitterInfo {
   position: absolute;
+  margin-top: 1%;
   width: 80%;
-  left: 2.5%;
+  left: 7%;
   height: 40%;
   padding: 1%;
   border: 3px solid black;
@@ -471,18 +472,25 @@ a.dropdown-toggle {
   margin-left: 20%;
 }
 
-.lowerContent {
+.lowerContent > .sitter_bookings {
+  position: absolute;
   margin-top: 20%;
+  max-height: 50%;
 }
 
 .dogShowContent {
-  display: inline;
-  margin-left: 3%;
+  position: absolute;
+  left: 22%;
+  display: inline-block;
+  margin-left: 1%;
+  width: 50%;
 }
 
 
 #dogShowPic {
+  position: absolute;
   display: inline-block;
+  width: 20%;
 
 }
 
@@ -515,12 +523,15 @@ a.dropdown-toggle {
 
 .dogShowPhoto {
   border-radius: 5px;
-  width: 100%;
-  max-height: 40%;
+  max-width: 60%;
+}
+
+.dogShowPic {
+  display: inline-block;
 }
 
 .privateDogButtons {
-  float: right;
+  margin-left: 2%;
 }
 
 .dogBooking {
@@ -564,7 +575,9 @@ a.dropdown-toggle {
 }
 
 .dogBookingInfo .panel-body #dogShowPicWrapper{
-  display: inline-block !important;
+  max-height: 100px;
+  padding-left: 10px;
+  padding-top: 0px;
 }
 
 #dogProfileName {
@@ -635,7 +648,7 @@ a.dropdown-toggle {
 .dogBookingWrapper {
   position: absolute;
   width: 40%;
-  top: 50%;
+  top: 52%;
   bottom: 0;
   left: 10%;
 }
@@ -667,7 +680,7 @@ a.dropdown-toggle {
   width: 40%;
   top: 50%;
   bottom: 0;
-  left: 10%;
+  left: 5%;
 
 }
 
@@ -692,15 +705,16 @@ a.dropdown-toggle {
 
 
 .lowerContent .sitter_bookings {
-  width: 60%;
-  margin-left: 12%;
+  width: 80%;
+  margin-left: 7%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 .sitterShowProfileContent {
   position: absolute;
-  width: 77%;
+  top: 0;
+  width: 80%;
   left: 20%;
   display: inline-block;
 }
@@ -716,12 +730,18 @@ a.dropdown-toggle {
 
 }
 
+.rating strong {
+  position: absolute;
+  bottom: 0;
+  left: 80%;
+}
+
 .commentContent {
-  position: relative;
-  display: inline-block;
-  left: 0;
-  width: 50%;
-  height: 100%;
+  // position: relative;
+  // display: inline-block;
+  // left: 0;
+  // width: 50%;
+  // height: 100%;
 }
 
 .indexContents {
@@ -732,6 +752,11 @@ a.dropdown-toggle {
 
 }
 
+.indexContents p {
+  max-height: 80px;
+  overflow-y: scroll;
+}
+
 .indexPanel {
   position: relative;
   height: 190px;
@@ -740,6 +765,7 @@ a.dropdown-toggle {
 }
 
 .sitterIndexImg > img {
+  top:0;
   position: absolute;
   left: 80%;
   max-width: 15%;
@@ -772,4 +798,97 @@ a.dropdown-toggle {
   position: absolute;
   bottom: 0;
   left: 83.5%;
+}
+
+.dogPrivateCommentsWrapper .commentContent {
+  position: relative;
+  display: inline-block;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+}
+
+.dogPrivateCommentsWrapper {
+    position: absolute;
+    width: 40%;
+    bottom: 0;
+    left: 50%;
+    top: 52%;
+}
+
+.dogShowInfo {
+  padding: 1%;
+}
+
+.publicCommentFormWrapper > .dogComments > .commentContent {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  left: 0;
+  height: 100%;
+}
+
+.publicDogCommentsWrapper > .dogComments {
+
+}
+
+.publicCommentFormWrapper {
+  position: absolute;
+  width: 60%;
+}
+
+.footer {
+  background-color: white;
+  position: absolute;
+  top: 90%;
+  height: 800px;
+  width: 100%;
+}
+
+#toolsUsed {
+  position: absolute;
+  width: 80%;
+  height: 30%;
+  left: 15%;
+  right: 15%;
+  top: 50%;
+
+  border: thin solid lightgrey;
+  border-radius: 5px;
+}
+
+#about {
+  position: absolute;
+  top: 20%;
+  width: 80%;
+  height: 30%;
+  left: 15%;
+  right: 15%;
+  border: thin solid lightgrey;
+  border-radius: 5px;
+}
+
+#toolsUsed div{
+  top: 15%;
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  margin-left: 7%;
+
+
+}
+
+#toolsUsed div img{
+  width: 50%;
+  height: auto;
+
+}
+
+.footerTitle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 30px;
+  font-weight: bold;
 }
