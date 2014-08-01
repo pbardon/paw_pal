@@ -2,11 +2,16 @@
 
   <div class="commentRating panel-heading">
 
-      <h4> Comment: </h4>
+      <h4>
+        Comment:  
+        <span class="commentDate">
+          Date: <%= comment.escape('comment_date') %>
+        </span>
+      </h4>
 
   </div>
 
-  <div id="comment">
+  <div class="comment">
     <%= comment.escape('content') %>
   </div>
 

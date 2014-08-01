@@ -674,16 +674,11 @@ a.dropdown-toggle {
 
 .publicDogCommentsWrapper {
   position: absolute;
-  width: 40%;
-  top: 50%;
+  width: 60%;
+  top: 60%;
   bottom: 0;
   left: 5%;
 
-}
-
-.publicDogCommentsWrapper {
-  width: 60%;
-  top: 45%;
 }
 
 .publicDogCommentsWrapper form {
@@ -716,6 +711,10 @@ a.dropdown-toggle {
   display: inline-block;
 }
 
+.rating {
+  position: relative;
+}
+
 
 
 .rating .ratingImage {
@@ -730,7 +729,7 @@ a.dropdown-toggle {
 .rating strong {
   position: absolute;
   bottom: 0;
-  left: 80%;
+  left: 84%;
 }
 
 .commentContent {
@@ -820,7 +819,7 @@ a.dropdown-toggle {
 
 .publicCommentFormWrapper > .dogComments > .commentContent {
   width: 100%;
-  position: relative;
+  position: absolute;
   display: inline-block;
   left: 0;
   height: 100%;
@@ -867,13 +866,18 @@ a.dropdown-toggle {
 }
 
 #toolsUsed div{
-  top: 15%;
+  top: 15%; 
   position: relative;
   display: inline-block;
   width: 25%;
   margin-left: 7%;
 
 
+}
+
+.comment {
+  width: 80%;
+  margin-left: 1%;
 }
 
 #toolsUsed div img{
@@ -888,4 +892,17 @@ a.dropdown-toggle {
   top: 0;
   font-size: 30px;
   font-weight: bold;
+}
+
+.commentRation.panel-heading {
+  padding: 0;
+}
+
+.commentRating h4{
+  margin: 0;
+}
+
+.commentDate {
+  float: right;
+  font-size: 15px;
 }
