@@ -211,8 +211,10 @@ body, html ul {
 }
 
 .sitterShowInfo {
-  display: inline;
-  margin-right: 5%;
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .sitterShowInfo img {
@@ -224,6 +226,10 @@ body, html ul {
 }
 
 .sitterShow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
 
 }
 
@@ -238,6 +244,8 @@ body, html ul {
 }
 
 .sitterShowImage {
+  display: inline-block;
+  position: absolute;
 
 }
 
@@ -246,7 +254,11 @@ body, html ul {
 }
 
 .sitterInfo {
-  padding: 15px;
+  position: absolute;
+  width: 80%;
+  left: 2.5%;
+  height: 40%;
+  padding: 1%;
   border: 3px solid black;
   border-radius: 5px;
 }
@@ -510,10 +522,14 @@ a.dropdown-toggle {
 }
 
 .sitterShowContent {
-  padding-left: 5%;
+  position: absolute;
+  width: 40%;
+  left: 20%;
+  display: inline-block;
 }
 
 .dogShowPhoto {
+  border-radius: 5px;
   max-width: 400px;
   max-height: auto;
 }
@@ -573,7 +589,6 @@ a.dropdown-toggle {
 
 #newCommentForm {
   min-height: 100px;
-  width: 35%;
   margin-left: 5%;
 }
 
@@ -601,9 +616,77 @@ a.dropdown-toggle {
   right:0;
 }
 
+.sitterCommentsSection {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  height: 60%;
+  padding-left: 2.5%;
+  bottom: 0;
+
+}
+
 
 .commentsSection {
   position: absolute;
-  width: 50%;
-  left: 25%;
+  display: inline-block;
+  width: 52.5%;
+  left: 30%;
+  height: 85%;
+  overflow-y: scroll;
+}
+
+.newCommentFormWrapper {
+  display: inline-block
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
+.dogBookingWrapper {
+  position: absolute;
+  width: 40%;
+  top: 50%;
+  bottom: 0;
+  left: 10%;
+}
+
+.dog_bookings {
+  position: absolute;
+  height: 85%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.dogCommentsWrapper {
+    position: absolute;
+    width: 40%;
+    bottom: 0;
+    left: 50%;
+    top: 50%;
+}
+
+.dogComments {
+  position: absolute;
+  height: 85%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.publicDogCommentsWrapper {
+  position: absolute;
+  width: 40%;
+  top: 50%;
+  bottom: 0;
+  left: 10%;
+
+}
+
+.publicDogCommentsWrapper {
+  width: 60%;
+}
+
+.publicCommentFormWrapper {
+
 }

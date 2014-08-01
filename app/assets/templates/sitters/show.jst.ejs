@@ -1,12 +1,12 @@
-<div class="sitterShowInfo row">
+<div class="sitterShowInfo">
 
   <div class="sitterInfo">
-      <button class="bookNow btn btn-success">Book Now!</button>
-    <div class="sitterShowImage col-xs-3">
+    <button class="bookNow btn btn-success">Book Now!</button>
+    <div class="sitterShowImage">
       <img class="img-responsive" src="<%= sitter.get('sitter_photo_large') %>">
     </div>
 
-    <div class="sitterShowContent col-xs-7">
+    <div class="sitterShowContent">
       <h2><%= sitter.escape('sitter_name') %></h2>
 
       <ul>
@@ -21,17 +21,6 @@
         </li>
       </ul>
     </div>
-
-    <div class="lowerContent row">
-
-
-
-
-
-      <!-- <div class="mapWrapper col-xs-5 col-xs-offset-1">
-      </div> -->
-    </div>
-
   </div>
 
   <div class="sitterCommentsSection">
@@ -41,7 +30,7 @@
 
     <div class="commentsSection">
 
-      <div class="sitterComments col xs-8"></div>
+      <div class="sitterComments"></div>
 
     </div>
   </div>

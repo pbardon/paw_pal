@@ -50,9 +50,9 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
       collection: DogSittingApp.Collections.sittercomments
     });
 
-    $(event.currentTarget).replaceWith('<div class="newCommentForm"></div>');
+    $(event.currentTarget).replaceWith('<div class="newCommentFormWrapper"></div>');
 
-    this.addSubview('.newCommentForm', commentForm);
+    this.addSubview('.newCommentFormWrapper', commentForm);
   },
 
   addNewComment: function(event) {

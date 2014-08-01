@@ -7,7 +7,7 @@
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAPS_API_KEY'] %>">
     </script>
-  <%= javascript_include_tag 'application' %>
+
   <%= csrf_meta_tags %>
 
 
@@ -26,6 +26,14 @@
 
 <%= yield %>
 
+<%= javascript_include_tag 'application' %>
+
+<script charset="utf-8">
+  $(document).ready(function(){
+    DogSittingApp.initialize();
+
+  });
+</script>
 </body>
 
 <% unless current_user %>
