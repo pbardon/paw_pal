@@ -143,6 +143,10 @@ body, html ul {
 }
 
 .bookNow {
+
+  position: absolute;
+  right: 5%;
+  top: 5%;
   float: right;
 }
 
@@ -624,6 +628,26 @@ a.dropdown-toggle {
 
 }
 
+.sitterCommentsSection .rating{
+  left: 80%;
+  position: absolute;
+
+}
+
+
+.sitterCommentsSection .rating strong{
+  left: 60%;
+  position: absolute;
+
+}
+
+.sitterCommentsSection .rating .ratingImage {
+  position: relative;
+  max-width: 50%;
+  top: 0;
+}
+
+
 
 .commentsSection {
   position: absolute;
@@ -711,6 +735,9 @@ a.dropdown-toggle {
   display: inline-block;
 }
 
+
+
+
 .rating {
   position: relative;
 }
@@ -729,7 +756,7 @@ a.dropdown-toggle {
 .rating strong {
   position: absolute;
   bottom: 0;
-  left: 84%;
+  left: 80%;
 }
 
 .commentContent {
@@ -866,7 +893,7 @@ a.dropdown-toggle {
 }
 
 #toolsUsed div{
-  top: 15%; 
+  top: 15%;
   position: relative;
   display: inline-block;
   width: 25%;
@@ -905,4 +932,9 @@ a.dropdown-toggle {
 .commentDate {
   float: right;
   font-size: 15px;
+}
+
+.sitterCommentsSection .rating strong{
+  position: absolute;
+
 }

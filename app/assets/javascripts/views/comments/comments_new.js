@@ -5,6 +5,7 @@ DogSittingApp.Views.NewComment = Backbone.View.extend({
   },
 
   events: {
+    'click .bookNow': 'redirectToBooking',
     'submit form' : 'addComment'
   },
 
