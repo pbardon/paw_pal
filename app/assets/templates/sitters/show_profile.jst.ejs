@@ -1,12 +1,12 @@
-<div class="sitterShowInfo row">
+<div class="sitterShowInfo">
 
   <div class="sitterInfo">
 
-    <div class="sitterShowImage col-xs-2">
+    <div class="sitterShowImage">
       <img class="img-responsive" src="<%= sitter.escape('sitter_photo_large') %>">
     </div>
 
-    <div class="sitterShowContent col-xs-10">
+    <div class="sitterShowProfileContent">
 
       <span class="sitterProfileButtons">
         <button class="btn btn-primary editSitterInfo" data-id="<%= sitter.escape('id') %>">Edit Sitter Information </button>
@@ -24,22 +24,12 @@
         <li>Accepts Large Dogs? <%= (sitter.escape('large')) ? "✓" : "✖" %></li>
       </ul>
     </div>
-
-    <div class="lowerContent row">
-        <div class="sitter_bookings col-xs-12">
-        </div>
-        <h2>Comments: </h2>
-      <div class="commentsSection">
-
-        <div class="sitterComments col xs-8"></div>
-
-      </div>
-    </div>
   </div>
 
-
-
-
-
+    <div class="lowerContent">
+        <div class="sitter_bookings">
+        </div>
+    </div>
+  </div>
 
 </div>

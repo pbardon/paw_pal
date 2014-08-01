@@ -30,6 +30,7 @@
       </table>
 
       <% if (booking.get('confirmed')) { %>
+        Address:
         <div class="sitterAddress">
           <%= sitter.escape('street_address') %>
           <%= sitter.escape('city') %>, <%= sitter.escape('state') %>

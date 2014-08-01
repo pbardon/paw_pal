@@ -2,10 +2,7 @@
 
 
   <h2 id="dogProfileName"><%= dog.escape('name') %>
-    <span class="privateDogButtons">
-      <button class="editDogInfo btn btn-primary" data-id="<%= dog.escape('id') %>">Edit Dog Information</button>
-      <button class="removeDog btn btn-danger">Remove Dog Profile</button>
-    </span>
+
   </h2>
 
   <div class="">
@@ -34,16 +31,17 @@
 
 
 <div class="publicDogCommentsWrapper">
+
   <h3> Comments: </h3>
 
 
-  <div class="">
+  <div class="publicCommentFormWrapper">
 
     <button id="commentOnDog" class="btn btn-info" data-dog-id="<%= dog.escape('id') %>"> Comment on Dog </h3>
 
   </div>
 
-  <div style="position: absolute; left: 80%; height: 70%;"class="dogComments">
+  <div class="dogComments">
 
   </div>
 </div>

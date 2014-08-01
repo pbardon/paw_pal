@@ -499,7 +499,10 @@ a.dropdown-toggle {
 
 #dogShowPic {
   display: inline-block;
+
 }
+
+
 
 #logo {
   display: inline;
@@ -512,10 +515,10 @@ a.dropdown-toggle {
 }
 
 
-// .navbar-brand .sitename a a:hover, a:visited, a:link, a:active{
-//   font-size: 45px;
-//   text-decoration: none;
-// }
+.navbar-brand > .sitename > a a:hover, a:visited, a:link, a:active{
+  font-size: 45px;
+  text-decoration: none;
+}
 
 .sitterProfileButtons {
   float: right;
@@ -523,15 +526,14 @@ a.dropdown-toggle {
 
 .sitterShowContent {
   position: absolute;
-  width: 40%;
   left: 20%;
   display: inline-block;
 }
 
 .dogShowPhoto {
   border-radius: 5px;
-  max-width: 400px;
-  max-height: auto;
+  width: 100%;
+  max-height: 40%;
 }
 
 .privateDogButtons {
@@ -685,8 +687,34 @@ a.dropdown-toggle {
 
 .publicDogCommentsWrapper {
   width: 60%;
+  top: 45%;
 }
 
-.publicCommentFormWrapper {
+.publicDogCommentsWrapper form {
+  width: 40%;
+  top: 45%;
+  bottom: 0;
+}
 
+.publicDogCommentsWrapper > .dogComments {
+  position: absolute;
+  width: 80%;
+  left: 35%;
+  height: 70%;
+}
+
+
+
+.lowerContent .sitter_bookings {
+  width: 60%;
+  margin-left: 12%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.sitterShowProfileContent {
+  position: absolute;
+  width: 77%;
+  left: 20%;
+  display: inline-block;
 }
