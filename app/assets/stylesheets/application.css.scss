@@ -145,6 +145,7 @@ body, html ul {
 .bookNow {
 
   position: absolute;
+  left: 70%;
   right: 5%;
   top: 5%;
   float: right;
@@ -481,7 +482,7 @@ a.dropdown-toggle {
 
 .dogShowContent {
   position: absolute;
-  left: 22%;
+  left: 25%;
   display: inline-block;
   margin-left: 1%;
   width: 50%;
@@ -518,6 +519,7 @@ a.dropdown-toggle {
 
 .sitterShowContent {
   position: absolute;
+  width: 100%;
   left: 20%;
   display: inline-block;
 }

@@ -106,6 +106,6 @@ DogSittingApp.Views.DogShow = Backbone.CompositeView.extend({
     event.preventDefault();
     this.model.destroy();
 
-    Backbone.history.navigate("/", { trigger: true })
+    Backbone.history.navigate("/dogs", { trigger: true })
   }
 });
