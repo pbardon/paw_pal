@@ -1,4 +1,6 @@
 class Sitter < ActiveRecord::Base
+
+
   validates :user_id, :avg_rating, :sitter_name, :description, :price, presence: true
   validates :street_address, :city, :state, :zipcode, presence: true
   validates :avg_rating, presence: true
@@ -17,6 +19,5 @@ class Sitter < ActiveRecord::Base
 
   validates_attachment :sitter_photo,
   :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png"] }
-
 
 end

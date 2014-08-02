@@ -104,49 +104,57 @@ dogs = Dog.create([
   { owner_id: 1,
     name: 'Spot',
     age: 2,
-    description: "The domestic dog is a member of the Canidae family of the mammalian order Carnivora. The term domestic dog is generally used for both domesticated and feral varieties. The dog was the first domesticated animal[4][5] and has been the most widely kept working, hunting, and pet animal in human history."
+    description: "The domestic dog is a member of the Canidae family of the mammalian order Carnivora. The term domestic dog is generally used for both domesticated and feral varieties. The dog was the first domesticated animal[4][5] and has been the most widely kept working, hunting, and pet animal in human history.",
+    dog_photo: File.open("/Users/oldComputer/Desktop/seedphotos/dog1.jpg")
   },
 
   { owner_id: 1,
     name: 'Dubs',
     age: 2,
-    description: "Most breeds of dog are at most a few hundred years old, having been artificially selected for particular morphologies and behaviors by people for specific functional roles. Through this selective breeding, the dog has developed into hundreds of varied breeds, and shows more behavioral and morphological variation than any other land mammal."
+    description: "Most breeds of dog are at most a few hundred years old, having been artificially selected for particular morphologies and behaviors by people for specific functional roles. Through this selective breeding, the dog has developed into hundreds of varied breeds, and shows more behavioral and morphological variation than any other land mammal.",
+    dog_photo: File.open("/Users/oldComputer/Desktop/seedphotos/dog2.jpg")
   },
 
   { owner_id: 1,
     name: 'Lassie',
     age: 2,
-    description: "Lassie is a fictional female collie dog character created by Eric Knight in a short story expanded to novel length called Lassie Come-Home. However, Knight may have been influenced by another female collie named Lassie, featured in the 1859 story The Half-brothers written by British writer Elizabeth Gaskell."
+    description: "Lassie is a fictional female collie dog character created by Eric Knight in a short story expanded to novel length called Lassie Come-Home. However, Knight may have been influenced by another female collie named Lassie, featured in the 1859 story The Half-brothers written by British writer Elizabeth Gaskell.",
+    dog_photo: File.open("/Users/oldComputer/Desktop/seedphotos/dog3.jpg")
   },
 
   { owner_id: 1,
     name: 'Bear',
     age: '2',
-    description: "Recent studies of well-preserved remains of a dog-like canid from the Razboinichya Cave in the Altai Mountains of southern Siberia concluded that a particular instance of early wolf domestication approximately 33,000 years ago did not result in modern dog lineages, possibly because of climate disruption during the Last Glacial Maximum.[4][7] The authors postulate that at least several such incipient events have occurred. A study of fossil dogs and wolves in Belgium, Ukraine, and Russia tentatively dates domestication from 14,000 years ago to more than 31,700 years ago."
+    description: "Recent studies of well-preserved remains of a dog-like canid from the Razboinichya Cave in the Altai Mountains of southern Siberia concluded that a particular instance of early wolf domestication approximately 33,000 years ago did not result in modern dog lineages, possibly because of climate disruption during the Last Glacial Maximum.[4][7] The authors postulate that at least several such incipient events have occurred. A study of fossil dogs and wolves in Belgium, Ukraine, and Russia tentatively dates domestication from 14,000 years ago to more than 31,700 years ago.",
+    dog_photo: File.open("/Users/oldComputer/Desktop/seedphotos/dog4.jpg")
   },
 
   { owner_id: 1,
     name: 'Spot',
     age: 2,
-    description: "Domestic dogs inherited complex behaviors from their wolf ancestors, which would have been pack hunters with complex body language. These sophisticated forms of social cognition and communication may account for their trainability, playfulness, and ability to fit into human households and social situations, and these attributes have given dogs a relationship with humans that has enabled them to become one of the most successful species on the planet today."
+    description: "Domestic dogs inherited complex behaviors from their wolf ancestors, which would have been pack hunters with complex body language. These sophisticated forms of social cognition and communication may account for their trainability, playfulness, and ability to fit into human households and social situations, and these attributes have given dogs a relationship with humans that has enabled them to become one of the most successful species on the planet today.",
+    dog_photo: File.open("/Users/oldComputer/Desktop/seedphotos/dog5.jpg")
   },
 
   { owner_id: 2,
     name: 'Shiba',
     age: 2,
-    description: "Although dogs have been the subject of a great deal of behaviorist psychology (e.g. Pavlov's dog), they do not enter the world with a psychological 'blank slate' Rather, dog behavior is affected by genetic factors as well as environmental factors. Domestic dogs exhibit a number of behaviors and predispositions that were inherited from wolves."
+    description: "Although dogs have been the subject of a great deal of behaviorist psychology (e.g. Pavlov's dog), they do not enter the world with a psychological 'blank slate' Rather, dog behavior is affected by genetic factors as well as environmental factors. Domestic dogs exhibit a number of behaviors and predispositions that were inherited from wolves.",
+    dog_photo: File.open("/Users/oldComputer/Desktop/seedphotos/dog6.jpg")
   },
 
   { owner_id: 1,
     name: 'Loki',
     age: 2,
-    description: "Dogs can also learn by mimicking human behaviors. In one study, puppies were presented with a box, and shown that, when a handler pressed a lever, a ball would roll out of the box. The handler then allowed the puppy to play with the ball, making it an intrinsic reward. The pups were then allowed to interact with the box. Roughly three quarters of the puppies subsequently touched the lever, and over half successfully released the ball, compared to only 6% in a control group that did not watch the human manipulate the lever."
+    description: "Dogs can also learn by mimicking human behaviors. In one study, puppies were presented with a box, and shown that, when a handler pressed a lever, a ball would roll out of the box. The handler then allowed the puppy to play with the ball, making it an intrinsic reward. The pups were then allowed to interact with the box. Roughly three quarters of the puppies subsequently touched the lever, and over half successfully released the ball, compared to only 6% in a control group that did not watch the human manipulate the lever.",
+    dog_photo: File.open("/Users/oldComputer/Desktop/seedphotos/dog7.jpg")
   },
 
   { owner_id: 1,
     name: 'Maddie',
     age: 2,
-    description: "A new study in Budapest, Hungary, has found that dogs are able to tell how big another dog is just by listening to its growl. A specific growl is used by dogs to protect their food. The research also shows that dogs do not lie about their size, and this is the first time research has shown animals can determine anothers size by the sound it makes."
+    description: "A new study in Budapest, Hungary, has found that dogs are able to tell how big another dog is just by listening to its growl. A specific growl is used by dogs to protect their food. The research also shows that dogs do not lie about their size, and this is the first time research has shown animals can determine anothers size by the sound it makes.",
+    dog_photo: File.open("/Users/oldComputer/Desktop/seedphotos/dog8.jpg")
   }
 
 ])
@@ -163,7 +171,8 @@ sitters = Sitter.create([
   street_address: "33 Frankfort St",
   city: "Daly City",
   state: "CA",
-  zipcode: "94014"
+  zipcode: "94014",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter1.jpg")
   },
 
   {user_id: 2,
@@ -176,7 +185,8 @@ sitters = Sitter.create([
   street_address: "699 St Francis St",
   city: "Redwood City",
   state: "CA",
-  zipcode: "94061"
+  zipcode: "94061",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter2.jpg")
   },
 
   {user_id: 3,
@@ -189,7 +199,8 @@ sitters = Sitter.create([
   street_address: "11180 Sanchez St",
   city: "Castroville",
   state: "CA",
-  zipcode: "95012"
+  zipcode: "95012",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter3.jpg")
   },
 
   {user_id: 4,
@@ -202,7 +213,8 @@ sitters = Sitter.create([
   street_address: "73 Jensen Rd",
   city: "Gustine",
   state: "CA",
-  zipcode: "95322"
+  zipcode: "95322",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter4.jpg")
   },
 
   {user_id: 5,
@@ -215,7 +227,8 @@ sitters = Sitter.create([
   street_address: "39401 Fremont Blvd",
   city: "Fremont",
   state: "CA",
-  zipcode: "94538"
+  zipcode: "94538",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter5.jpg")
   },
 
   {user_id: 6,
@@ -228,7 +241,8 @@ sitters = Sitter.create([
   street_address: "34 Tapia Dr",
   city: "San Francisco",
   state: "CA",
-  zipcode: "94132"
+  zipcode: "94132",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter6.jpg")
   },
 
   {user_id: 7,
@@ -241,7 +255,8 @@ sitters = Sitter.create([
   street_address: "500 Douglass St",
   city: "San Francisco",
   state: "CA",
-  zipcode: "94114"
+  zipcode: "94114",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter7.jpg")
   },
 
   {user_id: 8,
@@ -254,7 +269,8 @@ sitters = Sitter.create([
   street_address: "900 Southdown Ct",
   city: "Winters",
   state: "CA",
-  zipcode: "94596"
+  zipcode: "94596",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter8.jpg")
   },
 
   {user_id: 9,
@@ -267,7 +283,8 @@ sitters = Sitter.create([
   street_address: "2701 Bodega Ave",
   city: "Petaluma",
   state: "CA",
-  zipcode: "94952"
+  zipcode: "94952",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter9.jpg")
   },
 
   {user_id: 10,
@@ -280,7 +297,8 @@ sitters = Sitter.create([
   street_address: "212 Madrone St",
   city: "Vacaville",
   state: "CA",
-  zipcode: "95688"
+  zipcode: "95688",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter10.jpg")
   },
 
   {user_id: 11,
@@ -293,7 +311,8 @@ sitters = Sitter.create([
   street_address: "41 Gregory Ln",
   city: "Pleasant Hill",
   state: "CA",
-  zipcode: "94523"
+  zipcode: "94523",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter11.jpg")
   },
 
   {user_id: 12,
@@ -306,7 +325,8 @@ sitters = Sitter.create([
   street_address: "1001 Everglades Dr",
   city: "Pacifica",
   state: "CA",
-  zipcode: "94044"
+  zipcode: "94044",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter12.jpg")
   },
 
   {user_id: 13,
@@ -319,7 +339,8 @@ sitters = Sitter.create([
   street_address: "3900 Quintara St",
   city: "San Francisco",
   state: "CA",
-  zipcode: "94116"
+  zipcode: "94116",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter13.jpg")
   },
 
   {user_id: 14,
@@ -332,7 +353,8 @@ sitters = Sitter.create([
   street_address: "445 El Camino Del Mar",
   city: "San Francisco",
   state: "CA",
-  zipcode: "94121"
+  zipcode: "94121",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter14.jpg")
   },
 
   {user_id: 15,
@@ -344,7 +366,8 @@ sitters = Sitter.create([
   street_address: "3402 Clay St",
   city: "San Francisco",
   state: "CA",
-  zipcode: "94118"
+  zipcode: "94118",
+  sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter15.jpg")
   }
 
 ])
