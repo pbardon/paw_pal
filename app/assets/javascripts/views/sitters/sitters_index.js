@@ -55,8 +55,6 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
           model.get('longitude') < view.maxX);
       }));
 
-    console.log(this.collection.models);
-
   },
 
   placeMarkers: function() {

@@ -2,7 +2,7 @@ DogSittingApp.Views.MapShow = Backbone.CompositeView.extend({
   initialize: function(options){
     this.listenTo(this.model, 'sync', this.placeMark());
     this.listenTo(this.model, 'sync', function () {
-      console.log('sync was triggered')
+
     });
   },
 
