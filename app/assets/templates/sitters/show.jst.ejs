@@ -5,11 +5,11 @@
   </div>
 
   <div class="sitterShowContent">
-    <h2><%= sitter.escape('sitter_name') %></h2>
+    <h2 id="sitterDescription"><%= sitter.escape('sitter_name') %></h2>
     <button class="bookNow btn btn-success">Book Now!</button>
 
     <ul>
-      <li>Price per Night: <%= sitter.escape('price') %></li>
+      <li>Price per Night: $<%= sitter.escape('price') %></li>
       <li>Description:
         <p class="sitter-description"><%= sitter.escape('description') %></p>
       </li>
@@ -22,7 +22,7 @@
   </div>
 
   <div class="sitterCommentsSection">
-    <h2>Comments:</h2>
+    <h2 id="commentsHeader">Comments:</h2>
     <div id="newCommentsSection">
       <button id="commentOnSitter" class="btn btn-info">Add Comment</button>
     </div>

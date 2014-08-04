@@ -148,12 +148,11 @@ body, html ul {
 }
 
 .bookNow {
-
+  display: inline-block;
   position: absolute;
-  left: 90%;
-  right: 5%;
-  top: 5%;
-  float: right;
+  left: 80%;
+  right: 0;
+  top: 1%;
 }
 
 .map-wrapper > #map-canvas {
@@ -523,14 +522,20 @@ a.dropdown-toggle {
 }
 
 .sitterProfileButtons {
-  float: right;
+  position: absolute;
+  top: 4%;
+  right: 0;
 }
 
 .sitterShowContent {
   position: absolute;
   width: 50%;
   left: 40%;
+  height: 40%;
   display: inline-block;
+  overflow-y: auto;
+  overflow-x: hidden;
+
 }
 
 .dogShowPhoto {
@@ -631,7 +636,7 @@ a.dropdown-toggle {
 
 .sitterCommentsSection {
   position: absolute;
-  top: 50%;
+  top: 40%;
   height: 50%;
   width: 80%;
   left: 10%;
@@ -941,6 +946,7 @@ a.dropdown-toggle {
 #newCommentsSection {
   display: inline-block;
   position: relative;
+  vertical-align: top;
   left: 0;
   width: 40%;
 }
@@ -949,5 +955,15 @@ a.dropdown-toggle {
   display: inline-block;
   position: relative;
   width: 50%;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+#sitterDescription {
+  display: inline-block;
+}
+
+#commentsHeader {
+  margin-left: 40%;
 }

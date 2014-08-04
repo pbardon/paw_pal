@@ -92,7 +92,7 @@ DogSittingApp.Views.SitterShow = Backbone.CompositeView.extend({
     $(event.currentTarget).replaceWith('<div style="float: right;"> <img src="https://s3-us-west-1.amazonaws.com/pet-sitter-development/loading.gif"></div>');
     this.model.destroy({
       success: function() {
-        Backbone.history.navigate("/");
+        Backbone.history.navigate("/", {trigger: true});
         window.location.reload();
       }
     });
