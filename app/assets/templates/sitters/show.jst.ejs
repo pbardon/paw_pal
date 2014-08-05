@@ -1,34 +1,51 @@
 <div class="sitterShowInfo">
+  <div id="sitterAdTopContent">
+    <div id="sitterShowLeftContent">
 
-  <div id="sitterShowImage">
-    <img src="<%= sitter.get('sitter_photo_large') %>">
-  </div>
+      <div id="sitterShowAdImage">
+        <img src="<%= sitter.get('sitter_photo_large') %>">
+      </div>
 
-  <div class="sitterShowContent">
-    <h2 id="sitterDescription"><%= sitter.escape('sitter_name') %></h2>
-    <button class="bookNow btn btn-success">Book Now!</button>
 
-    <ul>
-      <li>Price per Night: $<%= sitter.escape('price') %></li>
-      <li>Description:
-        <p class="sitter-description"><%= sitter.escape('description') %></p>
-      </li>
-      <li>Accepts Small Dogs? <%= (sitter.get('small')) ? "✓" : "✖" %></li>
-      <li>Accepts Medium Dogs? <%= (sitter.get('medium')) ? "✓" : "✖" %></li>
-      <li>Accepts Large Dogs? <%= (sitter.get('large')) ? "✓" : "✖" %></li>
 
-      </li>
-    </ul>
-  </div>
 
-  <div class="sitterCommentsSection">
-    <h2 id="commentsHeader">Comments:</h2>
-    <div id="newCommentsSection">
-      <button id="commentOnSitter" class="btn btn-info">Add Comment</button>
+
     </div>
-    <div id="displaySitterComments">
-      <div class="sitterComments"></div>
+    <div id="sitterShowRightContent">
+      <div class="sitterShowAdContent">
+        <h2 id="sitterDescription"><%= sitter.escape('sitter_name') %></h2>
+        <button class="bookNow btn btn-success">Book Now!</button>
+
+        <ul>
+          <li>Price per Night: $<%= sitter.escape('price') %></li>
+          <li>Description:
+            <p class="sitter-description"><%= sitter.escape('description') %></p>
+          </li>
+          <li>Accepts Small Dogs? <%= (sitter.get('small')) ? "✓" : "✖" %></li>
+          <li>Accepts Medium Dogs? <%= (sitter.get('medium')) ? "✓" : "✖" %></li>
+          <li>Accepts Large Dogs? <%= (sitter.get('large')) ? "✓" : "✖" %></li>
+
+          </li>
+        </ul>
+
+        <div id="newCommentsSection">
+          <button id="commentOnSitter" class="btn btn-info">Add Comment</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="sitterShowAdBottomContent">
+    <h2 id="">Comments:</h2>
+    <div class="sitterAdCommentsSection">
+      <div id="displayAdSitterComments">
+        <div class="sitterComments"></div>
+      </div>
     </div>
   </div>
+
+
 
 </div>
