@@ -23,4 +23,6 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#root'
 
+  get "session/guest", to: 'session#guest', as: 'guest'
+
 end
