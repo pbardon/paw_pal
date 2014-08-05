@@ -479,7 +479,11 @@ a.dropdown-toggle {
 
 
 .searchBar {
-  margin-left: 20%;
+  display: inline-block;
+  position: absolute;
+  width: 45%;
+  top: 5px;
+  margin-left: 1%;
 }
 
 .lowerContent > .sitter_bookings {
@@ -565,7 +569,7 @@ a.dropdown-toggle {
 
 #mapWrapper {
   position: absolute;
-  top:0;
+  top:45px;
   bottom:0;
   left:0;
   width: 40%;
@@ -980,4 +984,8 @@ a.dropdown-toggle {
 #guestButton {
   position: relative;
   top: 5px;
+}
+
+#searchParams {
+  width: 50%;
 }
