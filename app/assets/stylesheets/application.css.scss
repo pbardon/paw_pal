@@ -492,10 +492,10 @@ a.dropdown-toggle {
 
 .dogShowContent {
   position: absolute;
-  left: 25%;
   display: inline-block;
   margin-left: 1%;
-  width: 50%;
+  width: 60%;
+  top: 5%;
 }
 
 
@@ -688,16 +688,15 @@ a.dropdown-toggle {
 .dogBookingWrapper {
   position: absolute;
   width: 40%;
-  top: 52%;
-  bottom: 0;
-  left: 10%;
+  left: 5%;
+  height: 100%;
+  top: 5%;
 }
 
 .dog_bookings {
   position: absolute;
   height: 85%;
   width: 100%;
-  overflow-y: scroll;
 }
 
 .dogCommentsWrapper {
@@ -712,7 +711,6 @@ a.dropdown-toggle {
   position: absolute;
   height: 85%;
   width: 100%;
-  overflow-y: scroll;
 }
 
 .publicDogCommentsWrapper {
@@ -829,15 +827,14 @@ a.dropdown-toggle {
   left: 0;
   width: 100%;
   height: 100%;
-  min-height: 150px;
 }
 
 .dogPrivateCommentsWrapper {
     position: absolute;
     width: 40%;
-    bottom: 0;
     left: 50%;
-    top: 52%;
+    height: 100%;
+    vertical-align: top;
 }
 
 .dogShowInfo {
@@ -1132,4 +1129,32 @@ a.dropdown-toggle {
   width: 100%;
   height: 100%;
   top: 100%;
+}
+
+#dogPrivateRightContent {
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  left: 50%;
+}
+
+#dogPrivateLeftContent {
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+}
+
+#dogPrivateCommentHeader {
+  top: 85%;
+  position: absolute;
+  left: 50%;
+}
+
+#dogPrivateBookingHeader {
+  position: absolute;
+  left: 10%;
+  top: 85%;
+
 }
