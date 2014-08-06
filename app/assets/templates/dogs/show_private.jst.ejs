@@ -1,45 +1,50 @@
 <div class="dogShowInfo">
 
+  <div class="topDogPrivateContent">
+    <h2 id="dogProfileName"><%= dog.escape('name') %>'s Profile
+      <span class="privateDogButtons">
+        <button class="editDogInfo btn btn-primary" data-id="<%= dog.escape('id') %>">Edit Dog Information</button>
+        <button class="removeDog btn btn-danger">Remove Dog Profile</button>
+      </span>
+    </h2>
 
-  <h2 id="dogProfileName"><%= dog.escape('name') %>'s Profile
-    <span class="privateDogButtons">
-      <button class="editDogInfo btn btn-primary" data-id="<%= dog.escape('id') %>">Edit Dog Information</button>
-      <button class="removeDog btn btn-danger">Remove Dog Profile</button>
-    </span>
-  </h2>
+    <div class="dogShowPic">
+        <img class="dogShowPhoto" src="<%= dog.get('dog_photo_large') %>">
+    </div>
 
-  <div class="dogShowPic">
-      <img class="dogShowPhoto" src="<%= dog.get('dog_photo_large') %>">
+
+    <div class='dogShowContent'>
+        <h2 style = "margin-top: 0px;">Description:</h2>
+        <div id="dogDescription">
+          <%= dog.escape('description') %>
+        </div
+
+        <div class="dogAttributes">
+          <div><h3>Age: <%= dog.escape('age') %></h3></div>
+          <div><h4>Size: <%= dog.escape('size') %></h4></div>
+        </div>
+
+        </div>
+    </div>
+
   </div>
 
-
-  <div class='dogShowContent'>
-      <h2 style = "margin-top: 0px;">Description:</h2>
-      <div id="dogDescription">
-        <%= dog.escape('description') %>
-      </div
-
-      <div class="dogAttributes">
-        <div><h3>Age: <%= dog.escape('age') %></h3></div>
-        <div><h4>Size: <%= dog.escape('size') %></h4></div>
+  <div id="bottomDogPrivateContent">
+    <div class="dogBookingWrapper">
+    <h3> Bookings: </h3>
+      <div class="dog_bookings">
       </div>
+    </div>
+
+    </div>
+
+    <div class="dogPrivateCommentsWrapper">
+    <h3> Comments: </h3>
+      <div class="dogComments">
 
       </div>
-  </div>
-
-
-
-<div class="dogBookingWrapper">
-<h3> Bookings: </h3>
-  <div class="dog_bookings">
-  </div>
-</div>
-
-</div>
-
-<div class="dogPrivateCommentsWrapper">
-<h3> Comments: </h3>
-  <div class="dogComments">
+    </div>
 
   </div>
+
 </div>

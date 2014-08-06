@@ -21,12 +21,12 @@
 
 body, html * {
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  // scrollbar-track-color: #EBEAE5;
   // height:100%;
 }
 
 body, html {
   height: 100%;
+  background-color: #B7E4FF;
 }
 
 body, html * h2 {
@@ -34,7 +34,7 @@ body, html * h2 {
 }
 
 .backdrop {
-  background-image: url('https://s3-us-west-1.amazonaws.com/pet-sitter-development/Bones-Seamless-Patterns2.jpg');
+  // background-image: url('https://s3-us-west-1.amazonaws.com/pet-sitter-development/Bones-Seamless-Patterns2.jpg');
   background-position: -40px 0px;
   background-size: 2000px;
   background-repeat: repeat-y;
@@ -52,6 +52,7 @@ body, html ul {
 
 .container {
   width: 95%;
+  height: 100%;
   background-color: #FFFFFF;
   // box-shadow: 40px 0 40px -4px #CBFFBA, -40px 0 40px -4px #CBFFBA;
 }
@@ -1049,4 +1050,86 @@ a.dropdown-toggle {
 
 .displayAdSitterComments .rating {
   display: inline-block;
+}
+
+#sitterProfileTopContent{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+#sitterProfileBottomContent {
+  top: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.profileComments {
+  display: inline-block;
+  position: relative;
+  left: 15%;
+  width: 35%;
+  top: 5%;
+  height: 100%;
+}
+
+#sitterProfileLeftContent {
+  display: inline-block;
+  height: 100%;
+  width: 40%;
+}
+
+#sitterProfileRightContent {
+  display: inline-block;
+  height: 100%;
+  width: 40%;
+  left: 40%;
+}
+
+#sitterProfileImage {
+
+}
+
+#sitterCommentsHeader {
+  display: inline-block;
+  position: absolute;
+  margin: 0;
+  top: 90%;
+  left: 45%;
+  z-index: 1000000;
+}
+
+#sitterBookingsHeader{
+  display: inline-block;
+  position: absolute;
+  margin: 0;
+  left: 10%;
+  top: 90%;
+}
+
+.profileBookings {
+  display: inline-block;
+  position: relative;
+  left: 10%;
+  width: 35%;
+  top: 5%;
+  vertical-align: top;
+  height: 100%;
+}
+
+.sitterProfileShowInfo {
+  height: 200%;
+}
+
+#topDogPrivateContent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#bottomDogPrivateContent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100%;
 }
