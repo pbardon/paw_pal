@@ -11,7 +11,7 @@
         <img class="img-responsive" src="<%= sitter.escape('sitter_photo_large') %>">
       </div>
 
-      <h2 id="sitterBookingsHeader">Bookings:</h2>
+
     </div>
 
     <div id="sitterProfileRightContent">
@@ -32,18 +32,20 @@
         <span><strong>Accepts Large Dogs?</strong> <%= (sitter.escape('large')) ? "✓" : "✖" %></span>
       </div>
 
-      <h2 id="sitterCommentsHeader">Comments:</h2>
 
     </div>
 
   </div>
 
   <div id="sitterProfileBottomContent">
+    <h2 id="sitterBookingsHeader">Bookings:</h2>
     <div class="profileBookings">
       <div class="sitter_bookings">
       </div>
     </div>
 
+
+    <h2 id="sitterCommentsHeader">Comments:</h2>
     <div class="profileComments">
       <div class="sitterComments">
       </div>
