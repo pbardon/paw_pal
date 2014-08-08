@@ -1053,7 +1053,7 @@ a.dropdown-toggle {
 
 #sitterProfileTopContent{
   position: absolute;
-  height: 100%;
+  height: 80%;
   width: 100%;
 }
 
@@ -1086,8 +1086,8 @@ a.dropdown-toggle {
   left: 40%;
 }
 
-#sitterProfileImage {
-
+#sitterProfileImage .img-responsive {
+  max-height: 100%;
 }
 
 #sitterCommentsHeader {
