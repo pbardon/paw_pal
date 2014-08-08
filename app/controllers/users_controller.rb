@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to root_url
     else
-      render json: @user.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
     end
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       @user.save!
     else
-      render json: @user.errors.full_messages
+      flash[:errors] =  @user.errors.full_messages
     end
   end
 
