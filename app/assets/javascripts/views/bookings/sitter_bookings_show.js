@@ -30,7 +30,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
   },
 
   closeImage: function() {
-    $image = $(event.currentTarget).find('img')
+    $image = $($(event.currentTarget).find('img')[1]);
     $image.attr('src', this.dog.get('dog_photo_small'));
     $image.removeClass('bigImage');
     $image.addClass('smallBookingDogPic');
@@ -47,7 +47,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
         var data_id = $('.confirmDiv').data('id');
         $('.confirmDiv').remove();
         $('.denyDiv').remove();
-        $($(".sitterBooking[data-id='" + data_id +"']").find('.bookingConfirmation')).replaceWith('<h2> Booking Confirmed </h2>');
+        $($(".sitterBooking[data-id='" + data_id +"']").find('.bookingConfirmation')).replaceWith("<span style='color:#3EFF1F; font-size: 24px;''>Booking Confirmed</span>");
       }, errors: function(jq, status, message) {
         $('.sitterBooking').prepend("<div class='alert alert-warning'>"+ message + "</div>")
       }
@@ -65,7 +65,7 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
       }, success: function(data) {
         $('.confirmDiv').remove();
         $('.denyDiv').remove();
-        $(".sitterBooking[data-id='" + data_id +"']").append('<h2> Booking Denied </h2>');
+        $(".sitterBooking[data-id='" + data_id +"']").replaceWith("<span style='color:red; font-size: 24px;''>Booking Denied</span>");
       }
     });
   },

@@ -398,11 +398,12 @@ a.dropdown-toggle {
   // border-radius: 5px;
 }
 
-// .sitterBooking img {
-//   padding-top: 5px;
-//   max-width: 85%;
-//   max-height: auto;
-// }
+.sitterBookingPic {
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
 
 .dogFormWrapper {
   margin-top: 1%;
@@ -430,8 +431,8 @@ a.dropdown-toggle {
 }
 
 
-.sitterBookingInformation .bigImage {
-  max-width: 400px;
+.sitterBookingPic .bigImage {
+  max-width: 100%;
   min-height: auto;
 }
 
@@ -1109,8 +1110,8 @@ a.dropdown-toggle {
 .profileBookings {
   display: inline-block;
   position: relative;
-  left: 10%;
-  width: 35%;
+  left: 5%;
+  width: 40%;
   top: 10%;
   vertical-align: top;
   height: 100%;
@@ -1169,4 +1170,26 @@ a.dropdown-toggle {
 .sitterShowAdContent {
   position: relative;
   top: 30px;
+}
+
+.confirmDiv h2 {
+  display: inline-block;
+}
+
+.denyDiv h2 {
+  display: inline-block;
+}
+
+.bookingDogInfo {
+  display: inline-block;
+  width: 50%;
+
+}
+
+#sitterBookingPicWrapper {
+  display: inline-block;
+  width: 45%;
+  height: 200px;
+  position: absolute;
+  right: 0;
 }
