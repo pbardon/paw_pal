@@ -37,8 +37,6 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
   },
 
   changeBounds: function(event) {
-    console.log("change bounds firing");
-    console.log(event);
     var view = this;
     var sw = this.map.getBounds().getSouthWest();
     var ne = this.map.getBounds().getNorthEast();

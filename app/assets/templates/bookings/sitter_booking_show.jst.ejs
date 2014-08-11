@@ -21,9 +21,6 @@
 
       </table>
 
-
-
-
       <div id="sitterBookingLowerSection">
 
 
@@ -80,25 +77,25 @@
 
       </div>
 
+      <div id="sitterConfirmationSection">
+        Status:
+        <% if (booking.get('confirmed')) { %>
+          <span style="color:#3EFF1F; font-size: 24px;">Confirmed</span>
+        <% }else { %>
+          <div class="bookingConfirmation">
+            <span class="confirmDiv" data-id="<%= booking.get('id') %>"><h2>Confirm?
+              <button class="confirmBooking btn btn-success">✓</button></h2>
+            </span>
+            <span class="denyDiv" data-id="<%= booking.get('id') %>"><h2>Deny?
+              <button class="denyBooking btn btn-danger">✖</button></h2>
+            </span>
+          </div>
+        <% }  %>
+      </div>
+
 
     </div>
-    <div id="sitterConfirmationSection">
-      Status:
-      <% if (booking.get('confirmed')) { %>
-        <span style="color:#3EFF1F; font-size: 24px;">Confirmed</span>
-      <% }else if (booking.get('completed')) { %>
-        <span style="color:#3EFF1F; font-size: 24px;">Completed</span>
-      <% }else { %>
-        <div class="bookingConfirmation">
-          <span class="confirmDiv" data-id="<%= booking.get('id') %>"><h2>Confirm?
-            <button class="confirmBooking btn btn-success">✓</button></h2>
-          </span>
-          <span class="denyDiv" data-id="<%= booking.get('id') %>"><h2>Deny?
-            <button class="denyBooking btn btn-danger">✖</button></h2>
-          </span>
-        </div>
-      <% }  %>
-    </div>
+
 
 
 

@@ -61,11 +61,12 @@ DogSittingApp.Views.SitterBookingShow = Backbone.CompositeView.extend({
       url: 'api/bookings/' + this.model.id,
       type: "PUT",
       data: {
-        booking: { confirmed: 'true' , completed: 'true'}
+        booking: { confirmed: 'false' , completed: 'true'}
       }, success: function(data) {
+        var data_id = $('.denyDiv').data('id');
         $('.confirmDiv').remove();
         $('.denyDiv').remove();
-        $(".sitterBooking[data-id='" + data_id +"']").replaceWith("<span style='color:red; font-size: 24px;''>Booking Denied</span>");
+        $($(".sitterBooking[data-id='" + data_id +"']").find('.bookingConfirmation')).replaceWith("<span style='color:red; font-size: 24px;''>Booking Denied</span>");
       }
     });
   },

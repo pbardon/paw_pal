@@ -1096,7 +1096,7 @@ a.dropdown-toggle {
   display: inline-block;
   position: absolute;
   margin: 0;
-  left: 45%;
+  left: 55%;
   z-index: 1000000;
 }
 
@@ -1104,7 +1104,7 @@ a.dropdown-toggle {
   display: inline-block;
   position: absolute;
   margin: 0;
-  left: 10%;
+  left: 5%;
 }
 
 .profileBookings {
@@ -1192,4 +1192,8 @@ a.dropdown-toggle {
   height: 200px;
   position: absolute;
   right: 0;
+}
+
+#sitterConfirmationSection {
+  margin-top: 75px;
 }

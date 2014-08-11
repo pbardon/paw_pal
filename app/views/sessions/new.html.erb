@@ -34,7 +34,9 @@
 
 <div id="signInAlerts">
   <% if flash[:errors] %>
-    <script> $('.alert').remove(); </script>
+    <script> window.onload = function() {
+      $('.alert').remove();
+    }; </script>
     <div class="alert alert-warning alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss='alert'><span aria-hidden="true">&times;</span><span class="sr-onlyl">Close</span></button>
       <%= flash[:errors] %>
