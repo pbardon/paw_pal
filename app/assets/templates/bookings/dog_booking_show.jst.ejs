@@ -1,7 +1,7 @@
 <div class="dogBooking col-xs-12 panel panel-info">
 
   <div class="panel-heading">
-    Sitter Name: <%= sitter.get('sitter_name') %>
+    <h4>Sitter Name: <a href="#/sitters/<%= sitter.get('id') %>"><%= sitter.get('sitter_name') %></a> </h4>
   </div>
 
   <div class="panel-body">
@@ -20,7 +20,7 @@
             <% if (booking.get('confirmed')) { %>
               <span style="color:#3EFF1F">Confirmed</span>
             <% }else { %>
-              <span style="color:#FFE745">Pending</span>
+              <span style="color:#FFD822">Pending</span>
             <% }%>
           </td>
           <td>
@@ -29,23 +29,29 @@
         </tr>
       </table>
 
-      <% if (booking.get('confirmed')) { %>
-        Address:
-        <div class="sitterAddress">
-          <%= sitter.escape('street_address') %>
-          <%= sitter.escape('city') %>, <%= sitter.escape('state') %>
-          <%= sitter.escape('zipcode') %>
-        </div>
-      <%  } %>
 
 
       <div class="sitterBookingInformation">
-        <div>
+        <h4> Sitter Information: </h4>
+        <div id="dogBookingSitterInfo">
+
           <img class="thumbnail" data-id="<%= sitter.get('id') %>" src="<%= sitter.get('sitter_photo_small') %>">
           <div style="font-size: 10px; color: blue; padding: 5px 0px;" class="caption">
             Click to expand/collapse picture
           </div>
         </div>
+        <div id="">
+
+        </div>
+        <% if (booking.get('confirmed')) { %>
+          Address:
+          <div class="sitterAddress">
+            <%= sitter.escape('street_address') %>
+            <%= sitter.escape('city') %>, <%= sitter.escape('state') %>
+            <%= sitter.escape('zipcode') %>
+          </div>
+        <%  } %>
+
       </div>
 
 

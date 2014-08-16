@@ -693,7 +693,7 @@ a.dropdown-toggle {
   width: 40%;
   left: 5%;
   height: 100%;
-  top: 10%;
+  top: 55px;
 }
 
 .dog_bookings {
@@ -749,10 +749,11 @@ a.dropdown-toggle {
 
 .sitterShowProfileContent {
   position: absolute;
-  top: 3%;
+  height: 100%;
   width: 50%;
   left: 40%;
   display: inline-block;
+  overflow-y: auto;
 }
 
 
@@ -820,7 +821,7 @@ a.dropdown-toggle {
 .sitterInfoButton {
   display: inline;
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   left: 83.5%;
 }
 
@@ -836,13 +837,12 @@ a.dropdown-toggle {
     position: absolute;
     width: 40%;
     left: 50%;
-    top: 10%;
+    top: 55px;
     height: 100%;
     vertical-align: top;
 }
 
 .dogShowInfo {
-  padding: 1%;
 }
 
 .publicCommentFormWrapper > .dogComments > .commentContent {
@@ -947,6 +947,7 @@ a.dropdown-toggle {
   left: 0;
   width: 40%;
   z-index: 1000;
+  top: 5px;
 }
 
 #displaySitterComments {
@@ -986,14 +987,14 @@ a.dropdown-toggle {
 
 #sitterShowLeftContent {
   position: absolute;
-  height: 50%;
+  height: 100%;
   width: 40%;
 
 }
 
 #sitterShowRightContent {
   position: absolute;
-  height: 50%;
+  height: 100%;
   left: 40%;
   width: 50%;
 }
@@ -1016,7 +1017,7 @@ a.dropdown-toggle {
 
 #sitterAdTopContent {
   position: absolute;
-  height: 300px;
+  height: 80%;
   width: 100%;
 }
 
@@ -1125,7 +1126,7 @@ a.dropdown-toggle {
 .topDogPrivateContent {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 80%;
 }
 
 #bottomDogPrivateContent {
@@ -1170,7 +1171,10 @@ a.dropdown-toggle {
 
 .sitterShowAdContent {
   position: relative;
-  top: 30px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
 }
 
 .confirmDiv h2 {
