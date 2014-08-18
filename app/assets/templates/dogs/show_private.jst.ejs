@@ -11,29 +11,27 @@
         <button class="removeDog btn btn-danger">Remove Dog Profile</button>
       </span></h3>
 
-      <div class="dogShowPic">
-          <img class="dogShowPhoto" src="<%= dog.get('dog_photo_large') %>">
+
+      <div class='dogShowPrivateContent'>
+          <h3 style = "margin-top: 0px;">Description:</h3>
+          <div id="dogDescription">
+            <%= dog.escape('description') %>
+          </div>
+
+          <div class="dogAttributes">
+            <div><h3>Age: <%= dog.escape('age') %></h3></div>
+            <div><h4>Size: <%= dog.escape('size') %></h4></div>
+          </div>
+
       </div>
 
-
     </div>
 
-  <div id="dogPrivateRightContent">
-    <div class='dogShowContent'>
-        <h3 style = "margin-top: 0px;">Description:</h3>
-        <div id="dogDescription">
-          <%= dog.escape('description') %>
-        </div
-
-        <div class="dogAttributes">
-          <div><h3>Age: <%= dog.escape('age') %></h3></div>
-          <div><h4>Size: <%= dog.escape('size') %></h4></div>
-        </div>
-
-        </div>
+    <div id="dogPrivateRightContent">
+      <div class="dogShowPrivatePic">
+          <img class="dogShowPrivatePhoto" src="<%= dog.get('dog_photo_large') %>">
+      </div>
     </div>
-
-  </div>
 
 
 
