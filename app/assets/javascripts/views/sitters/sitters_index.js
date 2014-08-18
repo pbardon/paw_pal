@@ -100,8 +100,6 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
     geocoder = new google.maps.Geocoder();
 
-
-
     var query = $('#searchParams').val();
 
     geocoder.geocode( { 'address': query }, function(results, status) {
@@ -109,7 +107,7 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
         view.map.setCenter(results[0].geometry.location);
         view.map.setZoom(12);
       } else {
-        $('.container').prepend("<div class='alert alert-warning'>There was a problem with your search</div>");
+        $('#searchParams').val("There was a problem with your search");
       }
     });
   },

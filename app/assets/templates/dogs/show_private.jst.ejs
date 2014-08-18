@@ -4,11 +4,12 @@
 
     <div id="dogPrivateLeftContent">
       <h2 id="dogProfileName"><%= dog.escape('name') %>'s Profile
-        <span class="privateDogButtons">
-          <button class="editDogInfo btn btn-primary" data-id="<%= dog.escape('id') %>">Edit Dog Information</button>
-          <button class="removeDog btn btn-danger">Remove Dog Profile</button>
-        </span>
+
       </h2>
+      <h3 id="privateDogButtonWrapper"><span class="privateDogButtons">
+        <button class="editDogInfo btn btn-primary" data-id="<%= dog.escape('id') %>">Edit Dog Information</button>
+        <button class="removeDog btn btn-danger">Remove Dog Profile</button>
+      </span></h3>
 
       <div class="dogShowPic">
           <img class="dogShowPhoto" src="<%= dog.get('dog_photo_large') %>">
@@ -19,7 +20,7 @@
 
   <div id="dogPrivateRightContent">
     <div class='dogShowContent'>
-        <h2 style = "margin-top: 0px;">Description:</h2>
+        <h3 style = "margin-top: 0px;">Description:</h3>
         <div id="dogDescription">
           <%= dog.escape('description') %>
         </div

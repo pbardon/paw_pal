@@ -32,7 +32,7 @@
 
 
       <div class="sitterBookingInformation">
-        <h4> Sitter Information: </h4>
+        <h4> Sitter Picture: </h4>
         <div id="dogBookingSitterInfo">
 
           <img class="thumbnail" data-id="<%= sitter.get('id') %>" src="<%= sitter.get('sitter_photo_small') %>">
@@ -44,7 +44,7 @@
 
         </div>
         <% if (booking.get('confirmed')) { %>
-          Address:
+          <h4>Address:</h4>
           <div class="sitterAddress">
             <%= sitter.escape('street_address') %>
             <%= sitter.escape('city') %>, <%= sitter.escape('state') %>

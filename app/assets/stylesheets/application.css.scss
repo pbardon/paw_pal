@@ -154,6 +154,7 @@ body, html ul {
   left: 80%;
   right: 0;
   top: 1%;
+  z-index: 100000;
 }
 
 .map-wrapper > #map-canvas {
@@ -264,12 +265,11 @@ body, html ul {
 
 .dogs{
   margin-left: 5%;
-  overflow-y: scroll;
+  overflow-y: auto;
   max-height: 100%;
 }
 
 .dog {
-  margin: 3%;
   display: inline-block;
   float: left;
   padding-left: 2%;
@@ -389,8 +389,12 @@ a.dropdown-toggle {
 
 
 .dogBooking img {
-  max-width: 100px;
+  max-width: 100%;
   max-height: auto;
+}
+
+.dogBooking .bigImage {
+  min-width: 100%;
 }
 
 .sitterBooking {
@@ -455,10 +459,10 @@ a.dropdown-toggle {
   overflow-y: auto;
   overflow-x: hidden;
   position: absolute;
-  bottom:0;
-  top: 53px;
-  left:0;
-  right:0;
+  bottom: 0;
+  top: 40px;
+  left: 0;
+  right: 0;
 }
 
 #pawicon {
@@ -481,9 +485,10 @@ a.dropdown-toggle {
 .searchBar {
   display: inline-block;
   position: absolute;
-  width: 45%;
-  top: 5px;
-  margin-left: 1%;
+  width: 75%;
+  top: 0px;
+  left: 1%;
+  z-index: 100000;
 }
 
 .lowerContent > .sitter_bookings {
@@ -496,8 +501,10 @@ a.dropdown-toggle {
   position: absolute;
   display: inline-block;
   margin-left: 1%;
-  width: 60%;
+  width: 80%;
   top: 5%;
+  height: 80%;
+  overflow-y: auto;
 }
 
 
@@ -507,8 +514,6 @@ a.dropdown-toggle {
   width: 20%;
 
 }
-
-
 
 #logo {
   display: inline;
@@ -545,7 +550,8 @@ a.dropdown-toggle {
 
 .dogShowPhoto {
   border-radius: 5px;
-  max-width: 60%;
+  max-width: 100%;
+  max-height: 70%;
 }
 
 .dogShowPic {
@@ -569,8 +575,9 @@ a.dropdown-toggle {
 }
 
 #mapWrapper {
+  box-shadow: 1px 1px 1px;
   position: absolute;
-  top:45px;
+  top:40px;
   bottom:0;
   left:0;
   width: 40%;
@@ -581,11 +588,17 @@ a.dropdown-toggle {
   margin-left: 1%;
   margin-right: 1%;
   left: 40%;
-  top: 15px;
+  top: 40px;
   right: 0;
   bottom:0;
 
 }
+
+#sitterIndexWrapper h2{
+  margin: 0;
+}
+
+
 .frontPageWrapper .sitterIndexWrapper .sitterIndex .row .sitterItem {
   margin-left: 45%;
   width: 55%;
@@ -604,6 +617,7 @@ a.dropdown-toggle {
 
 #dogProfileName {
   font-size: 40px;
+  margin-top: 0;
 }
 
 .dog_bookings .panel-body {
@@ -776,7 +790,7 @@ a.dropdown-toggle {
 
 .indexContents p {
   max-height: 80px;
-  width: 500px;
+  width: 100%;
   overflow: hidden;
   text-overflow:ellipsis;
 
@@ -982,7 +996,7 @@ a.dropdown-toggle {
 }
 
 #searchParams {
-  width: 50%;
+  width: 30%;
 }
 
 #sitterShowLeftContent {
@@ -1002,13 +1016,14 @@ a.dropdown-toggle {
 #sitterShowAdImage {
   position: absolute;
   left: 2%;
+  width: 98%;
   display: inline;
   border-radius: 5px;
-  max-height: 40%;
 }
 
 #sitterShowAdImage img{
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #sitterShowAdTopContent {
@@ -1035,7 +1050,7 @@ a.dropdown-toggle {
   height: 100%;
   width: 80%;
   top: 55px;
-  left: 40%;
+  left: 45%;
 }
 
 #displayAdSitterComments {
@@ -1126,14 +1141,14 @@ a.dropdown-toggle {
 .topDogPrivateContent {
   position: absolute;
   width: 100%;
-  height: 80%;
+  height: 400px;
 }
 
 #bottomDogPrivateContent {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 80%;
+  top: 400px;
   background-color: #B7E4FF;
 }
 
@@ -1141,15 +1156,15 @@ a.dropdown-toggle {
   position: absolute;
   display: inline-block;
   height: 100%;
-  width: 50%;
-  left: 50%;
+  width: 55%;
+  left: 40%;
 }
 
 #dogPrivateLeftContent {
   position: absolute;
   display: inline-block;
   height: 100%;
-  width: 50%;
+  width: 35%;
 }
 
 #dogPrivateCommentHeader {
@@ -1165,7 +1180,7 @@ a.dropdown-toggle {
 
 #sitterAdCommentsHeader {
   display: inline-block;
-  left: 30%;
+  left: 45%;
   position: absolute;
 }
 
@@ -1193,7 +1208,7 @@ a.dropdown-toggle {
 
 #sitterBookingPicWrapper {
   display: inline-block;
-  width: 45%;
+  width: 55%;
   height: 200px;
   position: absolute;
   right: 0;
@@ -1201,4 +1216,19 @@ a.dropdown-toggle {
 
 #sitterConfirmationSection {
   margin-top: 75px;
+}
+
+#privateDogButtonWrapper {
+  margin: 0;
+}
+
+#menuDropdown {
+  display: inline-block;
+  float: right;
+}
+
+#searchWrapper {
+  position: absolute;
+  height: 40px;
+  width: 100%;
 }
