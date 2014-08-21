@@ -48,6 +48,5 @@ DogSittingApp.Views.NewSitterBooking = Backbone.View.extend({
         }
       });
     }
-
   }
 })
