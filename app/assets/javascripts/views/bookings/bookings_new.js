@@ -1,7 +1,7 @@
 DogSittingApp.Views.NewSitterBooking = Backbone.View.extend({
   initialize: function(options) {
     this.dogs = options.dogs;
-    this.listenTo(this.dogs, 'add', this.render);
+    this.listenTo(this.dogs, 'add sync', this.render);
   },
 
   events: {
