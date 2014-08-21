@@ -438,7 +438,7 @@ a.dropdown-toggle {
 
 .sitterBookingPic .bigImage {
   max-width: 100%;
-  min-height: auto;
+  height: auto;
 }
 
 .index_price h2 {
@@ -773,6 +773,7 @@ a.dropdown-toggle {
   height: 100%;
   width: 50%;
   left: 40%;
+  top: 5%;
   display: inline-block;
   overflow-y: auto;
 }
