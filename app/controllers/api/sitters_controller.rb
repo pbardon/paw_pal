@@ -34,6 +34,11 @@ module Api
     def update
       @sitter = Sitter.find(params[:id])
 
+      if @sitter.user_id == 1
+        render json: "Can't Modify Guest Account", status: :unprocessable_entity
+        return
+      end
+
       if @sitter.user_id == current_user.id && @sitter.update_attributes(sitter_params)
         geo = generate_geocode(@sitter.street_address, @sitter.zipcode, @sitter.city, @sitter.state)
         @sitter.latitude = geo[0]
@@ -65,6 +70,12 @@ module Api
 
     def destroy
       @sitter = Sitter.find(params[:id])
+
+      if @sitter.user_id == 1
+        render json: "Can't Modify Guest Account", status: :unprocessable_entity
+        return
+      end
+
       if @sitter.user_id == current_user.id && @sitter.destroy
         render "sitters/show"
       else
