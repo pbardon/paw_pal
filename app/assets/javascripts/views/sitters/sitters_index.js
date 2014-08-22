@@ -5,15 +5,21 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
 
     this.listenTo(this.collection, 'sync', this.addSitterIndex.bind(this));
 
-
     this.listenTo(this.collection, 'sync', this.saveOriginalCollection);
+
+
+    this.collection.comparator = function(item) {
+      return item.get('price');
+    };
 
 
   },
 
   events: {
     "click #search": 'searchResults',
-    "click .moreInfo": 'showInfo'
+    "click .moreInfo": 'showInfo',
+    "click #orderByRating": "reorderByHightoLowRating",
+    "click #orderByPrice": "reorderByPrice"
   },
 
   className: "frontPageWrapper",
@@ -116,17 +122,47 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     this.originalCollection = new DogSittingApp.Collections.Sitters(this.collection.models);
   },
 
+  reorderByHightoLowRating: function() {
+    this.collection.comparator = function(item) {
+      return -item.get('avg_rating');
+    };
+    this.collection.sort();
+    this.collection.trigger('reset');
+
+  },
+
+  reorderByPrice: function() {
+    this.collection.comparator = function(item) {
+      return item.get('price');
+    };
+    this.collection.sort();
+    this.collection.trigger('reset');
+
+  },
+
   renderMap: function () {
    var view = this;
+   var pos = new google.maps.LatLng(37.7810560, -122.4114550);
 
-   var mapOptions = {
-      zoom: 10,
-      center: new google.maps.LatLng(37.7810560, -122.4114550)
+    var mapOptions = {
+      zoom: 12,
+      center: pos
     };
 
     this.map = new google.maps.Map(this.$('#map-canvas')[0],
         mapOptions);
     this.placeMarkers();
+
+    if(navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(function(position) {
+       pos = new google.maps.LatLng(position.coords.latitude,
+                                    position.coords.longitude);
+
+       view.map.setCenter(pos)
+
+       });
+
+     }
 
     $(window).load(function() {
       google.maps.event.addListener(view.map, "bounds_changed", view.changeBounds.bind(view));
@@ -138,6 +174,7 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     var renderedContent = this.template({
       sitters: this.collection
     });
+
 
     this.$el.html(renderedContent);
 

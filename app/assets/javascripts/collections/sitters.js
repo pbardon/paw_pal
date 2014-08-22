@@ -3,7 +3,6 @@ DogSittingApp.Collections.Sitters = Backbone.Collection.extend({
 
   model: DogSittingApp.Models.Sitter,
 
-  comparator: 'price',
 
   filterByBounds: function(minX, maxX, minY, maxY) {
     var models = collection.select(function (model){

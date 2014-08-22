@@ -291,10 +291,6 @@ body, html ul {
   padding-left: 5%;
 }
 
-a.dropdown-toggle {
-  color: green;
-}
-
 .dropdown-menu > li a, a:hover, a:active, a:visited {
   font-size: 15px;
 }
@@ -305,7 +301,7 @@ a.dropdown-toggle {
 
 
 .dropdown-menu > li > a:hover {
-  background-color: #C7FFAC;
+  background-color: #B7E4FF;
 }
 
 .newSitterForm #loadingSitterGif {
@@ -1263,4 +1259,31 @@ a.dropdown-toggle {
   width: 100%;
   position: absolute;
   background-color: #B7E4FF;
+}
+
+
+
+#sortDropDown {
+  position: absolute;
+  right: 10px;
+}
+
+#sortDropDown a:hover{
+  background-color: #B7E4FF;
+}
+
+#orderByPrice {
+  margin: 0;
+  padding: 0;
+  background: none;
+  color: black;
+  border: none;
+}
+
+#orderByRating {
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: black;
+    border: none;
 }
