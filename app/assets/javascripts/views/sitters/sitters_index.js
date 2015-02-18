@@ -48,8 +48,8 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
     var ne = this.map.getBounds().getNorthEast();
     this.minY = sw['k'];
     this.maxY = ne['k'];
-    this.maxX = ne['A'] || ne['B'];
-    this.minX = sw['A'] || sw['B'];
+    this.maxX = ne['A'] || ne['B'] || ne['D'];
+    this.minX = sw['A'] || sw['B'] || sw['D'];
 
     this.collection.reset(this.originalCollection.filter(function(model) {
        return (model.get('latitude') < view.maxY &&
