@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.0.0"
+ruby "2.2.1"
 
 gem 'rails', '4.1.1'
 gem 'pg'
@@ -20,6 +20,7 @@ gem 'addressable'
 gem 'rest-client'
 gem 'rails_12factor'
 gem 'thin'
+gem 'eventmachine', '~> 1.0.8'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -30,10 +31,12 @@ group :development do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'debugger'
+  gem 'byebug'
 end
 
-
+group :test do
+  gem 'sqlite3'
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'
