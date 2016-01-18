@@ -43,13 +43,23 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
   },
 
   changeBounds: function(event) {
+    var swLat, swLng, neLat, neLng;
     var view = this;
-    var sw = this.map.getBounds().getSouthWest();
-    var ne = this.map.getBounds().getNorthEast();
-    this.minY = sw['k'] || sw['A'] || sw['G'] || -90;
-    this.maxY = ne['k'] || ne['G'] || 90;
-    this.maxX = ne['F'] || ne['K'] || 180;
-    this.minX = sw['F'] || sw['K'] || -180;
+    if (typeof this.map != 'undefined'){
+        swLat = this.map.getBounds().getSouthWest().lat();
+        swLng = this.map.getBounds().getSouthWest().lng();
+        neLat = this.map.getBounds().getNorthEast().lat();
+        neLng = this.map.getBounds().getNorthEast().lng();
+    }else{
+        swLat = -90
+        swLng = -180
+        neLat = 90
+        neLng = 180
+    }
+    this.minY = swLat;
+    this.maxY = neLat;
+    this.maxX = neLng;
+    this.minX = swLng;
 
     this.collection.reset(this.originalCollection.filter(function(model) {
        return (model.get('latitude') < view.maxY &&
@@ -57,7 +67,6 @@ DogSittingApp.Views.SittersIndex = Backbone.CompositeView.extend({
          model.get('latitude') > view.minY &&
           model.get('longitude') < view.maxX);
       }));
-
   },
 
   placeMarkers: function() {
