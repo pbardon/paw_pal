@@ -5,11 +5,9 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: dog_sitting_app_development
-  pool: 5
-  timeout: 5000
-  user_name: oldComputer
-  password:
+  host: localhost
+  username: user
+  database: app-dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
