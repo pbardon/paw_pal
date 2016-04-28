@@ -10,18 +10,16 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require jquery.serializeJSON
-//= require jquery.ui.datepicker
-//= require underscore
-//= require backbone
-//= require bootstrap
-//= require dog_sitting_app
-//= require_tree ../templates
-//= require_tree ./utils
-//= require_tree ./models
-//= require_tree ./collections
-//= require_tree ./views
-//= require_tree ./routers
-//= require_tree .
+
+//= require_tree ./vendor/bower_components/requirejs
+//= require ./vendor/bower_components/jquery/dist/jquery.min.js
+//= require ./vendor/bower_components/angular/angular.min
+//= require_tree ./vendor/bower_components/domReady
+//= require ./vendor/bower_components/AngularDevise/lib/devise-min.js
+//= require ./vendor/bower_components/angular-ui-router/release/angular-ui-router.min.js
+//= require_tree ./vendor/bower_components/bootstrap-sass-official/assets/javascripts
+//= require ./app/scripts/easypayApp.js
+//= require ./app/scripts/main.js
+//= require_tree ./app/scripts/controllers
+//= require_tree ./app/scripts/constants
+//= require_tree ./app/scripts/services
