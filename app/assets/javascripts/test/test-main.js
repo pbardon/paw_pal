@@ -70,6 +70,4 @@ require.config({
     deps: tests,
 
     callback: window.__karma__.start
-
-
 });
