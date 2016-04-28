@@ -6,7 +6,7 @@
 development:
   adapter: postgresql
   host: localhost
-  username: user
+  username: oldComputer
   database: app-dev
 
 # Warning: The database defined as "test" will be erased and
@@ -15,6 +15,6 @@ development:
 
 test:
   adapter: sqlite3
-  database: db/test.sqlite3
+  database: db/test.sqlite2
   pool: 5
   timeout: 5000

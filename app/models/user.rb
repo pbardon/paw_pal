@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :dogs, class_name: :Dog, foreign_key: :owner_id
 
-  has_one :sitter_account, class_name: :Sitter, foreign_key: :user_id
+  has_one :shelter_account, class_name: :Shelter, foreign_key: :user_id
 
   has_many :comments
 

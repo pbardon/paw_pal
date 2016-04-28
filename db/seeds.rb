@@ -160,20 +160,21 @@ users= User.create([{
 # ])
 #
 #
-# sitters = Sitter.create([
-#   {user_id: 1,
-#   sitter_name: "Professional Dog Care",
-#   description: "Hello fellow dog lovers. Is the health and happiness of your dog paramount to you when choosing a dog boarder? If so, then look no further! Giddyup Pup is owned and operated by my boyfriend Michael and myself. We are both certified dog walkers who are trained in pet CPR and first aid. Also we are insured through Pet Sitter and Associates. Rest assured your pet will be in excellent care with Giddyup Pup.",
-#   small: true,
-#   medium: true,
-#   large: true,
-#   price: 25,
-#   street_address: "33 Frankfort St",
-#   city: "Daly City",
-#   state: "CA",
-#   zipcode: "94014",
-#   sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter1.jpg")
-#   },
+shelters = Shelter.create([
+  {user_id: 1,
+  shelter_name: "Professional Dog Care",
+  description: "Hello fellow dog lovers. Is the health and happiness of your dog paramount to you when choosing a dog boarder? If so, then look no further! Giddyup Pup is owned and operated by my boyfriend Michael and myself. We are both certified dog walkers who are trained in pet CPR and first aid. Also we are insured through Pet Sitter and Associates. Rest assured your pet will be in excellent care with Giddyup Pup.",
+  small: true,
+  medium: true,
+  large: true,
+  price: 25,
+  street_address: "33 Frankfort St",
+  city: "Daly City",
+  state: "CA",
+  zipcode: "94014",
+  shelter_photo: File.open("/Users/oldComputer/Desktop/seed_photos/humane-society1.jpeg")
+  }
+])
 #
 #   {user_id: 2,
 #   sitter_name: "I welcome your doggies into my home!",
@@ -369,5 +370,5 @@ users= User.create([{
 #   zipcode: "94118",
 #   sitter_photo: File.open("/Users/oldComputer/Desktop/seedphotos/sitter15.jpg")
 #   }
-# 
+#
 # ])
