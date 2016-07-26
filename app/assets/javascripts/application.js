@@ -18,7 +18,7 @@
 //= require ./vendor/bower_components/AngularDevise/lib/devise-min.js
 //= require ./vendor/bower_components/angular-ui-router/release/angular-ui-router.min.js
 //= require_tree ./vendor/bower_components/bootstrap-sass-official/assets/javascripts
-//= require ./app/scripts/easypayApp.js
+//= require ./app/scripts/pawPalApp.js
 //= require ./app/scripts/main.js
 //= require_tree ./app/scripts/controllers
 //= require_tree ./app/scripts/constants

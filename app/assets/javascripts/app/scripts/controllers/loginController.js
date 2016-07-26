@@ -3,8 +3,9 @@ define('controllers/loginController', ['controllers/controllers'],
         controllers.controller('LoginCtrl', ['$rootScope',
                                              '$scope',
                                              '$state',
+                                             '$http',
                                              'Auth',
-           function($rootScope, $scope, $state, Auth){
+           function($rootScope, $scope, $state, $http, Auth){
 
                 $scope.formData = {
                     username: '',
@@ -24,6 +25,21 @@ define('controllers/loginController', ['controllers/controllers'],
                         //Login failure..
                         console.log('login failed with error: ');
                         console.log(err);
+                    });
+                };
+
+                $scope.login = function() {
+                    $http.post(  "/api/login", JSON.stringify($scope.formData),
+                    function(err, response) {
+                        if (err) {
+                            console.log(JSON.stringify(err));
+                            throw err;
+                        }
+
+                        console.log("received response from post request...");
+
+                        console.log(response);
+
                     });
                 };
 
