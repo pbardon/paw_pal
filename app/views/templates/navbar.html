@@ -1,0 +1,25 @@
+<div>
+    <div ng-init="init()" id="navbarContainer">
+        <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Easy Pay</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref="home" ><i class="fa fa-home"></i> Home</a></li>
+                <li><a ui-sref="about"><i class="fa fa-shield"></i> About</a></li>
+                <li><a ui-sref="contact"><i class="fa fa-comment"></i> Contact</a></li>
+                <li><a ui-sref="login"  ng-show="!isLoggedIn()"><i class="fa fa-comment"></i>Sign In</a></li>
+                <li><a ui-sref="enroll" ng-show="!isLoggedIn()"><i class="fa fa-comment"></i>Sign Up</a></li>
+                <li><a ng-show="isLoggedIn()" ng-click="logOut()"><i class="fa fa-comment"></i>Log Out</a></li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+
+
+    <div > </div>
+
+
+</div>

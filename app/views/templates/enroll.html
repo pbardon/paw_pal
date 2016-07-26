@@ -1,0 +1,70 @@
+<div ng-init="init()" class="row" id="enrollmentContainer">
+    <div class="input-group">
+        <input type="text"
+               name="username"
+               placeholder="Enter your username..."
+               class="form-control"
+               ng-model="formData.username">
+    </div>
+
+    <div class="input-group">
+        <input type="text"
+               placeholder="First Name"
+               class="form-control"
+               ng-model="formData.firstName">
+    </div>
+
+    <div class="input-group">
+        <input type="text"
+               name="lastName"
+               placeholder="Last Name"
+               class="form-control"
+               ng-model="formData.lastName">
+    </div>
+
+    <div class="input-group">
+        <input type="text"
+               name="address"
+               placeholder="Address"
+               class="form-control"
+               ng-model="formData.address">
+    </div>
+
+    <div class="input-group">
+        <input type="text"
+               name="city"
+               placeholder="City"
+               class="form-control"
+               ng-model="formData.city">
+    </div>
+
+    <div class="input-group">
+        <select id="stateSelect" class="form-control" ng-model="formData.state">
+            <option>Select State</option>
+            <option ng-repeat="state in formData.states">{{state}}</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <input type="number"
+               placeholder="Zipcode"
+               class="form-control"
+               ng-model="formData.zipcode">
+    </div>
+
+    <div class="input-group">
+        <input type="password"
+               placeholder="Password"
+               class="form-control"
+               ng-model="formData.password">
+    </div>
+
+    <div class="input-group">
+        <input type="password"
+               placeholder="Confirm Password"
+               class="form-control"
+               ng-model="formData.passwordConfirm">
+    </div>
+
+    <button ng-click="submit(formData)" type="button" class="btn btn-default-bg">Submit</button>
+</div>

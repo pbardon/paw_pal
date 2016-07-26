@@ -27,7 +27,7 @@ require.config({
         },
         'uiRouter' : {
             deps: ['angular'],
-            exports: 'ui.router'
+            exports: 'uiRouter'
         }
     }
 });
@@ -61,10 +61,9 @@ require([
                     .state('home', {
                         url : '/',
                         views : {
-
                             'main' : {
                                 controller: 'HomeCtrl',
-                                templateUrl: 'static_pages_controller/home.html',
+                                templateUrl: 'templates/ ' + timestamp.toString() + '/home.html',
                             }
                         }
                     });

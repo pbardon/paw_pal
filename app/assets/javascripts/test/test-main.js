@@ -51,12 +51,7 @@ require.config({
 
         'uiRouter' : {
             deps: ['angular']
-        },
-
-        'Devise' : {
-            exports: 'Devise',
-            deps: ['angular']
-        },
+        }
 
         'angularMocks' : {
             deps: ['angular'],

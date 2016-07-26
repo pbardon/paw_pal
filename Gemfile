@@ -21,6 +21,10 @@ gem 'rest-client'
 gem 'rails_12factor'
 gem 'thin'
 gem 'eventmachine', '~> 1.0.8'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
+gem 'bootstrap-sass'
+
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
