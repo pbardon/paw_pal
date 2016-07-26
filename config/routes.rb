@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'static_pages#root'
+  get "static_pages/home", to: 'static_pages#home'
 
   get "session/guest", to: 'sessions#guest', as: 'guest'
 

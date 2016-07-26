@@ -5,8 +5,8 @@ require.config({
         'jquery': 'vendor/bower_components/jquery/dist/jquery.min',
         'domReady': 'vendor/bower_components/domReady/domReady',
         'uiRouter' : 'vendor/bower_components/angular-ui-router/release/angular-ui-router.min',
-        'Devise': 'vendor/bower_components/AngularDevise/lib/devise',
         'pawPalApp' : 'app/scripts/pawPalApp',
+        'services/services' : 'app/scripts/constants/constants',
         'constants/constants' : 'app/scripts/constants/constants',
         'constants/formConstants' : 'app/scripts/constants/formConstants',
         'controllers/controllers' : 'app/scripts/controllers/controllers',
@@ -28,10 +28,6 @@ require.config({
         'uiRouter' : {
             deps: ['angular'],
             exports: 'ui.router'
-        },
-        'Devise' : {
-            deps: ['angular'],
-            exports: 'Devise'
         }
     }
 });
@@ -41,7 +37,6 @@ require([
     'pawPalApp',
     'domReady',
     'uiRouter',
-    'Devise',
     'constants/formConstants',
     'controllers/mainController',
     'controllers/aboutContentController',
@@ -66,89 +61,10 @@ require([
                     .state('home', {
                         url : '/',
                         views : {
-                            'navbar' : {
-                                templateUrl: '/templates/' + timestamp + '/navbar.html',
-                                controller: 'NavbarCtrl'
-                            },
 
                             'main' : {
                                 controller: 'HomeCtrl',
-                                templateUrl: 'templates/' + timestamp + '/home.html',
-                            },
-                            'footer' : {
-                                templateUrl: 'templates/' + timestamp + '/footer.html',
-                                controller : 'FooterCtrl'
-                            }
-                        }
-                    })
-                    .state('about', {
-                        url : '/about',
-                        views : {
-                            'navbar' : {
-                                templateUrl: '/templates/' + timestamp + '/navbar.html',
-                                controller: 'NavbarCtrl'
-                            },
-
-                            'main' : {
-                                controller: 'AboutContentCtrl',
-                                templateUrl: 'templates/' + timestamp + '/about.html',
-                            },
-                            'footer' : {
-                                templateUrl: 'templates/' + timestamp + '/footer.html',
-                                controller : 'FooterCtrl'
-                            }
-                        }
-                    })
-                    .state('contact', {
-                        url : '/contact',
-                        views : {
-                            'navbar' : {
-                                templateUrl: '/templates/' + timestamp + '/navbar.html',
-                                controller: 'NavbarCtrl'
-                            },
-
-                            'main' : {
-                                controller: 'ContactContentCtrl',
-                                templateUrl: 'templates/' + timestamp + '/contact.html',
-                            },
-                            'footer' : {
-                                templateUrl: 'templates/' + timestamp + '/footer.html',
-                                controller : 'FooterCtrl'
-                            }
-                        }
-                    }).state('login', {
-                        url : '/login',
-                        views : {
-                            'navbar' : {
-                                templateUrl: '/templates/' + timestamp + '/navbar.html',
-                                controller: 'NavbarCtrl'
-                            },
-
-                            'main' : {
-                                controller: 'LoginCtrl',
-                                templateUrl: 'templates/' + timestamp + '/login.html',
-                            },
-                            'footer' : {
-                                templateUrl: 'templates/' + timestamp + '/footer.html',
-                                controller : 'FooterCtrl'
-                            }
-                        }
-                    })
-                    .state('enroll', {
-                        url : '/enroll',
-                        views : {
-                            'navbar' : {
-                                templateUrl: '/templates/' + timestamp + '/navbar.html',
-                                controller: 'NavbarCtrl'
-                            },
-
-                            'main' : {
-                                templateUrl:  '/templates/' + timestamp + '/enroll.html',
-                                controller: 'EnrollmentCtrl'
-                            },
-                            'footer' : {
-                                templateUrl: 'templates/' + timestamp + '/footer.html',
-                                controller : 'FooterCtrl'
+                                templateUrl: 'static_pages_controller/home.html',
                             }
                         }
                     });
@@ -160,6 +76,4 @@ require([
         domReady(function() {
             angular.bootstrap(document, ['pawPalApp']);
         });
-
-
 });
