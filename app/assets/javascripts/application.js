@@ -13,10 +13,10 @@
 
 //= require_tree ./vendor/bower_components/requirejs
 //= require ./vendor/bower_components/jquery/dist/jquery.min.js
+//= require_tree ./vendor/bower_components/bootstrap-sass-official/assets/javascripts
 //= require ./vendor/bower_components/angular/angular.min
 //= require_tree ./vendor/bower_components/domReady
 //= require ./vendor/bower_components/angular-ui-router/release/angular-ui-router.min.js
-//= require_tree ./vendor/bower_components/bootstrap-sass-official/assets/javascripts
 //= require ./app/scripts/pawPalApp.js
 //= require ./app/scripts/main.js
 //= require_tree ./app/scripts/controllers
