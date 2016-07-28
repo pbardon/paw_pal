@@ -19,6 +19,7 @@ require.config({
         'angular': '/base/vendor/bower_components/angular/angular.min',
         'angularMocks': '/base/vendor/bower_components/angular-mocks/angular-mocks',
         'uiRouter' : '/base/vendor/bower_components/angular-ui-router/release/angular-ui-router',
+        'uiBootstrap' : '/base/vendor/bower_components/angular-bootstrap/ui-bootstrap.min',
         'Devise': '/base/vendor/bower_components/AngularDevise/lib/devise',
         'services/services' : '/base/app/scripts/services/services',
         'controllers/controllers' : '/base/app/scripts/controllers/controllers',
@@ -51,7 +52,12 @@ require.config({
 
         'uiRouter' : {
             deps: ['angular']
-        }
+        },
+
+        'uiBootstrap' : {
+            deps: ['angular'],
+            exports: 'uiBootstrap'
+        },
 
         'angularMocks' : {
             deps: ['angular'],

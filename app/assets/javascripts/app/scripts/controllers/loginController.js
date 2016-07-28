@@ -13,6 +13,11 @@ define('controllers/loginController', ['controllers/controllers'],
 
 
                 $scope.login = function() {
+                    if ($scope.formData.username === "" || $scope.formData.password === "" ) {
+                        console.log('no username or password was supplied');
+                        return false;
+                    }
+
                     $http.post("/api/login", JSON.stringify($scope.formData),
                     function(err, response) {
                         if (err) {

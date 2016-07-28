@@ -5,6 +5,7 @@ require.config({
         'jquery': 'vendor/bower_components/jquery/dist/jquery.min',
         'domReady': 'vendor/bower_components/domReady/domReady',
         'uiRouter' : 'vendor/bower_components/angular-ui-router/release/angular-ui-router.min',
+        'uiBootstrap' : 'vendor/bower_components/angular-bootstrap/ui-bootstrap.min',
         'pawPalApp' : 'app/scripts/pawPalApp',
         'services/services' : 'app/scripts/constants/constants',
         'constants/constants' : 'app/scripts/constants/constants',
@@ -28,6 +29,10 @@ require.config({
         'uiRouter' : {
             deps: ['angular'],
             exports: 'uiRouter'
+        },
+        'uiBootstrap' : {
+            deps: ['angular'],
+            exports: 'uiBootstrap'
         }
     }
 });
@@ -37,6 +42,7 @@ require([
     'pawPalApp',
     'domReady',
     'uiRouter',
+    'uiBootstrap',
     'constants/formConstants',
     'controllers/mainController',
     'controllers/aboutContentController',

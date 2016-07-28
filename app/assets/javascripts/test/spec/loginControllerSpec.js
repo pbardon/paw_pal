@@ -17,17 +17,18 @@ define(['angular', 'angularMocks', 'pawPalApp','controllers/controllers', 'contr
               var $scope = { $on: noOpFunction };
               expect(typeof $scope.formData).toEqual("undefined");
               var controller = $controller('LoginCtrl', { $scope: $scope });
-              console.log(JSON.stringify(controller));
               expect($scope.formData.username).toEqual('');
               expect($scope.formData.password).toEqual('');
             });
 
             it('should be able to send a login request', function() {
+                console.log('running login request test...');
                 var $scope = { $on: noOpFunction };
                 var controller = $controller('LoginCtrl', { $scope: $scope });
-                console.log(JSON.stringify($scope.login));
+                console.log(JSON.stringify($scope));
                 console.log(JSON.stringify(typeof $scope.login));
-                $scope.login();
+                var result = $scope.login();
+                console.log(JSON.stringify(result));
 
             });
           });
