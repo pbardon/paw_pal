@@ -18,16 +18,14 @@ define('controllers/loginController', ['controllers/controllers'],
                         return false;
                     }
 
-                    $http.post("/api/login", JSON.stringify($scope.formData),
-                    function(err, response) {
-                        if (err) {
-                            console.log(JSON.stringify(err));
-                            throw err;
-                        }
-
-                        console.log("received response from post request...");
-
-                        console.log(response);
+                    $http.post("/api/login", JSON.stringify($scope.formData))
+                         .then(function(response, err) {
+                            if (err) {
+                                console.log(JSON.stringify(err));
+                                throw err;
+                            }
+                            console.log("received response from post request...");
+                            console.log(response);
 
                     });
                 };
