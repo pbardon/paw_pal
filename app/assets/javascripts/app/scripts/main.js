@@ -67,9 +67,19 @@ require([
                     .state('home', {
                         url : '/',
                         views : {
+                            'navbar' : {
+                                templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
+                                controller: 'NavbarCtrl'
+                            },
+
                             'main' : {
                                 controller: 'HomeCtrl',
-                                templateUrl: 'templates/ ' + timestamp.toString() + '/home.html',
+                                templateUrl: 'templates/' + timestamp.toString() + '/home.html'
+                            },
+
+                            'footer' : {
+                                templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
+                                controller: 'FooterCtrl'
                             }
                         }
                     });
