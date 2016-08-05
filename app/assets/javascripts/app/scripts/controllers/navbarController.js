@@ -3,8 +3,7 @@ define('controllers/navbarController', ['controllers/controllers'],
         controllers.controller('NavbarCtrl', ['$rootScope',
                                               '$scope',
                                               '$log',
-                                              'Auth',
-            function($rootScope, $scope, $log, Auth){
+            function($rootScope, $scope, $log){
 
                 $scope.init = function() {
                         Auth.currentUser().then(function(currentUser) {

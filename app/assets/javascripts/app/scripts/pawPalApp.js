@@ -3,15 +3,16 @@ define('pawPalApp', ['angular',
                       'uiBootstrap',
                       'controllers/controllers',
                       'constants/constants',
-                      'services/services'], function(angular) {
+                      'services/services'],
+       function(angular) {
+            'use strict';
 
+            var app = angular.module('pawPalApp', ['ui.router',
+                'ui.bootstrap',
+                'controllers/controllers',
+                'services/services',
+                'constants/constants'
+            ]);
 
-    var app = angular.module('pawPalApp', ['ui.router',
-        'ui.bootstrap',
-        'controllers/controllers',
-        'services/services',
-        'constants/constants'
-    ]);
-
-    return app;
-});
+            return app;
+        });
