@@ -1,50 +1,22 @@
-define('controllers/loginController', ['controllers/controllers', 'controllers/loginModalController'],
+define('controllers/loginController', ['controllers/controllers'],
     function(controllers) {
         controllers.controller('LoginCtrl', ['$rootScope',
                                              '$scope',
                                              '$state',
                                              '$http',
-                                             '$uibModal',
                                              '$log',
-           function($rootScope, $scope, $state, $http, $uibModal, $log){
+           function($rootScope, $scope, $state, $http, $log){
 
                 $scope.formData = {
                     username: '',
                     password: ''
                 };
 
-                $scope.animationsEnabled = true;
-
                 var timestamp = new Date();
-
-                $scope.open = function(size) {
-                    var modalInstance = $uibModal.open({
-                    animation: $scope.animationsEnabled,
-                    templateUrl: '/templates/' + timestamp.toString() + '/loginModal.html',
-                    controller: 'LoginModalCtrl',
-                    size: size,
-                    resolve: {
-                        formData: function() {
-                            return $scope.formData;
-                        }
-                    }
-                });
-
-                    modalInstance.result.then(function(selectedItem){
-                        $scope.selected = selectedItem;
-                    },function() {
-                        $log.info('Modal dismissed at: ' + new Date());
-                    });
-                };
-
-                $scope.toggleAnimation = function () {
-                    $scope.animationsEnabled = !$scope.animationsEnabled;
-                };
-
 
                 $scope.login = function() {
                     if ($scope.formData.username === "" || $scope.formData.password === "" ) {
-                        console.log('no username or password was supplied');
+                        $log.error('no username or password was supplied');
                         return false;
                     }
 
@@ -54,8 +26,8 @@ define('controllers/loginController', ['controllers/controllers', 'controllers/l
                                 console.log(JSON.stringify(err));
                                 throw err;
                             }
-                            console.log("received response from post request...");
-                            console.log(response);
+                            $log.info("received response from post request...");
+                            $log.info(response);
 
                     });
                 };

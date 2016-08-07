@@ -7,14 +7,19 @@
      <div id="navbar" class="navbar-collapse collapse">
        <ul class="nav navbar-nav navbar-right">
          <li><a href="#">Help</a></li>
+         <li><a href="#">
+             <div type="button" class="signInButton" ng-click="open()">
+                 Sign In/Sign Up
+             </div>
+            </a>
+        </li>
          <li>
              <div class="btn-group" uib-dropdown is-open="status.isopen">
-                 <div id="single-button btn"
+                 <div id="navbarProfileButton"
                          type="button"
                          class="signInButton"
-                         uib-dropdown-toggle
-                         ng-disabled="disabled">
-                         Sign In/Sign Up <span class="caret"></span>
+                         uib-dropdown-toggle>
+                         Profile <span class="caret"></span>
                  </div>
               <ul class="dropdown-menu"
                   uib-dropdown-menu role="menu"

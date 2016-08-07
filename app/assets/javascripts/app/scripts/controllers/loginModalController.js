@@ -1,15 +1,12 @@
 define('controllers/loginModalController', ['controllers/controllers'],
     function(controllers) {
         controllers.controller('LoginModalCtrl', ['$scope', '$uibModalInstance',
-         function ($scope, $uibModalInstance, items) {
+         function ($scope, $uibModalInstance, formData) {
 
-            $scope.items = items;
-            $scope.selected = {
-                formData: $scope.formData
-            };
+            $scope.formData = formData;
 
             $scope.ok = function () {
-                $uibModalInstance.close($scope.selected.item);
+                $uibModalInstance.close();
             };
 
             $scope.cancel = function () {

@@ -71,15 +71,10 @@ require([
                                 templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
                                 controller: 'NavbarCtrl'
                             },
-                            'modal' : {
-                                templateUrl: '/templates/' + timestamp.toString() + '/login.html',
-                                controller: 'LoginCtrl'
-                            },
                             'main' : {
                                 controller: 'HomeCtrl',
                                 templateUrl: 'templates/' + timestamp.toString() + '/home.html'
                             },
-
                             'footer' : {
                                 templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
                                 controller: 'FooterCtrl'
