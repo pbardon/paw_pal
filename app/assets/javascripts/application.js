@@ -16,7 +16,7 @@
 //= require ./vendor/bower_components/angular/angular.min
 //= require_tree ./vendor/bower_components/domReady
 //= require ./vendor/bower_components/angular-ui-router/release/angular-ui-router.min.js
-//= require ./vendor/bower_components/angular-bootstrap/ui-bootstrap.js
+//= require ./vendor/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js
 //= require ./vendor/bower_components/angular/angular.min.js.map.js
 //= require_tree ./app/scripts/controllers
 //= require_tree ./app/scripts/constants

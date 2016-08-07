@@ -2,12 +2,6 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
    <div class="container-fluid">
      <div class="navbar-header">
-       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-         <span class="sr-only">Toggle navigation</span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-       </button>
        <a class="navbar-brand" href="#">PawPal <small>Dog Adoption Aggregator</small></a>
      </div>
      <div id="navbar" class="navbar-collapse collapse">
@@ -15,15 +9,24 @@
          <li><a href="#">Help</a></li>
          <li>
              <div class="btn-group" uib-dropdown is-open="status.isopen">
-                 <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
-                     Sign In/Sign Up <span class="caret"></span>
-                 </button>
-              <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                 <div id="single-button btn"
+                         type="button"
+                         class="signInButton"
+                         uib-dropdown-toggle
+                         ng-disabled="disabled">
+                         Sign In/Sign Up <span class="caret"></span>
+                 </div>
+              <ul class="dropdown-menu"
+                  uib-dropdown-menu role="menu"
+                  aria-labelledby="single-button">
                 <li role="menuitem"><a href="#">Action</a></li>
                 <li role="menuitem"><a href="#">Another action</a></li>
                 <li role="menuitem"><a href="#">Something else here</a></li>
                 <li class="divider"></li>
                 <li role="menuitem"><a href="#">Separated link</a></li>
+                <li>
+                    <div ui-view="signInForm">
+                </li>
               </ul>
           </div>
          </li>

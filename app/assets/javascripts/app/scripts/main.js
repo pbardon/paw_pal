@@ -5,7 +5,7 @@ require.config({
         'jquery': 'vendor/bower_components/jquery/dist/jquery.min',
         'domReady': 'vendor/bower_components/domReady/domReady',
         'uiRouter' : 'vendor/bower_components/angular-ui-router/release/angular-ui-router.min',
-        'uiBootstrap' : 'vendor/bower_components/angular-bootstrap/ui-bootstrap',
+        'uiBootstrap' : 'vendor/bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
         'pawPalApp' : 'app/scripts/pawPalApp',
         'services/services' : 'app/scripts/constants/constants',
         'constants/constants' : 'app/scripts/constants/constants',
@@ -18,6 +18,7 @@ require.config({
         'controllers/enrollmentController' : 'app/scripts/controllers/enrollmentController',
         'controllers/footerController' : 'app/scripts/controllers/footerController',
         'controllers/homeController' : 'app/scripts/controllers/homeController',
+        'controllers/loginModalController' : 'app/scripts/controllers/loginModalController',
         'controllers/loginController' : 'app/scripts/controllers/loginController',
         'controllers/navbarController' : 'app/scripts/controllers/navbarController'
     },
@@ -49,6 +50,7 @@ require([
     'controllers/enrollmentController',
     'controllers/footerController',
     'controllers/homeController',
+    'controllers/loginModalController',
     'controllers/loginController',
     'controllers/navbarController'
     ],
@@ -69,7 +71,10 @@ require([
                                 templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
                                 controller: 'NavbarCtrl'
                             },
-
+                            'modal' : {
+                                templateUrl: '/templates/' + timestamp.toString() + '/login.html',
+                                controller: 'LoginCtrl'
+                            },
                             'main' : {
                                 controller: 'HomeCtrl',
                                 templateUrl: 'templates/' + timestamp.toString() + '/home.html'
