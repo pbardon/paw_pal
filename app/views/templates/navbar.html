@@ -6,34 +6,42 @@
      </div>
      <div id="navbar" class="navbar-collapse collapse">
        <ul class="nav navbar-nav navbar-right">
-         <li><a href="#">Help</a></li>
-         <li><a href="#">
-             <div type="button" class="signInButton" ng-click="open()">
-                 Sign In/Sign Up
-             </div>
+         <li class="navbarItem">
+            <a href="#">
+                <div type="button"
+                     class="helpButton">
+                     Help
+                </div>
             </a>
         </li>
-         <li>
-             <div class="btn-group" uib-dropdown is-open="status.isopen">
-                 <div id="navbarProfileButton"
-                         type="button"
-                         class="signInButton"
-                         uib-dropdown-toggle>
-                         Profile <span class="caret"></span>
+         <li class="navbarItem">
+             <a href="#">
+                 <div type="button"
+                      class="signInButton"
+                      ng-click="open()">
+                     Sign In/Sign Up
                  </div>
-              <ul class="dropdown-menu"
-                  uib-dropdown-menu role="menu"
-                  aria-labelledby="single-button">
-                <li role="menuitem"><a href="#">Action</a></li>
-                <li role="menuitem"><a href="#">Another action</a></li>
-                <li role="menuitem"><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li role="menuitem"><a href="#">Separated link</a></li>
-                <li>
-                    <div ui-view="signInForm">
-                </li>
-              </ul>
-          </div>
+            </a>
+        </li>
+         <li class="dropdown">
+                 <div class="btn-group" uib-dropdown is-open="status.isopen">
+                         <div id="navbarProfileButton"
+                                 type="button"
+                                 class="dropdownSignInButton"
+                                 uib-dropdown-toggle>
+                                 Profile <span class="caret"></span>
+                         </div>
+                      <ul class="dropdown-menu"
+                          uib-dropdown-menu role="menu"
+                          aria-labelledby="single-button">
+                        <li role="menuitem"><a href="#">Settings</a></li>
+                        <li class="divider"></li>
+                        <li role="menuitem"><a href="#">Shelter Profile</a></li>
+                        <li class="divider"></li>
+                        <li role="menuitem"><a href="#">Dogs</a></li>
+                      </ul>
+                  </div>
+              </a>
          </li>
        </ul>
      </div>
