@@ -16,13 +16,18 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
 
   def self.find_by_credentials(email, password)
-    user = User.find_by_email(email)
+      puts "find with credentials: #{email}, #{password}"
+      user = User.find_by_email(email)
     if user && user.is_password?(password)
       user.password = password
       return user
     else
-      nil
+      false
     end
+  end
+
+  def self.generate_session_token
+     SecureRandom.urlsafe_base64
   end
 
   def is_password?(password)
@@ -33,7 +38,7 @@ class User < ActiveRecord::Base
   def password=(password)
     return unless password
     @password = password
-    self.password_digest = BCrypt::Password.create(password)
+    self.password_digest = BCrypt::Password.create(password).to_s
   end
 
   def reset_session_token!
@@ -41,13 +46,7 @@ class User < ActiveRecord::Base
     self.save!
     self.session_token
   end
-
-  private
-
-  def self.generate_session_token
-     SecureRandom.urlsafe_base64
-  end
-
+  
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end

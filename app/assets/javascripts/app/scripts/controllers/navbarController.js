@@ -1,5 +1,6 @@
 define('controllers/navbarController', ['controllers/controllers'],
     function(controllers) {
+        'use strict';
         controllers.controller('NavbarCtrl', ['$rootScope',
                                               '$scope',
                                               '$uibModal',
@@ -28,7 +29,7 @@ define('controllers/navbarController', ['controllers/controllers'],
                         }
                     });
 
-                    modalInstance.result.then(function(selectedItem){
+                    modalInstance.result.then(function(){
                         $log.info('login modal closed');
                     },function() {
                         $log.info('Modal dismissed at: ' + new Date());

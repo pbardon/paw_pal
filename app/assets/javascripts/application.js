@@ -20,6 +20,7 @@
 //= require ./vendor/bower_components/angular/angular.min.js.map.js
 //= require_tree ./app/scripts/controllers
 //= require_tree ./app/scripts/constants
+//= require_tree ./app/scripts/directives
 //= require_tree ./app/scripts/services
 //= require ./app/scripts/pawPalApp.js
 //= require ./app/scripts/main.js

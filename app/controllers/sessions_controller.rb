@@ -9,12 +9,14 @@ class SessionsController < ApplicationController
                                     session_params[:password])
 
     if @user
-      sign_in(@user)
-      redirect_to root_url
+       sign_in(@user)
+       redirect_to root_url
     else
-      @user = User.new(session_params)
-      flash[:errors] = 'Invalid username/password'
-      render :new
+        errors = {
+            full_messages: "Unable to create session with params: #{params}"
+        }
+       puts "#{errors[:full_messages]}"
+       render :json => { :errors => errors[:full_messages] }, :status => 422
     end
   end
 
@@ -32,7 +34,7 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:user).permit(:email, :password)
+      params.require(:session).permit(:email, :password)
   end
 
 end

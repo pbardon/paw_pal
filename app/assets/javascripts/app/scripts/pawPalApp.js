@@ -11,7 +11,8 @@ define('pawPalApp', ['angular',
                 'ui.bootstrap',
                 'controllers/controllers',
                 'services/services',
-                'constants/constants'
+                'constants/constants',
+                'directives/directives'
             ]);
 
             return app;

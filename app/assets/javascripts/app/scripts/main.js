@@ -9,8 +9,9 @@ require.config({
         'pawPalApp' : 'app/scripts/pawPalApp',
         'services/services' : 'app/scripts/constants/constants',
         'constants/constants' : 'app/scripts/constants/constants',
-        'constants/formConstants' : 'app/scripts/constants/formConstants',
         'controllers/controllers' : 'app/scripts/controllers/controllers',
+        'directives/directives' : 'app/scripts/directives/directives',
+        'constants/formConstants' : 'app/scripts/constants/formConstants',
         'controllers/mainController': 'app/scripts/controllers/mainController',
         'controllers/aboutContentController' : 'app/scripts/controllers/aboutContentController',
         'controllers/contactContentController' : 'app/scripts/controllers/contactContentController',
@@ -20,7 +21,8 @@ require.config({
         'controllers/homeController' : 'app/scripts/controllers/homeController',
         'controllers/loginModalController' : 'app/scripts/controllers/loginModalController',
         'controllers/loginController' : 'app/scripts/controllers/loginController',
-        'controllers/navbarController' : 'app/scripts/controllers/navbarController'
+        'controllers/navbarController' : 'app/scripts/controllers/navbarController',
+        'directives/enrollDirective' : 'app/scripts/directives/enrollDirective'
     },
     shim: {
         'angular': {
@@ -42,6 +44,10 @@ require([
     'domReady',
     'uiRouter',
     'uiBootstrap',
+    'constants/constants',
+    'services/services',
+    'controllers/controllers',
+    'directives/directives',
     'constants/formConstants',
     'controllers/mainController',
     'controllers/aboutContentController',
@@ -52,7 +58,8 @@ require([
     'controllers/homeController',
     'controllers/loginModalController',
     'controllers/loginController',
-    'controllers/navbarController'
+    'controllers/navbarController',
+    'directives/enrollDirective'
     ],
     function (angular, app, domReady) {
         'use strict';
