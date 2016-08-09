@@ -40,6 +40,7 @@ end
 
 group :test do
   gem 'sqlite3'
+  gem 'rspec'
 end
 
 # Use unicorn as the app server

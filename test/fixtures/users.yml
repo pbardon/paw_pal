@@ -1,0 +1,11 @@
+julian:
+    email: julian@sunnyvale.com
+    name: Julian Swayze
+    password_digest: $2a$10$RJ0FWYF4NskZTvDyupMDtOwCouhGWcW5HOTxGvaPQ0Zgypp3IuKua
+    session_token: AAAAAAAAAAAAAAAAA
+
+bob:
+    email: randybobandy@sunnyvale
+    name: Randy Bobandy
+    password_digest: $2a$10$RJ0FWYF4NskZTvDyupMDtOwCouhGWcW5HOTxGvaPQ0Zgypp3IuKua
+    session_token: AAAAAFFFFFFFFFF

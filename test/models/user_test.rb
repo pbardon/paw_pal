@@ -12,6 +12,7 @@ class UserTest < ActiveSupport::TestCase
     assert_nil(user.password_digest)
     user.password="test_password"
     assert_not_nil(user.password_digest)
+    puts "user.password_digest : #{user.password_digest}"
   end
 
   test "should be able to save to database" do

@@ -10,19 +10,19 @@ class SessionsController < ApplicationController
 
     if @user
        sign_in(@user)
-       redirect_to root_url
+       render :json =>  { token: @user.session_token, message: "session created"}, status: 200
     else
         errors = {
             full_messages: "Unable to create session with params: #{params}"
         }
        puts "#{errors[:full_messages]}"
-       render :json => { :errors => errors[:full_messages] }, :status => 422
+       render json: { errors: errors[:full_messages] }, status: 422
     end
   end
 
   def destroy
     sign_out
-    redirect_to root_url
+    render json: {message: "signed out"}, status: 200
   end
 
   def guest
@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
   private
 
   def session_params
+      puts "params: #{params}"
       params.require(:session).permit(:email, :password)
   end
 

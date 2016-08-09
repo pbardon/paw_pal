@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
     self.save!
     self.session_token
   end
-  
+
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
