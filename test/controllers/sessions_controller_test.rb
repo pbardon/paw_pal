@@ -7,12 +7,28 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     end
 
     test "should be able to create a session" do
-        post "session",  session: { email: "julian@sunnyvale.com", password: "test_password" }
+        user_info = {}
+        user_info = { email: "julian@sunnyvale.com", password: "test_password" }
+        user = User.find_by_credentials(user_info[:email], user_info[:password])
+        saved_token = user.session_token
+        post "session",  session: user_info
         assert_response :ok
         puts "successfully signed in with response: #{response}"
-        assert @response.session_token, "session token exists"
+        puts "session: #{session[:session_token]}"
+        assert session[:session_token], "session token exists"
+        assert session[:session_token] != saved_token, "generated new token"
+        assert @response, "response exists"
+        puts "cookies : #{cookies.inspect()}"
+        assert cookies
     end
 
     test "should be able to delete a session" do
+        delete "session"
+        assert_response :bad_request
+        user_info = { email: "julian@sunnyvale.com", password: "test_password" }
+        post "session",  session: user_info
+        assert_response :ok
+        delete "session"
+        assert_response :ok
     end
 end

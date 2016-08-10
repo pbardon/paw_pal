@@ -41,7 +41,6 @@ define('controllers/loginModalController', ['controllers/controllers', 'directiv
 
                     }, function(err) {
                         $log.error('error response from new session was ', JSON.stringify(err));
-
                     });
                 };
 

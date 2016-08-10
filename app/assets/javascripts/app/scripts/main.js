@@ -87,8 +87,41 @@ require([
                                 controller: 'FooterCtrl'
                             }
                         }
-                    });
+                    })
 
+                        // define modal route "/modal"
+                     .state('login', {
+                       url: '/login',
+                       views: {
+                           'navbar' : {
+                               templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
+                               controller: 'NavbarCtrl'
+                           },
+                           'main' : {
+                               controller: 'HomeCtrl',
+                               templateUrl: 'templates/' + timestamp.toString() + '/home.html'
+                           },
+                           'footer' : {
+                               templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
+                               controller: 'FooterCtrl'
+                           },
+                       },
+                       onEnter: ['$stateParams', '$state', '$uibModal',
+                             function($stateParams, $state, $uibModal) {
+                                 $uibModal.open({
+                                    templateUrl: 'templates/' + timestamp.toString() + '/loginModal.html',
+                                    controller: 'LoginModalCtrl'
+                                 })
+                                 // change route after modal result
+                                 .result.then(function() {
+                                   // change route after clicking OK button
+                                   $state.transitionTo('home');
+                                 }, function() {
+                                   // change route after clicking Cancel button or clicking background
+                                   $state.transitionTo('home');
+                                 });
+                             }]
+                        });
                 $locationProvider.html5Mode(true);
             }]
         );

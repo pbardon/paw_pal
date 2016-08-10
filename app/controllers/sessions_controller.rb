@@ -21,8 +21,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    sign_out
-    render json: {message: "signed out"}, status: 200
+    if sign_out
+        render json: {message: "signed out"}, status: 200
+    else
+        render json: {message: "could not sign out"}, status: :bad_request
+    end
   end
 
   def guest
