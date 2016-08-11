@@ -1,4 +1,8 @@
-define('controllers/loginModalController', ['controllers/controllers', 'directives/enrollDirective'],
+define('controllers/loginModalController', ['controllers/controllers',
+    'constants/formConstants',
+    'directives/enrollDirective',
+    'services/validationService',
+    'services/userService'],
     function(controllers) {
         'use strict';
         controllers.controller('LoginModalCtrl', ['$scope',
@@ -6,12 +10,27 @@ define('controllers/loginModalController', ['controllers/controllers', 'directiv
              '$http',
              '$log',
              '$uibModalInstance',
+             'UserService',
+             'ValidationService',
              'formConstants',
-             function ($scope, $rootScope, $http,
-                       $log, $uibModalInstance, formConstants,
+             function ($scope,
+                       $rootScope,
+                       $http,
+                       $log,
+                       $uibModalInstance,
+                       UserService,
+                       ValidationService,
+                       formConstants,
                        formData) {
 
-                $scope.formData = formData || {};
+                var validateSvc = ValidationService;
+
+                $scope.formData = formData || { email: '', password: ''};
+
+                var loginInfo = {
+                   email: $scope.formData.email,
+                   password: $scope.formData.password
+                };
 
                 $scope.loginSelected = true;
 
@@ -27,10 +46,6 @@ define('controllers/loginModalController', ['controllers/controllers', 'directiv
                     if ($scope.formData.email === '' || $scope.password === '') {
                         $log.error('user name or password as not provided.');
                     }
-                    var loginInfo = {
-                        email: $scope.formData.email,
-                        password: $scope.formData.password
-                    };
 
                     $http.post('/session',
                         JSON.stringify(loginInfo))
@@ -43,6 +58,22 @@ define('controllers/loginModalController', ['controllers/controllers', 'directiv
                         $log.error('error response from new session was ', JSON.stringify(err));
                     });
                 };
+
+                $scope.enroll = function() {
+                    if (!(validateSvc.validateEmailAddress(loginInfo.email) &&
+                        validateSvc.validatePassword(loginInfo.password) &&
+                        validateSvc.validatePassword(loginInfo.password))) {
+                            $log.error('login info was not entered correctly');
+                    }
+
+                    UserService.createUser(loginInfo.email, loginInfo.password)
+                    .then(function(result) {
+                        $log.info('created user : ', JSON.stringify(loginInfo));
+                    }, function(err){
+                        $log.err(err);
+                    });
+                };
+
 
                 $scope.formData.states = formConstants.states;
 

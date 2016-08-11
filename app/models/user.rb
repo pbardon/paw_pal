@@ -3,7 +3,7 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   attr_reader :password
 
-  validates :name, :email, :password_digest, :session_token, presence: true
+  validates :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: {minimum: 4, allow_nil: true}
 
@@ -30,6 +30,11 @@ class User < ActiveRecord::Base
      SecureRandom.urlsafe_base64
   end
 
+  def initialize(user_params)
+      user_params[:session_token] = ensure_session_token
+      super(user_params)
+  end
+
   def is_password?(password)
     b_crypto = BCrypt::Password.new(self.password_digest)
     b_crypto.is_password?(password)
@@ -48,7 +53,9 @@ class User < ActiveRecord::Base
   end
 
   def ensure_session_token
-    self.session_token ||= SecureRandom.urlsafe_base64
+      @session_token ||= SecureRandom.urlsafe_base64
+      puts "returing session token #{@session_token}"
+      @session_token
   end
 
 end

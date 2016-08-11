@@ -41,8 +41,6 @@ class UserTest < ActiveSupport::TestCase
       user.ensure_session_token
       assert user.session_token
   end
-
-
 end
 
 def create_user(password)
