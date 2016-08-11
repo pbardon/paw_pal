@@ -35,10 +35,10 @@ class UserTest < ActiveSupport::TestCase
       assert save_token != user.session_token
   end
 
-  test "should ensure_session_token" do
-      user = User.new
-      assert_nil user.session_token
-      user.ensure_session_token
+  test "should ensure_session_token on creation" do
+      user = User.new({
+        name: "Jim Lahey",
+        email: "jim@sunnyvale.com"})
       assert user.session_token
   end
 end
