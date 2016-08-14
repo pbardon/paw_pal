@@ -6,24 +6,17 @@
      </div>
      <div id="navbar" class="navbar-collapse collapse">
        <ul class="nav navbar-nav navbar-right">
-         <li class="navbarItem">
-            <a href="#">
-                <div type="button"
-                     class="helpButton">
-                     Help
-                </div>
-            </a>
-        </li>
-         <li class="navbarItem">
+         <li ng-if="!isLoggedIn()" class="navbarItem">
              <a ui-sref="login">
                  <div type="button"
                       class="signInButton"
                     >
-                     Sign In|Sign Up
+                     Sign In/Sign Up
                  </div>
             </a>
         </li>
-         <li class="dropdown">
+         <li ng-if="isLoggedIn()"
+             class="dropdown">
                  <div class="btn-group" uib-dropdown is-open="status.isopen">
                          <div id="navbarProfileButton"
                                  type="button"
@@ -41,7 +34,6 @@
                         <li role="menuitem"><a href="#">Dogs</a></li>
                       </ul>
                   </div>
-              </a>
          </li>
        </ul>
      </div>
