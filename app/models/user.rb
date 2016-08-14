@@ -26,6 +26,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.find_and_update(session_token, parameters)
+    user = User.find_by_session_token(session_token)
+    if user.update_attributes(parameters)
+      user.save
+      return true
+    else
+      return false
+    end
+  end
+
   def self.generate_session_token
      SecureRandom.urlsafe_base64
   end

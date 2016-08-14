@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
 
-  def new
-    @user = User.new
-  end
-
   def create
     @user = User.new(user_params)
-    puts "user is #{@user.inspect()}"
+    puts "user is #{@user.inspect}"
     result = @user.save
     puts "save results: #{result.inspect}"
     if result
@@ -20,12 +16,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_session_token(current_user.session_token)
-    if @user.update_attributes(user_params)
-      @user.save!
-    else
-      flash[:errors] =  @user.errors.full_messages
-    end
+      @user = User.find_and_update(current_user.session_token, user_params)
+      if @user
+        render json: { message: "updated user #{user.inspect}"}
+      else
+        flash[:errors] =  @user.errors.full_messages
+      end
   end
 
   private
