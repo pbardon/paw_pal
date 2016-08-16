@@ -1,11 +1,10 @@
-<!-- Fixed navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
-   <div class="container-fluid">
-     <div class="navbar-header">
-       <a class="navbar-brand" href="#">PawPal</a>
-     </div>
-     <div id="navbar" class="navbar-collapse collapse">
-       <ul class="nav navbar-nav navbar-right">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="#">PawPal</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
          <li ng-if="!isLoggedIn()" class="navbarItem">
              <a ui-sref="login">
                  <div type="button"
@@ -32,10 +31,12 @@
                         <li role="menuitem"><a href="#">Shelter Profile</a></li>
                         <li class="divider"></li>
                         <li role="menuitem"><a href="#">Dogs</a></li>
+                        <li class="divider"></li>
+                        <li role="menuitem" ng-click="logout()"><a href="#">Logout</a></li>
                       </ul>
                   </div>
          </li>
-       </ul>
-     </div>
-   </div>
+        </ul>
+        </div>
+    </div>
 </nav>

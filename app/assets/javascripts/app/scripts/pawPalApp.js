@@ -9,6 +9,7 @@ define('pawPalApp', ['angular',
 
             var app = angular.module('pawPalApp', ['ui.router',
                 'ui.bootstrap',
+                'ngCookies',
                 'controllers/controllers',
                 'services/services',
                 'constants/constants',

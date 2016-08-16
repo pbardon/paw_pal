@@ -27,9 +27,11 @@ define('controllers/loginModalController', ['controllers/controllers',
 
                 $scope.formData = formData || { email: '', password: ''};
 
-                var loginInfo = {
-                   email: $scope.formData.email,
-                   password: $scope.formData.password
+                var getLoginInfo = function() {
+                    return {
+                        email: $scope.formData.email,
+                        password: $scope.formData.password
+                    }
                 };
 
                 $scope.loginSelected = true;
@@ -38,28 +40,26 @@ define('controllers/loginModalController', ['controllers/controllers',
                     $scope.loginSelected = !$scope.loginSelected;
                 };
 
-                $scope.ok = function () {
-                    $uibModalInstance.close();
-                };
-
                 $scope.login = function() {
+                    var loginInfo = getLoginInfo();
+
                     if ($scope.formData.email === '' || $scope.password === '') {
                         $log.error('user name or password as not provided.');
                     }
 
-                    $http.post('/session',
-                        JSON.stringify(loginInfo))
-                    .then(function(results) {
-                        $log.info('success response from server:\n',
-                            JSON.stringify(results));
+                    UserService.loginUser(loginInfo.email, loginInfo.password)
+                    .then(function(result) {
+                        $log.info('logged in user: ', JSON.stringify(loginInfo));
+                        $log.info('with result: ', JSON.stringify(result));
                         $rootScope.loggedIn = true;
-
+                        $uibModalInstance.close();
                     }, function(err) {
-                        $log.error('error response from new session was ', JSON.stringify(err));
+                        $log.error(err);
                     });
                 };
 
                 $scope.enroll = function() {
+                    var loginInfo = getLoginInfo();
                     if (!(validateSvc.validateEmailAddress(loginInfo.email) &&
                         validateSvc.validatePassword(loginInfo.password) &&
                         validateSvc.validatePassword(loginInfo.password))) {
@@ -69,8 +69,11 @@ define('controllers/loginModalController', ['controllers/controllers',
                     UserService.createUser(loginInfo.email, loginInfo.password)
                     .then(function(result) {
                         $log.info('created user : ', JSON.stringify(loginInfo));
+                        $log.info('with result: ', JSON.stringify(result));
+                        $rootScope.loggedIn = true;
+                        $uibModalInstance.close();
                     }, function(err){
-                        $log.err(err);
+                        $log.error(err);
                     });
                 };
 

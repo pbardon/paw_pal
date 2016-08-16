@@ -2,14 +2,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    puts "user is #{@user.inspect}"
+    logger.info "user is #{@user.inspect}"
     result = @user.save
-    puts "save results: #{result.inspect}"
+    logger.info "save results: #{result.inspect}"
     if result
         sign_in(@user)
         render json: { user: { email: @user.email }}, status: :ok
     else
-        puts "save was unsuccessful"
+        logger.info 'save was unsuccessful'
         flash[:errors] = @user.errors.full_messages
         render json: { error: "unable to create user with errors : #{flash[:errors]}"}, status: :bad_request
     end

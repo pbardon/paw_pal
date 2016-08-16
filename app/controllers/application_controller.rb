@@ -31,10 +31,10 @@ class ApplicationController < ActionController::Base
       if current_user
           current_user.reset_session_token!
           session[:session_token] = nil
-          return true
+          true
       else
-          puts "could not sign out because there is not current user"
-          return false
+          logger.info 'could not sign out because there is not current user'
+          false
       end
     end
 

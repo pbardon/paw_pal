@@ -2,6 +2,7 @@ require.config({
     baseUrl : '/assets',
     paths: {
         'angular': 'vendor/bower_components/angular/angular.min',
+        'angular-cookies': 'vendor/bower_components/angular-cookies/angular-cookies.min',
         'jquery': 'vendor/bower_components/jquery/dist/jquery.min',
         'domReady': 'vendor/bower_components/domReady/domReady',
         'uiRouter' : 'vendor/bower_components/angular-ui-router/release/angular-ui-router.min',
@@ -36,6 +37,9 @@ require.config({
         },
         'uiBootstrap' : {
             deps: ['angular']
+        },
+        'angular-cookies' : {
+            deps: ['angular']
         }
     }
 });
@@ -44,6 +48,7 @@ require([
     'angular',
     'pawPalApp',
     'domReady',
+    'angular-cookies',
     'uiRouter',
     'uiBootstrap',
     'constants/constants',
@@ -108,7 +113,7 @@ require([
                            'footer' : {
                                templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
                                controller: 'FooterCtrl'
-                           },
+                           }
                        },
                        onEnter: ['$stateParams', '$state', '$uibModal',
                              function($stateParams, $state, $uibModal) {

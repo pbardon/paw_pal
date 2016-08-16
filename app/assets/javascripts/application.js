@@ -11,13 +11,15 @@
 // about supported directives.
 //
 
+
+
 //= require_tree ./vendor/bower_components/requirejs
 //= require ./vendor/bower_components/jquery/dist/jquery.min.js
 //= require ./vendor/bower_components/angular/angular.min
+//= require ./vendor/bower_components/angular-cookies/angular-cookies.min
 //= require_tree ./vendor/bower_components/domReady
 //= require ./vendor/bower_components/angular-ui-router/release/angular-ui-router.min.js
 //= require ./vendor/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js
-//= require ./vendor/bower_components/angular/angular.min.js.map.js
 //= require_tree ./app/scripts/controllers
 //= require_tree ./app/scripts/constants
 //= require_tree ./app/scripts/directives
