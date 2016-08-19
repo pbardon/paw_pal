@@ -6,9 +6,13 @@ define('services/userService', ['services/services'], function(services){
 
         function UserService() {
             this.isUserLoggedIn = function() {
-                var cookie = $cookies.get('_dog_sitting_app_session_token');
-                $log.info("cookie is : ", JSON.stringify(cookie));
+                var cookies = $cookies.getAll();
+                if (typeof cookies._dog_sitting_app_token === 'undefined') {
+                    return false;
+                }
 
+                $log.info("cookie is : ", JSON.stringify(cookies));
+                return true;
             };
 
             this.createUser = function (email, password) {
@@ -26,7 +30,7 @@ define('services/userService', ['services/services'], function(services){
                     .then(function (result) {
                         $log.info('success response from server:\n',
                             JSON.stringify(result));
-                        $cookies.put('_dog_sitting_app_token', result.token);
+                        $cookies.put('_dog_sitting_app_token', result.data.token);
                         $log.info(JSON.stringify($cookies.getAll()));
                         deferred.resolve();
                     }, function (err) {
@@ -51,7 +55,7 @@ define('services/userService', ['services/services'], function(services){
                 .then(function(results) {
                     $log.info('success response from server:\n',
                         JSON.stringify(results));
-                    $cookies.put('_dog_sitting_app_token', results.token);
+                    $cookies.put('_dog_sitting_app_token', results.data.token);
                     $log.info(JSON.stringify($cookies.getAll()));
                     deferred.resolve(results)
                 }, function(err) {
@@ -67,10 +71,11 @@ define('services/userService', ['services/services'], function(services){
 
                 $http.delete('/session')
                 .then(function(result) {
-                    $log.info('deleted session with response: ', JSON.stringify(result))
+                    $log.info('deleted session with response: ', JSON.stringify(result));
+                    $cookies.delete('_dog_sitting_app_token');
                     deferred.resolve(result);
                 }, function(err) {
-                    deferred.resject(err);
+                    deferred.reject(err);
                 });
                 return deferred.promise;
             }
