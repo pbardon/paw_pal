@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     logger.info "save results: #{result.inspect}"
     if result
         sign_in(@user)
-        render json: { user: { email: @user.email }, token: user.session_token}, status: :ok
+        render json: { user: { email: @user.email }, token: @user.session_token}, status: :ok
     else
         logger.info 'save was unsuccessful'
         flash[:errors] = @user.errors.full_messages
