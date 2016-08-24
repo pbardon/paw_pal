@@ -13,3 +13,13 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+.ng-valid       {
+
+}
+.ng-invalid     {
+
+}
+.ng-pristine    {  }
+.ng-dirty       {  }
+.ng-touched     {  }

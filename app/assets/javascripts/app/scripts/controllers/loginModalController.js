@@ -25,12 +25,13 @@ define('controllers/loginModalController', ['controllers/controllers',
 
                 var validateSvc = ValidationService;
 
-                $scope.formData = formData || { email: '', password: ''};
+                $scope.formData = formData || { email: '', password: '', passwordConfirm: ''};
 
                 var getLoginInfo = function() {
                     return {
                         email: $scope.formData.email,
-                        password: $scope.formData.password
+                        password: $scope.formData.password,
+                        confirmPassword: $scope.formData.confirmPassword
                     }
                 };
 
@@ -62,7 +63,7 @@ define('controllers/loginModalController', ['controllers/controllers',
                     var loginInfo = getLoginInfo();
                     if (!(validateSvc.validateEmailAddress(loginInfo.email) &&
                         validateSvc.validatePassword(loginInfo.password) &&
-                        validateSvc.validatePassword(loginInfo.password))) {
+                        validateSvc.validatePassword(loginInfo.passwordConfirm))) {
                             $log.error('login info was not entered correctly');
                     }
 
@@ -75,6 +76,13 @@ define('controllers/loginModalController', ['controllers/controllers',
                     }, function(err){
                         $log.error(err);
                     });
+                };
+
+                $scope.passwordsMatch = function() {
+                    if ( $scope.formData.password === '' || $scope.formData.passwordConfirm === '' ) {
+                        return true;
+                    }
+                    return ($scope.formData.password === $scope.formData.passwordConfirm)
                 };
 
 
