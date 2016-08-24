@@ -4,6 +4,10 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
     return services.factory('UserService', [ '$q', '$http', '$cookies', '$log', function($q, $http, $cookies, $log) {
 
         function UserService() {
+            this.user = {
+                email: ''
+            };
+
             this.isUserLoggedIn = function() {
                 var cookies = $cookies.getAll();
                 if (typeof cookies._dog_sitting_app_token === 'undefined') {
@@ -15,33 +19,36 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
             };
 
             this.createUser = function (email, password) {
-                var deferred = $q.defer();
-                var loginInfo = {
-                    user: {
-                        email: email,
-                        password: password
-                    }
+                var oThis = this,
+                    deferred = $q.defer(),
+                    loginInfo = {
+                        user: {
+                            email: email,
+                            password: password
+                        }
                 };
 
                 $log.info('Attempting to create user with info: ', JSON.stringify(loginInfo));
 
                 $http.post('/users', JSON.stringify(loginInfo))
-                    .then(function (result) {
-                        $log.info('success response from server:\n',
-                            JSON.stringify(result));
-                        $cookies.put('_dog_sitting_app_token', result.data.token);
-                        $log.info(JSON.stringify($cookies.getAll()));
-                        deferred.resolve();
-                    }, function (err) {
-                        deferred.reject(err);
-                    });
+                .then(function (result) {
+                    $log.info('success response from server:\n',
+                        JSON.stringify(result));
+                    $cookies.put('_dog_sitting_app_token', result.data.token);
+                    oThis.user.email = result.data.email;
+                    $log.info(JSON.stringify($cookies.getAll()));
+                    deferred.resolve(result);
+                }, function (err) {
+                    deferred.reject(err);
+                });
 
                 return deferred.promise;
 
             };
 
             this.loginUser = function(email, password) {
-                var deferred = $q.defer();
+                var deferred = $q.defer(),
+                    oThis = this;
 
                 var loginInfo = {
                     user: {
@@ -55,6 +62,7 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
                     $log.info('success response from server:\n',
                         JSON.stringify(results));
                     $cookies.put('_dog_sitting_app_token', results.data.token);
+                    oThis.user.email = results.data.email;
                     $log.info(JSON.stringify($cookies.getAll()));
                     deferred.resolve(results)
                 }, function(err) {
@@ -66,11 +74,13 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
             };
 
             this.logoutCurrentUser = function() {
-                var deferred = $q.defer();
+                var deferred = $q.defer(),
+                    oThis = this;
 
                 $http.delete('/session')
                 .then(function(result) {
                     $log.info('deleted session with response: ', JSON.stringify(result));
+                    oThis.user.email = '';
                     $cookies.remove('_dog_sitting_app_token');
                     deferred.resolve(result);
                 }, function(err) {
