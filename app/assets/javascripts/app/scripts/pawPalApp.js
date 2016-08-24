@@ -1,9 +1,11 @@
 define('pawPalApp', ['angular',
+                      'angular-cookies',
                       'uiRouter',
                       'uiBootstrap',
                       'controllers/controllers',
                       'constants/constants',
-                      'services/services'],
+                      'services/services',
+                      'directives/directives'],
        function(angular) {
             'use strict';
 

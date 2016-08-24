@@ -24,6 +24,8 @@
 
                 </ng-form>
                 <div class="loginButtons">
+                    <p ng-show="hasError()"
+                       class="help-block">{{error}}</p>
                     <button class="btn btn-success" type="button" ng-click="login()">Login</button>
                     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
                 </div>
@@ -50,7 +52,8 @@
                         <input type="password"
                             placeholder="Enter Password"
                             class="form-control"
-                            ng-model="formData.password">
+                            ng-model="formData.password"
+                            ng-minimum-length="">
                     </div>
 
                     <div ng-class="{ 'has-error' : !passwordsMatch() }"
@@ -68,6 +71,8 @@
 
                 </ng-form>
                 <div class="loginFormButtons">
+                    <p ng-show="hasError()"
+                       class="help-block">{{error}}</p>
                     <button class="btn btn-success" type="button" ng-click="enroll()">Register</button>
                     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
                 </div>

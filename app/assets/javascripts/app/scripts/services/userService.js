@@ -1,8 +1,7 @@
-define('services/userService', ['services/services'], function(services){
+define('services/userService', ['services/services', 'angular-cookies'], function(services){
     'use strict';
 
-
-    return services.factory('UserService', [ '$q', '$http', '$cookies','$log', function($q, $http, $cookies, $log) {
+    return services.factory('UserService', [ '$q', '$http', '$cookies', '$log', function($q, $http, $cookies, $log) {
 
         function UserService() {
             this.isUserLoggedIn = function() {

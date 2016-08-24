@@ -24,8 +24,7 @@ require.config({
         'controllers/homeController' : 'app/scripts/controllers/homeController',
         'controllers/loginModalController' : 'app/scripts/controllers/loginModalController',
         'controllers/loginController' : 'app/scripts/controllers/loginController',
-        'controllers/navbarController' : 'app/scripts/controllers/navbarController',
-        'directives/enrollDirective' : 'app/scripts/directives/enrollDirective'
+        'controllers/navbarController' : 'app/scripts/controllers/navbarController'
     },
     shim: {
         'angular': {
@@ -67,8 +66,7 @@ require([
     'controllers/homeController',
     'controllers/loginModalController',
     'controllers/loginController',
-    'controllers/navbarController',
-    'directives/enrollDirective'
+    'controllers/navbarController'
     ],
     function (angular, app, domReady) {
         'use strict';

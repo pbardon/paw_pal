@@ -8,7 +8,7 @@ define('enrollDirective', ['directives/directives',
                     return {
                         restrict: 'EA',
                         controller: enrollmentController,
-                        templateUrl: '/templates/' + timestamp.toString() + '/enroll.html',
+                        templateUrl: '/templates/' + timestamp.toString() + '/enroll.html'
                     };
                 }
             ]);

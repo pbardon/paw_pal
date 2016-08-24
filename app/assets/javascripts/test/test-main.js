@@ -10,20 +10,22 @@ for (var file in window.__karma__.files) {
 require.config({
     // Karma serves files from '/base'
 
-    baseUrl: '/base',
-
     paths: {
         'domReady': '/base/vendor/bower_components/domReady/domReady',
         'underscore': '/base/vendor/bower_components/underscore/underscore-min',
         'jquery': '/base/vendor/bower_components/jquery/dist/jquery.min',
         'angular': '/base/vendor/bower_components/angular/angular.min',
+        'angular-cookies': '/base/vendor/bower_components/angular-cookies/angular-cookies.min',
         'angularMocks': '/base/vendor/bower_components/angular-mocks/angular-mocks',
         'uiRouter' : '/base/vendor/bower_components/angular-ui-router/release/angular-ui-router',
         'uiBootstrap' : '/base/vendor/bower_components/angular-bootstrap/ui-bootstrap.min',
-        'Devise': '/base/vendor/bower_components/AngularDevise/lib/devise',
         'services/services' : '/base/app/scripts/services/services',
         'controllers/controllers' : '/base/app/scripts/controllers/controllers',
+        'constants/constants' : '/base/app/scripts/constants/constants',
+        'directives/directives' : '/base/app/scripts/directives/directives',
         'services/loginService' : '/base/app/scripts/services/loginService',
+        'services/userService' : '/base/app/scripts/services/userService',
+        'services/validationService' : '/base/app/scripts/services/validationService',
         'controllers/mainController': '/base/app/scripts/controllers/mainController',
         'controllers/aboutContentController' : '/base/app/scripts/controllers/aboutContentController',
         'controllers/contactContentController' : '/base/app/scripts/controllers/contactContentController',
@@ -32,8 +34,8 @@ require.config({
         'controllers/footerController' : '/base/app/scripts/controllers/footerController',
         'controllers/homeController' : '/base/app/scripts/controllers/homeController',
         'controllers/loginController' : '/base/app/scripts/controllers/loginController',
+        'controllers/loginModalController' : '/base/app/scripts/controllers/loginModalController',
         'controllers/navbarController' : '/base/app/scripts/controllers/navbarController',
-        'constants/constants' : '/base/app/scripts/constants/constants',
         'constants/formConstants' : '/base/app/scripts/constants/formConstants',
         'pawPalApp': '/base/app/scripts/pawPalApp',
         'mainSpec' : '/base/test/spec/mainSpec'
@@ -62,6 +64,10 @@ require.config({
         'angularMocks' : {
             deps: ['angular'],
             exports: 'angularMocks'
+        },
+
+        'angular-cookies' : {
+            deps: ['angular']
         }
 
     },

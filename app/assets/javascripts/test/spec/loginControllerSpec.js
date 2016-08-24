@@ -12,10 +12,6 @@ define(['angular', 'angularMocks', 'pawPalApp','controllers/controllers', 'contr
         beforeEach(module('controllers/controllers'));
 
          beforeEach(inject(function(_$controller_, _$httpBackend_, _$rootScope_){
-            //  console.log(JSON.stringify(_$controller_));
-            //  console.log(JSON.stringify(_$rootScope_));
-            //  console.log(JSON.stringify(_$httpBackend_));
-
              $controller = _$controller_;
              $httpBackend = _$httpBackend_;
              $rootScope = _$rootScope_;
@@ -36,11 +32,11 @@ define(['angular', 'angularMocks', 'pawPalApp','controllers/controllers', 'contr
          describe('login controller test', function() {
             console.log('starting login controller test');
             it('should have a username and password field on the $scope', function() {
-              var $scope = { $on: noOpFunction };
-              expect(typeof $scope.formData).toEqual("undefined");
-              var controller = $controller('LoginCtrl', { $scope: $scope });
-              expect($scope.formData.username).toEqual('');
-              expect($scope.formData.password).toEqual('');
+                var $scope = { $on: noOpFunction };
+                expect(typeof $scope.formData).toEqual("undefined");
+                $controller('LoginCtrl', { $scope: $scope });
+                expect($scope.formData.username).toEqual('');
+                expect($scope.formData.password).toEqual('');
             });
 
             it('should be able to send a login request', function() {

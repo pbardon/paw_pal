@@ -1,16 +1,20 @@
 define('services/validationService', ['services/services'], function(services){
     'use strict';
 
+    var validateEmail = function(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    };
+
     function ValidationService() {
         this.validateEmailAddress = function(emailString) {
             if (typeof emailString === 'undefined') {
                 return false;
-            }
-
-            if (emailString === '') {
+            }else if (emailString === '') {
+                return false;
+            }else if (!validateEmail(emailString)) {
                 return false;
             }
-
             return true;
 
         };
@@ -18,21 +22,9 @@ define('services/validationService', ['services/services'], function(services){
         this.validatePassword = function(password) {
             if (typeof password === 'undefined') {
                 return false;
-            }
-
-            if (password === '') {
+            } else if (password === '') {
                 return false;
-            }
-
-            return true;
-        };
-
-        this.validatePasswordConfirmation = function(passwordConfirm) {
-            if (typeof passwordConfirm === 'undefined') {
-                return false;
-            }
-
-            if (passwordConfirm === '') {
+            } else if (password.length < 6) {
                 return false;
             }
 

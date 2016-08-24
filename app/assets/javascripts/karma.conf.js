@@ -15,12 +15,17 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: 'vendor/bower_components/**/*.js', included: false},
-      {pattern: 'app/scripts/**/*.js', included: false},
-      {pattern: 'app/scripts/services/services.js', included: false},
-      {pattern: 'app/scripts/*.js', included: false},
-      {pattern: 'test/**/*Spec.js', included: false},
-      'test/test-main.js'
+        'app/scripts/pawPalApp.js',
+        {pattern: 'vendor/bower_components/**/*.js', included: false},
+        'app/scripts/controllers/controllers.js',
+        'app/scripts/services/services.js',
+        'app/scripts/constants/constants.js',
+        'app/scripts/directives/directives.js',
+        {pattern: 'app/scripts/controllers/*.js', included: false},
+        {pattern: 'app/scripts/services/*.js', included: false},
+        {pattern: 'app/scripts/constants/*.js', included: false},
+        {pattern: 'test/**/*Spec.js', included: false},
+        'test/test-main.js'
     ],
 
 
