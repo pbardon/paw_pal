@@ -72,7 +72,7 @@ define('services/userService', ['services/services'], function(services){
                 $http.delete('/session')
                 .then(function(result) {
                     $log.info('deleted session with response: ', JSON.stringify(result));
-                    $cookies.delete('_dog_sitting_app_token');
+                    $cookies.remove('_dog_sitting_app_token');
                     deferred.resolve(result);
                 }, function(err) {
                     deferred.reject(err);
