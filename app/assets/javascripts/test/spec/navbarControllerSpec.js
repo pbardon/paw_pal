@@ -1,9 +1,9 @@
 var $controller,
     $httpBackend,
     $rootScope,
-    authRequestHandler,
+    logoutResponse,
     createController,
-    noOpFunction = function() {};
+    navbarCtrl;
 
 define(['angular', 'angularMocks', 'pawPalApp', 'controllers/controllers', 'controllers/navbarController'], function() {
     describe('Starting navbar controller test', function () {
@@ -17,14 +17,16 @@ define(['angular', 'angularMocks', 'pawPalApp', 'controllers/controllers', 'cont
             $httpBackend = _$httpBackend_;
             $rootScope = _$rootScope_;
 
-            authRequestHandler = $httpBackend.when('POST', '/api/login')
-                .respond({
-                    'userId': 'testUser',
-                    'token': 'AA55443333A'
-                });
+            logoutResponse = $httpBackend.when('DELETE', '/session')
+            .respond({
+                'email' : 'test123@email.com',
+                'token' : 'AAAAAAAAAAAA'
+            });
+
             createController = function () {
                 return $controller('NavbarCtrl', {'$scope': $rootScope});
             };
+            navbarCtrl = createController();
         }));
 
         afterEach(function() {
@@ -34,12 +36,19 @@ define(['angular', 'angularMocks', 'pawPalApp', 'controllers/controllers', 'cont
 
         describe('navbar controller test', function() {
             console.log('starting navbar controller test...');
+
             it('should be able to instantiate a navbar controller', function() {
-                var $scope = { $on: noOpFunction };
-                expect(typeof $scope.formData).toEqual('undefined');
-                var controller = $controller('NavbarCtrl', { $scope: $scope });
-                console.log(JSON.stringify(controller));
-                expect(typeof $scope.logout !== 'undefined');
+                expect(navbarCtrl).not.toBeUndefined();
+            });
+
+            it('should be able to log out', function() {
+                expect($rootScope.logout).not.toBeUndefined();
+                $httpBackend.expect('DELETE', '/session');
+                $rootScope.logout()
+                .then(function(){
+                    expect($rootScope.loggedIn).not.toBe(true);
+                });
+                $httpBackend.flush();
             });
 
         });
