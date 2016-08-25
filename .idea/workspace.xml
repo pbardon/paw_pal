@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0dce8df-df85-41df-9567-792acef4fa56" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/test/spec/navbarControllerSpec.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/test/spec/navbarControllerSpec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/test.sqlite2" afterPath="$PROJECT_DIR$/db/test.sqlite2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/models/user_test.rb" afterPath="$PROJECT_DIR$/test/models/user_test.rb" />
     </list>
     <ignored path="dog_sitting_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -20,7 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/dog_sitting_app@test__dog_sitting_app.coverage" NAME="test: dog_sitting_app Coverage Results" MODIFIED="1471926619485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dog_sitting_app" />
+    <SUITE FILE_PATH="coverage/dog_sitting_app@test__dog_sitting_app.coverage" NAME="test: dog_sitting_app Coverage Results" MODIFIED="1472093532356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dog_sitting_app" />
     <SUITE FILE_PATH="coverage/dog_sitting_app@Production__dog_sitting_app.coverage" NAME="Production: dog_sitting_app Coverage Results" MODIFIED="1471928198982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dog_sitting_app" />
     <SUITE FILE_PATH="coverage/dog_sitting_app@Development__dog_sitting_app.coverage" NAME="Development: dog_sitting_app Coverage Results" MODIFIED="1472055430114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dog_sitting_app" />
     <SUITE FILE_PATH="coverage/dog_sitting_app@test_all__dog_sitting_app.coverage" NAME="test:all: dog_sitting_app Coverage Results" MODIFIED="1471153031688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="dog_sitting_app" />
@@ -54,38 +55,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginServiceSpec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/test/spec/loginServiceSpec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginControllerSpec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/test/spec/loginControllerSpec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
-              <folding>
-                <marker date="1472067168000" expanded="true" signature="0:2418" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginModalControllerSpec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/test/spec/loginModalControllerSpec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="navbarControllerSpec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/test/spec/navbarControllerSpec.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -96,11 +65,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-451">
               <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_test.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/models/user_test.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dog.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/dog.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -150,7 +149,6 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/environments/test.rb" />
         <option value="$PROJECT_DIR$/test/test_helper.rb" />
-        <option value="$PROJECT_DIR$/test/models/user_test.rb" />
         <option value="$PROJECT_DIR$/test/controllers/sessions_controller_test.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/navbarController.js" />
@@ -177,6 +175,7 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/services/userService.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/test/spec/userServiceSpec.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/test/spec/navbarControllerSpec.js" />
+        <option value="$PROJECT_DIR$/test/models/user_test.rb" />
       </list>
     </option>
   </component>
@@ -284,6 +283,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dog_sitting_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dog_sitting_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -317,46 +334,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dog_sitting_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dog_sitting_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dog_sitting_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dog_sitting_app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -378,7 +355,7 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="/usr/local/lib/node_modules/grunt-cli" />
   </component>
-  <component name="RunManager" selected="Rails.Development: dog_sitting_app">
+  <component name="RunManager" selected="Rake.test: dog_sitting_app">
     <configuration default="false" name="test:all: dog_sitting_app" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
       <module name="dog_sitting_app" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -616,7 +593,7 @@
       <updated>1471118763470</updated>
       <workItem from="1471118768322" duration="15957000" />
       <workItem from="1471926479252" duration="2009000" />
-      <workItem from="1472005565046" duration="22337000" />
+      <workItem from="1472005565046" duration="23024000" />
     </task>
     <task id="LOCAL-00001" summary="Got login with cookie storage working">
       <created>1471587683548</created>
@@ -629,51 +606,51 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="test__dog_sitting_app - 2016.08.15 at 22h 34m 20s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 45m 06s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
-    <history-entry file="test__dog_sitting_app - 2016.08.15 at 22h 34m 27s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 45m 36s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
-    <history-entry file="test__dog_sitting_app - 2016.08.15 at 22h 34m 48s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 45m 59s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
-    <history-entry file="test__dog_sitting_app - 2016.08.15 at 22h 38m 37s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 47m 42s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
-    <history-entry file="test__dog_sitting_app - 2016.08.15 at 22h 38m 53s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 49m 12s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
-    <history-entry file="test__dog_sitting_app - 2016.08.15 at 22h 40m 32s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 49m 23s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
-    <history-entry file="test__dog_sitting_app - 2016.08.15 at 22h 41m 33s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 50m 07s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
-    <history-entry file="test__dog_sitting_app - 2016.08.15 at 22h 41m 56s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 50m 37s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
-    <history-entry file="test__dog_sitting_app - 2016.08.15 at 22h 55m 59s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 51m 29s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
-    <history-entry file="test__dog_sitting_app - 2016.08.22 at 21h 30m 33s.xml">
+    <history-entry file="test__dog_sitting_app - 2016.08.24 at 19h 52m 14s.xml">
       <configuration name="test: dog_sitting_app" configurationId="RakeRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40303000" />
+    <option name="totallyTimeSpent" value="40990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2942613" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2942613" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2897959" sideWeight="0.35897437" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32959184" sideWeight="0.49116346" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.49116346" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2897959" sideWeight="0.64102566" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36836734" sideWeight="0.64102566" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -709,13 +686,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.2.1/gems/bundler-1.10.6/lib/bundler/definition.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/static_pages/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -773,14 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -792,13 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
           <caret line="43" column="29" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/models/user_test.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1103,6 +1058,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-451">
           <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/dog.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/models/user_test.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="52" column="24" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
           <folding />
         </state>
       </provider>

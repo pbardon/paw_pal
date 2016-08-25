@@ -41,6 +41,22 @@ class UserTest < ActiveSupport::TestCase
         email: 'jim@sunnyvale.com'})
       assert user.session_token
   end
+
+    test 'should have many dogs' do
+        user = User.new({name: 'Randy Lahey',
+                         email: 'randy@sunnyvale.com'})
+        user.password = 'fakepasswd'
+        assert user.save
+        assert user.dogs.empty?
+        dog1 = Dog.new({ name: 'Loki', age: 5, size: 'medium', description: 'white dog'})
+        dog1.owner_id = user.id
+        assert dog1.save
+        assert !user.dogs.empty?
+        dog1 = Dog.new({ name: 'Paddington', age: 5, size: 'large', description: 'white fluffy dog'})
+        dog1.owner_id = user.id
+        assert dog1.save
+        assert user.dogs.length == 2
+    end
 end
 
 def create_user(password)
