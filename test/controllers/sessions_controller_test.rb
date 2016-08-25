@@ -7,8 +7,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     end
 
     test 'should be able to create a session' do
-        user_info = {}
-        user_info = { email: "julian@sunnyvale.com", password: "test_password" }
+        user_info = users(:julian)
+        user_info = { email: user_info.email, password: "test_password" }
         user = User.find_by_credentials(user_info[:email], user_info[:password])
         saved_token = user.session_token
         post "session",  user: user_info
@@ -25,7 +25,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     test 'should be able to delete a session' do
         delete "session"
         assert_response :bad_request
-        user_info = { email: "julian@sunnyvale.com", password: "test_password" }
+        user_info = { email: "julian2@sunnyvale.com", password: "test_password" }
         post "session",  user: user_info
         assert_response :ok
         delete "session"

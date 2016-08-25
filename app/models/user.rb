@@ -19,10 +19,10 @@ class User < ActiveRecord::Base
         logger.info "find with credentials: #{email}, #{password}"
         user = User.find_by_email(email)
         if user && user.is_password?(password)
-        user.password = password
-        return user
+            user.password = password
+            return user
         else
-        false
+            false
         end
     end
 

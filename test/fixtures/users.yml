@@ -1,11 +1,17 @@
 julian:
-    email: julian@sunnyvale.com
+    email: julian2@sunnyvale.com
     name: Julian Swayze
     password_digest: $2a$10$RJ0FWYF4NskZTvDyupMDtOwCouhGWcW5HOTxGvaPQ0Zgypp3IuKua
     session_token: AAAAAAAAAAAAAAAAA
 
 bob:
-    email: randybobandy@sunnyvale
+    email: randybobandy2@sunnyvale.com
     name: Randy Bobandy
+    password_digest: $2a$10$RJ0FWYF4NskZTvDyupMDtOwCouhGWcW5HOTxGvaPQ0Zgypp3IuKua
+    session_token: AAAAAFFFFFFFFFF
+
+jim:
+    email: jimlahey2@sunnyvale.com
+    name: Jim Lahey
     password_digest: $2a$10$RJ0FWYF4NskZTvDyupMDtOwCouhGWcW5HOTxGvaPQ0Zgypp3IuKua
     session_token: AAAAAFFFFFFFFFF
