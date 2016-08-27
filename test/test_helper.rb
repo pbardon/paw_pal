@@ -14,4 +14,9 @@ class ActiveSupport::TestCase
     def log(log_message)
         Rails.logger.info(log_message)
     end
+
+    def sample_file(filename)
+        File.new("test/fixtures/images/#{filename}")
+    end
 end
+

@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
-    test 'respond with error when usernameis invalid' do
+    test 'respond with error when username is invalid' do
         post "session",  user: { email: "testemail@test.com", password: "fakepassword" }
         assert_response :unprocessable_entity
     end

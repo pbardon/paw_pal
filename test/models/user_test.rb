@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-    
+
     test 'should_create_a_password' do
         jim = users(:jim)
         user = User.new({name: jim.name,
