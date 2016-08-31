@@ -35,6 +35,9 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  #Active Record after_rollback/after commit callback errors no longer suppressed.
+  config.active_record.raise_in_transactional_callbacks = true
+
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_protocol => 'http',

@@ -11,9 +11,9 @@ class DogTest < ActiveSupport::TestCase
         dog.description = 'test description'
         dog.age = 5
         assert dog.save
-        puts "user dogs: #{user.dogs.first.inspect}"
         dog = Dog.find_by name: 'Loki'
-        puts "dog: #{dog}"
+        assert dog, 'was not able to find dog'
+        assert dog.created_at != nil
     end
 
     test 'should be able to attach an image' do
@@ -25,11 +25,10 @@ class DogTest < ActiveSupport::TestCase
         dog.description = 'test description'
         dog.age = 5
         assert dog.save
-        puts "user dogs: #{user.dogs.first.inspect}"
         dog = Dog.find_by name: 'Loki'
-        puts "dog: #{dog}"
         dog.dog_photo = sample_file('dog1.jpeg')
-        puts "after attachment do if : #{dog.inspect}"
+        assert dog.dog_photo_updated_at != nil
+        assert dog.dog_photo_content_type == 'image/jpeg'
     end
 
 end

@@ -81,6 +81,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  #Active Record after_rollback/after commit callback errors no longer suppressed.
+  config.active_record.raise_in_transactional_callbacks = true
+
   config.paperclip_defaults = {
   :storage => :s3,
   :s3_protocol => 'http',

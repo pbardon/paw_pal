@@ -34,6 +34,12 @@ Rails.application.configure do
     # Print deprecation notices to the stderr.
     config.active_support.deprecation = :stderr
 
+    #Active Record after_rollback/after commit callback errors no longer suppressed.
+    config.active_record.raise_in_transactional_callbacks = true
+
+    #Randomize the order of the tests.
+    config.active_support.test_order = :random
+
     # Raises error for missing translations
     # config.action_view.raise_on_missing_translations = true
 

@@ -18,7 +18,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
         assert session[:session_token], "session token exists"
         assert session[:session_token] != saved_token, "generated new token"
         assert @response, "response exists"
-        puts "cookies : #{cookies.inspect()}"
+        puts "cookies : #{cookies.inspect}"
         assert cookies
     end
 
