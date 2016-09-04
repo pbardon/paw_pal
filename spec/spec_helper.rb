@@ -101,3 +101,8 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+
+def sample_file(filename)
+    File.new("spec/fixtures/images/#{filename}")
+end

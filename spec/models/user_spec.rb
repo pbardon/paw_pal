@@ -2,49 +2,37 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-    fixtures :users
-
 
     it 'should_create_a_password' do
-        jim = users(:jim)
-        user = User.new({name: jim.name,
-                         email: jim.email,
-                         session_token: jim.session_token
-                        })
-        assert_nil(user.password_digest)
-        user.password='test_password'
+        user = build(:user)
         expect user.password_digest
     end
 
     it 'should be able to save to database' do
-        user = create_user('Test User', 'test@testspace.com', 'test_password')
-        expect user.save
+        user = create(:user)
+        expect(user.id).to be_an Integer
     end
 
     it 'should be able to find by credentials' do
-        jim = users(:jim)
-        found_user = User.find_by_credentials(jim.email, 'test_password')
-        expect(found_user.email).to eq(jim.email)
+        user = create(:user)
+        found_user = User.find_by_credentials(user.email, user.password)
+        expect(found_user.email).to eq(user.email)
     end
 
     it 'should reset session_token' do
-        julian = users(:julian)
-        found_user = User.find_by_credentials(julian.email, 'test_password')
-        save_token = found_user.session_token
-        found_user.reset_session_token!
-        expect(save_token).to_not eq(found_user.session_token)
+        user = create(:user)
+        save_token = user.session_token
+        user.reset_session_token!
+        expect(save_token).to_not eq(user.session_token)
     end
 
     it 'should ensure_session_token on creation' do
-        jim = users(:jim)
-        user = User.new({ name: jim.name,
-                          email: jim.email})
+        user = create(:user)
         expect user.session_token
     end
 
     it 'should have many dogs' do
-        bob = users(:bob)
-        user = User.find_by_credentials(bob.email, 'test_password')
+        user = create(:user)
         expect user.save
         expect user.dogs.empty?
         dog1 = Dog.new({ name: 'Loki', age: 5, size: 'medium', description: 'white dog'})
@@ -55,6 +43,12 @@ RSpec.describe User, type: :model do
         dog1.owner_id = user.id
         expect dog1.save
         expect(user.dogs.length).to eq(2)
+    end
+
+    it 'should be able to find by email' do
+        user = create(:user)
+        user = User.find_by_email(user.email)
+        expect(user).to_not be(nil)
     end
 
     it 'uses factory girl to create test user' do
