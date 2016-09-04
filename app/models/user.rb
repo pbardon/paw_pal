@@ -40,11 +40,11 @@ class User < ActiveRecord::Base
         SecureRandom.urlsafe_base64
     end
 
-    def initialize(user_params)
-        user_params[:session_token] = ensure_session_token
-        @password = user_params[:password]
-        super(user_params)
-    end
+    # def initialize(user_params)
+    #     user_params[:session_token] = ensure_session_token
+    #     @password = user_params[:password]
+    #     super(user_params)
+    # end
 
     def is_password?(password)
         b_crypto = BCrypt::Password.new(self.password_digest)

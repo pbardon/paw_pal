@@ -56,6 +56,11 @@ RSpec.describe User, type: :model do
         expect dog1.save
         expect(user.dogs.length).to eq(2)
     end
+
+    it 'uses factory girl to create test user' do
+        user = create(:user)
+        expect(user.id).to be_an Integer
+    end
 end
 
 def create_user(name, email, password)
