@@ -23,6 +23,7 @@ gem 'eventmachine', '~> 1.0.8'
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 gem 'bootstrap-sass'
+gem 'factory_girl_rails'
 
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
@@ -30,16 +31,20 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 group :development do
-  gem 'annotate'
-  gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'byebug'
+    gem 'annotate'
+    gem 'pry-rails'
+    gem 'better_errors'
+    gem 'binding_of_caller'
+    gem 'factory_girl_rails'
+    gem 'byebug'
+    gem 'rspec-rails'
 end
 
 group :test do
-  gem 'sqlite3'
-  gem 'rspec'
+    gem 'sqlite3'
+    gem 'rspec'
+    gem 'factory_girl_rails'
+    gem 'rspec-rails'
 end
 
 # Use unicorn as the app server
