@@ -18,7 +18,7 @@ module Api
     end
 
     def show
-      @dog = Dog.find(params[:id]);
+      @dog = Dog.find(params[:id])
       if @dog
         i = 1
         sum = 0
@@ -34,7 +34,7 @@ module Api
     end
 
     def update
-      @dog = Dog.find(params[:id]);
+      @dog = Dog.find(params[:id])
       if @dog.owner_id == current_user.id && @dog.update_attributes(dog_params)
         render "dogs/show"
       else
@@ -43,7 +43,7 @@ module Api
     end
 
     def destroy
-      @dog = Dog.find(params[:id]);
+      @dog = Dog.find(params[:id])
       @dog.destroy
       render "dogs/show"
     end

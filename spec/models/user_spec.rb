@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
 
     it 'should reset session_token' do
         user = create(:user)
-        save_token = user.session_token
+        save_token = "#{user.session_token}"
         user.reset_session_token!
         expect(save_token).to_not eq(user.session_token)
     end

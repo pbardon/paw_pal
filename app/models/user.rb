@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-    attr_reader :password
+    attr_reader :password, :session_token
 
     validates :email, :password_digest, :session_token, presence: true
     validates :email, uniqueness: true
@@ -52,15 +52,15 @@ class User < ActiveRecord::Base
     end
 
     def reset_session_token!
-        self.session_token = User.generate_session_token
+        @session_token = User.generate_session_token
+        self.session_token = @session_token
         self.save!
-        self.session_token
+        @session_token
     end
 
     def ensure_session_token
         @session_token ||= SecureRandom.urlsafe_base64
-        puts "returning session token #{@session_token}"
+        self.session_token = @session_token
         @session_token
     end
-
 end

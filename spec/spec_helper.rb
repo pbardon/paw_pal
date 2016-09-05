@@ -102,7 +102,6 @@ RSpec.configure do |config|
 =end
 end
 
-
 def sample_file(filename)
     File.new("spec/fixtures/images/#{filename}")
 end
