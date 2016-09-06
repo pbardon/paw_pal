@@ -19,6 +19,14 @@ RSpec.describe User, type: :model do
         expect(found_user.email).to eq(user.email)
     end
 
+    it 'should be able to be found and updated' do
+        user = create(:user)
+        new_name = Faker::Name.name
+        user.name = new_name
+        found_user = User.find_and_update(user.session_token, user.attributes)
+        expect(found_user.name).to eq(new_name)
+    end
+
     it 'should reset session_token' do
         user = create(:user)
         save_token = "#{user.session_token}"
@@ -54,6 +62,18 @@ RSpec.describe User, type: :model do
     it 'uses factory girl to create test user' do
         user = create(:user)
         expect(user.id).to be_an Integer
+    end
+
+    it 'can create a user with 5 dogs' do
+        user = create(:user_with_dogs)
+        expect(user.dogs.length).to eq(5)
+        expect(user.dogs.first.name).to be_a(String)
+        expect(user.dogs.last.id).to be_an(Integer)
+    end
+
+    it 'can create a user with a shelter account' do
+        user = create(:user_with_shelter_account)
+        expect(user.shelter_account).to be_instance_of Shelter
     end
 end
 

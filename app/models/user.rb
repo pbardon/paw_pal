@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-    attr_reader :password, :session_token
+    attr_reader :password
 
     validates :email, :password_digest, :session_token, presence: true
     validates :email, uniqueness: true
@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
     has_many :dogs, class_name: :Dog, foreign_key: :owner_id
 
     has_one :shelter_account, class_name: 'Shelter', foreign_key: :user_id
-
-    has_many :comments
 
     before_validation :ensure_session_token
 
@@ -28,9 +26,9 @@ class User < ActiveRecord::Base
 
     def self.find_and_update(session_token, parameters)
         user = User.find_by_session_token(session_token)
-            if user.update_attributes(parameters)
+        if user.update_attributes(parameters)
             user.save
-            true
+            user
         else
             false
         end
@@ -52,15 +50,12 @@ class User < ActiveRecord::Base
     end
 
     def reset_session_token!
-        @session_token = User.generate_session_token
-        self.session_token = @session_token
+        self.session_token = User.generate_session_token
         self.save!
-        @session_token
+        self.session_token
     end
 
     def ensure_session_token
-        @session_token ||= SecureRandom.urlsafe_base64
-        self.session_token = @session_token
-        @session_token
+        self.session_token ||= User.generate_session_token
     end
 end

@@ -48,4 +48,9 @@ Rails.application.configure do
 
     # Set log level
     config.log_level = :ERROR
+
+    # Save paperclip test files locally.
+    config.paperclip_defaults = {
+        path: "#{Rails.root}/spec/test_files/:class/:id_partition/:style.:extension"
+    }
 end

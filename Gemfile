@@ -45,6 +45,7 @@ group :test do
     gem 'rspec'
     gem 'factory_girl_rails'
     gem 'rspec-rails'
+    gem 'faker'
 end
 
 # Use unicorn as the app server

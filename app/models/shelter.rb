@@ -1,7 +1,6 @@
 class Shelter < ActiveRecord::Base
   validates :user_id, :avg_rating, :shelter_name, :description, :price, presence: true
   validates :street_address, :city, :state, :zipcode, presence: true
-  validates :avg_rating, presence: true
 
   belongs_to :user
 
