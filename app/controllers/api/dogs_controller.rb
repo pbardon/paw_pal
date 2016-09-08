@@ -13,7 +13,7 @@ module Api
     end
 
     def index
-      @dogs = current_user.dogs
+      @dogs = Dog.all
       render "dogs/index"
     end
 

@@ -1,7 +1,12 @@
 FactoryGirl.define do
     factory :user do
-        sequence(:email) { |n| "person#{n}@example.com" }
-        name Faker::Name.name
+        sequence(:email) do |n|
+            email = Faker::Internet.email
+            at_index = email.index('@')
+            email = email.insert(at_index, n.to_s)
+            "#{email}"
+        end
+        sequence(:name) { |n | "#{Faker::Name.name} # #{n}" }
         session_token User.generate_session_token
         password Faker::Internet.password
 

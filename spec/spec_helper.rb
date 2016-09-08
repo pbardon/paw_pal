@@ -19,6 +19,7 @@
 
 require 'factory_girl_rails'
 require 'support/factory_girl.rb'
+require 'factories/factory_helper.rb'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -105,12 +106,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-end
-
-def sample_file(filename)
-    File.new("spec/fixtures/images/#{filename}")
-end
-
-def get_random_rating
-    (5 * rand).round(1)
 end

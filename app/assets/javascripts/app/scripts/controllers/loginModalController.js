@@ -61,6 +61,7 @@ define('controllers/loginModalController', ['controllers/controllers',
 
                 $scope.login = function() {
                     var loginInfo = getLoginInfo();
+                    loginInfo.passwordConfirm = loginInfo.password;
 
                     if (validateLoginInfo(loginInfo)) {
                         usrSvc.loginUser(loginInfo.email, loginInfo.password)
