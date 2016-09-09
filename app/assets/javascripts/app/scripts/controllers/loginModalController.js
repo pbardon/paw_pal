@@ -33,7 +33,7 @@ define('controllers/loginModalController', ['controllers/controllers',
                     return {
                         email: $scope.formData.email,
                         password: $scope.formData.password,
-                        confirmPassword: $scope.formData.confirmPassword
+                        passwordConfirm: $scope.formData.passwordConfirm
                     }
                 };
 
@@ -41,11 +41,14 @@ define('controllers/loginModalController', ['controllers/controllers',
                     $scope.error = errMsg;
                 };
 
-                var validateLoginInfo = function(loginInfo) {
+                var validateLoginInfo = function(loginInfo, isLogin) {
                     if (!(validateSvc.validateEmailAddress(loginInfo.email) &&
                         validateSvc.validatePassword(loginInfo.password) &&
-                        validateSvc.validatePassword(loginInfo.passwordConfirm))) {
-                        var errMsg = 'Login info was not entered correctly';
+                        (isLogin || validateSvc.validatePassword(loginInfo.passwordConfirm)))) {
+                        var errMsg = 'Enrollment info was not entered correctly';
+                        if (isLogin) {
+                            errMsg = 'Login info was not entered correctly';
+                        }
                         $log.error(errMsg);
                         addError(errMsg);
                         return false;
@@ -63,7 +66,7 @@ define('controllers/loginModalController', ['controllers/controllers',
                     var loginInfo = getLoginInfo();
                     loginInfo.passwordConfirm = loginInfo.password;
 
-                    if (validateLoginInfo(loginInfo)) {
+                    if (validateLoginInfo(loginInfo, true)) {
                         usrSvc.loginUser(loginInfo.email, loginInfo.password)
                         .then(function(result) {
                             $log.info('logged in user: ', JSON.stringify(loginInfo));
@@ -89,7 +92,7 @@ define('controllers/loginModalController', ['controllers/controllers',
 
                 $scope.enroll = function() {
                     var loginInfo = getLoginInfo();
-                    if (validateLoginInfo(loginInfo)) {
+                    if (validateLoginInfo(loginInfo, false)) {
                         usrSvc.createUser(loginInfo.email, loginInfo.password)
                         .then(function (result) {
                             $log.info('created user : ', JSON.stringify(loginInfo));

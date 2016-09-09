@@ -12,6 +12,7 @@
 
 require './spec/factories/factory_helper.rb'
 
+
 FactoryGirl.create_list(:user, 10)
 
 FactoryGirl.create_list(:dog, 10)

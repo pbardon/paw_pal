@@ -11,8 +11,6 @@ define(['angular', 'angularMocks', 'pawPalApp', 'controllers/controllers', 'cont
         beforeEach(module('controllers/controllers'));
 
         beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_) {
-            console.log('controller is: ');
-            console.log(JSON.stringify(_$controller_));
             $controller = _$controller_;
             $httpBackend = _$httpBackend_;
             $rootScope = _$rootScope_;
@@ -39,6 +37,11 @@ define(['angular', 'angularMocks', 'pawPalApp', 'controllers/controllers', 'cont
 
             it('should be able to instantiate a navbar controller', function() {
                 expect(navbarCtrl).not.toBeUndefined();
+            });
+
+            it('should be able to open the login modal', function() {
+
+
             });
 
             it('should be able to log out', function() {

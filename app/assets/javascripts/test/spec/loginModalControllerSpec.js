@@ -27,11 +27,17 @@ define(['angular', 'angularMocks', 'uiBootstrap', 'pawPalApp','controllers/contr
                 }
             };
 
-            authRequestHandler = $httpBackend.when('POST', '/api/login')
+            $httpBackend.when('POST', '/session')
             .respond({
-                'userId': 'testUser',
+                'email': 'testUser',
                 'token': 'AA55443333A'
             });
+
+            $httpBackend.when('POST', '/users')
+                .respond({
+                    'email': 'testUser',
+                    'token': 'AA55443333A'
+                });
 
             scope = $rootScope.$new;
             createController = function () {
@@ -50,8 +56,67 @@ define(['angular', 'angularMocks', 'uiBootstrap', 'pawPalApp','controllers/contr
         });
 
         describe('login modal controller test', function() {
+            console.log('starting login modal controller test');
             it('should be able to instantiate a login modal controller', function() {
                 expect(loginModalCtrl).not.toBeUndefined();
+            });
+
+            it('should have a login method on the $scope', function() {
+                expect(scope.login).not.toBeUndefined();
+            });
+
+            it('should have a enroll method on the $scope', function() {
+                expect(scope.enroll).not.toBeUndefined();
+            });
+
+            it('should be able to send an login request', function(){
+                console.log('running login request test...');
+                scope.formData.email = 'testuser@test.com';
+                scope.formData.password = 'testPassword';
+                $httpBackend.expectPOST('/session');
+                scope.login();
+                expect(scope.error).toBeUndefined();
+                $httpBackend.flush();
+            });
+
+
+            it('should be able to send an enrollment request', function(){
+                console.log('running enrollment request test...');
+                scope.formData.email = 'testuser@test.com';
+                scope.formData.password = 'testPassword';
+                scope.formData.passwordConfirm = 'testPassword';
+                $httpBackend.expectPOST('/users');
+                scope.enroll();
+                $httpBackend.flush();
+            });
+
+            it('should respond with an error when the email is invalid', function() {
+                console.log('running email validation test...');
+                scope.formData.email = 'testuser';
+                scope.formData.password = 'testPassword';
+                scope.login();
+                expect(scope.error).not.toBeUndefined();
+                expect('Login info was not entered correctly').toMatch(scope.error);
+            });
+
+            it('should respond with an error when the password is invalid', function() {
+                console.log('running password validation test...');
+                scope.formData.email = 'testuser@test.com';
+                scope.formData.password = 'test';
+                scope.login();
+                expect(scope.error).not.toBeUndefined();
+                console.log(JSON.stringify(scope.error));
+                expect('Login info was not entered correctly').toMatch(scope.error);
+            });
+
+            it('should respond with an error when the confirmation password is invalid', function() {
+                console.log('running password confirmation validation test...');
+                scope.formData.email = 'testuser';
+                scope.formData.password = 'test';
+                scope.formData.passwordConfirm = 'test123';
+                scope.enroll();
+                expect(scope.error).not.toBeUndefined();
+                expect('Enrollment info was not entered correctly').toMatch(scope.error);
             });
         });
     });
