@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-        <a class="navbar-brand" href="#">PawPal</a>
+        <a class="navbar-brand" ui-sref="home">PawPal</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -26,13 +26,13 @@
                       <ul class="dropdown-menu"
                           uib-dropdown-menu role="menu"
                           aria-labelledby="single-button">
-                        <li role="menuitem"><a href="#">Settings</a></li>
+                        <li role="menuitem"><a ui-sref="settings">Settings</a></li>
                         <li class="divider"></li>
-                        <li role="menuitem"><a href="#">Shelter Profile</a></li>
+                        <li role="menuitem"><a ui-sref="shelter">Shelter Profile</a></li>
                         <li class="divider"></li>
-                        <li role="menuitem"><a href="#">Dogs</a></li>
+                        <li role="menuitem"><a ui-sref="dogs">Dogs</a></li>
                         <li class="divider"></li>
-                        <li role="menuitem" ng-click="logout()"><a href="#">Logout</a></li>
+                        <li role="menuitem" ng-click="logout()"><a ui-sref="home">Logit adgout</a></li>
                       </ul>
                   </div>
          </li>

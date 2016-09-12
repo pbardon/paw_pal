@@ -39,11 +39,6 @@ define(['angular', 'angularMocks', 'pawPalApp', 'controllers/controllers', 'cont
                 expect(navbarCtrl).not.toBeUndefined();
             });
 
-            it('should be able to open the login modal', function() {
-
-
-            });
-
             it('should be able to log out', function() {
                 expect($rootScope.logout).not.toBeUndefined();
                 $httpBackend.expect('DELETE', '/session');

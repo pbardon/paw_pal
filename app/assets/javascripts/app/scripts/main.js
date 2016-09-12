@@ -78,106 +78,102 @@ require([
                 var timestamp = new Date().getTime();
 
                 $stateProvider
-                    .state('home', {
-                        url : '/',
-                        views : {
-                            'navbar' : {
-                                templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
-                                controller: 'NavbarCtrl'
-                            },
-                            'main' : {
-                                controller: 'HomeCtrl',
-                                templateUrl: 'templates/' + timestamp.toString() + '/home.html'
-                            },
-                            'footer' : {
-                                templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
-                                controller: 'FooterCtrl'
-                            }
-                        }
-                    })
-
-                        // define modal route "/modal"
-                     .state('login', {
-                        url: '/login',
-                        views: {
-                           'navbar' : {
-                               templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
-                               controller: 'NavbarCtrl'
-                           },
-                           'main' : {
-                               controller: 'HomeCtrl',
-                               templateUrl: 'templates/' + timestamp.toString() + '/home.html'
-                           },
-                           'footer' : {
-                               templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
-                               controller: 'FooterCtrl'
-                           }
+                .state('home', {
+                    url : '/',
+                    views : {
+                        'navbar' : {
+                            templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
+                            controller: 'NavbarCtrl'
                         },
-                        onEnter: ['$stateParams', '$state', '$uibModal',
-                             function($stateParams, $state, $uibModal) {
-                                 $uibModal.open({
-                                    templateUrl: 'templates/' + timestamp.toString() + '/loginModal.html',
-                                    controller: 'LoginModalCtrl'
-                                 })
-                                 // change route after modal result
-                                 .result.then(function() {
-                                   // change route after clicking OK button
-                                   $state.transitionTo('home');
-                                 }, function() {
-                                   // change route after clicking Cancel button or clicking background
-                                   $state.transitionTo('home');
-                                 });
-                             }]
-                    }).state('/profile', {
-                        url: '/profile',
-                        views: {
-                            'navbar' : {
+                        'main' : {
+                            controller: 'HomeCtrl',
+                            templateUrl: 'templates/' + timestamp.toString() + '/home.html'
+                        },
+                        'footer' : {
+                            templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
+                            controller: 'FooterCtrl'
+                        }
+                    }
+                }).state('login', {
+                    url: '/login',
+                    views: {
+                       'navbar' : {
+                           templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
+                           controller: 'NavbarCtrl'
+                       },
+                       'main' : {
+                           controller: 'HomeCtrl',
+                           templateUrl: 'templates/' + timestamp.toString() + '/home.html'
+                       },
+                       'footer' : {
+                           templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
+                           controller: 'FooterCtrl'
+                       }
+                    },
+                    onEnter: ['$stateParams', '$state', '$uibModal',
+                         function($stateParams, $state, $uibModal) {
+                             $uibModal.open({
+                                templateUrl: 'templates/' + timestamp.toString() + '/loginModal.html',
+                                controller: 'LoginModalCtrl'
+                             })
+                             // change route after modal result
+                             .result.then(function() {
+                               // change route after clicking OK button
+                               $state.transitionTo('home');
+                             }, function() {
+                               // change route after clicking Cancel button or clicking background
+                               $state.transitionTo('home');
+                             });
+                         }]
+                }).state('dogs', {
+                    url: '/dogs',
+                    views: {
+                        'navbar' : {
+                            templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
+                            controller: 'NavbarCtrl'
+                        },
+                        'main' : {
+                            controller: 'DogsCtrl',
+                            templateUrl: 'templates/' + timestamp.toString() + '/dogs.html'
+                        },
+                        'footer' : {
+                            templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
+                            controller: 'FooterCtrl'
+                        }
+                    }
+                }).state('settings', {
+                    url: '/settings',
+                    views: {
+                        'navbar' : {
+                            templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
+                            controller: 'NavbarCtrl'
+                        },
+                        'main' : {
+                            controller: 'SettingsCtrl',
+                            templateUrl: 'templates/' + timestamp.toString() + '/settings.html'
+                        },
+                        'footer' : {
+                            templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
+                            controller: 'FooterCtrl'
+                        }
+                    }
+                }).state('shelter', {
+                    url: '/shelter',
+                    views: {
+                            'navbar': {
                                 templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
                                 controller: 'NavbarCtrl'
                             },
-                            'main' : {
-                                controller: 'ProfileCtrl',
-                                templateUrl: 'templates/' + timestamp.toString() + '/profile.html'
+                            'main': {
+                                controller: 'ShelterCtrl',
+                                templateUrl: 'templates/' + timestamp.toString() + '/shelter.html'
                             },
-                            'footer' : {
+                            'footer': {
                                 templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
                                 controller: 'FooterCtrl'
                             }
-                        }
-                    }).state('/dogs', {
-                        url: '/dogs',
-                        views: {
-                            'navbar' : {
-                                templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
-                                controller: 'NavbarCtrl'
-                            },
-                            'main' : {
-                                controller: 'ProfileCtrl',
-                                templateUrl: 'templates/' + timestamp.toString() + '/profile.html'
-                            },
-                            'footer' : {
-                                templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
-                                controller: 'FooterCtrl'
-                            }
-                        }
-                    }).state('/settings', {
-                        url: '/login',
-                        views: {
-                            'navbar' : {
-                                templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
-                                controller: 'NavbarCtrl'
-                            },
-                            'main' : {
-                                controller: 'ProfileCtrl',
-                                templateUrl: 'templates/' + timestamp.toString() + '/settings.html'
-                            },
-                            'footer' : {
-                                templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
-                                controller: 'FooterCtrl'
-                            }
-                        }
-                    });
-
+                    }
+                });
                 $locationProvider.html5Mode(true);
             }]
         );

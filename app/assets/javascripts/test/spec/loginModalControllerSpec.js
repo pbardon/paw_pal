@@ -3,10 +3,8 @@ var $controller,
     $rootScope,
     scope,
     loginModalCtrl,
-    $uibModalInstance,
-    authRequestHandler,
-    createController,
-    noOpFunction = function() {};
+    uibModalInstance,
+    createController;
 
 define(['angular', 'angularMocks', 'uiBootstrap', 'pawPalApp','controllers/controllers', 'controllers/loginModalController'], function() {
     describe('Starting login modal controller test', function () {
@@ -19,12 +17,9 @@ define(['angular', 'angularMocks', 'uiBootstrap', 'pawPalApp','controllers/contr
             $httpBackend = _$httpBackend_;
             $rootScope = _$rootScope_;
 
-            var uibModalInstance = {
+            uibModalInstance = {
                 close: jasmine.createSpy('modalInstance.close'),
-                dismiss: jasmine.createSpy('modalInstance.dismiss'),
-                result: {
-                    then: jasmine.createSpy('modalInstance.result.then')
-                }
+                dismiss: jasmine.createSpy('modalInstance.dismiss')
             };
 
             $httpBackend.when('POST', '/session')
@@ -34,10 +29,10 @@ define(['angular', 'angularMocks', 'uiBootstrap', 'pawPalApp','controllers/contr
             });
 
             $httpBackend.when('POST', '/users')
-                .respond({
+            .respond({
                     'email': 'testUser',
                     'token': 'AA55443333A'
-                });
+            });
 
             scope = $rootScope.$new;
             createController = function () {
@@ -118,6 +113,24 @@ define(['angular', 'angularMocks', 'uiBootstrap', 'pawPalApp','controllers/contr
                 expect(scope.error).not.toBeUndefined();
                 expect('Enrollment info was not entered correctly').toMatch(scope.error);
             });
+
+            it('should be able to close the modal', function() {
+                console.log('starting modal close test');
+                expect(uibModalInstance.dismiss).not.toHaveBeenCalled();
+                scope.cancel();
+                expect(uibModalInstance.dismiss).toHaveBeenCalled();
+            });
+
+            it('should be able to detect is the passwords match', function() {
+                console.log('starting modal password match test');
+                scope.formData.password = 'test';
+                scope.formData.passwordConfirm = 'test123';
+                expect(scope.passwordsMatch()).toBe(false);
+                scope.formData.password = 'test123';
+                scope.formData.passwordConfirm = 'test123';
+                expect(scope.passwordsMatch()).toBe(true);
+
+            })
         });
     });
 });
