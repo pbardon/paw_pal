@@ -13,6 +13,5 @@ class Dog < ActiveRecord::Base
                     },
                     default_url: "https://s3-us-west-1.amazonaws.com/pet-sitter-development/pic-missing2.png"
 
-  validates_attachment :dog_photo,
-  :content_type => { content_type: %w(image/jpeg image/gif image/png) }
+  validates_attachment :dog_photo, :content_type => { content_type: %w(image/jpeg image/gif image/png) }
 end

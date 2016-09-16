@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # protect_from_forgery with: :exception
 
-
     after_filter :set_csrf_cookie_for_ng
 
     def set_csrf_cookie_for_ng
@@ -13,8 +12,8 @@ class ApplicationController < ActionController::Base
     helper_method :signed_in?, :current_user
 
     def current_user
-        return nil unless session[:session_token]
-        @current_user ||= User.find_by_session_token(session[:session_token])
+        return nil unless cookies['_dog_sitting_app_token']
+        @current_user ||= User.find_by_session_token(cookies['_dog_sitting_app_token'])
     end
 
     def signed_in?
@@ -23,14 +22,14 @@ class ApplicationController < ActionController::Base
 
     def sign_in(user)
         user ||= User.find_by_credentials(user.email, user.password)
-        session[:session_token] = user.reset_session_token!
+        cookies['_dog_sitting_app_token'] = user.reset_session_token!
         @current_user = user
     end
 
     def sign_out
       if current_user
           current_user.reset_session_token!
-          session[:session_token] = nil
+          cookies['_dog_sitting_app_token'] = nil
           true
       else
           logger.info 'could not sign out because there is no current user'

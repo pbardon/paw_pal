@@ -6,15 +6,20 @@ module Api
       @dog = current_user.dogs.new(dog_params)
 
       if @dog.save
-        render "dogs/show"
+        render 'dogs/show'
       else
         render json: @dog.errors.full_messages, status: :unprocessable_entity
       end
     end
 
+    def all
+        @dogs = Dog.all
+        render 'dogs/index'
+    end
+
     def index
-      @dogs = Dog.all
-      render "dogs/index"
+      @dogs = current_user.dogs
+      render 'dogs/index'
     end
 
     def show
@@ -30,13 +35,13 @@ module Api
         @dog.save
       end
       @current_user = current_user
-      render "dogs/show"
+      render 'dogs/show'
     end
 
     def update
       @dog = Dog.find(params[:id])
       if @dog.owner_id == current_user.id && @dog.update_attributes(dog_params)
-        render "dogs/show"
+        render 'dogs/show'
       else
         render json: @dog.errors.full_messages, status: :unprocessable_entity
       end
@@ -45,7 +50,7 @@ module Api
     def destroy
       @dog = Dog.find(params[:id])
       @dog.destroy
-      render "dogs/show"
+      render 'dogs/show'
     end
 
     private

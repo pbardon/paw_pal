@@ -5,7 +5,8 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
 
         function UserService() {
             this.user = {
-                email: ''
+                email: '',
+                token: ''
             };
 
             this.isUserLoggedIn = function() {
@@ -35,6 +36,7 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
                     $log.info('success response from server:\n',
                         JSON.stringify(result));
                     $cookies.put('_dog_sitting_app_token', result.data.token);
+                    oThis.user.token = result.data.token;
                     oThis.user.email = result.data.email;
                     $log.info(JSON.stringify($cookies.getAll()));
                     deferred.resolve(result);
