@@ -1,7 +1,7 @@
 define('services/userService', ['services/services', 'angular-cookies'], function(services){
     'use strict';
 
-    return services.factory('UserService', [ '$q', '$http', '$cookies', '$log', '$state', function($q, $http, $cookies, $log, $state) {
+    return services.factory('UserService', [ '$q', '$http', '$cookies', '$log', function($q, $http, $cookies, $log) {
 
         function UserService() {
             this.user = {
@@ -33,8 +33,9 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
                 .then(function (result) {
                     $log.info('success response from server:\n',
                         JSON.stringify(result));
-                    $cookies.put('X-PP-TOKEN', result.headers()['x-pp-token']);
-                    oThis.user.token = result.data.token;
+                    var responseToken = results.headers()['x-pp-token'];
+                    $cookies.put('X-PP-TOKEN', responseToken);
+                    oThis.user.token = responseToken;
                     oThis.user.email = result.data.email;
                     $log.info(JSON.stringify($cookies.getAll()));
                     deferred.resolve(result);
@@ -61,8 +62,10 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
                 .then(function(results) {
                     $log.info('success response from server:\n',
                         JSON.stringify(results));
-                    $cookies.put('X-PP-TOKEN', results.headers()['x-pp-token']);
+                    var responseToken = results.headers()['x-pp-token'];
+                    $cookies.put('X-PP-TOKEN', responseToken);
                     oThis.user.email = results.data.email;
+                    oThis.user.token = responseToken;
                     $log.info(JSON.stringify($cookies.getAll()));
                     deferred.resolve(results)
                 }, function(err) {
@@ -88,8 +91,8 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
                 .then(function(result) {
                     $log.info('deleted session with response: ', JSON.stringify(result));
                     oThis.user.email = '';
+                    oThis.user.token = '';
                     $cookies.remove('X-PP-TOKEN');
-                    $state.transitionTo('home');
                     deferred.resolve(result);
                 }, function(err) {
                     deferred.reject(err);

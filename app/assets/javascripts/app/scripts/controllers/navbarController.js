@@ -7,8 +7,9 @@ define('controllers/navbarController',
                                               '$location',
                                               '$uibModal',
                                               '$log',
+                                              '$state',
                                               'UserService',
-            function($rootScope, $scope, $location, $uibModal, $log, UserService){
+            function($rootScope, $scope, $location, $uibModal, $log, $state, UserService){
 
                 var usrSvc = UserService;
 
@@ -21,7 +22,7 @@ define('controllers/navbarController',
                 $scope.logout = function() {
                     return usrSvc.logoutCurrentUser()
                     .then(function(){
-                        $rootScope.loggedIn = false
+                        $state.transitionTo('home');
                     }, function(err){
                         $log.error(err)
                     });

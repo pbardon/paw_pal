@@ -14,6 +14,7 @@ require.config({
         'directives/directives' : 'app/scripts/directives/directives',
         'services/validationService' : 'app/scripts/services/validationService',
         'services/userService' : 'app/scripts/services/userService',
+        'services/dogService' : 'app/scripts/services/dogService',
         'constants/formConstants' : 'app/scripts/constants/formConstants',
         'controllers/mainController': 'app/scripts/controllers/mainController',
         'controllers/aboutContentController' : 'app/scripts/controllers/aboutContentController',
@@ -24,7 +25,8 @@ require.config({
         'controllers/homeController' : 'app/scripts/controllers/homeController',
         'controllers/loginModalController' : 'app/scripts/controllers/loginModalController',
         'controllers/loginController' : 'app/scripts/controllers/loginController',
-        'controllers/navbarController' : 'app/scripts/controllers/navbarController'
+        'controllers/navbarController' : 'app/scripts/controllers/navbarController',
+        'controllers/dogsController' : 'app/scripts/controllers/dogsController'
     },
     shim: {
         'angular': {
@@ -56,6 +58,7 @@ require([
     'directives/directives',
     'services/validationService',
     'services/userService',
+    'services/dogService',
     'constants/formConstants',
     'controllers/mainController',
     'controllers/aboutContentController',
@@ -66,7 +69,8 @@ require([
     'controllers/homeController',
     'controllers/loginModalController',
     'controllers/loginController',
-    'controllers/navbarController'
+    'controllers/navbarController',
+    'controllers/dogsController'
     ],
     function (angular, app, domReady) {
         'use strict';
