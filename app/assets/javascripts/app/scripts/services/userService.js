@@ -1,7 +1,7 @@
 define('services/userService', ['services/services', 'angular-cookies'], function(services){
     'use strict';
 
-    return services.factory('UserService', [ '$q', '$http', '$cookies', '$log', function($q, $http, $cookies, $log) {
+    return services.factory('UserService', [ '$q', '$http', '$cookies', '$log', '$state', function($q, $http, $cookies, $log, $state) {
 
         function UserService() {
             this.user = {
@@ -10,12 +10,10 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
             };
 
             this.isUserLoggedIn = function() {
-                var cookies = $cookies.getAll();
-                if (typeof cookies._dog_sitting_app_token === 'undefined') {
+                if (typeof $cookies.get('X-PP-TOKEN') === 'undefined') {
                     return false;
                 }
 
-                $log.info("cookie is : ", JSON.stringify(cookies));
                 return true;
             };
 
@@ -35,7 +33,7 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
                 .then(function (result) {
                     $log.info('success response from server:\n',
                         JSON.stringify(result));
-                    $cookies.put('_dog_sitting_app_token', result.data.token);
+                    $cookies.put('X-PP-TOKEN', result.headers()['x-pp-token']);
                     oThis.user.token = result.data.token;
                     oThis.user.email = result.data.email;
                     $log.info(JSON.stringify($cookies.getAll()));
@@ -63,7 +61,7 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
                 .then(function(results) {
                     $log.info('success response from server:\n',
                         JSON.stringify(results));
-                    $cookies.put('_dog_sitting_app_token', results.data.token);
+                    $cookies.put('X-PP-TOKEN', results.headers()['x-pp-token']);
                     oThis.user.email = results.data.email;
                     $log.info(JSON.stringify($cookies.getAll()));
                     deferred.resolve(results)
@@ -79,11 +77,19 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
                 var deferred = $q.defer(),
                     oThis = this;
 
-                $http.delete('/session')
+                var config = {
+                    headers:  {
+                        'X-PP-TOKEN': $cookies.get('X-PP-TOKEN'),
+                        'Accept': 'application/json'
+                    }
+                };
+
+                $http.delete('/session', config)
                 .then(function(result) {
                     $log.info('deleted session with response: ', JSON.stringify(result));
                     oThis.user.email = '';
-                    $cookies.remove('_dog_sitting_app_token');
+                    $cookies.remove('X-PP-TOKEN');
+                    $state.transitionTo('home');
                     deferred.resolve(result);
                 }, function(err) {
                     deferred.reject(err);

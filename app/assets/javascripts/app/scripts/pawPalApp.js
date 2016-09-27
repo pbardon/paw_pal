@@ -9,7 +9,7 @@ define('pawPalApp', ['angular',
        function(angular) {
             'use strict';
 
-            var app = angular.module('pawPalApp', ['ui.router',
+            return angular.module('pawPalApp', ['ui.router',
                 'ui.bootstrap',
                 'ngCookies',
                 'controllers/controllers',
@@ -17,6 +17,4 @@ define('pawPalApp', ['angular',
                 'constants/constants',
                 'directives/directives'
             ]);
-
-            return app;
         });

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
            render :json =>  { token: @user.session_token, message: 'session created'}, status: 200
         else
             errors = {
-                full_messages: "Unable to create session with params: #{params}"
+                full_messages: "Unable tconto create session with params: #{params}"
             }
            puts "#{errors[:full_messages]}"
            render json: { errors: errors[:full_messages] }, status: 422

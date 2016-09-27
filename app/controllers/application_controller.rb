@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
     helper_method :signed_in?, :current_user
 
     def current_user
-        return nil unless cookies['_dog_sitting_app_token']
-        @current_user ||= User.find_by_session_token(cookies['_dog_sitting_app_token'])
+        return nil unless request.headers['X-PP-TOKEN']
+        @current_user ||= User.find_by_session_token(request.headers['X-PP-TOKEN'])
     end
 
     def signed_in?
@@ -22,14 +22,13 @@ class ApplicationController < ActionController::Base
 
     def sign_in(user)
         user ||= User.find_by_credentials(user.email, user.password)
-        cookies['_dog_sitting_app_token'] = user.reset_session_token!
+        response.headers['X-PP-TOKEN'] = user.reset_session_token!
         @current_user = user
     end
 
     def sign_out
       if current_user
           current_user.reset_session_token!
-          cookies['_dog_sitting_app_token'] = nil
           true
       else
           logger.info 'could not sign out because there is no current user'
