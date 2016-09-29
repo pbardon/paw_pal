@@ -1,5 +1,5 @@
 .dogsContainer {
-    padding-top: 3%;
+    margin-top: 10%;
     height: 100%;
     min-height: 100%;
 }
@@ -15,3 +15,34 @@
 .addDogBtn.btn.btn-info {
     float: right;
 }
+
+.userDogListContainer {
+    margin: 25px;
+}
+
+.dogViewTab {
+    border-bottom: solid thin lightgrey;
+    border-left: solid thin lightgray;
+    border-top-left-radius: 5px;
+    box-shadow: -12px 0 8px -4px lightgray;
+}
+
+.dog-panel-body {
+    border-bottom: solid thin lightgrey;
+}
+
+.back-button {
+    padding-top: 120%;
+    padding-left: 50%;
+}
+
+.forward-button {
+    padding-top: 120%;
+    padding-right: 50%;
+}
+
+.nav-button.glyphicon {
+    font-size: 40px;
+    color: lightgray;
+}
+

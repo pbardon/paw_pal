@@ -160,7 +160,6 @@
     <orderEntry type="library" scope="PROVIDED" name="aws-sdk (v2.5.6, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="aws-sdk-core (v2.5.6, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="aws-sdk-resources (v2.5.6, ruby-2.2.1-p85) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="backbone-on-rails (v1.2.0.0, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.11, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="better_errors (v2.1.1, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.7.2, ruby-2.2.1-p85) [gem]" level="application" />
@@ -178,9 +177,6 @@
     <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.2, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.2.5, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.5.20160615, ruby-2.2.1-p85) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="eco (v1.0.0, ruby-2.2.1-p85) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="eco-source (v1.1.0.rc.1, ruby-2.2.1-p85) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ejs (v1.1.1, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="eventmachine (v1.0.9.1, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, ruby-2.2.1-p85) [gem]" level="application" />

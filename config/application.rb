@@ -21,5 +21,7 @@ module DogSittingApp
                 secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
             }
         }
+
+        config.assets.paths << "#{Rails}/vendor/assets/fonts"
     end
 end
