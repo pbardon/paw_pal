@@ -21,10 +21,16 @@
 }
 
 .dogViewTab {
+    border-right: solid thin lightgray;
     border-bottom: solid thin lightgrey;
     border-left: solid thin lightgray;
     border-top-left-radius: 5px;
     box-shadow: -12px 0 8px -4px lightgray;
+}
+
+.dogViewTab > nav.nav-tabs {
+    border-right: 3px solid white;
+    margin-right: -2px;
 }
 
 .dog-panel-body {
