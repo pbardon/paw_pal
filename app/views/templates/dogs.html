@@ -3,7 +3,7 @@
 <div class="dogsContainer panel panel-default col-xs-8">
     <div class="panel-heading row">
         <h3 class="page">Dogs
-            <div class="addDogBtn btn btn-info">Add Dog</div>
+            <div class="addDogBtn btn btn-info" ui-sref="dogForm">Add Dog</div>
         </h3>
     </div>
     <div class="dog-panel-body panel-body">
@@ -50,23 +50,23 @@
                 </div>
 
             </uib-tab>
-                <uib-tab index="1" heading="Watched Dogs">
-                    <div class="userDogListContainer row">
-                        <div class="col-xs-1">
-                        </div>
-                        <div class="col-xs-10">
-                            <div class="dogImage col-xs-3">
-                                <div class="">
-                                    <span><img class="dogThumbnail img-thumbnail" src="./images/dog1.jpeg" style="height:200px; width:200px" /></span>
-                                </div>
+            <uib-tab index="1" heading="Watched Dogs">
+                <div class="userDogListContainer row">
+                    <div class="col-xs-1">
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="dogImage col-xs-3">
+                            <div class="">
+                                <span><img class="dogThumbnail img-thumbnail" src="./images/dog1.jpeg" style="height:200px; width:200px" /></span>
                             </div>
                         </div>
-                        <div class="col-xs-1">
-                            <span class="glyphicon glyphicon-forward"></span>
-                        </div>
                     </div>
+                    <div class="col-xs-1">
+                        <span class="glyphicon glyphicon-forward"></span>
+                    </div>
+                </div>
 
-                </uib-tab>
+            </uib-tab>
         </uib-tabset>
     </div>
 </div>

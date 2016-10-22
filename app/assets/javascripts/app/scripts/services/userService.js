@@ -14,6 +14,8 @@ define('services/userService', ['services/services', 'angular-cookies'], functio
                     return false;
                 }
 
+                this.user.token = $cookies.get('X-PP-TOKEN');
+
                 return true;
             };
 

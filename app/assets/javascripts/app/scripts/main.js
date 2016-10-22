@@ -26,7 +26,8 @@ require.config({
         'controllers/loginModalController' : 'app/scripts/controllers/loginModalController',
         'controllers/loginController' : 'app/scripts/controllers/loginController',
         'controllers/navbarController' : 'app/scripts/controllers/navbarController',
-        'controllers/dogsController' : 'app/scripts/controllers/dogsController'
+        'controllers/dogsController' : 'app/scripts/controllers/dogsController',
+        'controllers/dogFormController' : 'app/scripts/controllers/dogFormController'
     },
     shim: {
         'angular': {
@@ -141,6 +142,22 @@ require([
                             templateUrl: 'templates/' + timestamp.toString() + '/dogs.html'
                         },
                         'footer' : {
+                            templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
+                            controller: 'FooterCtrl'
+                        }
+                    }
+                }).state('dogForm', {
+                    url: '/dogs/add',
+                    views: {
+                        'navbar': {
+                            templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
+                            controller: 'NavbarCtrl'
+                        },
+                        'main': {
+                            controller: 'DogFormCtrl',
+                            templateUrl: 'templates/' + timestamp.toString() + '/dog_form.html'
+                        },
+                        'footer': {
                             templateUrl: 'templates/' + timestamp.toString() + '/footer.html',
                             controller: 'FooterCtrl'
                         }
