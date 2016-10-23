@@ -71,7 +71,8 @@ require([
     'controllers/loginModalController',
     'controllers/loginController',
     'controllers/navbarController',
-    'controllers/dogsController'
+    'controllers/dogsController',
+    'controllers/dogFormController'
     ],
     function (angular, app, domReady) {
         'use strict';

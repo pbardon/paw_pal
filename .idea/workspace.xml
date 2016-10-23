@@ -2,38 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0dce8df-df85-41df-9567-792acef4fa56" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/templates/dog_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/bootstrap-theme.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/bootstrap-theme.css.map" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/bootstrap-theme.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/bootstrap-theme.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/bootstrap-theme.min.css.map" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/bootstrap-theme.min.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/bootstrap.css" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/bootstrap.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/bootstrap.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/bootstrap.min.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/bootstrap.min.css.map" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/bootstrap.min.css.map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/custom.css" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/custom.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/css/dashboard.css" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/css/dashboard.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/home.html" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/home.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/index.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/js/bootstrap.js" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/js/bootstrap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/js/bootstrap.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/js/npm.js" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/js/npm.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/messages.html" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/messages.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/profile.html" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/profile.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/layouts/new_frontend/new_paw_pal_site/settings.html" afterPath="$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.byebug_history" afterPath="$PROJECT_DIR$/.byebug_history" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/dogForm.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/main.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/services/userService.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/services/userService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/dogs.html" afterPath="$PROJECT_DIR$/app/views/templates/dogs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/dog_form.html" afterPath="$PROJECT_DIR$/app/views/templates/dog_form.html" />
     </list>
     <ignored path="dog_sitting_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,11 +38,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="dog.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dog.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dogForm.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dogForm.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="dogs.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/templates/dogs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
+            <state relative-caret-position="90">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -78,18 +71,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="152" column="42" selection-start-line="152" selection-start-column="42" selection-end-line="152" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dog_form.jst.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/templates/dogs/dog_form.jst.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="405">
+              <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -98,8 +81,28 @@
       <file leaf-file-name="dog_form.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/templates/dog_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+            <state relative-caret-position="375">
+              <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dog.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/templates/dog.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -115,21 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pawPalApp.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/pawPalApp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dogFormController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+            <state relative-caret-position="90">
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -140,26 +133,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/controllers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -180,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/shelter.rb" />
         <option value="$PROJECT_DIR$/spec/models/user_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/spec/models/dog_spec.rb" />
@@ -225,11 +197,12 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/services/userService.js" />
         <option value="$PROJECT_DIR$/app/controllers/api/dogs_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/templates/dogs.html" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/dogForm.css" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/main.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js" />
         <option value="$PROJECT_DIR$/app/views/templates/dog_form.html" />
       </list>
     </option>
@@ -353,6 +326,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dog_sitting_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dog_sitting_app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_paw_pal_site" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -957,7 +952,7 @@
       <workItem from="1473991670738" duration="18697000" />
       <workItem from="1475645471314" duration="52000" />
       <workItem from="1476247589353" duration="1392000" />
-      <workItem from="1477168126452" duration="2682000" />
+      <workItem from="1477168126452" duration="5706000" />
     </task>
     <task id="LOCAL-00001" summary="Got login with cookie storage working">
       <created>1471587683548</created>
@@ -1002,7 +997,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113017000" />
+    <option name="totallyTimeSpent" value="116041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1077,20 +1072,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/controllers/users_controller_test.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/controllers/users_controller_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="19" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/controllers/dog_controller_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1162,13 +1143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/dog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/loginModal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1222,6 +1196,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1303,14 +1278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1427,6 +1394,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/new_frontend/new_paw_pal_site/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dog.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/dogForm.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/templates/dogs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1435,34 +1434,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/dogs.html">
+    <entry file="file://$PROJECT_DIR$/app/views/templates/dog.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="61" selection-start-line="5" selection-start-column="61" selection-end-line="5" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="152" column="42" selection-start-line="152" selection-start-column="42" selection-end-line="152" selection-end-column="42" />
+        <state relative-caret-position="405">
+          <caret line="74" column="35" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/dog_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+        <state relative-caret-position="375">
+          <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
           <folding />
         </state>
       </provider>
