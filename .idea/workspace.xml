@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0dce8df-df85-41df-9567-792acef4fa56" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.byebug_history" afterPath="$PROJECT_DIR$/.byebug_history" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/services/dogService.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app/scripts/services/dogService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/api/dogs_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/api/dogs_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/templates/dogs.html" afterPath="$PROJECT_DIR$/app/views/templates/dogs.html" />
     </list>
     <ignored path="dog_sitting_app.iws" />
@@ -40,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="dogs.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dogs.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/templates/dogs.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="108" selection-start-line="19" selection-start-column="108" selection-end-line="19" selection-end-column="108" />
+            <state relative-caret-position="286">
+              <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -53,7 +48,7 @@
       <file leaf-file-name="dog_form.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/templates/dog_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
+            <state relative-caret-position="526">
               <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
               <folding />
             </state>
@@ -70,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dogsController.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dogsController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -204,8 +199,8 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogFormController.js" />
         <option value="$PROJECT_DIR$/app/controllers/api/dogs_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/services/dogService.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js" />
         <option value="$PROJECT_DIR$/app/views/templates/dogs.html" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js" />
       </list>
     </option>
   </component>
@@ -694,7 +689,7 @@
       <workItem from="1473991670738" duration="18697000" />
       <workItem from="1475645471314" duration="52000" />
       <workItem from="1476247589353" duration="1392000" />
-      <workItem from="1477168126452" duration="13137000" />
+      <workItem from="1477168126452" duration="14250000" />
     </task>
     <task id="LOCAL-00001" summary="Got login with cookie storage working">
       <created>1471587683548</created>
@@ -739,7 +734,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123472000" />
+    <option name="totallyTimeSpent" value="124585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -788,8 +783,26 @@
           <line>47</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js</url>
+          <line>9</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1123,14 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/templates/dog_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/dogs/show.json.jbuilder">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1187,18 +1192,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js">
+    <entry file="file://$PROJECT_DIR$/app/views/templates/dog_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="526">
+          <caret line="41" column="40" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/templates/dogs.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="108" selection-start-line="19" selection-start-column="108" selection-end-line="19" selection-end-column="108" />
+        <state relative-caret-position="286">
+          <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/app/scripts/controllers/dogsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
           <folding />
         </state>
       </provider>

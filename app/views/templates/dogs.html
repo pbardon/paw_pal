@@ -10,43 +10,19 @@
         <uib-tabset active="active" class="dogViewTab" >
             <uib-tab index="0" heading="Your Dogs" >
                 <div class="userDogListContainer row">
-                    <div class="col-xs-1">
+                    <div ng-click="previousPage()" class="col-xs-1">
                         <span class="nav-button back-button glyphicon glyphicon-backward"></span>
                     </div>
                     <div class="col-xs-10">
-                        <div ng-repeat="dog in dogs">
-                            <div class="dogImage col-xs-3">
+                        <div ng-repeat="dog in dogs track by $index">
+                            <div ng-show="isOnPage($index)" class="dogImage col-xs-3">
                                 <div class="">
                                     <span><img class="dogThumbnail img-thumbnail" src="{{dog.dog_photo_large}}" style="height:200px; width:200px" /></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="dogImage col-xs-3">
-                            <div class="">
-                                <span><img class="dogThumbnail img-thumbnail" src="./images/dog2.jpeg" style="height:200px; width:200px" /></span>
-                            </div>
-                        </div>
-                        <div class="dogImage col-xs-3">
-                            <div class="">
-                            <span>
-                                <img class="dogThumbnail img-thumbnail"
-                                     src="./images/dog3.jpeg"
-                                     style="height:200px; width:200px"/>
-                             </span>
-                            </div>
-                        </div>
-                        <div class="dogImage col-xs-3">
-                            <div class="">
-                            <span>
-                                <img class="dogThumbnail img-thumbnail"
-                                     src="./images/dog4.jpeg"
-                                     style="height:200px; width:200px"/>
-                             </span>
-                            </div>
-                        </div>
-
                     </div>
-                    <div class="col-xs-1">
+                    <div ng-click="nextPage()" class="col-xs-1">
                         <span class="nav-button forward-button glyphicon glyphicon-forward"></span>
                     </div>
                 </div>
@@ -63,7 +39,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-1">
+                    <div ng-click="nextPage()" class="col-xs-1">
                         <span class="glyphicon glyphicon-forward"></span>
                     </div>
                 </div>
