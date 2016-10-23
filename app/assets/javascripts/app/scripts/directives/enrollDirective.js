@@ -1,4 +1,4 @@
-define('enrollDirective', ['directives/directives',
+define('directives/enrollDirective', ['directives/directives',
                            'controllers/enrollmentController'],
         function(directives) {
             'use strict';
