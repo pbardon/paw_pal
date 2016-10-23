@@ -3,7 +3,6 @@ module Api
     wrap_parameters :dog, include: [:name, :age, :description, :size, :dog_photo]
 
     def create
-      debugger
       @dog = current_user.dogs.new(dog_params)
 
       if @dog.save
@@ -19,8 +18,8 @@ module Api
     end
 
     def index
-      @dogs = current_user.dogs
-      render 'dogs/index'
+        @dogs = current_user.dogs
+        render 'dogs/index'
     end
 
     def show

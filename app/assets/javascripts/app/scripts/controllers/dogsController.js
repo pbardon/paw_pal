@@ -3,7 +3,10 @@ define('controllers/dogsController', ['controllers/controllers', 'services/dogSe
         $scope.index = function() {
             dogService.getCurrentUserDogs().then(function(result) {
                 $log.info(result);
+                $scope.dogs = result;
             });
-        }
+        };
+
+        $scope.dogs = []
     }]);
 });

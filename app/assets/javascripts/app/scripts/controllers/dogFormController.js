@@ -1,5 +1,5 @@
 define('controllers/dogFormController', ['controllers/controllers', 'services/dogService'], function(controllers) {
-    controllers.controller('DogFormCtrl', ['$scope', 'DogService', '$log', function($scope, dogService, $log){
+    controllers.controller('DogFormCtrl', ['$scope', 'DogService', '$log', '$state', function($scope, dogService, $log, $state){
 
 
         $scope.formData = {
@@ -13,7 +13,10 @@ define('controllers/dogFormController', ['controllers/controllers', 'services/do
         $scope.submit = function () {
             $log.info($scope.model);
             dogService.createDog($scope.formData).then(function(result) {
-                $log.info(result)
+                if (result.data) {
+                    $log.info(result.data);
+                }
+                $state.go('dogs');
             }, function(err) {
                 $log.error(err);
             });

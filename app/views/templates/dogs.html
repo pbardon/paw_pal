@@ -1,4 +1,4 @@
-<div class="dogsGutterLeft col-xs-2">
+<div ng-init="index()" class="dogsGutterLeft col-xs-2">
 </div>
 <div class="dogsContainer panel panel-default col-xs-8">
     <div class="panel-heading row">
@@ -14,9 +14,11 @@
                         <span class="nav-button back-button glyphicon glyphicon-backward"></span>
                     </div>
                     <div class="col-xs-10">
-                        <div class="dogImage col-xs-3">
-                            <div class="">
-                                <span><img class="dogThumbnail img-thumbnail" src="./images/dog1.jpeg" style="height:200px; width:200px" /></span>
+                        <div ng-repeat="dog in dogs">
+                            <div class="dogImage col-xs-3">
+                                <div class="">
+                                    <span><img class="dogThumbnail img-thumbnail" src="{{dog.dog_photo_large}}" style="height:200px; width:200px" /></span>
+                                </div>
                             </div>
                         </div>
                         <div class="dogImage col-xs-3">
