@@ -38,9 +38,9 @@
         <div class="form-group">
             <label for="dogSize">Size:</label>
             <select ng-model="formData.size" name="size" id="dogSize">
-                <option >Small</option>
-                <option >Medium</option>
-                <option >Large</option>
+                <option >small</option>
+                <option >medium</option>
+                <option >large</option>
             </select>
 
         </div>
@@ -48,7 +48,7 @@
         <br>
         <label for="addPic">Add A Picture of Your Dog:</label>
         <br>
-        <input type="file" fileread="formData.picture" name="dog_photo" id="addPic" />
+        <input type="file" fileread="formData.dog_photo" name="dog_photo" id="addPic" />
         <button type='submit' ng-click="submit()" class='submitButton btn btn-success'>Add Dog</button>
     </div>
 </div>

@@ -12,7 +12,11 @@ define('controllers/dogFormController', ['controllers/controllers', 'services/do
 
         $scope.submit = function () {
             $log.info($scope.model);
-
+            dogService.createDog($scope.formData).then(function(result) {
+                $log.info(result)
+            }, function(err) {
+                $log.error(err);
+            });
         }
     }]);
 });

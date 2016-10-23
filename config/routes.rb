@@ -9,7 +9,6 @@ Rails.application.routes.draw do
         resources :comments, only: [:index, :create, :show, :update, :destroy]
     end
 
-    root to: 'static_pages#home'
 
     get '/login', to: 'static_pages#home'
 
@@ -18,6 +17,8 @@ Rails.application.routes.draw do
     get '/templates/:timestamp/:path.html' => 'templates#page'
 
     get 'session/guest', to: 'sessions#guest', as: 'guest'
+
+    get '/', to: 'static_pages#home'
 
     get '*path', to: 'static_pages#home'
 

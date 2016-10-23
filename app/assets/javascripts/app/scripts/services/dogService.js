@@ -30,6 +30,29 @@ define('services/dogService', ['services/services', 'services/userService'], fun
                 return deferred.promise;
 
             };
+
+            this.createDog = function(formData) {
+                var deferred = $q.defer();
+                var userToken = userSvc.user.token;
+
+                var config = {
+                    headers: {
+                        'X-PP-TOKEN' : userToken
+                    }
+                };
+
+                $http.post('/api/dogs', formData, config)
+                    .then(function(result) {
+                        $log.info(JSON.stringify(result));
+                        deferred.resolve(result);
+                    }, function(err) {
+                        $log.error(err);
+                        deferred.reject(err);
+                    });
+
+                return deferred.promise;
+
+            }
         }
 
         return new DogService();
