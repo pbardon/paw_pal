@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
     namespace :api, defaults: { format: :json } do
-        resources :dogs, only: [:create, :index, :update, :show, :destroy, :all]
+        resources :dogs, only: [:create, :index, :update, :show, :destroy]
         resources :shelters, only: [:create, :index, :update, :show, :destroy]
         resources :comments, only: [:index, :create, :show, :update, :destroy]
     end

@@ -6,9 +6,39 @@ define('services/dogService', ['services/services', 'services/userService'], fun
         function DogService() {
             this.dogs = ['Jim', 'Randy', 'Bob'];
 
+            this.getAllDogs = function() {
+                var deferred = $q.defer(),
+                    oThis = this;
+
+                var userToken = userSvc.user.token || $cookies.get('X-PP-TOKEN');
+
+                var config = {
+                    headers: {
+                        'X-PP-TOKEN' : userToken
+                    }
+                };
+
+                $http.get('/api/dogs?search=all', config)
+                    .then(function(result) {
+                        if (result.data) {
+                            $log.info(JSON.stringify(result));
+                            oThis.dogs = result.data;
+                            deferred.resolve(result.data);
+                        }
+                    }, function(err) {
+                        $log.error(err);
+                        deferred.reject(err);
+                    });
+
+                return deferred.promise;
+
+
+            };
+
 
             this.getCurrentUserDogs = function() {
-                var deferred = $q.defer();
+                var deferred = $q.defer(),
+                    oThis = this;
 
                 var userToken = userSvc.user.token || $cookies.get('X-PP-TOKEN');
 
@@ -22,6 +52,7 @@ define('services/dogService', ['services/services', 'services/userService'], fun
                 .then(function(result) {
                     if (result.data) {
                         $log.info(JSON.stringify(result));
+                        oThis.dogs = result.data;
                         deferred.resolve(result.data);
                     }
                 }, function(err) {
