@@ -3,8 +3,10 @@ define('controllers/homeController', ['controllers/controllers', 'services/dogSe
         $scope.dogs = [];
         $scope.dogRows = [];
 
+        $scope.page = 1;
+
         $scope.refreshList = function() {
-            dogService.getAllDogs().then(function(result) {
+            dogService.getDogPage($scope.page).then(function(result) {
                 $log.info(result);
                 $scope.dogs = result;
                 tmp = [];
@@ -19,11 +21,8 @@ define('controllers/homeController', ['controllers/controllers', 'services/dogSe
             });
         };
 
-
-
         $scope.breakLine = function(index) {
             return (index % 3 == 0);
         }
-
     }]);
 });

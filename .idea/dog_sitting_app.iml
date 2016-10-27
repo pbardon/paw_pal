@@ -170,6 +170,7 @@
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v4.2.1, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-ui-rails (v5.0.5, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v1.8.3, ruby-2.2.1-p85) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari (v0.17.0, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.0.3, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.6.4, ruby-2.2.1-p85) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="method_source (v0.8.2, ruby-2.2.1-p85) [gem]" level="application" />

@@ -19,9 +19,19 @@ module Api
 
         def index
             if params[:search] == 'all'
-                @dogs = Dog.all
-            else
+                page_num = 1
+                if params[:page]
+                    page_num = params[:page]
+                end
+                @dogs = Dog.page(page_num).per(12)
+            elsif current_user
                 @dogs = current_user.dogs
+            elsif !current_user
+                render json: 'user is not logged in',  status: :bad_request
+                return
+            else
+                render json: 'search parameters not included', status: :bad_request
+                return
             end
             render 'dogs/index'
         end

@@ -4,21 +4,26 @@ define('services/dogService', ['services/services', 'services/userService'], fun
     return services.factory('DogService', [ '$q', '$http', 'UserService', '$log', '$cookies', function($q, $http, userSvc, $log, $cookies) {
 
         function DogService() {
-            this.dogs = ['Jim', 'Randy', 'Bob'];
+            this.dogUrl = '/api/dogs';
 
-            this.getAllDogs = function() {
+            this.getDogPage = function(page) {
                 var deferred = $q.defer(),
                     oThis = this;
 
                 var userToken = userSvc.user.token || $cookies.get('X-PP-TOKEN');
 
+
                 var config = {
                     headers: {
                         'X-PP-TOKEN' : userToken
+                    },
+                    params : {
+                        'search' : 'all',
+                        'page' : page
                     }
                 };
 
-                $http.get('/api/dogs?search=all', config)
+                $http.get(this.dogUrl, config)
                     .then(function(result) {
                         if (result.data) {
                             $log.info(JSON.stringify(result));
