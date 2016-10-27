@@ -1,5 +1,4 @@
 .dogsContainer {
-    margin-top: 10%;
     height: 100%;
     min-height: 100%;
 }
@@ -28,7 +27,7 @@
     box-shadow: -12px 0 8px -4px lightgray;
 }
 
-.dogViewTab > nav.nav-tabs {
+.dogViewTab > .nav.nav-tabs {
     border-right: 3px solid white;
     margin-right: -2px;
 }
