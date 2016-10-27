@@ -3,23 +3,21 @@
     <div class="homeGutterLeft col-sm-1 col-md-2">
     </div>
 
-    <div class="homePageContainer col-sm-10 col-md-8 main" ng-init="refreshList()" >
-        <div>
-            <h1 class="page">Browse Dogs Looking for Homes...</h1>
-
+    <div class="homePageContainer col-sm-10 col-md-8 panel panel-default" ng-init="refreshList()" >
+        <div class="panel-heading row">
+            <h1>Browse Dogs Looking for Homes...</h1>
+        </div>
+        <div class="panel-body">
             <div ng-repeat="row in dogRows track by $index">
-
                 <div class="row">
                     <div class="col-xs-6 col-sm-12">
                         <div  ng-repeat="dog in row" >
                             <div class="col-xs-6 col-sm-3">
-
                                 <div class="centerBlock">
                                     <span><img class="img-thumbnail" src="{{ dog.dog_photo_large }}" style="height:200px; width:200px" /></span>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <br>

@@ -1,41 +1,41 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-        <a class="navbar-brand" ui-sref="home">PawPal</a>
+            <a class="navbar-brand" ui-sref="home">PawPal</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-         <li ng-if="!isLoggedIn()" class="navbarItem">
-             <a ui-sref="login">
-                 <div type="button"
-                      class="signInButton">
-                     Sign In/Sign Up
-                 </div>
-            </a>
-        </li>
-         <li ng-if="isLoggedIn()"
-             class="dropdown">
-                 <div class="btn-group" uib-dropdown is-open="status.isopen">
-                         <div id="navbarProfileButton"
-                                 type="button"
-                                 class="dropdownSignInButton"
-                                 uib-dropdown-toggle>
-                                 Profile <span class="caret"></span>
-                         </div>
-                      <ul class="dropdown-menu"
-                          uib-dropdown-menu role="menu"
-                          aria-labelledby="single-button">
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!isLoggedIn()" class="navbarItem">
+                    <a ui-sref="login">
+                        <div type="button"
+                        class="signInButton">
+                        Sign In/Sign Up
+                        </div>
+                    </a>
+                </li>
+                <li ng-if="isLoggedIn()"
+                class="dropdown">
+                <div class="btn-group" uib-dropdown is-open="status.isopen">
+                    <div id="navbarProfileButton"
+                    type="button"
+                    class="dropdownSignInButton"
+                    uib-dropdown-toggle>
+                    Menu <span class="caret"></span>
+                    </div>
+                    <ul class="dropdown-menu"
+                    uib-dropdown-menu role="menu"
+                    aria-labelledby="single-button">
+                        <li role="menuitem"><a ui-sref="profile">Profile</a></li>
+                        <li class="divider"></li>
                         <li role="menuitem"><a ui-sref="settings">Settings</a></li>
                         <li class="divider"></li>
-                        <li role="menuitem"><a ui-sref="shelter">Shelter Profile</a></li>
-                        <li class="divider"></li>
-                        <li role="menuitem"><a ui-sref="dogs">Dogs</a></li>
+                        <li role="menuitem"><a ui-sref="help">Help</a></li>
                         <li class="divider"></li>
                         <li role="menuitem" ng-click="logout()"><a ui-sref="home">Logout</a></li>
-                      </ul>
-                  </div>
-         </li>
-        </ul>
+                    </ul>
+                </div>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

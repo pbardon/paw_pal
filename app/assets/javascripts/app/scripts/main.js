@@ -29,7 +29,8 @@ require.config({
         'controllers/loginController' : 'app/scripts/controllers/loginController',
         'controllers/navbarController' : 'app/scripts/controllers/navbarController',
         'controllers/dogsController' : 'app/scripts/controllers/dogsController',
-        'controllers/dogFormController' : 'app/scripts/controllers/dogFormController'
+        'controllers/dogFormController' : 'app/scripts/controllers/dogFormController',
+        'controllers/profileController' : 'app/scripts/controllers/profileController'
     },
     shim: {
         'angular': {
@@ -76,7 +77,8 @@ require([
     'controllers/loginController',
     'controllers/navbarController',
     'controllers/dogsController',
-    'controllers/dogFormController'
+    'controllers/dogFormController',
+    'controllers/profileController'
     ],
     function (angular, app, domReady) {
         'use strict';
@@ -135,14 +137,18 @@ require([
                                $state.transitionTo('home');
                              });
                          }]
-                }).state('dogs', {
-                    url: '/dogs',
+                }).state('profile', {
+                    url: '/profile',
                     views: {
                         'navbar' : {
                             templateUrl: '/templates/' + timestamp.toString() + '/navbar.html',
                             controller: 'NavbarCtrl'
                         },
                         'main' : {
+                            controller: 'ProfileCtrl',
+                            templateUrl: 'templates/' + timestamp.toString() + '/profile.html'
+                        },
+                        'dogs@profile' : {
                             controller: 'DogsCtrl',
                             templateUrl: 'templates/' + timestamp.toString() + '/dogs.html'
                         },
