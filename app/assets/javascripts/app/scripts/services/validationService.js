@@ -1,4 +1,4 @@
-define('services/validationService', ['services/services'], function(services){
+define('services/validationService', ['services'], function(services){
     'use strict';
 
     var validateEmail = function(email) {

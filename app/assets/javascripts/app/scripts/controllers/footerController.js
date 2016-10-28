@@ -1,4 +1,4 @@
-define('controllers/footerController', ['controllers/controllers'], function(controllers) {
+define('controllers/footerController', ['controllers'], function(controllers) {
     controllers.controller('FooterCtrl', ['$scope', function($scope){
 
     }]);

@@ -1,4 +1,4 @@
-define('controllers/contentController', ['controllers/controllers'], function(controllers) {
+define('controllers/contentController', ['controllers'], function(controllers) {
     controllers.controller('ContentCtrl', ['$scope', function($scope){
 
     }]);

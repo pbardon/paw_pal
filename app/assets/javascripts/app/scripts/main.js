@@ -8,15 +8,16 @@ require.config({
         'uiRouter' : 'vendor/bower_components/angular-ui-router/release/angular-ui-router.min',
         'uiBootstrap' : 'vendor/bower_components/angular-bootstrap/ui-bootstrap-tpls.min',
         'pawPalApp' : 'app/scripts/pawPalApp',
-        'services/services' : 'app/scripts/services/services',
-        'constants/constants' : 'app/scripts/constants/constants',
-        'controllers/controllers' : 'app/scripts/controllers/controllers',
-        'directives/directives' : 'app/scripts/directives/directives',
+        'services' : 'app/scripts/services/services',
+        'constants' : 'app/scripts/constants/constants',
+        'controllers' : 'app/scripts/controllers/controllers',
+        'directives' : 'app/scripts/directives/directives',
         'directives/errorDirective' : 'app/scripts/directives/errorDirective',
         'directives/filereadDirective' : 'app/scripts/directives/filereadDirective',
         'services/validationService' : 'app/scripts/services/validationService',
         'services/userService' : 'app/scripts/services/userService',
         'services/dogService' : 'app/scripts/services/dogService',
+        'interceptors/tokenHttpInterceptor' : 'app/scripts/interceptors/tokenHttpInterceptor',
         'constants/formConstants' : 'app/scripts/constants/formConstants',
         'controllers/mainController': 'app/scripts/controllers/mainController',
         'controllers/aboutContentController' : 'app/scripts/controllers/aboutContentController',
@@ -45,6 +46,9 @@ require.config({
         },
         'angular-cookies' : {
             deps: ['angular']
+        },
+        'interceptors' : {
+            deps: ['angular']
         }
     }
 });
@@ -56,15 +60,16 @@ require([
     'angular-cookies',
     'uiRouter',
     'uiBootstrap',
-    'constants/constants',
-    'services/services',
-    'controllers/controllers',
-    'directives/directives',
+    'constants',
+    'services',
+    'controllers',
+    'directives',
     'directives/filereadDirective',
     'directives/errorDirective',
     'services/validationService',
     'services/userService',
     'services/dogService',
+    'interceptors/tokenHttpInterceptor',
     'constants/formConstants',
     'controllers/mainController',
     'controllers/aboutContentController',
@@ -84,8 +89,10 @@ require([
         'use strict';
 
         app.config(
-        ['$stateProvider', '$locationProvider',
-            function($stateProvider, $locationProvider) {
+        ['$stateProvider', '$locationProvider', '$httpProvider',
+            function($stateProvider, $locationProvider, $httpProvider) {
+
+                $httpProvider.interceptors.push('tokenHttpInterceptor');
 
                 var timestamp = new Date().getTime();
 

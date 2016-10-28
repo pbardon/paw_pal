@@ -1,4 +1,4 @@
-define('constants/constants', ['angular'], function(angular) {
+define('constants', ['angular'], function(angular) {
     'use strict';
-    return angular.module('constants/constants', []);
+    return angular.module('constants', []);
 });

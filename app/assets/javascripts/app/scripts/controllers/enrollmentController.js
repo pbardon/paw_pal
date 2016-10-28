@@ -1,4 +1,4 @@
-define('controllers/enrollmentController', ['controllers/controllers'], function(controllers) {
+define('controllers/enrollmentController', ['controllers'], function(controllers) {
     'use strict';
     controllers.controller('EnrollmentCtrl', ['$rootScope',
                                               '$scope',

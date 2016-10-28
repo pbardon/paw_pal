@@ -24,5 +24,6 @@
 //= require_tree ./app/scripts/constants
 //= require_tree ./app/scripts/directives
 //= require_tree ./app/scripts/services
+//= require_tree ./app/scripts/interceptors
 //= require ./app/scripts/pawPalApp.js
 //= require ./app/scripts/main.js

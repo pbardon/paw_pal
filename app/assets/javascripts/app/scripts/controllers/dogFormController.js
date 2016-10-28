@@ -1,4 +1,4 @@
-define('controllers/dogFormController', ['controllers/controllers', 'services/dogService'], function(controllers) {
+define('controllers/dogFormController', ['controllers', 'services/dogService'], function(controllers) {
     controllers.controller('DogFormCtrl', ['$scope', 'DogService', '$log', '$state', function($scope, dogService, $log, $state){
 
 

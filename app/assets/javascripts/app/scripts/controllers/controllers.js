@@ -1,4 +1,4 @@
-define('controllers/controllers', ['angular'], function(angular){
+define('controllers', ['angular'], function(angular){
     'use strict';
-    return angular.module('controllers/controllers', []);
+    return angular.module('controllers', []);
 });

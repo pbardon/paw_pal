@@ -1,4 +1,4 @@
-define('controllers/loginModalController', ['controllers/controllers',
+define('controllers/loginModalController', ['controllers',
     'uiBootstrap',
     'constants/formConstants',
     'services/validationService',

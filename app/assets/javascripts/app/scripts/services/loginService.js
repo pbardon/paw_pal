@@ -1,4 +1,4 @@
-define('services/loginService', ['services/services'], function(services){
+define('services/loginService', ['services'], function(services){
     'use strict';
 
     function LoginService() {

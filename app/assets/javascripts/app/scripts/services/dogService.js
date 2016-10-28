@@ -1,4 +1,4 @@
-define('services/dogService', ['services/services', 'services/userService'], function(services, $log) {
+define('services/dogService', ['services', 'services/userService'], function(services, $log) {
     'use strict';
 
     return services.factory('DogService', [ '$q', '$http', 'UserService', '$log', '$cookies', function($q, $http, userSvc, $log, $cookies) {

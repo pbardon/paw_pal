@@ -1,4 +1,4 @@
-define('controllers/dogsController', ['controllers/controllers', 'services/dogService'], function(controllers) {
+define('controllers/dogsController', ['controllers', 'services/dogService'], function(controllers) {
     controllers.controller('DogsCtrl', ['$scope', 'DogService', '$log', function($scope, dogService, $log){
         $scope.index = function() {
             dogService.getCurrentUserDogs().then(function(result) {

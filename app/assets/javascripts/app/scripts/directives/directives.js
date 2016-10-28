@@ -1,4 +1,4 @@
-define('directives/directives', ['angular'], function(angular){
+define('directives', ['angular'], function(angular){
     'use strict';
-    return angular.module('directives/directives', []);
+    return angular.module('directives', []);
 });

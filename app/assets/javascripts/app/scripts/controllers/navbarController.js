@@ -1,5 +1,5 @@
 define('controllers/navbarController',
-    ['controllers/controllers', 'services/userService'],
+    ['controllers', 'services/userService'],
     function(controllers) {
         'use strict';
         controllers.controller('NavbarCtrl', ['$rootScope',

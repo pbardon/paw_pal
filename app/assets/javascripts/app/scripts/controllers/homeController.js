@@ -1,4 +1,4 @@
-define('controllers/homeController', ['controllers/controllers', 'services/dogService'], function(controllers) {
+define('controllers/homeController', ['controllers', 'services/dogService'], function(controllers) {
     controllers.controller('HomeCtrl', ['$scope', '$log', 'DogService', function($scope, $log, dogService){
         $scope.dogs = [];
         $scope.dogRows = [];

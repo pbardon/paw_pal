@@ -1,3 +1,3 @@
-define('services/services', ['angular'], function(angular){
-    return angular.module('services/services', []);
+define('services', ['angular'], function(angular){
+    return angular.module('services', []);
 });

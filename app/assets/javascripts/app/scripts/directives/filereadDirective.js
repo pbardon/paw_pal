@@ -1,4 +1,4 @@
-define('directives/filereadDirective', ['directives/directives'],
+define('directives/filereadDirective', ['directives'],
     function(directives) {
         'use strict';
         directives.directive('fileread', [function() {

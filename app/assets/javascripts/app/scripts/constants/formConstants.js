@@ -1,4 +1,4 @@
-define('constants/formConstants', ['constants/constants'], function(constants){
+define('constants/formConstants', ['constants'], function(constants){
     'use strict';
     return constants.constant('formConstants', {
             'states' : ['AK','AL','AR','AZ','CA','CO','CT', 'DC', 'DE','FL',

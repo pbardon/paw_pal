@@ -1,4 +1,4 @@
-define('services/tokenService', ['services/services'], function(services){
+define('services/tokenService', ['services'], function(services){
     'use strict';
 
     return services.factory('TokenService', [ '$q', '$http', '$cookies', '$log', function($q, $http, $cookies, $log) {

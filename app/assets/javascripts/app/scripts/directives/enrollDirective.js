@@ -1,5 +1,5 @@
-define('directives/enrollDirective', ['directives/directives',
-                           'controllers/enrollmentController'],
+define('directives/enrollDirective', ['directives',
+       'controllers/enrollmentController'],
         function(directives) {
             'use strict';
             directives.directive('enrollForm', ['EnrollmentCtrl',

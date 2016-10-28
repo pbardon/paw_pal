@@ -1,4 +1,4 @@
-define('controllers/mainController', ['controllers/controllers'], function(controllers) {
+define('controllers/mainController', ['controllers'], function(controllers) {
     'use strict';
     controllers.controller('MainCtrl', ['$scope', function($scope){
 

@@ -1,4 +1,4 @@
-define('services/userService', ['services/services', 'angular-cookies'], function(services){
+define('services/userService', ['services', 'angular-cookies'], function(services){
     'use strict';
 
     return services.factory('UserService', [ '$q', '$http', '$cookies', '$log', function($q, $http, $cookies, $log) {

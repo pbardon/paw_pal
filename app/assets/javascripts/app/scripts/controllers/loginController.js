@@ -1,4 +1,4 @@
-define('controllers/loginController', ['controllers/controllers'],
+define('controllers/loginController', ['controllers'],
     function(controllers) {
         controllers.controller('LoginCtrl', ['$rootScope',
                                              '$scope',
