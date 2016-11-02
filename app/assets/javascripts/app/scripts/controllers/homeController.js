@@ -5,9 +5,12 @@ define('controllers/homeController', ['controllers', 'services/dogService'], fun
 
         $scope.page = 1;
 
+        $scope.pages = [ 1, 2, 3];
+
         $scope.refreshList = function() {
-            dogService.getDogPage($scope.page).then(function(result) {
+            return dogService.getDogPage($scope.page).then(function(result) {
                 $log.info(result);
+                $scope.dogRows = [];
                 $scope.dogs = result;
                 tmp = [];
                 $scope.dogs.forEach(function(item, i) {
@@ -19,6 +22,19 @@ define('controllers/homeController', ['controllers', 'services/dogService'], fun
                 });
                 $scope.dogRows = $scope.dogRows.splice(0, 3)
             });
+        };
+
+        $scope.newPage = function(newPageNum) {
+            $scope.page = newPageNum;
+            $scope.refreshList();
+        };
+
+        $scope.showNextPages = function() {
+            $scope.pages = $scope.pages.map(function(x) { return x + 3; })
+        };
+
+        $scope.showPrevPages = function() {
+            $scope.pages = $scope.pages.map(function(x) { return x - 3; })
         };
 
         $scope.breakLine = function(index) {
