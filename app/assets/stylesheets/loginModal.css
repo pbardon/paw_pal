@@ -1,0 +1,25 @@
+.loginModalForm {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-color: lightgray;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.ng-valid       {
+
+}
+.ng-invalid     {
+
+}
+.ng-pristine    {  }
+.ng-dirty       {  }
+.ng-touched     {  }

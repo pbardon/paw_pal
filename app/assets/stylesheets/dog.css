@@ -1,0 +1,53 @@
+.dogsContainer {
+    height: 100%;
+    min-height: 100%;
+}
+
+.dogImage.col-xs-3 {
+    padding: 0;
+}
+
+.dogThumbnail.img-thumbnail {
+    padding: 0;
+}
+
+.addDogBtn.btn.btn-info {
+    float: right;
+}
+
+.userDogListContainer {
+    margin: 25px;
+}
+
+.dogViewTab {
+    border-right: solid thin lightgray;
+    border-bottom: solid thin lightgrey;
+    border-left: solid thin lightgray;
+    border-top-left-radius: 5px;
+    box-shadow: -12px 0 8px -4px lightgray;
+}
+
+.dogViewTab > .nav.nav-tabs {
+    border-right: 3px solid white;
+    margin-right: -2px;
+}
+
+.dog-panel-body {
+    border-bottom: solid thin lightgrey;
+}
+
+.back-button {
+    padding-top: 120%;
+    padding-left: 50%;
+}
+
+.forward-button {
+    padding-top: 120%;
+    padding-right: 50%;
+}
+
+.nav-button.glyphicon {
+    font-size: 40px;
+    color: lightgray;
+}
+

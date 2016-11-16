@@ -1,11 +1,11 @@
 class Booking < ActiveRecord::Base
 
-  validates :sitter_id, :dog_id, :date_start, :date_end, presence: true
+  validates :shelter, :dog_id, :date_start, :date_end, presence: true
 
   validate :validate_date
 
   belongs_to :dog
-  belongs_to :sitter
+  belongs_to :shelter
 
   def validate_date
     if date_start.nil? || date_end.nil?

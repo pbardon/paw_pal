@@ -1,28 +1,25 @@
 Rails.application.routes.draw do
-  resources :users, only: [:create, :new, :update]
-  resource :session, only: [:create, :new, :destroy]
+    resources :users, only: [:create, :new, :update]
+    resource :session, only: [:create, :new, :destroy]
 
 
-  namespace :api, defaults: { format: :json } do
-    resources :dogs, only: [:create, :index, :update, :show, :destroy] do
-      resources :bookings, only: [:index]
-    end
-    resources :sitters, only: [:create, :index, :update, :show, :destroy] do
-      resources :bookings, only: [:index]
+    namespace :api, defaults: { format: :json } do
+        resources :dogs, only: [:create, :index, :update, :show, :destroy]
+        resources :shelters, only: [:create, :index, :update, :show, :destroy]
+        resources :comments, only: [:index, :create, :show, :update, :destroy]
     end
 
-    resources :bookings, only: [:create, :destroy, :update]
 
-    resources :sitter_comments, only: [:create, :index, :show, :destroy]
+    get '/login', to: 'static_pages#home'
 
-    resources :comments, only: [:index, :create, :show, :update, :destroy]
+    get '/static_pages/home', to: 'static_pages#home'
 
-  end
+    get '/templates/:timestamp/:path.html' => 'templates#page'
 
+    get 'session/guest', to: 'sessions#guest', as: 'guest'
 
+    get '/', to: 'static_pages#home'
 
-  root to: 'static_pages#root'
-
-  get "session/guest", to: 'sessions#guest', as: 'guest'
+    get '*path', to: 'static_pages#home'
 
 end

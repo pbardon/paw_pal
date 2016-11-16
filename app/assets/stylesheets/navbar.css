@@ -1,0 +1,23 @@
+/*.signInButton {
+    background-color: #232323;
+    border-color: #232323;
+    color: white;
+    padding-top: 15px;
+    padding-right: 15px;
+}*/
+
+.navbarItem {
+
+}
+
+
+
+.dropdownSignInButton{
+    color: #9d9d9d;
+    background-color: initial;
+    padding: 15px;
+}
+
+.dropdownSignInButton:hover{
+    color: white;
+}

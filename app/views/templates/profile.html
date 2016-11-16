@@ -1,0 +1,36 @@
+<div class="profileContainer container-fluid">
+    <div class="row">
+        <div class="col-sm-2 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">Profile <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="col-sm-8 col-md-8 main">
+            <h1 class="page">Profile</h1>
+
+            <div class="row ">
+                <div class="col-xs-6 col-sm-3">
+                    <h4>Profile Picture</h4>
+                    <span><img class="img-thumbnail" src="./images/humane-society1.jpeg" max-height="250px" max-width="250px" /></span>
+                </div>
+                <div class="col-xs-6 col-sm-9 placeholder">
+                    <h4>Information</h4>
+                    <h5>Name</h5>
+                    <p>Humane Society</p>
+                    <h5>Address</h5>
+                    <p>4325 Fake St.<br>Seattle, WA 98105</p>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="">
+                <div ui-view="dogs" class=""></div>
+            </div>
+
+        </div>
+    </div>
+</div>

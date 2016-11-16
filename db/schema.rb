@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730234252) do
+ActiveRecord::Schema.define(version: 20160811073908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: true do |t|
-    t.integer  "sitter_id",                  null: false
+    t.integer  "shelter_id",                 null: false
     t.integer  "dog_id",                     null: false
     t.date     "date_start",                 null: false
     t.date     "date_end",                   null: false
@@ -59,31 +59,31 @@ ActiveRecord::Schema.define(version: 20140730234252) do
   add_index "dogs", ["name"], name: "index_dogs_on_name", using: :btree
   add_index "dogs", ["owner_id"], name: "index_dogs_on_owner_id", using: :btree
 
-  create_table "sitters", force: true do |t|
-    t.integer  "user_id",                                   null: false
-    t.float    "avg_rating",                default: 0.0,   null: false
-    t.string   "sitter_name",                               null: false
-    t.text     "description",                               null: false
-    t.integer  "price",                                     null: false
-    t.boolean  "small",                     default: false
-    t.boolean  "medium",                    default: false
-    t.boolean  "large",                     default: false
+  create_table "shelters", force: true do |t|
+    t.integer  "user_id",                                    null: false
+    t.float    "avg_rating",                 default: 0.0,   null: false
+    t.string   "shelter_name",                               null: false
+    t.text     "description",                                null: false
+    t.integer  "price",                                      null: false
+    t.boolean  "small",                      default: false
+    t.boolean  "medium",                     default: false
+    t.boolean  "large",                      default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "street_address"
     t.string   "city"
     t.string   "zipcode"
     t.string   "state"
-    t.string   "sitter_photo_file_name"
-    t.string   "sitter_photo_content_type"
-    t.integer  "sitter_photo_file_size"
-    t.datetime "sitter_photo_updated_at"
+    t.string   "shelter_photo_file_name"
+    t.string   "shelter_photo_content_type"
+    t.integer  "shelter_photo_file_size"
+    t.datetime "shelter_photo_updated_at"
     t.float    "latitude"
     t.float    "longitude"
   end
 
   create_table "users", force: true do |t|
-    t.string   "name",            null: false
+    t.string   "name"
     t.string   "email",           null: false
     t.string   "password_digest", null: false
     t.string   "session_token",   null: false
