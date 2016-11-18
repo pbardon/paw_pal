@@ -10,10 +10,8 @@ module DogSittingApp
     class Application < Rails::Application
         config.paperclip_defaults = {
             storage: :s3,
-            # bucket: ENV['AWS_BUCKET_DEVELOPMENT'],
             region: ENV['AWS_REGION'],
             s3_region: ENV['AWS_REGION'],
-
             path: '/:class/:attachment/:id_partition/:style/:filename',
             s3_protocol: 'http',
             url: :s3_domain_url,

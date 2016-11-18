@@ -16,7 +16,7 @@ define('controllers/dogFormController', ['controllers', 'services/dogService'], 
                 if (result.data) {
                     $log.info(result.data);
                 }
-                $state.go('dogs');
+                $state.go('profile');
             }, function(err) {
                 $log.error(err);
             });
