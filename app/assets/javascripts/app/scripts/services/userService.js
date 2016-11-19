@@ -1,7 +1,9 @@
 define('services/userService', ['services', 'angular-cookies'], function(services){
     'use strict';
 
-    return services.factory('UserService', [ '$q', '$http', '$cookies', '$log', function($q, $http, $cookies, $log) {
+    return services.factory('UserService',
+            [ '$q', '$cookies', '$log', '$http',
+            function($q, $cookies, $log, $http) {
 
         function UserService() {
             this.user = {
@@ -31,9 +33,10 @@ define('services/userService', ['services', 'angular-cookies'], function(service
 
                 $log.info('Attempting to create user with info: ', JSON.stringify(loginInfo));
 
-                $http.post('/users', JSON.stringify(loginInfo))
-                .then(function (result) {
-                    $log.info('success response from server:\n',
+                var config = { login: true };
+                $http.post('/users', JSON.stringify(loginInfo), config)
+                .then(function (response) {
+                    $log.info('response from server:\n',
                         JSON.stringify(result));
                     var responseToken = results.headers()['x-pp-token'];
                     $cookies.put('X-PP-TOKEN', responseToken);
@@ -60,7 +63,8 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                     }
                 };
 
-                $http.post('/session', JSON.stringify(loginInfo))
+                var config = { login: true };
+                $http.post('/session', JSON.stringify(loginInfo), config)
                 .then(function(results) {
                     $log.info('success response from server:\n',
                         JSON.stringify(results));
@@ -82,14 +86,7 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                 var deferred = $q.defer(),
                     oThis = this;
 
-                var config = {
-                    headers:  {
-                        'X-PP-TOKEN': $cookies.get('X-PP-TOKEN'),
-                        'Accept': 'application/json'
-                    }
-                };
-
-                $http.delete('/session', config)
+                $http.delete('/session')
                 .then(function(result) {
                     $log.info('deleted session with response: ', JSON.stringify(result));
                     oThis.user.email = '';
@@ -104,5 +101,4 @@ define('services/userService', ['services', 'angular-cookies'], function(service
         }
         return new UserService();
     }]);
-
 });

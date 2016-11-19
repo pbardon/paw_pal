@@ -10,17 +10,12 @@ define('services/dogService', ['services', 'services/userService'], function(ser
                 var deferred = $q.defer(),
                     oThis = this;
 
-                var userToken = userSvc.user.token || $cookies.get('X-PP-TOKEN');
-
-
                 var config = {
-                    headers: {
-                        'X-PP-TOKEN' : userToken
-                    },
                     params : {
                         'search' : 'all',
                         'page' : page
-                    }
+                    },
+                    skipToken: true
                 };
 
                 $http.get(this.dogUrl, config)
@@ -36,24 +31,13 @@ define('services/dogService', ['services', 'services/userService'], function(ser
                     });
 
                 return deferred.promise;
-
-
             };
-
 
             this.getCurrentUserDogs = function() {
                 var deferred = $q.defer(),
                     oThis = this;
 
-                var userToken = userSvc.user.token || $cookies.get('X-PP-TOKEN');
-
-                var config = {
-                    headers: {
-                        'X-PP-TOKEN' : userToken
-                    }
-                };
-
-                $http.get('/api/dogs', config)
+                $http.get('/api/dogs')
                 .then(function(result) {
                     if (result.data) {
                         $log.info(JSON.stringify(result));
@@ -71,15 +55,14 @@ define('services/dogService', ['services', 'services/userService'], function(ser
 
             this.createDog = function(formData) {
                 var deferred = $q.defer();
-                var userToken = userSvc.user.token;
 
                 var config = {
                     headers: {
-                        'X-PP-TOKEN' : userToken
+                        'Content-Type' : 'application/json'
                     }
                 };
 
-                $http.post('/api/dogs', formData, config)
+                $http.post('/api/dogs', { dog: formData } , config)
                     .then(function(result) {
                         $log.info(JSON.stringify(result));
                         deferred.resolve(result);
@@ -89,10 +72,8 @@ define('services/dogService', ['services', 'services/userService'], function(ser
                     });
 
                 return deferred.promise;
-
             }
         }
-
         return new DogService();
     }]);
 });
