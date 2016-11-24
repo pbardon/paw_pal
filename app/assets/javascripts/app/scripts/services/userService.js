@@ -88,7 +88,7 @@ define('services/userService', ['services', 'angular-cookies'], function(service
 
                 $http.delete('/session')
                 .then(function(result) {
-                    $log.info('deleted session with response: ', JSON.stringify(result));
+                    $log.info('deleted session with response:', JSON.stringify(result));
                     oThis.user.email = '';
                     oThis.user.token = '';
                     $cookies.remove('X-PP-TOKEN');
