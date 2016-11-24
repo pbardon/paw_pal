@@ -10,15 +10,17 @@ define('services/tokenService', ['services'], function(services){
                 var deferred = $q.defer;
                 var cookieToken = $cookies.get('_dog_sitting_app_token');
                 ensureTokenIsValid(cookieToken).then(function() {
+                    deferred.resolve();
+                }, function(err) {
+                    deferred.reject(err);
+                });
 
-                })
-
+                return deferred.promise;
             };
 
             this.getNewToken = function () {
                 var deferred = $q.defer();
                 return deferred.promise;
-
             };
 
             this.deleteToken = function () {
