@@ -23,7 +23,9 @@ module.exports = function(config) {
         'app/scripts/directives/directives.js',
         {pattern: 'app/scripts/controllers/*.js', included: false},
         {pattern: 'app/scripts/services/*.js', included: false},
+        {pattern: 'app/scripts/interceptors/*.js', included: false},
         {pattern: 'app/scripts/constants/*.js', included: false},
+        {pattern: 'test/mocks/*.js', included: false},
         {pattern: 'test/**/*Spec.js', included: false},
         'test/test-main.js'
     ],

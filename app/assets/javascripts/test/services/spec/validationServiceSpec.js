@@ -1,7 +1,7 @@
-define(['angular', 'angularMocks', 'services/services', 'services/validationService'], function() {
+define(['angular', 'angularMocks', 'services', 'services/validationService'], function() {
 
     describe('Starting validation service test', function() {
-        beforeEach(module('services/services'));
+        beforeEach(module('services'));
 
         var validationService;
         beforeEach(inject(function(_ValidationService_) {

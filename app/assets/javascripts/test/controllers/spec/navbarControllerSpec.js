@@ -5,10 +5,10 @@ var $controller,
     createController,
     navbarCtrl;
 
-define(['angular', 'angularMocks', 'pawPalApp', 'controllers/controllers', 'controllers/navbarController'], function() {
+define(['angular', 'angularMocks', 'pawPalApp', 'controllers', 'controllers/navbarController'], function() {
     describe('Starting navbar controller test', function () {
         beforeEach(module('pawPalApp'));
-        beforeEach(module('controllers/controllers'));
+        beforeEach(module('controllers'));
 
         beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_) {
             $controller = _$controller_;

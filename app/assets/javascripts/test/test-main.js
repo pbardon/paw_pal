@@ -19,12 +19,14 @@ require.config({
         'angularMocks': '/base/vendor/bower_components/angular-mocks/angular-mocks',
         'uiRouter' : '/base/vendor/bower_components/angular-ui-router/release/angular-ui-router',
         'uiBootstrap' : '/base/vendor/bower_components/angular-bootstrap/ui-bootstrap.min',
-        'services/services' : '/base/app/scripts/services/services',
-        'controllers/controllers' : '/base/app/scripts/controllers/controllers',
-        'constants/constants' : '/base/app/scripts/constants/constants',
-        'directives/directives' : '/base/app/scripts/directives/directives',
+        'services' : '/base/app/scripts/services/services',
+        'controllers' : '/base/app/scripts/controllers/controllers',
+        'constants' : '/base/app/scripts/constants/constants',
+        'directives' : '/base/app/scripts/directives/directives',
+        'interceptors' : '/base/app/scripts/interceptors/interceptors',
         'services/loginService' : '/base/app/scripts/services/loginService',
         'services/userService' : '/base/app/scripts/services/userService',
+        'services/dogService' : '/base/app/scripts/services/dogService',
         'services/validationService' : '/base/app/scripts/services/validationService',
         'controllers/mainController': '/base/app/scripts/controllers/mainController',
         'controllers/aboutContentController' : '/base/app/scripts/controllers/aboutContentController',
@@ -36,20 +38,24 @@ require.config({
         'controllers/loginController' : '/base/app/scripts/controllers/loginController',
         'controllers/loginModalController' : '/base/app/scripts/controllers/loginModalController',
         'controllers/navbarController' : '/base/app/scripts/controllers/navbarController',
+        'controllers/dogFormController' : '/base/app/scripts/controllers/dogFormController',
         'constants/formConstants' : '/base/app/scripts/constants/formConstants',
+        'interceptors/tokenHttpInterceptor' : '/base/app/scripts/interceptors/tokenHttpInterceptor',
         'pawPalApp': '/base/app/scripts/pawPalApp',
+        'mocks/mockServices' : 'base/test/mocks/services',
+        'mocks/userService' : 'base/test/mocks/userService',
         'mainSpec' : '/base/test/spec/mainSpec'
     },
 
     shim: {
 
         'jquery' : {
-         exports: 'jquery'
+            exports: 'jquery'
         },
 
         'angular': {
-          exports: 'angular',
-          deps: ['jquery']
+            exports: 'angular',
+            deps: ['jquery']
         },
 
         'uiRouter' : {

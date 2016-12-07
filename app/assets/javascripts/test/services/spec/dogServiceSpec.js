@@ -1,11 +1,10 @@
-define(['angular', 'angularMocks', 'services/services', 'services/dogService'],
+define(['angular', 'angularMocks', 'services', 'services/dogService'],
         function() {
-            var doggService;
+            var dogService;
 
             describe('Starting login service test', function() {
-                beforeEach(module('services/services'));
+                beforeEach(module('services'));
 
-                var loginService;
                 beforeEach(inject(function(_DogService_) {
                     dogService = _DogService_;
                 }));
@@ -17,7 +16,7 @@ define(['angular', 'angularMocks', 'services/services', 'services/dogService'],
 
                 it('is able to retrieve a specific user\'s dogs', function() {
                     console.log('start get user\'s dogs test');
-                    doggService.getCurrentUserDogs()
+                    dogService.getCurrentUserDogs()
                 });
 
                 it('is able to create a dog.', function() {

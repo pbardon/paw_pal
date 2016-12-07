@@ -1,4 +1,4 @@
-define(['angular', 'angularMocks', 'services/services'], function() {
+define(['angular', 'angularMocks', 'services'], function() {
     'use strict';
 
         describe('User Service', function() {
@@ -10,7 +10,7 @@ define(['angular', 'angularMocks', 'services/services'], function() {
                 httpResponse,
                 createRequestHandler;
 
-            beforeEach(module('services/services'));
+            beforeEach(module('services'));
             beforeEach(module('ngCookies'));
 
 

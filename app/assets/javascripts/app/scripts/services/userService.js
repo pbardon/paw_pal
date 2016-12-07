@@ -37,13 +37,13 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                 $http.post('/users', JSON.stringify(loginInfo), config)
                 .then(function (response) {
                     $log.info('response from server:\n',
-                        JSON.stringify(result));
-                    var responseToken = results.headers()['x-pp-token'];
+                        JSON.stringify(response));
+                    var responseToken = response.headers()['x-pp-token'];
                     $cookies.put('X-PP-TOKEN', responseToken);
                     oThis.user.token = responseToken;
-                    oThis.user.email = result.data.email;
+                    oThis.user.email = response.data.email;
                     $log.info(JSON.stringify($cookies.getAll()));
-                    deferred.resolve(result);
+                    deferred.resolve(response);
                 }, function (err) {
                     deferred.reject(err);
                 });

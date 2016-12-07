@@ -1,7 +1,7 @@
-define(['angular', 'angularMocks', 'services/services', 'services/loginService'], function() {
+define(['angular', 'angularMocks', 'services', 'services/loginService'], function() {
 
     describe('Starting login service test', function() {
-        beforeEach(module('services/services'));
+        beforeEach(module('services'));
 
         var loginService;
         beforeEach(inject(function(_LoginService_) {
