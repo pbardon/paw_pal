@@ -15,6 +15,12 @@ define(['angular', 'angularMocks', 'pawPalApp', 'controllers', 'controllers/navb
             $httpBackend = _$httpBackend_;
             $rootScope = _$rootScope_;
 
+            var $state = {
+                transitionTo : function(state) {
+                    console.log('transitioning to : ', state.toString());
+                }
+            };
+
             logoutResponse = $httpBackend.when('DELETE', '/session')
             .respond({
                 'email' : 'test123@email.com',
@@ -22,7 +28,7 @@ define(['angular', 'angularMocks', 'pawPalApp', 'controllers', 'controllers/navb
             });
 
             createController = function () {
-                return $controller('NavbarCtrl', {'$scope': $rootScope});
+                return $controller('NavbarCtrl', {'$scope': $rootScope, '$state': $state });
             };
             navbarCtrl = createController();
         }));

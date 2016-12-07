@@ -19,6 +19,7 @@ require.config({
         'angularMocks': '/base/vendor/bower_components/angular-mocks/angular-mocks',
         'uiRouter' : '/base/vendor/bower_components/angular-ui-router/release/angular-ui-router',
         'uiBootstrap' : '/base/vendor/bower_components/angular-bootstrap/ui-bootstrap.min',
+        'pawPalApp': '/base/app/scripts/pawPalApp',
         'services' : '/base/app/scripts/services/services',
         'controllers' : '/base/app/scripts/controllers/controllers',
         'constants' : '/base/app/scripts/constants/constants',
@@ -41,7 +42,6 @@ require.config({
         'controllers/dogFormController' : '/base/app/scripts/controllers/dogFormController',
         'constants/formConstants' : '/base/app/scripts/constants/formConstants',
         'interceptors/tokenHttpInterceptor' : '/base/app/scripts/interceptors/tokenHttpInterceptor',
-        'pawPalApp': '/base/app/scripts/pawPalApp',
         'mocks/mockServices' : 'base/test/mocks/services',
         'mocks/userService' : 'base/test/mocks/userService',
         'mainSpec' : '/base/test/spec/mainSpec'

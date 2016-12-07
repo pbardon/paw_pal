@@ -21,6 +21,7 @@ module.exports = function(config) {
         'app/scripts/services/services.js',
         'app/scripts/constants/constants.js',
         'app/scripts/directives/directives.js',
+        'app/scripts/interceptors/interceptors.js',
         {pattern: 'app/scripts/controllers/*.js', included: false},
         {pattern: 'app/scripts/services/*.js', included: false},
         {pattern: 'app/scripts/interceptors/*.js', included: false},
