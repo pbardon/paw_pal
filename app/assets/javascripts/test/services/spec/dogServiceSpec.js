@@ -3,8 +3,9 @@ define(['angular', 'angularMocks', 'services', 'services/dogService'],
             var dogService;
 
             describe('Starting login service test', function() {
-                beforeEach(module('pawPalApp'));
                 beforeEach(module('services'));
+                beforeEach(module('pawPalApp'));
+
 
                 beforeEach(inject(function(_DogService_) {
                     dogService = _DogService_;

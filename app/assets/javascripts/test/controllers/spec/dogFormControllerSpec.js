@@ -5,14 +5,15 @@ var $controller,
     dogFormCtrl;
 
 define(['angular',
-        'mocks/mockServices',
-        'controllers/dogFormController'],
-    function() {
+        'controllers/dogFormController',
+        'mocks/dogService'],
+    function(angular) {
         describe('Starting dog form controller test', function () {
-            beforeEach(module('pawPalApp'));
             beforeEach(module('controllers'));
+            beforeEach(module('pawPalApp'));
 
-            beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_) {
+
+            beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_, DogService) {
                 $controller = _$controller_;
                 $httpBackend = _$httpBackend_;
                 $rootScope = _$rootScope_;
@@ -44,7 +45,11 @@ define(['angular',
                         picture: {}
                     };
                     expect($rootScope.formData).not.toBeUndefined();
-                    // expect(_.toEqual($rootScope.formData, formData)).toBe(true);
+                    expect(angular.equals($rootScope.formData, formData)).toBe(true);
+                });
+
+                it('should be able to create a new dog', function() {
+                    $rootScope.submit();
                 });
             });
         });

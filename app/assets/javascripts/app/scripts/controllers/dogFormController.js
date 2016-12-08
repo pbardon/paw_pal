@@ -11,7 +11,6 @@ define('controllers/dogFormController', ['controllers', 'services/dogService'], 
         };
 
         $scope.submit = function () {
-            $log.info($scope.model);
             dogService.createDog($scope.formData).then(function(result) {
                 if (result.data) {
                     $log.info(result.data);

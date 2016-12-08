@@ -1,3 +1,3 @@
-define('mocks/mockServices', ['angular'], function(angular) {
-    return angular.module('mockServices', []);
-});
+// define('mocks/mockServices', ['angular'], function(angular) {
+//     return angular.module('services', []);
+// });

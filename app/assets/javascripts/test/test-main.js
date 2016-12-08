@@ -44,6 +44,7 @@ require.config({
         'interceptors/tokenHttpInterceptor' : '/base/app/scripts/interceptors/tokenHttpInterceptor',
         'mocks/mockServices' : 'base/test/mocks/services',
         'mocks/userService' : 'base/test/mocks/userService',
+        'mocks/dogService' : 'base/test/mocks/dogService',
         'mainSpec' : '/base/test/spec/mainSpec'
     },
 
