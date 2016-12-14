@@ -1,6 +1,9 @@
 var $controller,
     $httpBackend,
     $rootScope,
+    $state,
+    $log,
+    dogSvc,
     createController,
     dogFormCtrl;
 
@@ -17,19 +20,19 @@ define(['angular',
 
             beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_, DogService) {
                 $controller = _$controller_;
-                $httpBackend = _$httpBackend_;
                 $rootScope = _$rootScope_;
+                $state = {};
+                $state.go = jasmine.createSpy('go');
+                $log = {};
+                $log.error = jasmine.createSpy('error');
+                $log.info = jasmine.createSpy('info');
+                dogSvc = DogService;
 
                 createController = function () {
-                    return $controller('DogFormCtrl', {'$scope': $rootScope });
+                    return $controller('DogFormCtrl', {'$scope': $rootScope, '$state' : $state , $log: $log });
                 };
                 dogFormCtrl = createController();
             }));
-
-            afterEach(function() {
-                $httpBackend.verifyNoOutstandingExpectation();
-                $httpBackend.verifyNoOutstandingRequest();
-            });
 
             describe('dog form controller test', function() {
                 console.log('starting dog form controller test...');
@@ -50,8 +53,24 @@ define(['angular',
                     expect(angular.equals($rootScope.formData, formData)).toBe(true);
                 });
 
-                it('should be able to create a new dog', function() {
+                it('should be able to create a new dog and redirect to profile', function() {
                     $rootScope.submit();
+                    $rootScope.$apply();
+                    expect($log.info).toHaveBeenCalledWith('fakeResult');
+                    expect($state.go).toHaveBeenCalledWith('profile');
+                });
+
+                it('should log an error if one occurs', function() {
+                    dogSvc.rejectPromise = true;
+                    $rootScope.submit();
+                    $rootScope.$apply();
+                    expect($log.error).toHaveBeenCalledWith('testError');
+                });
+
+                it('should throw an error if data returned from the server is not formatted correctly', function() {
+                    dogSvc.returnData = {};
+                    $rootScope.submit();
+                    expect(function() { $rootScope.$apply(); }).toThrow('Did not receive correct result from server..');
                 });
             });
         });

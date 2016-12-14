@@ -12,10 +12,12 @@ define('controllers/dogFormController', ['controllers', 'services/dogService'], 
 
         $scope.submit = function () {
             dogService.createDog($scope.formData).then(function(result) {
-                if (result.data) {
+                if (result && result.data) {
                     $log.info(result.data);
+                    $state.go('profile');
+                    return;
                 }
-                $state.go('profile');
+                throw 'Did not receive correct result from server..';
             }, function(err) {
                 $log.error(err);
             });
