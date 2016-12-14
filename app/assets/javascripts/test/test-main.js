@@ -42,7 +42,7 @@ require.config({
         'controllers/dogFormController' : '/base/app/scripts/controllers/dogFormController',
         'constants/formConstants' : '/base/app/scripts/constants/formConstants',
         'interceptors/tokenHttpInterceptor' : '/base/app/scripts/interceptors/tokenHttpInterceptor',
-        'mocks/mockServices' : 'base/test/mocks/services',
+        'mocks' : 'base/test/mocks/mocks',
         'mocks/userService' : 'base/test/mocks/userService',
         'mocks/dogService' : 'base/test/mocks/dogService',
         'mainSpec' : '/base/test/spec/mainSpec'

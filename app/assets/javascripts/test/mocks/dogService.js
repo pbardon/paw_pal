@@ -1,7 +1,7 @@
-define('mocks/dogService', ['services'], function(angular, services) {
+define('mocks/dogService', ['mocks'], function(mocks) {
     'use strict';
-    services.service('DogService', ['$q', function($q) {
-        this.createDog = jasmine.createSpy('createDog').andCallFake(function(){
+    mocks.service('DogService', ['$q', function($q) {
+        this.createDog = jasmine.createSpy('createDog').and.callFake(function(){
             var deferred = $q.defer();
             console.log('creating dog...@@@@@@@@@@@@@@@@@@');
             return deferred.promise;

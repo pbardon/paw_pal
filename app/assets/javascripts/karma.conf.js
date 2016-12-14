@@ -18,7 +18,7 @@ module.exports = function(config) {
         'app/scripts/pawPalApp.js',
         {pattern: 'vendor/bower_components/**/*.js', included: false},
         'app/scripts/controllers/controllers.js',
-        'app/scripts/services/services.js',
+        'app/scripts/services/mocks.js',
         'app/scripts/constants/constants.js',
         'app/scripts/directives/directives.js',
         'app/scripts/interceptors/interceptors.js',

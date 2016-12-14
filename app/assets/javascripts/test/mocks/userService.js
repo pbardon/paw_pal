@@ -1,6 +1,6 @@
-define('mocks/userService', ['services'], function(services) {
+define('mocks/userService', ['mocks'], function(mocks) {
     'use strict';
-    services.service('UserService', function() {
+    mocks.service('UserService', function() {
         this.createUser = function() {
             console.log('creating user...');
         }

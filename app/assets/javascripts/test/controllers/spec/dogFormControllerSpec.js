@@ -6,11 +6,13 @@ var $controller,
 
 define(['angular',
         'controllers/dogFormController',
+        'mocks',
         'mocks/dogService'],
     function(angular) {
         describe('Starting dog form controller test', function () {
             beforeEach(module('controllers'));
             beforeEach(module('pawPalApp'));
+            beforeEach(module('mock'));
 
 
             beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_, DogService) {
@@ -19,7 +21,7 @@ define(['angular',
                 $rootScope = _$rootScope_;
 
                 createController = function () {
-                    return $controller('DogFormCtrl', {'$scope': $rootScope});
+                    return $controller('DogFormCtrl', {'$scope': $rootScope });
                 };
                 dogFormCtrl = createController();
             }));
