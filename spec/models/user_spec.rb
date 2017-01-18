@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
-
     it 'should_create_a_password' do
         user = build(:user)
         expect user.password_digest
@@ -36,6 +34,7 @@ RSpec.describe User, type: :model do
 
     it 'should ensure_session_token on creation' do
         user = create(:user)
+        puts "user is #{user}"
         expect user.session_token
     end
 

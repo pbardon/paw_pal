@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
     before_validation :ensure_session_token
 
     def self.find_by_credentials(email, password)
-        logger.info "find with credentials: #{email}, #{password}"
         user = User.find_by_email(email)
         if user && user.is_password?(password)
             user.password = password

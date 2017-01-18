@@ -19,6 +19,8 @@ FactoryGirl.create_list(:dog, 10)
 
 FactoryGirl.create_list(:shelter, 10)
 
+FactoryGirl.build_list(:shelter, 10, :with_photo)
+
 
 # users= User.create([{
 #   name: "Julienne R. Hanks",

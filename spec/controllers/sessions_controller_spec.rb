@@ -1,34 +1,33 @@
-# require 'test_helper'
-#
-# class SessionsControllerSpec < ActionDispatch::IntegrationTest
-#     test 'respond with error when username is invalid' do
-#         post '/session',  user: { email: "testemail@test.com", password: "fakepassword" }
-#         assert_response :unprocessable_entity
-#     end
-#
-#     test 'should be able to create a session' do
-#         user_info = users(:julian)
-#         user_info = { email: user_info.email, password: "test_password" }
-#         user = User.find_by_credentials(user_info[:email], user_info[:password])
-#         saved_token = user.session_token
-#         post '/session',  user: user_info
-#         assert_response :ok
-#         puts "successfully signed in with response: #{response}"
-#         puts "session: #{session[:session_token]}"
-#         assert session[:session_token], "session token exists"
-#         assert session[:session_token] != saved_token, "generated new token"
-#         assert @response, "response exists"
-#         puts "cookies : #{cookies.inspect}"
-#         assert cookies
-#     end
-#
-#     test 'should be able to delete a session' do
-#         delete '/session'
-#         assert_response :bad_request
-#         user_info = { email: "julian2@sunnyvale.com", password: "test_password" }
-#         post '/session',  user: user_info
-#         assert_response :ok
-#         delete '/session'
-#         assert_response :ok
-#     end
-# end
+require 'rails_helper'
+
+RSpec.describe SessionsController, type: :controller do
+
+    describe 'POST #session' do
+        it 'should respond with error when username is invalid' do
+            post :create, { user: { email: 'testemail@test.com', password: 'fakepassword' } }
+            assert_response :unprocessable_entity
+        end
+
+        it 'should be able to create a session' do
+            user_info = create(:user)
+            saved_token = user_info.session_token
+            post :create,  user: { email: user_info.email, password: user_info.password }
+            assert_response :ok
+            response_body = JSON.parse(response.body)
+            assert response_body['token'], "session token exists"
+            assert response_body['token'] != saved_token, "generated new token"
+        end
+    end
+
+    describe 'DELETE #session' do
+        it 'should be able to delete a session' do
+            delete :destroy
+            assert_response :bad_request
+            user = create(:user)
+            token = user.session_token
+            request.headers['X-PP-TOKEN'] = token
+            delete :destroy
+            assert_response :ok
+        end
+    end
+end

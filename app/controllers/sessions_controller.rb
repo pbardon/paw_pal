@@ -2,13 +2,13 @@ class SessionsController < ApplicationController
 
     def create
         @user = User.find_by_credentials(session_params[:email],
-                                        session_params[:password])
+                                         session_params[:password])
         if @user
            sign_in(@user)
            render :json =>  { token: @user.session_token, message: 'session created'}, status: 200
         else
             errors = {
-                full_messages: "Unable tconto create session with params: #{params}"
+                full_messages: "Unable to create session with params: #{params}"
             }
            puts "#{errors[:full_messages]}"
            render json: { errors: errors[:full_messages] }, status: 422

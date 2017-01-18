@@ -11,9 +11,9 @@ RSpec.describe Dog, type: :model do
 
     it 'should save record to db' do
         dog = create(:dog)
+        user = User.find(dog.owner_id)
         expect(dog.id).to be_an Integer
         expect(dog.owner_id).to be_an Integer
-        user = build(:user)
         expect(dog.owner.name).to eq(user.name)
     end
 
