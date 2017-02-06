@@ -69,16 +69,16 @@ define('controllers/loginModalController', ['controllers',
                     if (validateLoginInfo(loginInfo, true)) {
                         usrSvc.loginUser(loginInfo.email, loginInfo.password)
                         .then(function(result) {
+                            if (result.status && result.status != 200 ) {
+                                handleLoginError($scope, result.statusText);
+                                return;
+                            }
                             $log.info('logged in user: ', JSON.stringify(loginInfo));
                             $log.info('with result: ', JSON.stringify(result));
                             $rootScope.loggedIn = true;
                             $uibModalInstance.close();
                         }, function(err) {
-                            addError('Login Failed, try again...');
-                            $scope.formData.password = '';
-                            $scope.formData.passwordConfirm = '';
-                            $scope.formData.email = '';
-                            $log.error(err);
+                            handleLoginError($scope, err);
                         });
                     }
                 };
@@ -95,15 +95,16 @@ define('controllers/loginModalController', ['controllers',
                     if (validateLoginInfo(loginInfo, false)) {
                         usrSvc.createUser(loginInfo.email, loginInfo.password)
                         .then(function (result) {
+                            if (result.status && result.status != 200 ) {
+                                handleRegistrationError($scope, result.statusText);
+                                return;
+                            }
                             $log.info('created user : ', JSON.stringify(loginInfo));
                             $log.info('with result: ', JSON.stringify(result));
                             $rootScope.loggedIn = true;
                             $uibModalInstance.close();
                         }, function (err) {
-                            addError('Registration Failed, try again...');
-                            $scope.formData.password = '';
-                            $scope.formData.user.email = '';
-                            $log.error(err);
+                            handleRegistrationError($scope, err);
                         });
                     }
                 };
@@ -120,5 +121,22 @@ define('controllers/loginModalController', ['controllers',
                 $scope.cancel = function () {
                     $uibModalInstance.dismiss('cancel');
                 };
+
+                function handleRegistrationError($scope, err) {
+                    handleErrorRequest($scope, err, 'Registration Failed, try again...');
+                }
+
+                function handleLoginError($scope, err) {
+                    handleErrorRequest($scope, err, 'Login Failed, try again...');
+
+                }
+
+                function handleErrorRequest($scope, err, msg) {
+                    addError(msg);
+                    $scope.formData.password = '';
+                    $scope.formData.passwordConfirm = '';
+                    $scope.formData.email = '';
+                    $log.error(err);
+                }
         }]);
 });
