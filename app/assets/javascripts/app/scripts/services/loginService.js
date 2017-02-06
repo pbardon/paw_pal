@@ -3,7 +3,6 @@ define('services/loginService', ['services',
     'services/validationService'],
     function(services){
         'use strict';
-
         return services.factory('LoginService', [ '$log', 'UserService', 'ValidationService',
             function($log, usrSvc, validateSvc) {
 
@@ -39,7 +38,6 @@ define('services/loginService', ['services',
                                     }
                                     $log.info('created user : ', JSON.stringify(loginInfo));
                                     $log.info('with result: ', JSON.stringify(result));
-                                    $rootScope.loggedIn = true;
                                     $uibModalInstance.close();
                                 }, function (err) {
                                     handleRegistrationError($scope, err);
