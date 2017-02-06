@@ -6,11 +6,8 @@ RSpec.describe UsersController, type: :controller do
             test_email = Faker::Internet.email
             post :create,  user: { email: test_email, password: 'fakepassword' }
             expect(response.status).to eq(200)
-            puts "response : #{response.body}"
             response_body = JSON.parse(response.body)
-            puts "response_body : #{response_body['token']}"
             expect(response_body['user']['email']).to eq(test_email)
-
         end
 
         it 'should not allow duplicate users' do

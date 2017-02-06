@@ -34,7 +34,6 @@ RSpec.describe User, type: :model do
 
     it 'should ensure_session_token on creation' do
         user = create(:user)
-        puts "user is #{user}"
         expect user.session_token
     end
 

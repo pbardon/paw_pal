@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
             errors = {
                 full_messages: "Unable to create session with params: #{params}"
             }
-           puts "#{errors[:full_messages]}"
            render json: { errors: errors[:full_messages] }, status: 422
         end
     end
