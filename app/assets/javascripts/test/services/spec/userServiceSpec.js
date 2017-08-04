@@ -78,7 +78,6 @@ define(['angular', 'angularMocks', 'services'], function() {
                 expect(!userService.isUserLoggedIn());
                 $cookies.put('_dog_sitting_app_token', 'AAAAAAAAAAAA');
                 expect(userService.isUserLoggedIn());
-
-            })
+            });
     });
 });

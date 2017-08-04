@@ -73,7 +73,7 @@ define('services/dogService', ['services', 'services/userService'], function(ser
                         });
 
                     return deferred.promise;
-                }
+                };
             }
             return new DogService();
         }]);

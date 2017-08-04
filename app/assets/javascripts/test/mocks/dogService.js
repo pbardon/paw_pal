@@ -15,6 +15,6 @@ define('mocks/dogService', ['mocks'], function(mocks) {
 
         this.rejectPromise = false;
 
-        this.returnData = { data: 'fakeResult' }
+        this.returnData = { data: 'fakeResult' };
     }]);
 });

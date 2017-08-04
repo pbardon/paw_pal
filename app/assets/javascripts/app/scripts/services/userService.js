@@ -73,7 +73,7 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                     oThis.user.email = results.data.email;
                     oThis.user.token = responseToken;
                     $log.info(JSON.stringify($cookies.getAll()));
-                    deferred.resolve(results)
+                    deferred.resolve(results);
                 }, function(err) {
                     $log.error('error response from new session was ', JSON.stringify(err));
                     deferred.reject(err);
@@ -97,7 +97,7 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                     deferred.reject(err);
                 });
                 return deferred.promise;
-            }
+            };
         }
         return new UserService();
     }]);

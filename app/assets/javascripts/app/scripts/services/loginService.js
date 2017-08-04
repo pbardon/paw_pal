@@ -3,17 +3,16 @@ define('services/loginService', ['services',
     'services/validationService'],
     function(services){
         'use strict';
-        return services.factory('LoginService', [ '$log', 'UserService', 'ValidationService',
-            function($log, usrSvc, validateSvc) {
-
+        return services.factory('LoginService', [ '$log', '$rootScope', 'UserService', 'ValidationService',
+            function($log, $rootScope, usrSvc, validateSvc) {
                 function LoginService() {
                     this.login = function ($scope, $uibModalInstance) {
                         var loginInfo = getLoginInfo($scope);
                         loginInfo.passwordConfirm = loginInfo.password;
-
-                        if (validateLoginInfo(loginInfo, true)) {
+                        if (validateLoginInfo($scope, true)) {
                             usrSvc.loginUser(loginInfo.email, loginInfo.password)
                                 .then(function (result) {
+                                    console.log("promise resolved...");
                                     if (result.status && result.status != 200) {
                                         handleLoginError($scope, result.statusText);
                                         return;
@@ -28,8 +27,8 @@ define('services/loginService', ['services',
                     };
 
                     this.enroll = function ($scope, $uibModalInstance) {
-                        var loginInfo = getLoginInfo($scope);
-                        if (validateLoginInfo(loginInfo, false)) {
+                        if (validateLoginInfo($scope, false)) {
+                            var loginInfo = getLoginInfo($scope);
                             usrSvc.createUser(loginInfo.email, loginInfo.password)
                                 .then(function (result) {
                                     if (result.status && result.status != 200 ) {
@@ -45,7 +44,8 @@ define('services/loginService', ['services',
                         }
                     };
 
-                    function validateLoginInfo(loginInfo, isLogin) {
+                    function validateLoginInfo($scope, isLogin) {
+                        var loginInfo = getLoginInfo($scope);
                         if (!(validateSvc.validateEmailAddress(loginInfo.email) &&
                             validateSvc.validatePassword(loginInfo.password) &&
                             (isLogin || validateSvc.validatePassword(loginInfo.passwordConfirm)))) {
@@ -54,7 +54,7 @@ define('services/loginService', ['services',
                                 errMsg = 'Login info was not entered correctly';
                             }
                             $log.error(errMsg);
-                            addError(errMsg);
+                            addError($scope, errMsg);
                             return false;
                         }
                         return true;
@@ -84,8 +84,8 @@ define('services/loginService', ['services',
                         };
                     }
 
-                    function addError($scope, message) {
-                        $scope.error = message;
+                    function addError(scope, message) {
+                        scope.error = message;
                     }
                 }
 

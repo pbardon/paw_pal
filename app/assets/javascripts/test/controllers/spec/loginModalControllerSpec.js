@@ -132,7 +132,7 @@ define(['angular', 'angularMocks', 'uiBootstrap',
                         scope.formData.passwordConfirm = 'test123';
                         expect(scope.passwordsMatch()).toBe(true);
 
-                    })
+                    });
                 });
             });
 });

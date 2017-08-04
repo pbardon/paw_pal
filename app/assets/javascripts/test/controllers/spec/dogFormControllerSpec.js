@@ -8,15 +8,15 @@ var $controller,
     dogFormCtrl;
 
 define(['angular',
+        'controllers',
         'controllers/dogFormController',
         'mocks',
         'mocks/dogService'],
     function(angular) {
         describe('Starting dog form controller test', function () {
-            beforeEach(module('controllers'));
             beforeEach(module('pawPalApp'));
-            beforeEach(module('mock'));
-
+            beforeEach(module('mocks'));
+            beforeEach(module('controllers'));
 
             beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_, DogService) {
                 $controller = _$controller_;

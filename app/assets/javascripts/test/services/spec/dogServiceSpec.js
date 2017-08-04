@@ -3,8 +3,8 @@ define(['angular', 'angularMocks', 'services', 'services/dogService'],
             var dogService;
 
             describe('Starting login service test', function() {
-                beforeEach(module('services'));
                 beforeEach(module('pawPalApp'));
+                beforeEach(module('services'));
 
 
                 beforeEach(inject(function(_DogService_) {
@@ -18,7 +18,7 @@ define(['angular', 'angularMocks', 'services', 'services/dogService'],
 
                 it('is able to retrieve a specific user\'s dogs', function() {
                     console.log('start get user\'s dogs test');
-                    dogService.getCurrentUserDogs()
+                    dogService.getCurrentUserDogs();
                 });
 
                 it('is able to create a dog.', function() {

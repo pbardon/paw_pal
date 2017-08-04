@@ -9,7 +9,6 @@ for (var file in window.__karma__.files) {
 
 require.config({
     // Karma serves files from '/base'
-
     paths: {
         'domReady': '/base/vendor/bower_components/domReady/domReady',
         'underscore': '/base/vendor/bower_components/underscore/underscore-min',
@@ -39,6 +38,7 @@ require.config({
         'controllers/loginController' : '/base/app/scripts/controllers/loginController',
         'controllers/loginModalController' : '/base/app/scripts/controllers/loginModalController',
         'controllers/navbarController' : '/base/app/scripts/controllers/navbarController',
+        'controllers/dogsController' : '/base/app/scripts/controllers/dogsController',
         'controllers/dogFormController' : '/base/app/scripts/controllers/dogFormController',
         'constants/formConstants' : '/base/app/scripts/constants/formConstants',
         'interceptors/tokenHttpInterceptor' : '/base/app/scripts/interceptors/tokenHttpInterceptor',
@@ -75,8 +75,13 @@ require.config({
 
         'angular-cookies' : {
             deps: ['angular']
+        },
+        'mocks/userService' : {
+            deps: ['mocks']
+        },
+        'mocks/dogService' : {
+            deps: ['mocks']
         }
-
     },
 
 

@@ -15,7 +15,9 @@ define('controllers/loginModalController', ['controllers',
             'ValidationService',
             'LoginService',
             'formConstants',
-            function ($scope, $rootScope, $http,
+            function ($scope,
+                      $rootScope,
+                      $http,
                       $log,
                       $uibModalInstance,
                       UserService,
@@ -54,7 +56,7 @@ define('controllers/loginModalController', ['controllers',
                     if ( $scope.formData.password === '' || $scope.formData.passwordConfirm === '' ) {
                         return true;
                     }
-                    return ($scope.formData.password === $scope.formData.passwordConfirm)
+                    return ($scope.formData.password === $scope.formData.passwordConfirm);
                 };
 
                 $scope.formData.states = formConstants.states;
