@@ -8,7 +8,7 @@ define('mocks/userService', ['mocks'], function(mocks) {
         this.loginUser = function() {
             var deferred = $q.defer();
             console.log('user logging in...');
-            deferred.resolve();
+            deferred.resolve({ status: 200 });
             return deferred.promise;
         };
     }]);

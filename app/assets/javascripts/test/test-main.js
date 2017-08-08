@@ -45,6 +45,7 @@ require.config({
         'mocks' : 'base/test/mocks/mocks',
         'mocks/userService' : 'base/test/mocks/userService',
         'mocks/dogService' : 'base/test/mocks/dogService',
+        'mocks/uibModalInstance' : 'base/test/mocks/uibModalInstance',
         'mainSpec' : '/base/test/spec/mainSpec'
     },
 
