@@ -1,8 +1,6 @@
 define('controllers/loginModalController', ['controllers',
         'uiBootstrap',
         'constants/formConstants',
-        'services/validationService',
-        'services/userService',
         'services/loginService'],
     function(controllers) {
         'use strict';
@@ -11,8 +9,6 @@ define('controllers/loginModalController', ['controllers',
             '$http',
             '$log',
             '$uibModalInstance',
-            'UserService',
-            'ValidationService',
             'LoginService',
             'formConstants',
             function ($scope,
@@ -20,15 +16,12 @@ define('controllers/loginModalController', ['controllers',
                       $http,
                       $log,
                       $uibModalInstance,
-                      UserService,
-                      ValidationService,
                       LoginService,
-                      formConstants,
-                      formData) {
+                      formConstants) {
 
                 var loginSvc = LoginService;
 
-                $scope.formData = formData || { email: '', password: '', passwordConfirm: ''};
+                $scope.formData = { email: '', password: '', passwordConfirm: ''};
                 $scope.minPasswordLength = 6;
 
                 $scope.loginSelected = true;

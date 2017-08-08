@@ -4,53 +4,47 @@ var $controller,
     scope,
     loginModalCtrl,
     uibModalInstance,
+    mockLoginService,
     createController;
 
-define(['angular', 'angularMocks', 'uiBootstrap',
-        'pawPalApp','controllers', 'controllers/loginModalController'],
+define(['angular',
+        'angularMocks',
+        'uiBootstrap',
+        'pawPalApp',
+        'controllers',
+        'controllers/loginModalController',
+        'services',
+        'services/validationService',
+        'mocks',
+        'mocks/loginService'],
         function() {
             describe('Starting login modal controller test', function () {
                 beforeEach(module('pawPalApp'));
                 beforeEach(module('controllers'));
+                beforeEach(module('mocks'));
 
-                beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_) {
-
+                beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_, _LoginService_) {
                     $controller = _$controller_;
                     $httpBackend = _$httpBackend_;
                     $rootScope = _$rootScope_;
+                    mockLoginService = _LoginService_;
 
                     uibModalInstance = {
                         close: jasmine.createSpy('modalInstance.close'),
                         dismiss: jasmine.createSpy('modalInstance.dismiss')
                     };
 
-                    $httpBackend.when('POST', '/session')
-                    .respond({
-                        'email': 'testUser',
-                        'token': 'AA55443333A'
-                    });
-
-                    $httpBackend.when('POST', '/users')
-                    .respond({
-                            'email': 'testUser',
-                            'token': 'AA55443333A'
-                    });
-
                     scope = $rootScope.$new;
                     createController = function () {
                         return $controller('LoginModalCtrl', {
                             '$scope': scope,
-                            '$uibModalInstance' : uibModalInstance
+                            '$uibModalInstance' : uibModalInstance,
+                            'LoginService': mockLoginService
                         });
                     };
 
                     loginModalCtrl = createController();
                 }));
-
-                afterEach(function() {
-                    $httpBackend.verifyNoOutstandingExpectation();
-                    $httpBackend.verifyNoOutstandingRequest();
-                });
 
                 describe('login modal controller test', function() {
                     console.log('starting login modal controller test');
@@ -70,10 +64,8 @@ define(['angular', 'angularMocks', 'uiBootstrap',
                         console.log('running login request test...');
                         scope.formData.email = 'testuser@test.com';
                         scope.formData.password = 'testPassword';
-                        $httpBackend.expectPOST('/session');
                         scope.login();
-                        expect(scope.error).toBeUndefined();
-                        $httpBackend.flush();
+                        expect(mockLoginService.login).toHaveBeenCalled();
                     });
 
 
@@ -82,39 +74,10 @@ define(['angular', 'angularMocks', 'uiBootstrap',
                         scope.formData.email = 'testuser@test.com';
                         scope.formData.password = 'testPassword';
                         scope.formData.passwordConfirm = 'testPassword';
-                        $httpBackend.expectPOST('/users');
                         scope.enroll();
-                        $httpBackend.flush();
+                        expect(mockLoginService.enroll).toHaveBeenCalled();
                     });
 
-                    it('should respond with an error when the email is invalid', function() {
-                        console.log('running email validation test...');
-                        scope.formData.email = 'testuser';
-                        scope.formData.password = 'testPassword';
-                        scope.login();
-                        expect(scope.error).not.toBeUndefined();
-                        expect('Login info was not entered correctly').toMatch(scope.error);
-                    });
-
-                    it('should respond with an error when the password is invalid', function() {
-                        console.log('running password validation test...');
-                        scope.formData.email = 'testuser@test.com';
-                        scope.formData.password = 'test';
-                        scope.login();
-                        expect(scope.error).not.toBeUndefined();
-                        console.log(JSON.stringify(scope.error));
-                        expect('Login info was not entered correctly').toMatch(scope.error);
-                    });
-
-                    it('should respond with an error when the confirmation password is invalid', function() {
-                        console.log('running password confirmation validation test...');
-                        scope.formData.email = 'testuser';
-                        scope.formData.password = 'test';
-                        scope.formData.passwordConfirm = 'test123';
-                        scope.enroll();
-                        expect(scope.error).not.toBeUndefined();
-                        expect('Enrollment info was not entered correctly').toMatch(scope.error);
-                    });
 
                     it('should be able to close the modal', function() {
                         console.log('starting modal close test');
@@ -131,7 +94,6 @@ define(['angular', 'angularMocks', 'uiBootstrap',
                         scope.formData.password = 'test123';
                         scope.formData.passwordConfirm = 'test123';
                         expect(scope.passwordsMatch()).toBe(true);
-
                     });
                 });
             });

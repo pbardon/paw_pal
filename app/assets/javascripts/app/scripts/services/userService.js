@@ -1,6 +1,5 @@
 define('services/userService', ['services', 'angular-cookies'], function(services){
     'use strict';
-
     return services.factory('UserService',
             [ '$q', '$cookies', '$log', '$http',
             function($q, $cookies, $log, $http) {
@@ -21,13 +20,13 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                 return true;
             };
 
-            this.createUser = function (email, password) {
+            this.createUser = function (userInfo) {
                 var oThis = this,
                     deferred = $q.defer(),
                     loginInfo = {
                         user: {
-                            email: email,
-                            password: password
+                            email: userInfo.email,
+                            password: userInfo.password
                         }
                 };
 
@@ -52,14 +51,14 @@ define('services/userService', ['services', 'angular-cookies'], function(service
 
             };
 
-            this.loginUser = function(email, password) {
+            this.loginUser = function(userInfo) {
                 var deferred = $q.defer(),
                     oThis = this;
 
                 var loginInfo = {
                     user: {
-                        email: email,
-                        password: password
+                        email: userInfo.email,
+                        password: userInfo.password
                     }
                 };
 

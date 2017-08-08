@@ -11,5 +11,12 @@ define('mocks/userService', ['mocks'], function(mocks) {
             deferred.resolve({ status: 200 });
             return deferred.promise;
         };
+
+        this.createUser = function() {
+            var deferred = $q.defer();
+            console.log('creating user...');
+            deferred.resolve({ status: 200 });
+            return deferred.promise;
+        };
     }]);
 });

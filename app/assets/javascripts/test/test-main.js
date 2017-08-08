@@ -25,6 +25,7 @@ require.config({
         'directives' : '/base/app/scripts/directives/directives',
         'interceptors' : '/base/app/scripts/interceptors/interceptors',
         'services/loginService' : '/base/app/scripts/services/loginService',
+        'services/errorService' : '/base/app/scripts/services/errorService',
         'services/userService' : '/base/app/scripts/services/userService',
         'services/dogService' : '/base/app/scripts/services/dogService',
         'services/validationService' : '/base/app/scripts/services/validationService',
@@ -44,6 +45,7 @@ require.config({
         'interceptors/tokenHttpInterceptor' : '/base/app/scripts/interceptors/tokenHttpInterceptor',
         'mocks' : 'base/test/mocks/mocks',
         'mocks/userService' : 'base/test/mocks/userService',
+        'mocks/loginService' : 'base/test/mocks/loginService',
         'mocks/dogService' : 'base/test/mocks/dogService',
         'mocks/uibModalInstance' : 'base/test/mocks/uibModalInstance',
         'mainSpec' : '/base/test/spec/mainSpec'
