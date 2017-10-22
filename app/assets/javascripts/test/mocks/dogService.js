@@ -1,6 +1,6 @@
 define('mocks/dogService', ['mocks'], function(mocks) {
     'use strict';
-    mocks.service('DogService', ['$q', function($q) {
+    mocks.service('mock.DogService', ['$q', function($q) {
         var dogService = this;
 
         this.createDog = jasmine.createSpy('createDog').and.callFake(function(){

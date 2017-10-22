@@ -9,14 +9,13 @@ define('services/loginService', ['services',
         'UserService',
         'ValidationService',
         'ErrorService',
-        function($log, $rootScope, usrSvc, validateSvc, errorSvc) {
+        'uibModalInstance',
+        function($log, $rootScope, usrSvc, validateSvc, errorSvc, $uibModalInstance) {
             function LoginService() {
-                this.login = function ($scope, $uibModalInstance) {
+                this.login = function ($scope) {
                     if (validateSvc.validateLoginInfo($scope)) {
-                        console.log('valid login info...');
                         usrSvc.loginUser(getLoginInfo($scope))
                         .then(function (result) {
-                            console.log('promise resolved');
                             if (result.status && result.status != 200) {
                                 errorSvc.handleLoginError($scope,
                                     result.statusText);
@@ -29,13 +28,12 @@ define('services/loginService', ['services',
                     }
                 };
 
-                this.enroll = function ($scope, $uibModalInstance) {
+                this.enroll = function ($scope) {
                     if (validateSvc.validateLoginInfo($scope)) {
-                        console.log('validated enrollment');
                         usrSvc.createUser(getLoginInfo($scope))
                         .then(function (result) {
+                            console.log("user created by service...");
                             if (result.status && result.status != 200 ) {
-                                console.log('in callback');
                                 errorSvc.handleRegistrationError($scope,
                                     result.statusText);
                                 return;
@@ -46,6 +44,10 @@ define('services/loginService', ['services',
                             errorSvc.handleRegistrationError($scope, err);
                         });
                     }
+                };
+
+                this.cancel = function() {
+                    $uibModalInstance.close();
                 };
 
                 function getLoginInfo($scope) {

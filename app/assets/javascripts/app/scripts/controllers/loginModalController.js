@@ -8,14 +8,12 @@ define('controllers/loginModalController', ['controllers',
             '$rootScope',
             '$http',
             '$log',
-            '$uibModalInstance',
             'LoginService',
             'formConstants',
             function ($scope,
                       $rootScope,
                       $http,
                       $log,
-                      $uibModalInstance,
                       LoginService,
                       formConstants) {
 
@@ -31,7 +29,7 @@ define('controllers/loginModalController', ['controllers',
                 };
 
                 $scope.login = function() {
-                    loginSvc.login($scope, $uibModalInstance);
+                    loginSvc.login($scope);
                 };
 
                 $scope.hasError = function() {
@@ -42,7 +40,7 @@ define('controllers/loginModalController', ['controllers',
                 };
 
                 $scope.enroll = function() {
-                    loginSvc.enroll($scope, $uibModalInstance);
+                    loginSvc.enroll($scope);
                 };
 
                 $scope.passwordsMatch = function() {
@@ -55,7 +53,7 @@ define('controllers/loginModalController', ['controllers',
                 $scope.formData.states = formConstants.states;
 
                 $scope.cancel = function () {
-                    $uibModalInstance.dismiss('cancel');
+                    loginSvc.cancel();
                 };
             }]);
     });

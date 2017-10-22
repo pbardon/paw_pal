@@ -1,43 +1,67 @@
 var $rootScope;
-var uibModalInstance;
+var loginService;
+var mockUserService;
+var mockModalInstance;
+var $q;
 
 define(['angular',
         'angularMocks',
         'mocks',
-        'mocks/userService',
-        'mocks/uibModalInstance',
         'services',
         'services/loginService'], function() {
     describe('Starting login service test', function() {
-        beforeEach(module('services'));
-        beforeEach(module('mocks'));
+        beforeEach(function() {
+            mockModalInstance = {
+                close : jasmine.createSpy('close')
+            };
 
-        var loginService,
-            uibModalInstance;
-        beforeEach(inject(function(_LoginService_, _$rootScope_, _uibModalInstance_) {
-            loginService = _LoginService_;
-            $rootScope = _$rootScope_;
-            uibModalInstance = _uibModalInstance_;
-        }));
+            module('pawPalApp');
+            module('services', function($provide) {
+                $provide.value('uibModalInstance', mockModalInstance);
+                $provide.factory('UserService', function($q) {
+                    mockUserService = {
+                        loginUser : function() {
+                            var deferred = $q.defer();
+                            console.log('user logging in...');
+                            deferred.resolve({ status: 200 });
+                            return deferred.promise;
+                        },
+
+                        createUser : function() {
+                            var deferred = $q.defer();
+                            console.log('creating user...');
+                            deferred.resolve({ status: 200 });
+                            return deferred.promise;
+                        }
+                    };
+
+                    return mockUserService;
+                });
+            });
+
+            inject(function(_LoginService_, _$rootScope_) {
+                loginService = _LoginService_;
+                $rootScope = _$rootScope_;
+            });
+        });
 
         it('is able to enroll a new user', function() {
+            console.log('starting enroll test');
             loginService.enroll({ formData: {
                  email: "jim@sunnyvale.com",
                  password: "hello123",
-                 passwordConfirm: "hello123"}},
-             uibModalInstance);
+                 passwordConfirm: "hello123"}});
             $rootScope.$digest();
-            expect(uibModalInstance.close).toHaveBeenCalled();
+            expect(mockModalInstance.close).toHaveBeenCalled();
         });
 
         it('is able to login', function() {
             loginService.login({ formData: {
                  email: "jim@sunnyvale.com",
                  password: "hello123",
-                 passwordConfirm: "hello123"}},
-             uibModalInstance);
+                 passwordConfirm: "hello123"}});
             $rootScope.$digest();
-            expect(uibModalInstance.close).toHaveBeenCalled();
+            expect(mockModalInstance.close).toHaveBeenCalled();
         });
 
 

@@ -1,6 +1,5 @@
 define(['angular', 'angularMocks', 'services'], function() {
-    'use strict';
-
+        'use strict';
         describe('User Service', function() {
             var loginRequestHandler,
                 logoutRequestHandler,

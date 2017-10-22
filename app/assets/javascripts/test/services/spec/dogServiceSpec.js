@@ -6,7 +6,6 @@ define(['angular', 'angularMocks', 'services', 'services/dogService'],
                 beforeEach(module('pawPalApp'));
                 beforeEach(module('services'));
 
-
                 beforeEach(inject(function(_DogService_) {
                     dogService = _DogService_;
                 }));

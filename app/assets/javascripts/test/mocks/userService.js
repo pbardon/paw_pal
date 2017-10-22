@@ -1,6 +1,6 @@
 define('mocks/userService', ['mocks'], function(mocks) {
     'use strict';
-    mocks.service('UserService', ['$q', function($q) {
+    mocks.service('mock.UserService', ['$q', function($q) {
         this.createUser = function() {
             console.log('creating user...');
         };

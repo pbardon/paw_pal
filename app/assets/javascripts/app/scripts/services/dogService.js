@@ -38,6 +38,8 @@ define('services/dogService', ['services', 'services/userService'], function(ser
                     var deferred = $q.defer(),
                         oThis = this;
 
+                    console.log('inside get current user\'s dogs');
+
                     $http.get('/api/dogs')
                     .then(function(result) {
                         if (result.data) {

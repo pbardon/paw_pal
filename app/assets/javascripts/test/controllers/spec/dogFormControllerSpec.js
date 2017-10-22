@@ -20,18 +20,22 @@ define(['angular',
             beforeEach(module('controllers'));
             beforeEach(module('mocks'));
 
-            beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_, DogService) {
-                $controller = _$controller_;
-                $rootScope = _$rootScope_;
+            beforeEach(inject(function ($injector) {
+                $controller = $injector.get('$controller');
+                $rootScope = $injector.get('$rootScope');
                 $state = {};
                 $state.go = jasmine.createSpy('go');
                 $log = {};
                 $log.error = jasmine.createSpy('error');
                 $log.info = jasmine.createSpy('info');
-                dogSvc = DogService;
+                dogSvc = $injector.get('mock.DogService');
 
                 createController = function () {
-                    return $controller('DogFormCtrl', {'$scope': $rootScope, '$state' : $state , $log: $log });
+                    return $controller('DogFormCtrl', {'$scope': $rootScope,
+                    '$state' : $state ,
+                    $log: $log,
+                    'DogService' : dogSvc
+                });
                 };
                 dogFormCtrl = createController();
             }));

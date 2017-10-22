@@ -3,7 +3,6 @@ var $controller,
     $rootScope,
     scope,
     loginModalCtrl,
-    uibModalInstance,
     mockLoginService,
     createController;
 
@@ -23,22 +22,16 @@ define(['angular',
                 beforeEach(module('controllers'));
                 beforeEach(module('mocks'));
 
-                beforeEach(inject(function (_$controller_, _$httpBackend_, _$rootScope_, _LoginService_) {
-                    $controller = _$controller_;
-                    $httpBackend = _$httpBackend_;
-                    $rootScope = _$rootScope_;
-                    mockLoginService = _LoginService_;
-
-                    uibModalInstance = {
-                        close: jasmine.createSpy('modalInstance.close'),
-                        dismiss: jasmine.createSpy('modalInstance.dismiss')
-                    };
+                beforeEach(inject(function ($injector) {
+                    $controller = $injector.get('$controller');
+                    $httpBackend = $injector.get('$httpBackend');
+                    $rootScope = $injector.get('$rootScope');
+                    mockLoginService = $injector.get('mock.LoginService');
 
                     scope = $rootScope.$new;
                     createController = function () {
                         return $controller('LoginModalCtrl', {
                             '$scope': scope,
-                            '$uibModalInstance' : uibModalInstance,
                             'LoginService': mockLoginService
                         });
                     };
@@ -81,9 +74,9 @@ define(['angular',
 
                     it('should be able to close the modal', function() {
                         console.log('starting modal close test');
-                        expect(uibModalInstance.dismiss).not.toHaveBeenCalled();
+                        expect(mockLoginService.cancel).not.toHaveBeenCalled();
                         scope.cancel();
-                        expect(uibModalInstance.dismiss).toHaveBeenCalled();
+                        expect(mockLoginService.cancel).toHaveBeenCalled();
                     });
 
                     it('should be able to detect is the passwords match', function() {

@@ -79,12 +79,19 @@ require.config({
         'angular-cookies' : {
             deps: ['angular']
         },
+
         'mocks/userService' : {
             deps: ['mocks']
         },
+
         'mocks/dogService' : {
             deps: ['mocks']
+        },
+
+        'mocks/uibModalInstance' : {
+            deps: ['mocks']
         }
+
     },
 
 
