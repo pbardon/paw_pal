@@ -12,7 +12,6 @@ define(['angular',
         }));
 
         it('is able to validate email address', function() {
-            console.log('starting validation service test');
             expect(validationService.validateEmailAddress('test@test.com'));
             expect(validationService.validateEmailAddress('test@gmail.com'));
             expect(!validationService.validateEmailAddress('test'));
@@ -20,9 +19,22 @@ define(['angular',
         });
 
         it('is able to validate a password', function() {
-            console.log('starting password validation test');
+            expect(!validationService.validatePassword());
+            expect(!validationService.validatePassword(""));
             expect(validationService.validatePassword('test@gmail.com'));
             expect(!validationService.validatePassword('test'));
         });
+
+
+        it('should validate password confirmation', function() {
+            var formData = {
+                password : "test",
+                passwordConfirm: "test123"
+            };
+            expect(!validationService.validatePasswordInfo(formData));
+            formData.passwordConfirm = "test";
+            expect(validationService.validatePasswordInfo(formData));
+        });
+
     });
 });

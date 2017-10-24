@@ -16,7 +16,6 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                 }
 
                 this.user.token = $cookies.get('X-PP-TOKEN');
-
                 return true;
             };
 
@@ -31,7 +30,6 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                 };
 
                 $log.info('Attempting to create user with info: ', JSON.stringify(loginInfo));
-
                 var config = { login: true };
                 $http.post('/users', JSON.stringify(loginInfo), config)
                 .then(function (response) {
@@ -42,7 +40,7 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                     oThis.user.token = responseToken;
                     oThis.user.email = response.data.email;
                     $log.info(JSON.stringify($cookies.getAll()));
-                    deferred.resolve(response);
+                    deferred.resolve();
                 }, function (err) {
                     deferred.reject(err);
                 });
@@ -72,7 +70,7 @@ define('services/userService', ['services', 'angular-cookies'], function(service
                     oThis.user.email = results.data.email;
                     oThis.user.token = responseToken;
                     $log.info(JSON.stringify($cookies.getAll()));
-                    deferred.resolve(results);
+                    deferred.resolve();
                 }, function(err) {
                     $log.error('error response from new session was ', JSON.stringify(err));
                     deferred.reject(err);

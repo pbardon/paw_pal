@@ -13,12 +13,12 @@ define('services/loginService', ['services',
         function($log, $rootScope, usrSvc, validateSvc, errorSvc, $uibModalInstance) {
             function LoginService() {
                 this.login = function ($scope) {
-                    if (validateSvc.validateLoginInfo($scope)) {
-                        usrSvc.loginUser(getLoginInfo($scope))
+                    var userData = getLoginInfo($scope);
+                    if (validateSvc.validateLoginInfo(userData)) {
+                        usrSvc.loginUser(userData)
                         .then(function (result) {
                             if (result.status && result.status != 200) {
-                                errorSvc.handleLoginError($scope,
-                                    result.statusText);
+                                errorSvc.handleLoginError(result.statusText);
                                 return;
                             }
                             $uibModalInstance.close();
@@ -29,19 +29,17 @@ define('services/loginService', ['services',
                 };
 
                 this.enroll = function ($scope) {
-                    if (validateSvc.validateLoginInfo($scope)) {
-                        usrSvc.createUser(getLoginInfo($scope))
+                    var userData = getLoginInfo($scope);
+                    if (validateSvc.validateLoginInfo(userData)) {
+                        usrSvc.createUser(userData)
                         .then(function (result) {
-                            console.log("user created by service...");
-                            if (result.status && result.status != 200 ) {
-                                errorSvc.handleRegistrationError($scope,
-                                    result.statusText);
+                            if (result.status && result.status != 200) {
+                                errorSvc.handleRegistrationError(result.statusText);
                                 return;
                             }
                             $uibModalInstance.close();
                         }, function (err) {
-                            console.log('in error response...');
-                            errorSvc.handleRegistrationError($scope, err);
+                            errorSvc.handleRegistrationError(err);
                         });
                     }
                 };

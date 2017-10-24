@@ -24,29 +24,39 @@ define('services/validationService',
 
                 };
 
-                this.validatePassword = function(loginInfo) {
-                    if (typeof loginInfo.password === 'undefined') {
-                        return false;
-                    } else if (loginInfo.password === '') {
-                        return false;
-                    } else if (loginInfo.password.length < 6) {
+                this.validatePasswordInfo = function(loginInfo) {
+                    if (!this.validatePassword(loginInfo.password)) {
                         return false;
                     }
 
-                    if (loginInfo.passwordConfirm && loginInfo.password != loginInfo.passwordConfirm) {
+                    if (loginInfo.passwordConfirm &&
+                        loginInfo.password != loginInfo.passwordConfirm) {
                         return false;
                     }
 
                     return true;
                 };
 
-                this.validateLoginInfo = function($scope) {
-                    if (!this.validateEmailAddress($scope.formData.email)) {
+
+                this.validatePassword = function(loginString) {
+                    if (typeof loginString === 'undefined') {
+                        return false;
+                    } else if (loginString === '') {
+                        return false;
+                    } else if (loginString.length < 6) {
+                        return false;
+                    }
+
+                    return true;
+                };
+
+                this.validateLoginInfo = function(userData) {
+                    if (!this.validateEmailAddress(userData.email)) {
                         errSvc.handleEmailEntryError($scope);
                         return false;
                     }
 
-                    if (!this.validatePassword($scope.formData)){
+                    if (!this.validatePassword(userData)){
                         errSvc.handleInvalidPasswordError($scope);
                         return false;
                     }

@@ -1,99 +1,120 @@
-var $rootScope;
-var loginService;
-var mockUserService;
-var mockModalInstance;
-var $q;
+(function() {
+    "use strict";
+    var $rootScope,
+    loginService,
+    mockUserService,
+    mockModalInstance,
+    mockErrorService,
+    mockValidationService,
+    $q,
+    failRequest;
 
-define(['angular',
-        'angularMocks',
-        'mocks',
-        'services',
-        'services/loginService'], function() {
-    describe('Starting login service test', function() {
-        beforeEach(function() {
-            mockModalInstance = {
-                close : jasmine.createSpy('close')
-            };
+    define(['angular',
+            'angularMocks',
+            'mocks',
+            'services',
+            'services/loginService'], function() {
+        describe('Starting login service test', function() {
+            beforeEach(function() {
+                mockModalInstance = {
+                    close : jasmine.createSpy('close')
+                };
 
-            module('pawPalApp');
-            module('services', function($provide) {
-                $provide.value('uibModalInstance', mockModalInstance);
-                $provide.factory('UserService', function($q) {
-                    mockUserService = {
-                        loginUser : function() {
-                            var deferred = $q.defer();
-                            console.log('user logging in...');
-                            deferred.resolve({ status: 200 });
-                            return deferred.promise;
-                        },
+                module('pawPalApp');
+                module('services', function($provide) {
+                    $provide.value('uibModalInstance', mockModalInstance);
+                    $provide.factory('UserService', function($q) {
+                        mockUserService = {
+                            loginUser : function() {
+                                var statusCode = failRequest ? 500 : 200;
+                                var deferred = $q.defer();
+                                deferred.resolve({ status: statusCode });
+                                return deferred.promise;
+                            },
 
-                        createUser : function() {
-                            var deferred = $q.defer();
-                            console.log('creating user...');
-                            deferred.resolve({ status: 200 });
-                            return deferred.promise;
-                        }
+                            createUser : function() {
+                                var statusCode = failRequest ? 500 : 200;
+                                var deferred = $q.defer();
+                                deferred.resolve({ status: statusCode });
+                                return deferred.promise;
+                            },
+
+                        };
+
+                        return mockUserService;
+                    });
+
+                    mockErrorService = {
+                        handleLoginError: jasmine.createSpy('handleLoginError'),
+                        handleRegistrationError: jasmine.createSpy('handleRegistrationError')
                     };
 
-                    return mockUserService;
+                    $provide.value('ErrorService', mockErrorService);
+
+                    mockValidationService = {
+                        validateLoginInfo: jasmine.createSpy('validateLoginInfo').and.callFake(function() {
+                            return true;
+                        })
+                    };
+
+                    $provide.value("ValidationService", mockValidationService);
                 });
+
+                inject(function(_LoginService_, _$rootScope_) {
+                    loginService = _LoginService_;
+                    $rootScope = _$rootScope_;
+                });
+
+                failRequest = false;
             });
 
-            inject(function(_LoginService_, _$rootScope_) {
-                loginService = _LoginService_;
-                $rootScope = _$rootScope_;
+            it("is able to close the modal on successful login", function() {
+                loginService.login({ formData: {
+                     email: "jim@sunnyvale.com",
+                     password: "hello123",
+                     passwordConfirm: "hello123"}});
+                $rootScope.$digest();
+                expect(mockModalInstance.close).toHaveBeenCalled();
+            });
+
+            it("should call the error service when it gets a bad response from the user service", function() {
+                failRequest = true;
+                loginService.login({ formData: {
+                     email: "jim@sunnyvale.com",
+                     password: "hello123",
+                     passwordConfirm: "hello123"}
+                 });
+                $rootScope.$digest();
+                expect(mockErrorService.handleLoginError).toHaveBeenCalled();
+                expect(mockModalInstance.close).not.toHaveBeenCalled();
+            });
+
+
+            it("is able to close the modal after enrollment", function() {
+                loginService.enroll({ formData: {
+                     email: "jim@sunnyvale.com",
+                     password: "hello123",
+                     passwordConfirm: "hello123"}});
+                $rootScope.$digest();
+                expect(mockModalInstance.close).toHaveBeenCalled();
+            });
+
+            it("is able to handle an enrollment error", function() {
+                failRequest = true;
+                loginService.enroll({ formData: {
+                     email: "jim@sunnyvale.com",
+                     password: "hello123",
+                     passwordConfirm: "hello123"}});
+                $rootScope.$digest();
+                expect(mockErrorService.handleRegistrationError).toHaveBeenCalled();
+                expect(mockModalInstance.close).not.toHaveBeenCalled();
+
+            });
+
+            it("is able to close the modal using cancel", function() {
+                loginService.cancel();
+                expect(mockModalInstance.close).toHaveBeenCalled();
             });
         });
-
-        it('is able to enroll a new user', function() {
-            console.log('starting enroll test');
-            loginService.enroll({ formData: {
-                 email: "jim@sunnyvale.com",
-                 password: "hello123",
-                 passwordConfirm: "hello123"}});
-            $rootScope.$digest();
-            expect(mockModalInstance.close).toHaveBeenCalled();
-        });
-
-        it('is able to login', function() {
-            loginService.login({ formData: {
-                 email: "jim@sunnyvale.com",
-                 password: "hello123",
-                 passwordConfirm: "hello123"}});
-            $rootScope.$digest();
-            expect(mockModalInstance.close).toHaveBeenCalled();
-        });
-
-
-
-
-        // it('should respond with an error when the email is invalid', function() {
-        //     console.log('running email validation test...');
-        //     scope.formData.email = 'testuser';
-        //     scope.formData.password = 'testPassword';
-        //     scope.login();
-        //     expect(scope.error).not.toBeUndefined();
-        //     expect('Login info was not entered correctly').toMatch(scope.error);
-        // });
-        //
-        // it('should respond with an error when the password is invalid', function() {
-        //     console.log('running password validation test...');
-        //     scope.formData.email = 'testuser@test.com';
-        //     scope.formData.password = 'test';
-        //     scope.login();
-        //     expect(scope.error).not.toBeUndefined();
-        //     console.log(JSON.stringify(scope.error));
-        //     expect('Login info was not entered correctly').toMatch(scope.error);
-        // });
-        //
-        // it('should respond with an error when the confirmation password is invalid', function() {
-        //     console.log('running password confirmation validation test...');
-        //     scope.formData.email = 'testuser';
-        //     scope.formData.password = 'test';
-        //     scope.formData.passwordConfirm = 'test123';
-        //     scope.enroll();
-        //     expect(mockLoginService.enroll).toHaveBeenCalled();
-        //     expect('Enrollment info was not entered correctly').toMatch(scope.error);
-        // });
     });
-});
+}());

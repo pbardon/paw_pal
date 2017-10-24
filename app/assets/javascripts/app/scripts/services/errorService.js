@@ -4,36 +4,29 @@ define('services/errorService', ['services'],
         return services.factory('ErrorService', [ '$log', '$rootScope',
         function($log, $rootScope) {
             function ErrorService() {
-                this.handleEmailEntryError = function($scope) {
-                    this.handleErrorRequest($scope, err, 'Email address is invalid');
+                this.handleEmailEntryError = function(err) {
+                    this.handleErrorRequest(err, 'Email address is invalid');
                 };
 
-                this.handleInvalidPasswordError = function($scope) {
-                    this.handleErrorRequest($scope, '', 'Password is invalid or confirmation does not match password.');
+                this.handleInvalidPasswordError = function(err) {
+                    this.handleErrorRequest(err, 'Password is invalid or confirmation does not match password.');
                 };
 
-                this.handleRegistrationError = function($scope, err) {
-                    handleErrorRequest($scope, err, 'Registration Failed, try again...');
+                this.handleRegistrationError = function(err) {
+                    handleErrorRequest(err, 'Registration Failed, try again...');
                 };
 
-                this.handleLoginError = function($scope, err) {
-                    handleErrorRequest($scope, err, 'Login Failed, try again...');
+                this.handleLoginError = function(err) {
+                    handleErrorRequest(err, 'Login Failed, try again...');
                 };
 
-                this.handleErrorRequest = function($scope, err, msg) {
+                this.handleErrorRequest = function(err, msg) {
                     this.addError(msg);
                     $log.error(err);
-                    this.clearLoginInfo($scope);
                 };
 
                 this.addError = function(msg) {
                     $rootScope.error = msg;
-                };
-
-                this.clearLoginInfo = function($scope) {
-                    $scope.formData.password = '';
-                    $scope.formData.passwordConfirm = '';
-                    $scope.formData.email = '';
                 };
             }
 
