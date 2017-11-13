@@ -2,13 +2,10 @@
     define(['angular', 'angularMocks', 'services'], function() {
             'use strict';
             describe('User Service', function() {
-                var loginRequestHandler,
-                    logoutRequestHandler,
-                    userService,
+                var userService,
                     $httpBackend,
                     $cookies,
-                    httpResponse,
-                    createRequestHandler;
+                    httpResponse;
 
                 beforeEach(module('services'));
                 beforeEach(module('ngCookies'));
@@ -24,11 +21,11 @@
                             token: 'AAAAAAAAAAAAAAA'
                     };
 
-                    loginRequestHandler = $httpBackend.when('POST', '/session')
+                    $httpBackend.when('POST', '/session')
                         .respond(httpResponse);
-                    logoutRequestHandler = $httpBackend.when('DELETE', '/session')
+                    $httpBackend.when('DELETE', '/session')
                         .respond(httpResponse);
-                    createRequestHandler = $httpBackend.when('POST', '/users')
+                    $httpBackend.when('POST', '/users')
                         .respond(httpResponse);
                 }));
 

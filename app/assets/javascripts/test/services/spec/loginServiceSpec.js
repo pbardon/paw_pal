@@ -12,6 +12,7 @@
     define(['angular',
             'angularMocks',
             'mocks',
+            'mocks/userService',
             'services',
             'services/loginService'], function() {
         describe('Starting login service test', function() {
@@ -20,29 +21,29 @@
                     close : jasmine.createSpy('close')
                 };
 
-                module('pawPalApp');
                 module('services', function($provide) {
                     $provide.value('uibModalInstance', mockModalInstance);
-                    $provide.factory('UserService', function($q) {
-                        mockUserService = {
-                            loginUser : function() {
-                                var statusCode = failRequest ? 500 : 200;
-                                var deferred = $q.defer();
-                                deferred.resolve({ status: statusCode });
-                                return deferred.promise;
-                            },
+                    $provide.factory('UserService',
+                       function($q) {
+                            mockUserService = {
+                                loginUser : function() {
+                                    var statusCode = failRequest ? 500 : 200;
+                                    var deferred = $q.defer();
+                                    deferred.resolve({ status: statusCode });
+                                    return deferred.promise;
+                                },
 
-                            createUser : function() {
-                                var statusCode = failRequest ? 500 : 200;
-                                var deferred = $q.defer();
-                                deferred.resolve({ status: statusCode });
-                                return deferred.promise;
-                            },
+                                createUser : function() {
+                                    var statusCode = failRequest ? 500 : 200;
+                                    var deferred = $q.defer();
+                                    deferred.resolve({ status: statusCode });
+                                    return deferred.promise;
+                                },
 
-                        };
+                            };
 
-                        return mockUserService;
-                    });
+                            return mockUserService;
+                        });
 
                     mockErrorService = {
                         handleLoginError: jasmine.createSpy('handleLoginError'),
@@ -58,12 +59,14 @@
                     };
 
                     $provide.value("ValidationService", mockValidationService);
+
                 });
 
-                inject(function(_LoginService_, _$rootScope_) {
-                    loginService = _LoginService_;
-                    $rootScope = _$rootScope_;
+                inject(function($injector) {
+                    loginService = $injector.get("LoginService");
+                    $rootScope = $injector.get("$rootScope");
                 });
+
 
                 failRequest = false;
             });

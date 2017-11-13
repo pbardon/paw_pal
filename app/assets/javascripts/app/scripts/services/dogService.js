@@ -1,6 +1,5 @@
 define('services/dogService', ['services', 'services/userService'], function(services) {
     'use strict';
-
     return services.factory('DogService', [ '$q', '$http', 'UserService', '$log',
         function($q, $http, userSvc, $log) {
 
@@ -37,9 +36,6 @@ define('services/dogService', ['services', 'services/userService'], function(ser
                 this.getCurrentUserDogs = function() {
                     var deferred = $q.defer(),
                         oThis = this;
-
-                    console.log('inside get current user\'s dogs');
-
                     $http.get('/api/dogs')
                     .then(function(result) {
                         if (result.data) {
@@ -57,22 +53,28 @@ define('services/dogService', ['services', 'services/userService'], function(ser
                 };
 
                 this.createDog = function(formData) {
-                    var deferred = $q.defer();
+                    var deferred = $q.defer(),
+                        config = {
+                            headers: {
+                                'Content-Type' : 'application/json'
+                            }
+                        },
+                        data = formData || {};
 
-                    var config = {
-                        headers: {
-                            'Content-Type' : 'application/json'
+                    $http.post('/api/dogs', { dog: formData }, config)
+                    .then(function(result) {
+                        $log.info(JSON.stringify(result));
+                        if (result.status !== 200) {
+                            var errMsg = 'Unable to create dog: ' + result.message;
+                            $log.error(errMsg);
+                            deferred.reject(new Error(errMsg));
+                            return;
                         }
-                    };
-
-                    $http.post('/api/dogs', { dog: formData } , config)
-                        .then(function(result) {
-                            $log.info(JSON.stringify(result));
-                            deferred.resolve(result);
-                        }, function(err) {
-                            $log.error(err);
-                            deferred.reject(err);
-                        });
+                        deferred.resolve(result);
+                    }, function(err) {
+                        $log.error(err);
+                        deferred.reject(err);
+                    });
 
                     return deferred.promise;
                 };
